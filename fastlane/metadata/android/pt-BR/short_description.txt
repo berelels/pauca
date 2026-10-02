@@ -1,0 +1,1 @@
+Uma tela inicial calma, só de texto, com um modo foco que silencia de verdade.

@@ -1,0 +1,33 @@
+Pauca Lite turns your smartphone into something closer to a dumbphone. Your apps become words in calm cards, with the names you choose. No icons, no red badges, nothing pulling at you.
+
+The name comes from the Latin pauca: "few things".
+
+WHAT YOU GET
+• Group your apps in cards and drag to reorder them, even from one card to another
+• Rename any app with whatever you like: "mom", "bank", "work chat"
+• Two profiles, each with its own cards
+• Light or dark: the Pauca and Paper themes, with an olive, blue or no accent color
+• Text and clock size, and the clock and date shown or hidden
+• Swipe up for all your apps, with search and categories
+• Swipe down for notifications, sideways to open an app you choose
+• Double tap to lock the screen
+• English, Portuguese and Spanish, and a short guided tour
+
+PRIVATE BY DESIGN
+Pauca Lite has no internet permission and collects no data. Everything stays on your phone.
+
+Accessibility: Pauca Lite uses the accessibility service only to lock the screen with a double tap. It doesn't read what's on your screen.
+
+WANT MORE? GET PAUCA
+Pauca, the full version, is a one-time purchase with no subscription. It adds:
+• Focus mode that really silences: Do Not Disturb, held notifications with a summary, paused apps and a grayscale screen
+• Unlimited profiles, and profiles that turn focus mode on by themselves
+• Five themes, including your own photo with blur and brightness, on the lock screen too
+• Every accent color, or any color you type
+• Fonts, weight, alignment and letter case
+• Hide the buttons, the clock, even the status bar
+
+When you install Pauca, your cards and settings from Lite come along.
+
+OPEN SOURCE
+Pauca is open source under the GPLv3, based on Olauncher by Tanuj. No ads.

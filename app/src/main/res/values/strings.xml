@@ -1,176 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Olauncher</string>
-    <string name="github" translatable="false">Github</string>
     <string name="lock_layout_description" translatable="false">lock layout description to be used a unique id to lock screen</string>
-    <!-- Home button for recents feature disabled -->
-    <!-- <string name="recents_layout_description" translatable="false">recents layout description to be used a unique id to show recent apps</string> -->
-    <string name="olauncher_pro" translatable="false">Olauncher Pro</string>
-    <string name="digital_minimalism" translatable="false"><u>Digital Minimalism</u></string>
-    <string name="new_app_note_safe" translatable="false"><u>Note to Self</u>\n<sub><small>(Ad-Free)</small></sub></string>
-    <string name="new_app_minimal_todo_lists" translatable="false"><u>Minimal Todo Lists</u>\n<sub><small>(Ad-Free)</small></sub></string>
-    <string name="day_battery" formatted="false" translatable="false">%s, %d%%</string>
-    <string name="tag_0" translatable="false">0</string>
-    <string name="tag_1" translatable="false">1</string>
-    <string name="tag_2" translatable="false">2</string>
-    <string name="tag_3" translatable="false">3</string>
-    <string name="tag_4" translatable="false">4</string>
-    <string name="tag_5" translatable="false">5</string>
-    <string name="tag_6" translatable="false">6</string>
-    <string name="tag_7" translatable="false">7</string>
-    <string name="tag_8" translatable="false">8</string>
     <string name="time_spent_min" translatable="false"><b>%1$sm</b></string>
     <string name="time_spent_hour" translatable="false">%1$sh %2$sm</string>
 
-    <string name="x_twitter" translatable="false">X/Twitter</string>
-    <string name="instagram" translatable="false">Instagram</string>
+    <string name="app_name">Pauca</string>
+    <string name="settings">Settings</string>
+    <string name="settings_tagline">A phone that doesn\'t ask for your attention all the time.</string>
+    <string name="settings_hint">On the home screen: swipe up for all apps, down for notifications, and touch and hold the background to open settings.</string>
+    <string name="section_home">Home screen</string>
+    <string name="section_drawer">Gestures and drawer</string>
+    <string name="section_system">System</string>
+    <string name="section_apps_text">Apps on screen</string>
+    <string name="section_screen">Screen</string>
+    <string name="section_show">What to show</string>
+    <string name="section_clock">Clock</string>
+    <string name="section_date">Date</string>
+    <string name="section_on_tap">On tap</string>
+    <string name="section_permissions">Permissions</string>
+    <string name="section_silence">Silence</string>
+    <string name="section_apps">Apps</string>
+    <string name="edit_apps">Edit apps</string>
+    <string name="edit_home">Edit home screen</string>
+    <string name="edit_title">Apps · %1$s</string>
+    <string name="profiles">Profiles</string>
+    <string name="appearance">Appearance</string>
+    <string name="clock_and_date">Clock and date</string>
+    <string name="focus_mode">Focus mode</string>
+    <string name="focus_configure">Set up focus mode</string>
+    <string name="gestures_summary">Side swipes, double tap</string>
+    <string name="default_launcher">Default launcher</string>
+    <string name="app_info">App info</string>
+    <string name="about">About</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="theme">Theme</string>
+    <string name="palette_pauca">Pauca</string>
+    <string name="palette_papel">Paper</string>
+    <string name="palette_grafite">Graphite</string>
+    <string name="palette_preto">Black</string>
+    <string name="palette_wallpaper">Wallpaper</string>
+    <string name="home_style">Style</string>
+    <string name="style_cards">Cards</string>
+    <string name="style_list">List</string>
+    <string name="font">Font</string>
+    <string name="font_sans">Jakarta (sans)</string>
+    <string name="font_serif">Newsreader (serif)</string>
+    <string name="font_system">System</string>
+    <string name="font_mono">Monospace</string>
+    <string name="text_size">Text size</string>
+    <string name="size">Size</string>
+    <string name="weight">Weight</string>
+    <string name="weight_thin">Thin</string>
+    <string name="weight_light">Light</string>
+    <string name="weight_regular">Regular</string>
+    <string name="weight_medium">Medium</string>
+    <string name="weight_bold">Bold</string>
+    <string name="weight_black">Extra bold</string>
+    <string name="letters">Letters</string>
+    <string name="case_lower">lowercase</string>
+    <string name="case_as_typed">As typed</string>
+    <string name="case_upper">UPPERCASE</string>
+    <string name="alignment">Alignment</string>
+    <string name="position">Position</string>
+    <string name="top">Top</string>
+    <string name="bottom">Bottom</string>
+    <string name="preview_app_1">Phone</string>
+    <string name="preview_app_2">Messages</string>
+    <string name="show">Show</string>
+    <string name="clock_only">Clock only</string>
+    <string name="nothing">Nothing</string>
+    <string name="time_format">Time format</string>
+    <string name="date_format">Date format</string>
+    <string name="format_auto">Automatic (system 12/24h)</string>
+    <string name="format_seconds">With seconds · 19:42:07</string>
+    <string name="format_custom">Custom…</string>
+    <string name="invalid_pattern">Invalid format. E.g. HH:mm or EEEE, d MMM</string>
+    <string name="clock_accent">Clock in accent color</string>
+    <string name="show_battery">Battery next to the date</string>
+    <string name="show_screen_time">Screen time next to the date</string>
+    <string name="show_screen_time_summary">Needs usage access</string>
+    <string name="clock_tap_app">Tapping the clock opens</string>
+    <string name="date_tap_app">Tapping the date opens</string>
+    <string name="clock_hint">Tip: touch and hold the clock on the home screen to come back here.</string>
+    <string name="focus_intro">Focus mode silences your phone and only lets through what you choose. Each part below works on its own, depending on the permissions you grant.</string>
+    <string name="perm_notifications">Notification access</string>
+    <string name="perm_notifications_summary">To hold notifications and show the summary</string>
+    <string name="perm_dnd">Do Not Disturb access</string>
+    <string name="perm_dnd_summary">To silence the phone</string>
+    <string name="perm_accessibility">Accessibility</string>
+    <string name="perm_accessibility_summary">To block apps and for double tap</string>
+    <string name="granted">Granted</string>
+    <string name="grant">Grant</string>
+    <string name="focus_dnd">Do Not Disturb</string>
+    <string name="focus_dnd_summary">Turns on Pauca\'s own rule; your manual Do Not Disturb is left alone</string>
+    <string name="focus_calls">Calls that ring</string>
+    <string name="callers_none">Nobody</string>
+    <string name="callers_starred">Starred</string>
+    <string name="callers_contacts">Contacts</string>
+    <string name="callers_anyone">Everyone</string>
+    <string name="focus_repeat_callers">Repeat callers ring</string>
+    <string name="focus_repeat_callers_summary">If the same person calls again within 15 minutes</string>
+    <string name="focus_hide_silenced">Hide what was silenced</string>
+    <string name="focus_hide_silenced_summary">No pop-ups, icons or app badges</string>
+    <string name="focus_allowed_apps">Allowed apps</string>
+    <string name="focus_allowed_summary">Your home screen apps and the ones you pick</string>
+    <string name="focus_allowed_hint">Home screen apps are already allowed. Pick others that may also notify and open.</string>
+    <string name="focus_filter">Hold notifications</string>
+    <string name="focus_filter_summary">Those from other apps disappear and become a summary at the end</string>
+    <string name="focus_hide_apps">Drawer with allowed apps only</string>
+    <string name="focus_hide_apps_summary">When you swipe up, only what can open shows up</string>
+    <string name="focus_block_apps">Block other apps</string>
+    <string name="focus_block_apps_summary">Goes back home if an app outside the list opens</string>
+    <string name="focus_grayscale">Grayscale screen</string>
+    <string name="focus_grayscale_summary">Less color, less urge to scroll. Needs one command from a computer, once.</string>
+    <string name="grayscale_help">Android only lets an app change screen colors with a special permission. Connect your phone to a computer with USB debugging on and run, once:\n\n%1$s</string>
+    <string name="copy_command">Copy command</string>
+    <string name="focus_profiles_hint">A profile can turn on focus mode by itself when you switch to it. See Profiles.</string>
+    <string name="focus_on_since">On since %1$s</string>
+    <string name="focus_off">Off</string>
+    <string name="focus_chip">focus mode · since %1$s</string>
+    <string name="focus_needs_permission">For focus mode to work, grant notification or Do Not Disturb access.</string>
+    <string name="focus_rule_name">Focus mode (Pauca)</string>
+    <string name="focus_listener_label">Pauca · focus mode</string>
+    <string name="focus_app_blocked">This app is paused in focus mode</string>
+    <string name="focus_drawer_hint">essentials only</string>
+    <string name="focus_digest_title">While you were focused</string>
+    <string name="focus_digest_message">These notifications were held. Tap an app to open it.</string>
+    <string name="clear">Clear</string>
+    <string name="use_profile">Use this profile</string>
+    <string name="in_use">in use</string>
+    <string name="turns_on_focus">turns on focus</string>
+    <string name="focus_on_switch_on">Turn on focus when used</string>
+    <string name="focus_on_switch_off">Don\'t turn on focus when used</string>
+    <string name="new_profile">New profile</string>
+    <string name="profile_name_hint">E.g. Work, Night, Weekend</string>
+    <string name="profiles_hint">Each profile has its own cards. Switch with the button at the bottom of the home screen.</string>
+    <string name="profile_default_personal">Personal</string>
+    <string name="profile_default_focus">Focus</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="delete_profile_message">Delete \"%1$s\" and its cards? The apps stay installed.</string>
+    <string name="manage_profiles">Manage profiles…</string>
+    <string name="swipe_left">Swipe left</string>
+    <string name="swipe_right">Swipe right</string>
+    <string name="camera">Camera</string>
+    <string name="phone">Phone</string>
+    <string name="choose_app">Choose app</string>
+    <string name="turn_on">Turn on</string>
+    <string name="turn_off">Turn off</string>
+    <string name="double_tap_to_lock">Double tap to lock</string>
+    <string name="double_tap_summary">On the home screen background</string>
+    <string name="gestures_hint">Swipe up for all apps and down for notifications.</string>
+    <string name="version">Version %1$s</string>
+    <string name="about_olauncher">Built on Olauncher</string>
+    <string name="about_olauncher_summary">Open-source minimal launcher by Tanuj (tanujnotes). Thank you!</string>
+    <string name="about_license">GPLv3 license</string>
+    <string name="about_license_summary">Pauca is free software: you can study, change and redistribute the code.</string>
+    <string name="about_fonts">Fonts</string>
+    <string name="about_fonts_summary">Newsreader and Plus Jakarta Sans, under the SIL Open Font License</string>
+    <string name="about_privacy">Pauca doesn\'t use the internet and collects no data. Everything stays on your phone.</string>
+    <string name="add_apps">Add apps</string>
+    <string name="choose_apps">Choose apps</string>
+    <string name="replace_app">Replace app</string>
+    <string name="remove">Remove</string>
+    <string name="remove_from_home">Remove from home</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
+    <string name="delete_group">Delete group</string>
+    <string name="new_group">New group</string>
+    <string name="group_number">Group %1$d</string>
+    <string name="home_empty">Tap here to choose your home screen apps.</string>
+    <string name="more">More options</string>
+    <string name="drag">Drag</string>
+    <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="search">Search</string>
+    <string name="select_an_app">Choose an app</string>
+    <string name="accessibility_disclosure">Pauca uses the accessibility service for only two things: locking the screen with a double tap and, in focus mode, going back home when an app outside the list opens. It doesn\'t read screen content, and collects or shares no data.\n\nTurn on Pauca in your phone\'s accessibility settings.</string>
+    <string name="accessibility_service_description">Locks the screen with a double tap and, in focus mode, pauses apps that aren\'t on your list. Pauca doesn\'t collect or share data.</string>
+    <string name="admin_permission_message">Pauca uses this permission only to lock the screen with a double tap. No data is collected.</string>
 
+    <string name="accent_color">Accent color</string>
+    <string name="accent_olive">Olive</string>
+    <string name="accent_terracotta">Terracotta</string>
+    <string name="accent_ochre">Ochre</string>
+    <string name="accent_blue">Blue</string>
+    <string name="accent_plum">Plum</string>
+    <string name="accent_rose">Rose</string>
+    <string name="accent_none">None</string>
+    <string name="accent_custom">Custom</string>
+    <string name="accent_hint">Used for the focus button, switches and highlights. With “None”, everything stays in the text color.</string>
+    <string name="invalid_color">Type a color like #7E8C54</string>
+    <string name="section_buttons">Buttons</string>
+    <string name="top_bar">Top buttons</string>
+    <string name="bottom_bar">Bottom buttons</string>
+    <string name="bar_always">Always shown</string>
+    <string name="bar_auto">On tap, for 5 s</string>
+    <string name="bar_hidden">Hidden</string>
+    <string name="button_settings">Settings icon</string>
+    <string name="button_edit">Edit icon</string>
+    <string name="button_theme">Theme icon</string>
+    <string name="button_profile">Profile button</string>
+    <string name="button_focus">Focus mode icon</string>
+    <string name="buttons_hint">“On tap”: the buttons stay hidden and appear for 5 seconds when you tap the top or bottom of the screen. With them hidden, touch and hold the background to open settings.</string>
+    <string name="status_bar_show">Status bar</string>
+    <string name="status_bar_summary">Time, battery and notification icons at the top. When hidden, swipe down from the top edge to see it.</string>
+    <string name="font_system_serif">System serif</string>
+    <string name="language">Language</string>
+    <string name="language_system">System language</string>
+    <string name="section_developer">Developer</string>
+    <string name="developer_on_github">%1$s on GitHub</string>
+    <string name="tour_title">Tour</string>
+    <string name="tour_skip">Skip</string>
+    <string name="tour_next">Next</string>
+    <string name="tour_start">Let\'s go</string>
+    <string name="tour_counter">%1$d of %2$d</string>
+    <string name="tour_replay">Show the tour again</string>
+    <string name="tour_welcome_title">Welcome to Pauca</string>
+    <string name="tour_welcome_body">A calmer home screen: just words, no icons, no red badges. Here\'s a quick tour.</string>
+    <string name="tour_clock_title">Clock and date</string>
+    <string name="tour_clock_body">Tap the clock for alarms and the date for your calendar. Touch and hold to change the format, font, size and position.</string>
+    <string name="tour_apps_title">Your apps</string>
+    <string name="tour_apps_body">Only what matters, with the names you choose. Tap to open. Touch and hold to rename, replace or remove.</string>
+    <string name="tour_edit_title">Edit</string>
+    <string name="tour_edit_body">Add apps, create groups and drag to reorder, even from one group to another.</string>
+    <string name="tour_settings_title">Settings</string>
+    <string name="tour_settings_body">Everything is here: colors, fonts, clock, focus mode, gestures and language.</string>
+    <string name="tour_theme_title">Theme</string>
+    <string name="tour_theme_body">Light, dark, black or your wallpaper, plus the accent color.</string>
+    <string name="tour_profile_title">Profiles</string>
+    <string name="tour_profile_body">Each profile has its own apps: Personal, Work, Night… Tap to switch.</string>
+    <string name="tour_focus_title">Focus mode</string>
+    <string name="tour_focus_body">Silences notifications, hides distracting apps and can turn the screen gray. Tap to turn it on; touch and hold to set it up.</string>
+    <string name="tour_drawer_title">All apps</string>
+    <string name="tour_drawer_body">Swipe up anywhere to see every app and search.</string>
+    <string name="tour_gestures_title">More gestures</string>
+    <string name="tour_gestures_body">Swipe down for notifications. Touch and hold the background for settings. Swipe sideways to open the apps you pick.</string>
+    <string name="tour_buttons_title">Cleaner still</string>
+    <string name="tour_buttons_body">In Appearance › Buttons you can hide these buttons, or have them appear only when you tap the top or bottom of the screen.</string>
     <string name="app">App</string>
     <string name="set_as_default_launcher">Set as default launcher</string>
-    <string name="set_as_default_launcher_u"><u>Set as default launcher</u></string>
-    <string name="set_as_default_launcher_first">Set Olauncher default first</string>
-    <string name="app_text_color">Text color</string>
-    <string name="double_tap_to_lock_screen">Double tap to lock</string>
-    <string name="home_button_show_recents">Home button for recents</string>
-    <string name="admin_permission_message">Olauncher promises to use the accessibility permission responsibly. Olauncher does not collect or share any data.</string>
-    <string name="about">About</string>
     <string name="off">Off</string>
-    <string name="on">On</string>
-    <string name="black">Black</string>
-    <string name="white">White</string>
-    <string name="change_default_launcher">Change default launcher</string>
-    <string name="privacy">Privacy</string>
-    <string name="share">Share</string>
-    <string name="share_now">Share now</string>
-    <string name="rate">Rate</string>
-    <string name="rate_now">Rate now</string>
-    <string name="follow">Follow</string>
-    <string name="email">Email</string>
-    <string name="donate">Donate</string>
-    <string name="swipe_up_for_apps">1. Swipe up for all apps\n2. Long press anywhere for settings</string>
-    <string name="apps_on_home_screen">Apps on home screen</string>
-    <string name="daily_wallpaper_update">Daily new wallpaper</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="center">Center</string>
-    <string name="home_layout_alignment">App alignment</string>
-    <string name="swipe_left_app">Swipe left app</string>
-    <string name="swipe_right_app">Swipe right app</string>
-    <string name="_0">0</string>
-    <string name="_1">1</string>
-    <string name="_2">2</string>
-    <string name="_3">3</string>
-    <string name="_4">4</string>
-    <string name="_5">5</string>
-    <string name="_6">6</string>
-    <string name="_7">7</string>
-    <string name="_8">8</string>
-    <string name="app_drawer_tips">Tip: Start typing an app name to auto-launch it</string>
-    <string name="okay">Okay</string>
-    <string name="cool">Cool!</string>
-    <string name="auto_show_keyboard">Auto show keyboard</string>
+    <string name="okay">OK</string>
+    <string name="auto_show_keyboard">Open keyboard in the drawer</string>
     <string name="hide">Hide</string>
-    <string name="status_bar">Status bar on top</string>
     <string name="rename">Rename</string>
-    <string name="show_date_time">Show date time</string>
-    <string name="appearance">Appearance</string>
     <string name="gestures">Gestures</string>
-    <string name="theme_mode">Theme mode</string>
     <string name="system_default">System</string>
-    <string name="dark">Dark</string>
-    <string name="light">Light</string>
-    <string name="welcome_to_olauncher_settings">Welcome to the settings!
-        \n\nRemember, if you have any questions, our About page has the answer.</string>
-    <string name="rate_us_message">Hi, you won\'t see this message again.
-        \n\nIf you\'re finding Olauncher useful, could you please leave a 5-star review? It\'ll mean the world to us. Thank you!</string>
-    <string name="share_message">We need your help! We believe everyone should know about Olauncher and its benefits, but we can\'t do it alone.
-        \n\nCould you please share Olauncher with your friends, family, and followers? Thank you for your support! ❤</string>
-    <!--    <string name="share_message">Your monthly reminder - you should use your phone, not the other way round. Stay strong. You\'re doing great!-->
-    <!--         \n\nIf you have a moment to spare, could you please share Olauncher with others? Olauncher needs people. More importantly, people need Olauncher.</string>-->
-    <string name="keyboard_message">Hi, keyboard is the fastest way to find and launch apps in Olauncher. Can we request you to keep this On for a few more days and then decide?
-        \n\nThe choice is always yours.</string>
-    <string name="digital_wellbeing_message">If you want to set time limits for certain apps, Digital Wellbeing feature of Android can help you do it.           Please search for Digital Wellbeing in your phone settings and enable it.</string>
-    <string name="app_usage_message">To show/hide your screen time on the home screen, please allow or disallow the app usage permission.
-        \n\nNote: No app usage data is collected. Everything is processed on your device.</string>
-    <string name="pro_message">Olauncher also has a pro version called Pro Launcher. It has extra features like weather, widgets, fonts, folders, AMOLED wallpapers, and so on.
-        \n\nIt\'s also the best way to support the developers of Olauncher. Check it out!</string>
-    <string name="wallpaper_message">Olauncher offers beautiful new wallpapers daily. Give your homescreen a fresh new look every day, for free!
-        \n\nWant to try it?</string>
-    <string name="accessibility_service_description">The accessibility permission is required to enable the gesture - double tap to lock . Any data acquired by Olauncher via this service will not leave your device.</string>
-    <string name="support_olauncher_for_free">Support Olauncher for free by using our Amazon affiliate link.</string>
-    <string name="support_olauncher_message">Every time you buy something using our link, we get a small commission. Please save the link and use it whenever you shop online.\nThank you!</string>
-    <string name="open">Open link</string>
-    <string name="copy">Copy</string>
+    <string name="keyboard_message">The keyboard is the fastest way to find an app: start typing and Pauca opens it when only one is left. You can turn this off in settings.</string>
+    <string name="app_usage_message">To show screen time on the home screen, allow usage access.\n\nNo data leaves your phone.</string>
     <string name="close">Close</string>
-    <string name="not_now">Not now</string>
-    <string name="public_roadmap">Olauncher public roadmap</string>
-    <string name="roadmap">Roadmap</string>
-    <string name="date">Date</string>
     <string name="date_only">Date only</string>
-    <string name="bottom_on">Bottom: On</string>
-    <string name="bottom_off">Bottom: Off</string>
-    <string name="please_set_olauncher_as_default_first">Please set Olauncher as default first</string>
-    <string name="affiliate">Affiliate</string>
-    <string name="tip_start_typing_for_rename">Tip: Start typing for app RENAME option</string>
-    <string name="hidden_apps_message">Note: Tap on \'Olauncher\' at the top of this Settings page to find your hidden apps.\n\nMore details available in our About page.</string>
-    <string name="accessibility_disclosure">Please turn on Olauncher\'s accessibility service in your device\'s settings to enable Double tap to lock gesture.
-    \n\nPlease note that this service is only used for this particular feature. Our accessibility service does not collect or share any data.</string>
-    <string name="accept">Accept</string>
+    <string name="hidden_apps_message">Hidden apps don\'t show up in the app list. To see them again, open Settings › Hidden apps.</string>
     <string name="permission">Permission</string>
-    <string name="double_tap_lock">Double tap to lock</string>
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
-    <string name="not_working"><u>Not working?</u></string>
     <string name="info">Info</string>
     <string name="delete">Uninstall</string>
-    <string name="text_size">Text size</string>
-    <string name="bold_font">Bold font</string>
     <string name="enabled">Enabled</string>
-    <string name="disabled">Disabled</string>
-    <string name="please_turn_on_double_tap_to_unlock">Please turn on double tap to lock</string>
-    <string name="launcher_failed_to_lock_device">Olauncher failed to lock device.\nPlease check your app settings.</string>
-    <string name="long_press_to_select_app">Long press to select app</string>
-    <string name="unable_to_open_app">Unable to open app</string>
-    <string name="unable_to_open_app_info">Unable to open app info</string>
-    <string name="copied">Copied</string>
-    <string name="system_app_cannot_delete">System app, cannot delete</string>
-    <string name="type_a_new_app_name_first">Type a new app name first</string>
+    <string name="please_turn_on_double_tap_to_unlock">Turn on double tap to lock</string>
+    <string name="launcher_failed_to_lock_device">Pauca couldn\'t lock the screen.\nCheck the app\'s permissions.</string>
+    <string name="unable_to_open_app">Couldn\'t open the app</string>
+    <string name="unable_to_open_app_info">Couldn\'t open app info</string>
+    <string name="system_app_cannot_delete">System app, can\'t be uninstalled</string>
+    <string name="type_a_new_app_name_first">Type a new name first</string>
     <string name="app_not_found">App not found</string>
-    <string name="unable_to_launch_app">Unable to launch app</string>
-    <string name="search_for_Launcher_or_home_app">Search for Launcher or Home app</string>
-    <string name="swipe_left_app_enabled">Swipe left app enabled</string>
-    <string name="swipe_right_app_enabled">Swipe right app enabled</string>
-    <string name="swipe_left_app_disabled">Swipe left app disabled</string>
-    <string name="swipe_right_app_disabled">Swipe right app disabled</string>
-    <string name="your_wallpaper_will_update_shortly">Your wallpaper will update shortly</string>
-    <string name="olauncher_is_not_default_launcher">Olauncher is not default. Wallpaper update will fail.</string>
-    <string name="long_press_to_enable">Long press to enable</string>
     <string name="no_hidden_apps">No hidden apps</string>
     <string name="hidden_apps">Hidden apps</string>
     <string name="adapter_show">Show</string>
     <string name="adapter_hide">Hide</string>
-    <string name="are_you_using_your_phone_or_is_your_phone_using_you">Are you using your phone, or is your phone using you?</string>
-    <string name="about_olauncher">About and FAQs</string>
     <string name="screen_time">Screen time</string>
-    <string name="learn_more">Learn more</string>
-    <string name="did_you_know">Did you know?</string>
-    <string name="leave_a_review">Leave a review</string>
-    <string name="review_message">Olauncher is free and always will be. It has no ads, collects no data, and reduces your screen time, resulting in a healthier life.
-        \n\nWe hope you enjoy it. Tell us what you think.</string>
-    <string name="alignment_changed">Alignment changed ✅</string>
-    <string name="home_screen">Home screen</string>
-    <string name="hey">Hey</string>
-    <string name="more_features">More features…</string>
-    <string name="new_year_wish">Here\'s to a year better than any before. Happy new year!</string>
-    <string name="new_year_wish_1">It doesn’t matter how January went. You still have the rest of the year to do better than ever.</string>
-    <string name="cheers">Cheers!</string>
-    <string name="notification_bar">Notification bar</string>
     <string name="private_space">Private space</string>
-    <string name="invalid_pin_request">Invalid pin request</string>
-    <string name="widgets_not_supported">Widgets are not supported</string>
-    <string name="pin_action_not_supported">This pin action is not supported</string>
+    <string name="invalid_pin_request">Invalid shortcut request</string>
+    <string name="widgets_not_supported">Widgets aren\'t supported</string>
+    <string name="pin_action_not_supported">This kind of shortcut isn\'t supported</string>
     <string name="shortcut_pinned">Shortcut added</string>
-    <string name="shortcut_pin_failed">Could not add shortcut</string>
+    <string name="shortcut_pin_failed">Couldn\'t add the shortcut</string>
     <string name="invalid_shortcut">Invalid shortcut</string>
     <string name="shortcut_not_found">Shortcut not found</string>
-    <string name="unable_to_open_shortcut">Unable to open shortcut</string>
+    <string name="unable_to_open_shortcut">Couldn\'t open the shortcut</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="wallpaper_title">Wallpaper</string>
+    <string name="wallpaper_source_system">System</string>
+    <string name="wallpaper_source_image">My image</string>
+    <string name="wallpaper_choose_image">Choose image…</string>
+    <string name="wallpaper_change_image">Change image…</string>
+    <string name="wallpaper_blur">Blur</string>
+    <string name="wallpaper_blur_intensity">Intensity</string>
+    <string name="wallpaper_brightness">Brightness</string>
+    <string name="wallpaper_blur_unavailable">This phone can\'t blur the system wallpaper. To use blur, choose an image of your own.</string>
+    <string name="wallpaper_apply">Apply</string>
+    <string name="wallpaper_import_failed">Couldn\'t open that image</string>
+    <string name="category">Category</string>
+    <string name="category_auto">Automatic</string>
+    <string name="category_all">All apps</string>
+    <string name="category_social">Social</string>
+    <string name="category_productivity">Productivity</string>
+    <string name="category_finance">Finance</string>
+    <string name="category_media">Music &amp; video</string>
+    <string name="category_photos">Photos</string>
+    <string name="category_games">Games</string>
+    <string name="category_news">News</string>
+    <string name="category_maps">Maps &amp; travel</string>
+    <string name="category_other">Other</string>
+
+    <string name="cannot_hide_shortcut">Pinned shortcuts can\'t be hidden</string>
+
+    <string name="wallpaper_target_home">Home screen</string>
+    <string name="wallpaper_target_lock">Lock screen</string>
+    <string name="wallpaper_lock_apply">Use on lock screen</string>
+    <string name="wallpaper_lock_summary">With its own blur and brightness, separate from the home screen</string>
+    <string name="wallpaper_lock_needs_image">To use it on the lock screen, choose an image of your own. Android doesn\'t let apps read the system wallpaper.</string>
+    <string name="wallpaper_lock_done">Lock screen updated</string>
+    <string name="wallpaper_lock_failed">Couldn\'t change the lock screen</string>
+
+    <plurals name="apps_count">
+        <item quantity="one">%d app</item>
+        <item quantity="other">%d apps</item>
+    </plurals>
+    <plurals name="apps_on_home">
+        <item quantity="one">%d app on screen</item>
+        <item quantity="other">%d apps on screen</item>
+    </plurals>
+    <plurals name="apps_selected">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+    <plurals name="delete_group_message">
+        <item quantity="one">This group has %d app. It leaves the home screen (stays installed).</item>
+        <item quantity="other">This group has %d apps. They leave the home screen (stay installed).</item>
+    </plurals>
+    <plurals name="focus_digest">
+        <item quantity="one">During focus: %1$d notification from %2$d app · view</item>
+        <item quantity="other">During focus: %1$d notifications from %2$d apps · view</item>
+    </plurals>
 </resources>

@@ -27,23 +27,23 @@
         <!--        <item name="android:windowTranslucentStatus">false</item>-->
         <!--        <item name="android:windowTranslucentNavigation">true</item>-->
 
-        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimary">@color/ink</item>
         <item name="colorPrimaryDark">@android:color/darker_gray</item>
-        <item name="colorAccent">@color/black</item>
+        <item name="colorAccent">@color/olive</item>
 
-        <item name="primaryColor">@color/black</item>
-        <item name="primaryInverseColor">@color/blackInverse</item>
-        <item name="primaryTextShadowColor">@color/blackInverseTrans50</item>
-        <item name="primaryColorTrans50">@color/blackTrans50</item>
-        <item name="primaryColorTrans80">@color/blackTrans80</item>
-        <item name="primaryColorInverseTrans50">@color/blackInverseTrans50</item>
-        <item name="primaryColorInverseTrans80">@color/blackInverseTrans80</item>
-        <item name="primaryColorInverseTrans90">@color/blackInverseTrans90</item>
-        <item name="primaryShadeColor">@color/blackInverseTrans10</item>
-        <item name="primaryShadeDarkColor">@color/blackInverseTrans25</item>
-        <item name="dialogShadeColor">@color/blackInverseTrans50</item>
+        <item name="primaryColor">@color/ink</item>
+        <item name="primaryInverseColor">@color/paper</item>
+        <item name="primaryTextShadowColor">@android:color/transparent</item>
+        <item name="primaryColorTrans50">@color/inkTrans50</item>
+        <item name="primaryColorTrans80">@color/inkTrans80</item>
+        <item name="primaryColorInverseTrans50">@color/paperTrans50</item>
+        <item name="primaryColorInverseTrans80">@color/paperTrans80</item>
+        <item name="primaryColorInverseTrans90">@color/paperTrans90</item>
+        <item name="primaryShadeColor">@color/paperTrans10</item>
+        <item name="primaryShadeDarkColor">@color/paperTrans25</item>
+        <item name="dialogShadeColor">@color/paperTrans50</item>
 
-        <item name="mainFontFamily">sans-serif-light</item>
+        <item name="mainFontFamily">@font/jakarta</item>
 
         <!-- Popup menus and dialogs used by settings -->
         <item name="popupMenuStyle">@style/OlPopupMenu</item>
@@ -117,7 +117,8 @@
     <style name="OlPopupMenuText" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
         <item name="android:textColor">?attr/primaryColor</item>
         <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/jakarta</item>
     </style>
 
     <!-- Alert dialogs: the window only; content comes from layout/dialog_base.xml -->

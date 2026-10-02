@@ -166,7 +166,7 @@ class HomeFragment : BaseFragment() {
 
         binding.focusChip.isVisible = focusOn
         if (focusOn) {
-            val since = DateFormat.getTimeFormat(requireContext()).format(prefs.focusSince)
+            val since = Look.shortTime(requireContext(), prefs.focusSince)
             binding.focusChip.text = getString(R.string.focus_chip, since)
             binding.focusChip.setTextColor(palette.accent)
             binding.focusChip.background = Look.rounded(ColorUtils.setAlphaComponent(palette.accent, 0x26), 16)

@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pauca store slides</title>
+<style>
+  @font-face { font-family: "Newsreader"; src: url("../../app/src/main/res/font/newsreader.ttf"); font-weight: 200 800; }
+  @font-face { font-family: "Jakarta"; src: url("../../app/src/main/res/font/jakarta.ttf"); font-weight: 200 800; }
+  :root {
+    --paper: #F4EFE4; --paper-2: #EAE3D3; --ink: #1C1915; --ink-2: #2A2620;
+    --olive: #7E8C54; --olive-deep: #5E6A3B; --cream: #FBF3E6; --terracotta: #C4673F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: var(--w); height: var(--h); overflow: hidden; background: var(--paper); }
+  #root { width: var(--w); height: var(--h); }
+  .slide { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Jakarta"; }
+  .copy { position: absolute; left: 96px; right: 96px; top: 150px; z-index: 5; }
+  .copy.center { text-align: center; }
+  h1, p { text-wrap: balance; }
+  .zoom { position: absolute; z-index: 6; box-shadow: 0 30px 70px rgba(0,0,0,.45), 0 0 0 2px rgba(255,255,255,.08); }
+  h1 { font-family: "Newsreader"; font-weight: 400; font-size: 112px; line-height: 1.02; letter-spacing: -2px; }
+  p { margin-top: 30px; font-size: 40px; line-height: 1.4; font-weight: 500; opacity: .78; }
+  .mark { position: absolute; top: 64px; left: 96px; display: flex; align-items: center; gap: 18px; font-family: "Newsreader"; font-size: 40px; z-index: 5; }
+  .mark img { width: 56px; height: 56px; border-radius: 14px; }
+  .copy.center ~ .mark, .mark.center { left: 50%; transform: translateX(-50%); }
+
+  /* Celular: moldura genérica, sem marca */
+  .phone { position: absolute; width: var(--pw); aspect-ratio: 1080 / 2400; padding: calc(var(--pw) * .028);
+    background: #121110; border-radius: calc(var(--pw) * .135);
+    box-shadow: 0 0 0 calc(var(--pw) * .006) #3a3631, 0 60px 120px rgba(0,0,0,.28), 0 18px 40px rgba(0,0,0,.18); }
+  .phone img { display: block; width: 100%; height: 100%; border-radius: calc(var(--pw) * .108); }
+  .phone::after { content: ""; position: absolute; top: calc(var(--pw) * .052); left: 50%; width: calc(var(--pw) * .042);
+    aspect-ratio: 1; transform: translateX(-50%); background: #0b0a09; border-radius: 50%; }
+
+  .bg-olive { background: var(--olive); color: var(--cream); }
+  .bg-ink { background: var(--ink); color: var(--cream); }
+  .bg-paper { background: var(--paper); color: var(--ink); }
+  .bg-terracotta { background: var(--terracotta); color: var(--cream); }
+  .glow::before { content: ""; position: absolute; width: 1400px; height: 1400px; left: 50%; top: 60%;
+    transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(255,255,255,.14), transparent); }
+
+  /* Gráfico de destaque da Play Store (1024x500) */
+  .feature { display: flex; align-items: center; padding-left: 80px; }
+  .feature .brand { position: relative; z-index: 5; }
+  .feature .brand img { width: 120px; height: 120px; border-radius: 30px; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+  .feature h1 { font-size: 104px; margin-top: 18px; letter-spacing: -1px; }
+  .feature p { font-size: 30px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const lang = q.get("lang") || "en";
+const id = q.get("s") || "1";
+const W = +q.get("w") || 1080, H = +q.get("h") || 1920;
+document.documentElement.style.setProperty("--w", W + "px");
+document.documentElement.style.setProperty("--h", H + "px");
+document.getElementById("root").style.transform = `translateY(-${+q.get("y") || 0}px)`;
+const shot = name => `shots/${lang}/${name}.png`;
+
+const T = {
+  en: {
+    s1: ["A quieter phone.", "Your apps as words, in cards. Nothing pulling at you."],
+    s2: ["Make it yours.", "Fonts, sizes, alignment and accent colors."],
+    s3: ["Focus that really silences.", "Do Not Disturb, held notifications and paused apps, in one tap."],
+    s4: ["Light, dark or your wallpaper.", "With blur and brightness, on the lock screen too."],
+    s5: ["Nothing more.", "Hide the clock, the buttons, even the status bar."],
+    s6: ["Everything else, one swipe away.", "Search and categories, without icons."],
+    s7: ["Private by design.", "No internet permission. No data collected."],
+    f: ["A quieter phone."],
+  },
+  pt: {
+    s1: ["Um celular mais calmo.", "Seus apps em palavras, em cartões. Nada chamando sua atenção."],
+    s2: ["Do seu jeito.", "Fontes, tamanhos, alinhamento e cores de destaque."],
+    s3: ["Foco que silencia de verdade.", "Não Perturbe, notificações seguradas e apps pausados, num toque."],
+    s4: ["Claro, escuro ou o seu papel de parede.", "Com desfoque e brilho, até na tela de bloqueio."],
+    s5: ["Nada além.", "Esconda o relógio, os botões e até a barra de status."],
+    s6: ["O resto, a um deslize.", "Busca e categorias, sem ícones."],
+    s7: ["Privado de verdade.", "Sem permissão de internet. Nenhum dado coletado."],
+    f: ["Um celular mais calmo."],
+  },
+  es: {
+    s1: ["Un teléfono más tranquilo.", "Tus apps en palabras, en tarjetas. Nada que te distraiga."],
+    s2: ["A tu manera.", "Fuentes, tamaños, alineación y colores de acento."],
+    s3: ["Concentración que silencia de verdad.", "No molestar, notificaciones retenidas y apps en pausa, con un toque."],
+    s4: ["Claro, oscuro o tu fondo de pantalla.", "Con desenfoque y brillo, también en la pantalla de bloqueo."],
+    s5: ["Nada más.", "Oculta el reloj, los botones e incluso la barra de estado."],
+    s6: ["Todo lo demás, a un deslizamiento.", "Búsqueda y categorías, sin iconos."],
+    s7: ["Privado de verdad.", "Sin permiso de internet. Ningún dato recopilado."],
+    f: ["Un teléfono más tranquilo."],
+  },
+}[lang];
+
+// x/y = centro do celular em px; w = largura; r = rotação em graus
+const phone = (name, x, y, w, r = 0, z = 1) =>
+  `<div class="phone" style="--pw:${w}px; left:${x - w / 2}px; top:${y}px; transform: rotate(${r}deg); z-index:${z}"><img src="${shot(name)}"></div>`;
+// Selo do modo foco na captura de cada idioma: [x, largura]
+const CHIP = { en: [305, 468], pt: [303, 474], es: [251, 578] }[lang];
+// Recorte ampliado de uma captura: região (sx, sy, sw, sh) em px da tela, escala s, posição x/y
+const zoom = (name, sx, sy, sw, sh, s, x, y) =>
+  `<div class="zoom" style="left:${x - sw * s / 2}px; top:${y}px; width:${sw * s}px; height:${sh * s}px; border-radius:${sh * s / 2}px;
+    background: url('${shot(name)}') -${sx * s}px -${sy * s}px / ${1080 * s}px auto no-repeat"></div>`;
+const copy = (t, center = false) => `<div class="copy${center ? " center" : ""}"><h1${t[0].length > 30 ? ' style="font-size:96px"' : ""}>${t[0]}</h1><p>${t[1]}</p></div>`;
+
+const slides = {
+  1: () => `<div class="slide bg-olive glow">${copy(T.s1)}${phone("home_dark", 540, 640, 660)}</div>`,
+  2: () => `<div class="slide bg-paper">${copy(T.s2)}
+      ${phone("paper_list_serif", 230, 800, 500, -11, 1)}${phone("paper_mono", 850, 800, 500, 11, 1)}${phone("paper_terracotta", 540, 660, 540, 0, 2)}</div>`,
+  3: () => `<div class="slide bg-ink glow">${copy(T.s3)}${phone("home_focus", 540, 700, 660)}${zoom("home_focus", CHIP[0], 152, CHIP[1], 86, 1.75, 540, 560)}</div>`,
+  4: () => `<div class="slide bg-paper">${copy(T.s4)}
+      ${phone("home_paper", 230, 800, 500, -11, 1)}${phone("home_grafite", 850, 800, 500, 11, 1)}${phone("home_wall", 540, 660, 540, 0, 2)}</div>`,
+  5: () => `<div class="slide bg-paper" style="background: var(--paper-2)">${copy(T.s5, true)}${phone("paper_zen", 540, 640, 660)}</div>`,
+  6: () => `<div class="slide bg-ink glow">${copy(T.s6)}${phone("drawer", 540, 640, 660)}</div>`,
+  7: () => `<div class="slide bg-olive glow">${copy(T.s7)}${phone("settings", 540, 640, 660)}</div>`,
+  feature: () => `<div class="slide bg-olive feature glow">
+      <div class="brand"><img src="../icon.png"><h1>Pauca</h1><p>${T.f[0]}</p></div>
+      ${phone("paper_terracotta", 650, 90, 300, -8, 1)}${phone("home_dark", 870, 40, 300, 6, 2)}</div>`,
+};
+document.getElementById("root").innerHTML = slides[id]();
+</script>
+</body>
+</html>

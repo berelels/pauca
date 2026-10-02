@@ -17,6 +17,7 @@ import app.pauca.R
 import app.pauca.data.Constants
 import app.pauca.helper.Language
 import app.pauca.helper.dpToPx
+import java.text.SimpleDateFormat
 import java.util.Locale
 
 /** Fontes empacotadas e utilidades de estilo usadas pelas telas desenhadas em código. */
@@ -102,6 +103,14 @@ object Look {
      */
     fun timePattern(context: Context, custom: String): String =
         custom.ifEmpty { if (systemUses24h(context)) "HH:mm" else "h:mm" }
+
+    /**
+     * Hora curta para textos como "desde 09:42". No formato 24h usa sempre dois dígitos, como o
+     * relógio (o padrão de alguns idiomas, como o espanhol, tiraria o zero); no 12h mantém o AM/PM.
+     */
+    fun shortTime(context: Context, millis: Long): String =
+        if (systemUses24h(context)) SimpleDateFormat("HH:mm", Language.locale(context)).format(millis)
+        else DateFormat.getTimeFormat(context).format(millis)
 
     private fun systemUses24h(context: Context): Boolean {
         Settings.System.getString(context.contentResolver, Settings.System.TIME_12_24)?.let { return it == "24" }

@@ -245,8 +245,10 @@ def esc(s: str) -> str:
     return html.escape(s, quote=False)
 
 
-def phone(lang: str, shot: str, cls: str, alt: str = "") -> str:
-    return f'<div class="phone {cls}"><img src="{{root}}assets/img/{lang}/{shot}.webp" alt="{esc(alt)}" loading="lazy" decoding="async"></div>'
+def phone(lang: str, shot: str, cls: str, alt: str = "", eager: bool = False) -> str:
+    # As do topo carregam já; as outras, quando chegam perto da tela
+    loading = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
+    return f'<div class="phone {cls}"><img src="{{root}}assets/img/{lang}/{shot}.webp" alt="{esc(alt)}" {loading} decoding="async"></div>'
 
 
 def checks(items) -> str:
@@ -261,7 +263,7 @@ def page(lang: str, t: dict) -> str:
         f"<b>{code.upper()}</b>" if code == lang else f'<a href="{root}{T[code]["path"]}" hreflang="{T[code]["html_lang"]}">{code.upper()}</a>'
         for code in T)
     alternates = "\n".join(f'<link rel="alternate" hreflang="{T[c]["html_lang"]}" href="{SITE}{T[c]["path"]}">' for c in T)
-    ph = lambda shot, cls: phone(lang, shot, cls)
+    ph = lambda shot, cls, eager=False: phone(lang, shot, cls, eager=eager)
     body = f"""
 <header class="top">
   <div class="wrap">
@@ -287,7 +289,7 @@ def page(lang: str, t: dict) -> str:
     </div>
     <p class="fine">{esc(t['fine'])}</p>
     <div class="stage" aria-hidden="true">
-      {ph('paper_terracotta', 'p1')}{ph('home_dark', 'p2')}{ph('home_paper', 'p3')}
+      {ph('paper_terracotta', 'p1', True)}{ph('home_dark', 'p2', True)}{ph('home_paper', 'p3', True)}
     </div>
   </div>
 </section>

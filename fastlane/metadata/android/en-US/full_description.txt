@@ -1,0 +1,42 @@
+Pauca turns your smartphone into something closer to a dumbphone. Your apps become words in calm cards, with the names you choose. No icons, no red badges, nothing pulling at you.
+
+The name comes from the Latin pauca: "few things".
+
+YOUR HOME SCREEN
+• Group your apps in cards and drag to reorder them, even from one card to another
+• Rename any app with whatever you like: "mom", "bank", "work chat"
+• Profiles such as Personal, Work and Night, each with its own cards
+• A clock and date the way you like them: format, font, size, weight and alignment
+
+APPEARANCE
+• Five themes: Pauca, Paper, Graphite, Black and Wallpaper
+• Your own photo as the background, with blur and brightness, on the lock screen too
+• Accent colors: olive, terracotta, ochre, blue, plum, rose, none, or any color you type
+• Fonts, weight, size, alignment, lowercase or UPPERCASE
+• Hide the buttons, the clock, even the status bar
+
+FOCUS MODE
+Turn it on with one tap, or let a profile turn it on for you. It works in layers, each with its own permission:
+• Do Not Disturb through Pauca's own rule, choosing who can still call
+• Hold notifications from other apps, with a summary when focus ends
+• A drawer that shows only the apps you allow
+• Pause other apps: if one opens, you go back home
+• A grayscale screen (needs one command from a computer, once)
+
+EVERYTHING ELSE
+• Swipe up for all your apps, with search and categories
+• Swipe down for notifications, sideways to open an app you choose
+• Double tap to lock the screen
+• English, Portuguese and Spanish
+• A short guided tour when you start
+
+PRIVATE BY DESIGN
+Pauca has no internet permission and collects no data. Everything stays on your phone.
+
+Accessibility: Pauca uses the accessibility service only to lock the screen with a double tap and, in focus mode, to go back home when an app outside your list opens. It doesn't read what's on your screen.
+
+TRY IT FIRST
+Pauca Lite is a smaller version you can try at no cost. When you get Pauca, your cards and settings come along.
+
+OPEN SOURCE
+Pauca is open source under the GPLv3, based on Olauncher by Tanuj. One-time purchase, no subscription, no ads.

@@ -1,0 +1,33 @@
+Pauca Lite acerca tu smartphone a un dumbphone, un teléfono sencillo. Tus apps se convierten en palabras dentro de tarjetas tranquilas, con los nombres que elijas. Sin iconos, sin globos rojos, nada que te distraiga.
+
+El nombre viene del latín pauca: "pocas cosas".
+
+QUÉ INCLUYE
+• Agrupa tus apps en tarjetas y arrástralas para reordenarlas, incluso de una tarjeta a otra
+• Cambia el nombre de cualquier app: "mamá", "banco", "trabajo"
+• Dos perfiles, cada uno con sus tarjetas
+• Claro u oscuro: los temas Pauca y Papel, con color de acento oliva, azul o ninguno
+• Tamaño del texto y del reloj, y reloj y fecha visibles u ocultos
+• Desliza hacia arriba para ver todas tus apps, con búsqueda y categorías
+• Desliza hacia abajo para las notificaciones y hacia los lados para abrir la app que elijas
+• Doble toque para bloquear la pantalla
+• Español, inglés y portugués, y un recorrido breve
+
+PRIVADO DE VERDAD
+Pauca Lite no tiene permiso de internet y no recopila ningún dato. Todo se queda en tu teléfono.
+
+Accesibilidad: Pauca Lite usa el servicio de accesibilidad solo para bloquear la pantalla con el doble toque. No lee lo que hay en tu pantalla.
+
+¿QUIERES MÁS? CONOCE PAUCA
+Pauca, la versión completa, es un pago único, sin suscripción. Incluye:
+• Concentración que silencia de verdad: No molestar, notificaciones retenidas con resumen, apps en pausa y pantalla en escala de grises
+• Perfiles ilimitados, y perfiles que activan la concentración solos
+• Cinco temas, incluida una foto tuya con desenfoque y brillo, también en la pantalla de bloqueo
+• Todos los colores de acento, o cualquier color que escribas
+• Fuentes, grosor, alineación, minúsculas y mayúsculas
+• Oculta los botones, el reloj e incluso la barra de estado
+
+Cuando instalas Pauca, tus tarjetas y ajustes de Lite vienen contigo.
+
+CÓDIGO ABIERTO
+Pauca es de código abierto, bajo la GPLv3, basado en Olauncher, de Tanuj. Sin anuncios.

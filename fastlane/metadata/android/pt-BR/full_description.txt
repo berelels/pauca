@@ -1,0 +1,42 @@
+O Pauca deixa o seu smartphone mais perto de um dumbphone, um celular simples. Seus apps viram palavras em cartões calmos, com os nomes que você escolher. Sem ícones, sem bolinhas vermelhas, nada chamando sua atenção.
+
+O nome vem do latim pauca: "poucas coisas".
+
+SUA TELA INICIAL
+• Agrupe os apps em cartões e arraste para reordenar, inclusive de um cartão para outro
+• Renomeie qualquer app como quiser: "mãe", "banco", "trabalho"
+• Perfis como Pessoal, Trabalho e Noite, cada um com os seus cartões
+• Relógio e data do seu jeito: formato, fonte, tamanho, peso e alinhamento
+
+APARÊNCIA
+• Cinco temas: Pauca, Papel, Grafite, Preto e Fundo
+• Uma foto sua como fundo, com desfoque e brilho, até na tela de bloqueio
+• Cores de destaque: oliva, terracota, ocre, azul, ameixa, rosa, sem cor ou qualquer cor que você digitar
+• Fontes, peso, tamanho, alinhamento, minúsculas ou MAIÚSCULAS
+• Esconda os botões, o relógio e até a barra de status
+
+MODO FOCO
+Ligue com um toque, ou deixe um perfil ligar por você. Ele funciona em camadas, cada uma com a sua permissão:
+• Não Perturbe com uma regra própria do Pauca, escolhendo quem ainda pode ligar
+• Notificações dos outros apps seguradas, com um resumo quando o foco acaba
+• Uma gaveta só com os apps permitidos
+• Apps pausados: se um deles abrir, o celular volta para o início
+• Tela em tons de cinza (precisa de um comando no computador, uma vez)
+
+E MAIS
+• Deslize para cima para ver todos os apps, com busca e categorias
+• Deslize para baixo para as notificações e para os lados para abrir um app que você escolher
+• Toque duplo para bloquear a tela
+• Português, inglês e espanhol
+• Um tour rápido quando você começa
+
+PRIVADO DE VERDADE
+O Pauca não tem permissão de internet e não coleta nenhum dado. Tudo fica no seu celular.
+
+Acessibilidade: o Pauca usa o serviço de acessibilidade só para bloquear a tela com o toque duplo e, no modo foco, voltar para o início quando um app fora da sua lista abre. Ele não lê o que está na sua tela.
+
+EXPERIMENTE ANTES
+O Pauca Lite é uma versão menor, que você pode experimentar sem pagar. Quando você instala o Pauca, seus cartões e ajustes vão junto.
+
+CÓDIGO ABERTO
+O Pauca é código aberto, sob a GPLv3, feito a partir do Olauncher, de Tanuj. Compra única, sem assinatura e sem anúncios.

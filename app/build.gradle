@@ -14,13 +14,13 @@ android {
     }
 
     defaultConfig {
-        applicationId "app.olauncher"
+        applicationId "app.pauca"
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 113
-        versionName "v6.9.17"
+        versionCode 1
+        versionName "0.1.0"
 
-        resourceConfigurations += ["en", "ar", "cs", "da", "de", "el", "es-rES", "es-rUS", "fi", "fr", "he", "hi", "hr", "hu", "in", "it", "ja", "ko", "nb", "nl", "pl", "pt-rBR", "ro", "ru-rRU", "sv", "th", "tr", "uk", "vi", "zh"]
+        resourceConfigurations += ["en", "pt-rBR", "es"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,7 +45,7 @@ android {
         includeInApk = false
         includeInBundle = true
     }
-    namespace 'app.olauncher'
+    namespace 'app.pauca'
 }
 
 dependencies {
@@ -61,9 +61,6 @@ dependencies {
 
     // Navigation
     implementation libs.navigation.fragment.ktx
-
-    // Work Manager
-    implementation libs.work.runtime.ktx
 
     //Material dependency
     implementation libs.material

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ids das linhas criadas em código (editor e seletor de apps) -->
+    <item name="label" type="id" />
+    <item name="add" type="id" />
+    <item name="more" type="id" />
+    <item name="drag" type="id" />
+    <item name="check" type="id" />
+</resources>

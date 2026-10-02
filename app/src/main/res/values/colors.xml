@@ -28,4 +28,25 @@
     <color name="blackInverseTrans80">#CCFFFFFF</color>
     <color name="blackInverseTrans90">#E6FFFFFF</color>
 
+
+    <!-- Pauca: tinta e papel, a mesma família do Respiro -->
+    <color name="ink">#26211B</color>
+    <color name="inkTrans80">#CC26211B</color>
+    <color name="inkTrans50">#8026211B</color>
+    <color name="paper">#F6F1E7</color>
+    <color name="paperTrans10">#1AF6F1E7</color>
+    <color name="paperTrans25">#40F6F1E7</color>
+    <color name="paperTrans50">#80F6F1E7</color>
+    <color name="paperTrans80">#CCF6F1E7</color>
+    <color name="paperTrans90">#E6F6F1E7</color>
+    <color name="cream">#EFE7DA</color>
+    <color name="creamTrans80">#CCEFE7DA</color>
+    <color name="creamTrans50">#80EFE7DA</color>
+    <color name="night">#1A1713</color>
+    <color name="nightTrans10">#1A1A1713</color>
+    <color name="nightTrans25">#401A1713</color>
+    <color name="nightTrans50">#801A1713</color>
+    <color name="nightTrans80">#CC1A1713</color>
+    <color name="nightTrans90">#E61A1713</color>
+    <color name="olive">#7E8C54</color>
 </resources>

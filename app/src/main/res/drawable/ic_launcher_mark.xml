@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Olho fechado, em descanso: o traço do ícone do Pauca (ver art/icon.svg) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.17"
+        android:scaleY="0.17"
+        android:translateX="10.48"
+        android:translateY="3.68">
+        <path
+            android:pathData="M132,226c40,62 84,90 124,90s84,-28 124,-90M166,290l-26,40M256,318v48M346,290l26,40"
+            android:strokeWidth="34"
+            android:strokeColor="#FBF3E6"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+</vector>

@@ -42,7 +42,7 @@
   /* Gráfico de destaque da Play Store (1024x500) */
   .feature { display: flex; align-items: center; padding-left: 80px; }
   .feature .brand { position: relative; z-index: 5; }
-  .feature .brand img { width: 120px; height: 120px; border-radius: 30px; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+  .feature .brand svg { display: block; width: 120px; height: auto; }
   .feature h1 { font-size: 104px; margin-top: 18px; letter-spacing: -1px; }
   .feature p { font-size: 30px; margin-top: 8px; }
 </style>
@@ -95,6 +95,9 @@ const T = {
 // x/y = centro do celular em px; w = largura; r = rotação em graus
 const phone = (name, x, y, w, r = 0, z = 1) =>
   `<div class="phone" style="--pw:${w}px; left:${x - w / 2}px; top:${y}px; transform: rotate(${r}deg); z-index:${z}"><img src="${shot(name)}"></div>`;
+// O olho fechado do ícone (art/icon.svg), só o traço, sem a caixa
+const EYE = `<svg viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M132 226c40 62 84 90 124 90s84-28 124-90"/><path d="M166 290l-26 40"/><path d="M256 318v48"/><path d="M346 290l26 40"/></svg>`;
 // Selo do modo foco na captura de cada idioma: [x, largura]
 const CHIP = { en: [305, 468], pt: [303, 474], es: [251, 578] }[lang];
 // Recorte ampliado de uma captura: região (sx, sy, sw, sh) em px da tela, escala s, posição x/y
@@ -114,7 +117,7 @@ const slides = {
   6: () => `<div class="slide bg-ink glow">${copy(T.s6)}${phone("drawer", 540, 640, 660)}</div>`,
   7: () => `<div class="slide bg-olive glow">${copy(T.s7)}${phone("settings", 540, 640, 660)}</div>`,
   feature: () => `<div class="slide bg-olive feature glow">
-      <div class="brand"><img src="../icon.png"><h1>Pauca</h1><p>${T.f[0]}</p></div>
+      <div class="brand">${EYE}<h1>Pauca</h1><p>${T.f[0]}</p></div>
       ${phone("paper_terracotta", 650, 90, 300, -8, 1)}${phone("home_dark", 870, 40, 300, 6, 2)}</div>`,
 };
 document.getElementById("root").innerHTML = slides[id]();

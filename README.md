@@ -14,7 +14,12 @@ Made by [Gabriel Dias](https://github.com/berelels), based on [Olauncher](https:
 
 ## Where to get it
 
-Pauca will be on the Play Store as a paid app: that's how you can support the project. The code stays open here under the GPLv3, and anyone who prefers can build it and use it for free (see [Building](#building)).
+Pauca comes in two apps on the Play Store:
+
+- **Pauca Lite**, free: app cards, the drawer, gestures, two profiles, the Pauca and Paper themes, and olive, blue or no accent color.
+- **Pauca**, a one-time purchase: everything, including focus mode, unlimited profiles, every theme and color, fonts and alignment, and hidden buttons. Buying it is how you can support the project. When you install it, it brings your cards and settings over from Lite.
+
+Neither app asks for internet access. The code stays open here under the GPLv3, and anyone who prefers can build the full version and use it for free (see [Building](#building)).
 
 ## Features
 
@@ -40,14 +45,16 @@ Pauca will be on the Play Store as a paid app: that's how you can support the pr
 Requirements: JDK 17+ and the Android SDK (platform 36).
 
 ```bash
-./gradlew assembleDebug
+./gradlew assembleFullDebug
 ```
 
-The APK ends up in `app/build/outputs/apk/debug/app-debug.apk`. To install it on a phone with USB debugging on:
+The APK ends up in `app/build/outputs/apk/full/debug/app-full-debug.apk`. To install it on a phone with USB debugging on:
 
 ```bash
-adb install -r app/build/outputs/apk/debug/app-debug.apk
+adb install -r app/build/outputs/apk/full/debug/app-full-debug.apk
 ```
+
+`assembleLiteDebug` builds Pauca Lite instead (`app/build/outputs/apk/lite/debug/`). Both come from the same code: the `lite` flavor turns off what is only in the full version (see `helper/Edition.kt`).
 
 Then choose Pauca as your home app (Settings › Apps › Default apps › Home app).
 
@@ -72,10 +79,11 @@ adb shell pm grant app.pauca android.permission.WRITE_SECURE_SETTINGS
 | Settings (all pages) | `ui/SettingsPageFragment.kt`, `ui/SettingsBuilder.kt` |
 | Focus mode | `focus/FocusManager.kt`, `focus/FocusListenerService.kt`, `helper/MyAccessibilityService.kt` |
 | App drawer and categories | `ui/AppDrawerFragment.kt`, `ui/AppDrawerAdapter.kt`, `data/AppCategory.kt` |
+| Lite vs. full, and bringing settings over from Lite | `helper/Edition.kt`, `helper/LiteImport.kt`, `src/lite/` |
 
 ## Store images
 
-The Play Store screenshots and feature graphic, in English, Portuguese and Spanish, are built from real captures of the app. They live in `fastlane/metadata/android/`, and the scripts that make them are in [art/store/](art/store/).
+The Play Store screenshots and feature graphic, in English, Portuguese and Spanish, are built from real captures of the app. They live in `fastlane/metadata/android/` (Pauca) and `fastlane/metadata/android-lite/` (Pauca Lite), and the scripts that make them are in [art/store/](art/store/).
 
 ## License
 

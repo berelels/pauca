@@ -17,3 +17,5 @@
 .cxx
 google-services.json
 .kotlin
+# Assinatura (senhas e chave ficam fora do git)
+keystore.properties

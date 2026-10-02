@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.provider.Telephony
 import androidx.core.content.edit
 import app.pauca.R
+import app.pauca.helper.Edition
 import app.pauca.helper.Language
 
 /**
@@ -78,7 +79,9 @@ object HomeStore {
             groups = mutableListOf(HomeGroup(items = essentials.take(3).map { it.copy(id = newId()) }.toMutableList())),
             focusOnSwitch = true,
         )
-        return HomeData(mutableListOf(personal, focus), personal.id)
+        // O Lite não tem modo foco, então começa só com o perfil pessoal
+        val profiles = if (Edition.isLite) mutableListOf(personal) else mutableListOf(personal, focus)
+        return HomeData(profiles, personal.id)
     }
 
     private fun smsApp(context: Context): HomeItem? =

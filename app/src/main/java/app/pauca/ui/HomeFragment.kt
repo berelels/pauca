@@ -39,6 +39,7 @@ import app.pauca.data.Prefs
 import app.pauca.databinding.FragmentHomeBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.appUsagePermissionGranted
+import app.pauca.helper.Edition
 import app.pauca.helper.dpToPx
 import app.pauca.helper.expandNotificationDrawer
 import app.pauca.helper.getUserHandleFromString
@@ -275,7 +276,7 @@ class HomeFragment : BaseFragment() {
         newTour.start()
     }
 
-    private fun tourSteps(): List<TourView.Step> = listOf(
+    private fun tourSteps(): List<TourView.Step> = listOfNotNull(
         TourView.Step(getString(R.string.tour_welcome_title), getString(R.string.tour_welcome_body)),
         TourView.Step(getString(R.string.tour_clock_title), getString(R.string.tour_clock_body)) { binding.dateTimeLayout },
         TourView.Step(getString(R.string.tour_apps_title), getString(R.string.tour_apps_body)) { binding.groups.getChildAt(0) },
@@ -286,7 +287,8 @@ class HomeFragment : BaseFragment() {
         TourView.Step(getString(R.string.tour_focus_title), getString(R.string.tour_focus_body)) { binding.btnFocus },
         TourView.Step(getString(R.string.tour_drawer_title), getString(R.string.tour_drawer_body), TourView.Gesture.SWIPE_UP),
         TourView.Step(getString(R.string.tour_gestures_title), getString(R.string.tour_gestures_body), TourView.Gesture.SWIPE_DOWN),
-        TourView.Step(getString(R.string.tour_buttons_title), getString(R.string.tour_buttons_body)),
+        // Ocultar os botões é só da versão completa
+        if (Edition.isLite) null else TourView.Step(getString(R.string.tour_buttons_title), getString(R.string.tour_buttons_body)),
     )
 
     private fun renderClock(palette: Palette) {

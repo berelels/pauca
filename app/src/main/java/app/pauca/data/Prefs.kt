@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.view.Gravity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
+import app.pauca.helper.Edition
 import org.json.JSONObject
 
 class Prefs(context: Context) {
@@ -63,13 +64,14 @@ class Prefs(context: Context) {
 
     // Aparência
 
+    // No Lite, só os temas e cores dele (o que for de fora vira o padrão)
     var paletteId: String
-        get() = string("PALETTE", Palette.PAUCA.id)
+        get() = string("PALETTE", Palette.PAUCA.id).takeIf { Edition.hasPalette(it) } ?: Palette.PAUCA.id
         set(value) = put("PALETTE", value)
 
     /** Cor de destaque: "#RRGGBB" ou [Accent.NONE]. */
     var accent: String
-        get() = string("ACCENT", Accent.DEFAULT)
+        get() = string("ACCENT", Accent.DEFAULT).takeIf { Edition.hasAccent(it) } ?: Accent.DEFAULT
         set(value) = put("ACCENT", value)
 
     val palette: Palette get() = Palette.byId(paletteId).withAccent(accent)
@@ -185,7 +187,7 @@ class Prefs(context: Context) {
         set(value) = put("SHOW_PROFILE_BUTTON", value)
 
     var showFocusButton: Boolean
-        get() = bool("SHOW_FOCUS_BUTTON", true)
+        get() = !Edition.isLite && bool("SHOW_FOCUS_BUTTON", true)
         set(value) = put("SHOW_FOCUS_BUTTON", value)
 
     var appLabelAlignment: Int
@@ -251,7 +253,7 @@ class Prefs(context: Context) {
     // Modo foco
 
     var focusActive: Boolean
-        get() = bool("FOCUS_ACTIVE", false)
+        get() = !Edition.isLite && bool("FOCUS_ACTIVE", false)
         set(value) = put("FOCUS_ACTIVE", value)
 
     var focusSince: Long

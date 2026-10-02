@@ -20,9 +20,17 @@
   .zoom { position: absolute; z-index: 6; box-shadow: 0 30px 70px rgba(0,0,0,.45), 0 0 0 2px rgba(255,255,255,.08); }
   h1 { font-family: "Newsreader"; font-weight: 400; font-size: 112px; line-height: 1.02; letter-spacing: -2px; }
   p { margin-top: 30px; font-size: 40px; line-height: 1.4; font-weight: 500; opacity: .78; }
-  .mark { position: absolute; top: 64px; left: 96px; display: flex; align-items: center; gap: 18px; font-family: "Newsreader"; font-size: 40px; z-index: 5; }
-  .mark img { width: 56px; height: 56px; border-radius: 14px; }
-  .copy.center ~ .mark, .mark.center { left: 50%; transform: translateX(-50%); }
+  /* Marca do Lite no topo de cada slide: olho, nome e o selo LITE (como no ícone) */
+  .mark { position: absolute; top: 84px; left: 96px; display: flex; align-items: center; gap: 16px; font-family: "Newsreader"; font-size: 46px; z-index: 5; }
+  .mark svg { width: 64px; height: auto; margin-right: 4px; }
+  .lite { font-family: "Jakarta"; font-weight: 800; font-size: 22px; letter-spacing: 3px; padding: 6px 12px 6px 15px;
+    border-radius: 999px; background: currentColor; }
+  .lite span { color: var(--slide-bg); }
+  .has-mark .copy { top: 230px; }
+  .checks { position: absolute; left: 96px; right: 96px; top: 690px; list-style: none; z-index: 5; }
+  .checks li { display: flex; align-items: center; gap: 26px; font-size: 38px; font-weight: 500; line-height: 1.25; margin-bottom: 26px; }
+  .checks svg { flex: none; width: 46px; height: 46px; }
+  .icon { width: 100%; height: 100%; display: block; }
 
   /* Celular: moldura genérica, sem marca */
   .phone { position: absolute; width: var(--pw); aspect-ratio: 1080 / 2400; padding: calc(var(--pw) * .028);
@@ -32,9 +40,9 @@
   .phone::after { content: ""; position: absolute; top: calc(var(--pw) * .052); left: 50%; width: calc(var(--pw) * .042);
     aspect-ratio: 1; transform: translateX(-50%); background: #0b0a09; border-radius: 50%; }
 
-  .bg-olive { background: var(--olive); color: var(--cream); }
-  .bg-ink { background: var(--ink); color: var(--cream); }
-  .bg-paper { background: var(--paper); color: var(--ink); }
+  .bg-olive { background: var(--olive); color: var(--cream); --slide-bg: var(--olive); }
+  .bg-ink { background: var(--ink); color: var(--cream); --slide-bg: var(--ink); }
+  .bg-paper { background: var(--paper); color: var(--ink); --slide-bg: var(--paper); }
   .bg-terracotta { background: var(--terracotta); color: var(--cream); }
   .glow::before { content: ""; position: absolute; width: 1400px; height: 1400px; left: 50%; top: 60%;
     transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(255,255,255,.14), transparent); }
@@ -44,7 +52,7 @@
   .feature .brand { position: relative; z-index: 5; }
   .feature .brand svg { display: block; width: 120px; height: auto; }
   .feature h1 { font-size: 104px; margin-top: 18px; letter-spacing: -1px; }
-  .feature p { font-size: 30px; margin-top: 8px; }
+  .feature p { font-size: 30px; margin-top: 8px; max-width: 330px; }
 </style>
 </head>
 <body>
@@ -58,6 +66,8 @@ document.documentElement.style.setProperty("--w", W + "px");
 document.documentElement.style.setProperty("--h", H + "px");
 document.getElementById("root").style.transform = `translateY(-${+q.get("y") || 0}px)`;
 const shot = name => `shots/${lang}/${name}.png`;
+// Capturas do Lite (slides "l…")
+const liteShot = name => `shots/lite/${lang}/${name}.png`;
 
 const T = {
   en: {
@@ -69,6 +79,11 @@ const T = {
     s6: ["Everything else, one swipe away.", "Search and categories, without icons."],
     s7: ["Private by design.", "No internet permission. No data collected."],
     f: ["A quieter phone."],
+    l1: ["A quieter phone, free.", "Your apps as words, in cards. Nothing pulling at you."],
+    l2: ["Light or dark, your color.", "Two themes, and olive, blue or no accent color."],
+    l5: ["Want more? Get Pauca.", "One-time purchase, no subscription. Your cards and settings come along."],
+    checks: ["Focus mode that really silences", "Unlimited profiles", "Five themes, your wallpaper too", "Every accent color, or your own", "Fonts, weight and alignment", "Hide the buttons and the status bar"],
+    lf: ["A quieter phone, free."],
   },
   pt: {
     s1: ["Um celular mais calmo.", "Seus apps em palavras, em cartões. Nada chamando sua atenção."],
@@ -79,6 +94,11 @@ const T = {
     s6: ["O resto, a um deslize.", "Busca e categorias, sem ícones."],
     s7: ["Privado de verdade.", "Sem permissão de internet. Nenhum dado coletado."],
     f: ["Um celular mais calmo."],
+    l1: ["Um celular mais calmo, de graça.", "Seus apps em palavras, em cartões. Nada chamando sua atenção."],
+    l2: ["Claro ou escuro, com a sua cor.", "Dois temas e a cor de destaque: oliva, azul ou nenhuma."],
+    l5: ["Quer mais? Conheça o Pauca.", "Compra única, sem assinatura. Seus cartões e ajustes vão junto."],
+    checks: ["Modo foco que silencia de verdade", "Perfis ilimitados", "Cinco temas, até o seu papel de parede", "Todas as cores de destaque, ou a sua", "Fontes, peso e alinhamento", "Esconda os botões e a barra de status"],
+    lf: ["Um celular mais calmo, de graça."],
   },
   es: {
     s1: ["Un teléfono más tranquilo.", "Tus apps en palabras, en tarjetas. Nada que te distraiga."],
@@ -89,6 +109,11 @@ const T = {
     s6: ["Todo lo demás, a un deslizamiento.", "Búsqueda y categorías, sin iconos."],
     s7: ["Privado de verdad.", "Sin permiso de internet. Ningún dato recopilado."],
     f: ["Un teléfono más tranquilo."],
+    l1: ["Un teléfono más tranquilo, gratis.", "Tus apps en palabras, en tarjetas. Nada que te distraiga."],
+    l2: ["Claro u oscuro, con tu color.", "Dos temas y el color de acento: oliva, azul o ninguno."],
+    l5: ["¿Quieres más? Conoce Pauca.", "Pago único, sin suscripción. Tus tarjetas y ajustes vienen contigo."],
+    checks: ["Concentración que silencia de verdad", "Perfiles ilimitados", "Cinco temas, incluso tu fondo de pantalla", "Todos los colores de acento, o el tuyo", "Fuentes, grosor y alineación", "Oculta los botones y la barra de estado"],
+    lf: ["Un teléfono más tranquilo, gratis."],
   },
 }[lang];
 
@@ -106,6 +131,20 @@ const zoom = (name, sx, sy, sw, sh, s, x, y) =>
     background: url('${shot(name)}') -${sx * s}px -${sy * s}px / ${1080 * s}px auto no-repeat"></div>`;
 const copy = (t, center = false) => `<div class="copy${center ? " center" : ""}"><h1${t[0].length > 30 ? ' style="font-size:96px"' : ""}>${t[0]}</h1><p>${t[1]}</p></div>`;
 
+const LITE_MARK = `<div class="mark">${EYE}<span>Pauca</span><b class="lite"><span>LITE</span></b></div>`;
+const CHECK = `<svg viewBox="0 0 46 46"><circle cx="23" cy="23" r="23" fill="currentColor" opacity=".16"/>
+  <path d="M14 23.5l6 6 12-13" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const litePhone = (name, x, y, w, r = 0, z = 1) => phone(name, x, y, w, r, z).replace(`src="${shot(name)}"`, `src="${liteShot(name)}"`);
+// Ícone da loja (512x512, quadrado cheio: a loja aplica o arredondamento). Mesma geometria do
+// ícone adaptativo do app: a área visível (72dp do centro de 108dp) ocupa a imagem inteira.
+const storeIcon = lite => `<svg class="icon" viewBox="18 18 72 72">
+  <rect x="0" y="0" width="108" height="108" fill="#7E8C54"/>
+  <g transform="translate(10.48 ${lite ? 7.68 : 3.68}) scale(.17)" fill="none" stroke="#FBF3E6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M132,226c40,62 84,90 124,90s84,-28 124,-90M166,290l-26,40M256,318v48M346,290l26,40"/></g>
+  ${lite ? `<path fill="#FBF3E6" fill-rule="evenodd" d="M54.5,27.5h17a6,6 0,0 1,0 12h-17a6,6 0,0 1,0 -12z
+    M55,30.5h1.4v4.6h-1.4z M55,35.1h3.4v1.4h-3.4z M60,30.5h1.4v6h-1.4z M63,30.5h4.2v1.4h-4.2z M64.4,31.9h1.4v4.6h-1.4z
+    M68.8,30.5h1.4v6h-1.4z M70.2,30.5h1.8v1.4h-1.8z M70.2,32.8h1.4v1.4h-1.4z M70.2,35.1h1.8v1.4h-1.8z"/>` : ""}</svg>`;
+
 const slides = {
   1: () => `<div class="slide bg-olive glow">${copy(T.s1)}${phone("home_dark", 540, 640, 660)}</div>`,
   2: () => `<div class="slide bg-paper">${copy(T.s2)}
@@ -119,6 +158,21 @@ const slides = {
   feature: () => `<div class="slide bg-olive feature glow">
       <div class="brand">${EYE}<h1>Pauca</h1><p>${T.f[0]}</p></div>
       ${phone("paper_terracotta", 650, 90, 300, -8, 1)}${phone("home_dark", 870, 40, 300, 6, 2)}</div>`,
+  // Pauca Lite
+  l1: () => `<div class="slide bg-olive glow has-mark">${LITE_MARK}${copy(T.l1)}${litePhone("home_dark", 540, 720, 640)}</div>`,
+  l2: () => `<div class="slide bg-paper has-mark">${LITE_MARK}${copy(T.l2)}
+      ${litePhone("home_paper", 230, 860, 480, -11, 1)}${litePhone("home_dark", 850, 860, 480, 11, 1)}${litePhone("appearance", 540, 740, 520, 0, 2)}</div>`,
+  l3: () => `<div class="slide bg-ink glow has-mark">${LITE_MARK}${copy(T.s6)}${litePhone("drawer", 540, 740, 640)}</div>`,
+  l4: () => `<div class="slide bg-olive glow has-mark">${LITE_MARK}${copy(T.s7)}${litePhone("settings", 540, 720, 640)}</div>`,
+  // A página do Pauca completo: tudo o que ele tem a mais
+  l5: () => `<div class="slide bg-ink glow has-mark">${LITE_MARK}${copy(T.l5)}
+      <ul class="checks">${T.checks.map(c => `<li>${CHECK}<span>${c}</span></li>`).join("")}</ul>
+      ${phone("home_wall", 250, 1400, 380, -10, 1)}${phone("paper_terracotta", 830, 1400, 380, 10, 1)}${phone("home_focus", 540, 1330, 410, 0, 2)}</div>`,
+  lfeature: () => `<div class="slide bg-olive feature glow">
+      <div class="brand">${EYE}<h1>Pauca <b class="lite" style="font-size:26px; vertical-align: 18px"><span>LITE</span></b></h1><p>${T.lf[0]}</p></div>
+      ${litePhone("home_paper", 650, 90, 300, -8, 1)}${litePhone("home_dark", 870, 40, 300, 6, 2)}</div>`,
+  "icon-full": () => storeIcon(false),
+  "icon-lite": () => storeIcon(true),
 };
 document.getElementById("root").innerHTML = slides[id]();
 </script>

@@ -1,20 +1,28 @@
 #!/bin/bash
-# render.sh: gera as imagens da loja a partir das capturas em shots/ e as coloca onde a
-# Play Store (via fastlane) e o F-Droid procuram: fastlane/metadata/android/<idioma>/images.
+# render.sh: gera as imagens da loja dos dois apps a partir das capturas em shots/ e as coloca
+# onde a Play Store (via fastlane) e o F-Droid procuram: fastlane/metadata/android/<idioma>/images
+# (Pauca) e fastlane/metadata/android-lite/<idioma>/images (Pauca Lite).
 # Também gera art/screens.png, a faixa de telas do README.
 # Precisa do Electron: ELECTRON=/caminho/para/electron ./render.sh  (ou npx electron)
 set -e
 cd "$(dirname "$0")"
 ELECTRON=${ELECTRON:-"npx --yes electron"}
-META=../../fastlane/metadata/android
-for pair in en:en-US pt:pt-BR es:es-ES; do
-  L=${pair%%:*}; LOC=${pair##*:}; TMP=$(mktemp -d)
-  $ELECTRON render.js $L "$TMP" 1 2 3 4 5 6 7 feature:1024x500 2> >(grep -v nss_util >&2)
-  mkdir -p $META/$LOC/images/phoneScreenshots
-  for i in 1 2 3 4 5 6 7; do cp "$TMP/$i.png" $META/$LOC/images/phoneScreenshots/$i.png; done
-  cp "$TMP/feature.png" $META/$LOC/images/featureGraphic.png
-  cp ../icon.png $META/$LOC/images/icon.png
+# Pauca: fastlane/metadata/android; Pauca Lite: fastlane/metadata/android-lite
+render() {  # render <idioma> <locale> <pasta de metadados> <slides…> -- <banner> <ícone>
+  local L=$1 LOC=$2 META=$3; shift 3
+  local IDS=() TMP; while [ "$1" != -- ]; do IDS+=("$1"); shift; done; shift
+  local FEATURE=$1 ICON=$2; TMP=$(mktemp -d)
+  $ELECTRON render.js $L "$TMP" "${IDS[@]}" $FEATURE:1024x500 $ICON:512x512 2> >(grep -v nss_util >&2)
+  rm -rf $META/$LOC/images/phoneScreenshots; mkdir -p $META/$LOC/images/phoneScreenshots
+  local n=1; for id in "${IDS[@]}"; do cp "$TMP/$id.png" $META/$LOC/images/phoneScreenshots/$n.png; n=$((n + 1)); done
+  cp "$TMP/$FEATURE.png" $META/$LOC/images/featureGraphic.png
+  cp "$TMP/$ICON.png" $META/$LOC/images/icon.png
   rm -rf "$TMP"
+}
+for pair in en:en-US pt:pt-BR es:es-ES; do
+  L=${pair%%:*}; LOC=${pair##*:}
+  render $L $LOC ../../fastlane/metadata/android 1 2 3 4 5 6 7 -- feature icon-full
+  render $L $LOC ../../fastlane/metadata/android-lite l1 l2 l3 l4 l5 -- lfeature icon-lite
 done
 # Faixa do README: as quatro primeiras telas em inglês, lado a lado
 python3 - <<'PY'

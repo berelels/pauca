@@ -21,7 +21,7 @@ Pauca comes in two apps on the Play Store:
 - **Pauca Lite**, free: app cards, the drawer, gestures, two profiles, the Pauca and Paper themes, and olive, blue or no accent color.
 - **Pauca**, a one-time purchase: everything, including focus mode, unlimited profiles, every theme and color, fonts and alignment, and hidden buttons. Buying it is how you can support the project. When you install it, it brings your cards and settings over from Lite.
 
-Neither app asks for internet access. The code stays open here under the GPLv3, and anyone who prefers can build the full version and use it for free (see [Building](#building)).
+Neither app asks for internet access. The code stays open here under the GPLv3, and anyone who prefers can build the full version and use it for free (see [BUILDING.md](BUILDING.md)).
 
 ## Features
 
@@ -37,36 +37,10 @@ Neither app asks for internet access. The code stays open here under the GPLv3, 
   - **Hold notifications:** notifications from apps outside the list disappear. When focus ends, you get a summary ("8 notifications from 3 apps").
   - **Drawer:** shows only allowed apps.
   - **Block apps:** if an app outside the list opens, the phone goes back home (uses accessibility).
-  - **Grayscale:** needs one adb command, once (see below).
+  - **Grayscale:** needs one adb command, once (see [BUILDING.md](BUILDING.md#grayscale-focus-mode)).
 - **App drawer.** Search at the top, category buttons (social, productivity, finance, music & video…) and a floating search button. The category comes from Android or from a list of well-known apps, and you can change it with long press › Category.
 - **Gestures.** Swipe up for all apps and down for notifications. Swiping sideways opens an app (choose which in settings). Double tap locks the screen, and touching and holding the background opens settings.
 - **Privacy.** No internet permission and no data collection.
-
-## Building
-
-Requirements: JDK 17+ and the Android SDK (platform 36).
-
-```bash
-./gradlew assembleFullDebug
-```
-
-The APK ends up in `app/build/outputs/apk/full/debug/app-full-debug.apk`. To install it on a phone with USB debugging on:
-
-```bash
-adb install -r app/build/outputs/apk/full/debug/app-full-debug.apk
-```
-
-`assembleLiteDebug` builds Pauca Lite instead (`app/build/outputs/apk/lite/debug/`). Both come from the same code: the `lite` flavor turns off what is only in the full version (see `helper/Edition.kt`).
-
-Then choose Pauca as your home app (Settings › Apps › Default apps › Home app).
-
-### Grayscale focus mode
-
-Android only lets an app change the screen colors with a special permission. To grant it, run this once (in the debug build the package is `app.pauca.debug`):
-
-```bash
-adb shell pm grant app.pauca android.permission.WRITE_SECURE_SETTINGS
-```
 
 ## How the code is organized
 

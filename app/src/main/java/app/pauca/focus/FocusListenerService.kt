@@ -1,9 +1,11 @@
 package app.pauca.focus
 
 import android.app.Notification
+import android.content.ComponentName
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import app.pauca.data.Prefs
+import java.util.Objects
 
 /**
  * Durante o foco, tira da barra as notificações dos apps fora da lista e conta quantas
@@ -12,6 +14,13 @@ import app.pauca.data.Prefs
  */
 class FocusListenerService : NotificationListenerService() {
 
+    /**
+     * Marca da última versão contada de cada notificação (pela chave). Apps de mensagem costumam
+     * atualizar a mesma notificação sem mensagem nova, por exemplo para pôr a foto do contato, e
+     * isso não pode contar de novo. Fica só na memória e não guarda o texto, só uma marca dele.
+     */
+    private val counted = mutableMapOf<String, Int>()
+
     override fun onListenerConnected() {
         instance = this
         sweep()
@@ -19,6 +28,12 @@ class FocusListenerService : NotificationListenerService() {
 
     override fun onListenerDisconnected() {
         if (instance === this) instance = null
+        // Alguns celulares desligam o ouvinte para poupar bateria; durante o foco, pede para voltar
+        if (Prefs(this).focusActive) try {
+            requestRebind(ComponentName(this, FocusListenerService::class.java))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun onDestroy() {
@@ -52,10 +67,26 @@ class FocusListenerService : NotificationListenerService() {
         }
         // O resumo do grupo é só um "envelope": conta as mensagens, não ele
         if (sbn.notification.flags and Notification.FLAG_GROUP_SUMMARY != 0) return
+        val mark = mark(sbn)
+        if (counted[sbn.key] == mark) return
+        counted[sbn.key] = mark
         val digest = prefs.focusDigest.toMutableMap()
         digest[sbn.packageName] = (digest[sbn.packageName] ?: 0) + 1
         prefs.focusDigest = digest
     }
+
+    /** Muda quando chega algo novo (hora, título ou texto), não quando o app só retoca a notificação. */
+    private fun mark(sbn: StatusBarNotification): Int {
+        val n = sbn.notification
+        return Objects.hash(
+            n.`when`,
+            n.extras.getCharSequence(Notification.EXTRA_TITLE)?.toString(),
+            n.extras.getCharSequence(Notification.EXTRA_TEXT)?.toString(),
+        )
+    }
+
+    /** Um foco novo começa a contar do zero. */
+    fun resetCounts() = counted.clear()
 
     private fun shouldHold(sbn: StatusBarNotification): Boolean {
         val n = sbn.notification

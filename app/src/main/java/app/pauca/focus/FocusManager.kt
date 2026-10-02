@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.UserManager
 import android.provider.Settings
 import android.service.notification.Condition
+import android.service.notification.NotificationListenerService
 import android.service.notification.ZenPolicy
 import android.telecom.TelecomManager
 import androidx.annotation.RequiresApi
@@ -60,12 +61,13 @@ object FocusManager {
         if (!prefs.focusActive) {
             prefs.focusSince = System.currentTimeMillis()
             prefs.focusDigest = emptyMap()
+            FocusListenerService.instance?.resetCounts()
         }
         prefs.focusActive = true
         prefs.focusSource = source
         refreshLaunchable(context)
         applyAll(context, on = true)
-        FocusListenerService.instance?.sweep()
+        FocusListenerService.instance?.sweep() ?: ensureListener(context)
         notifyListeners()
     }
 
@@ -145,6 +147,20 @@ object FocusManager {
 
     fun hasListenerAccess(context: Context): Boolean =
         NotificationManagerCompat.getEnabledListenerPackages(context).contains(context.packageName)
+
+    /**
+     * Se há acesso às notificações mas o ouvinte não está ligado (o Android pode desligá-lo para
+     * poupar bateria, ou depois de uma atualização), pede para religar. Ao voltar, ele passa
+     * pelas notificações da barra ([FocusListenerService.sweep]).
+     */
+    fun ensureListener(context: Context) {
+        if (FocusListenerService.instance != null || !hasListenerAccess(context)) return
+        try {
+            NotificationListenerService.requestRebind(ComponentName(context, FocusListenerService::class.java))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
     fun canWriteSecureSettings(context: Context): Boolean =
         context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED

@@ -16,6 +16,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -29,6 +30,7 @@ import app.pauca.data.Prefs
 import app.pauca.databinding.ActivityMainBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.Language
+import app.pauca.helper.LiteImport
 import app.pauca.helper.OlDialog
 import app.pauca.helper.hasBeenHours
 import app.pauca.helper.isDefaultLauncher
@@ -38,6 +40,7 @@ import app.pauca.helper.isTablet
 import app.pauca.helper.resetLauncherViaFakeActivity
 import app.pauca.helper.showLauncherSelector
 import app.pauca.helper.showMessageDialog
+import app.pauca.helper.showToast
 import app.pauca.ui.Wallpaper
 import java.util.Locale
 
@@ -57,7 +60,11 @@ class MainActivity : AppCompatActivity() {
      */
     var keepCurrentScreen = false
 
+    private var importedFromLite = false
+
     override fun attachBaseContext(context: Context) {
+        // Antes de ler qualquer ajuste: na primeira abertura, o Pauca traz os do Lite
+        importedFromLite = LiteImport.runOnce(context)
         // Só o que o app muda (escala da fonte e idioma): copiar a configuração inteira
         // prenderia o resto ao valor de agora
         val newConfig = Configuration()
@@ -90,6 +97,7 @@ class MainActivity : AppCompatActivity() {
         }
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
+        if (importedFromLite) showToast(getString(R.string.lite_imported), Toast.LENGTH_LONG)
         if (prefs.firstOpen) {
             prefs.firstOpen = false
             prefs.firstOpenTime = System.currentTimeMillis()

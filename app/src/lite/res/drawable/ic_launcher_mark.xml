@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Ícone do Pauca Lite: o mesmo olho fechado, um pouco mais baixo, e o selo "LITE" no canto
+  de cima à direita. O selo fica dentro do círculo seguro (raio 33dp a partir do centro) para
+  não ser cortado pelas máscaras redondas. As letras são recortes no selo (evenOdd), então ele
+  também funciona no ícone monocromático do Android 13.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.17"
+        android:scaleY="0.17"
+        android:translateX="10.48"
+        android:translateY="7.68">
+        <path
+            android:pathData="M132,226c40,62 84,90 124,90s84,-28 124,-90M166,290l-26,40M256,318v48M346,290l26,40"
+            android:strokeWidth="34"
+            android:strokeColor="#FBF3E6"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+    <path
+        android:fillColor="#FBF3E6"
+        android:fillType="evenOdd"
+        android:pathData="M54.5,27.5h17a6,6 0,0 1,0 12h-17a6,6 0,0 1,0 -12z
+            M55,30.5h1.4v4.6h-1.4z M55,35.1h3.4v1.4h-3.4z
+            M60,30.5h1.4v6h-1.4z
+            M63,30.5h4.2v1.4h-4.2z M64.4,31.9h1.4v4.6h-1.4z
+            M68.8,30.5h1.4v6h-1.4z M70.2,30.5h1.8v1.4h-1.8z M70.2,32.8h1.4v1.4h-1.4z M70.2,35.1h1.8v1.4h-1.8z" />
+</vector>

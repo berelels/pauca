@@ -1,10 +1,10 @@
 """Gera as SharedPreferences do Pauca para as capturas de divulgação.
 Uso: python3 prefs.py <idioma> [chave=valor ...]  (valores: true/false, inteiros ou texto)"""
-import json, re, sys, uuid, subprocess
+import json, os, re, sys, uuid, subprocess
 from xml.sax.saxutils import escape, quoteattr
 
 E = ["adb", "-s", "emulator-5554"]
-PKG = "app.pauca.debug"
+PKG = os.environ.get("PKG", "app.pauca.debug")
 LABELS = {
     "en": {"phone": "phone", "messages": "messages", "camera": "camera", "photos": "photos",
            "music": "music", "maps": "maps", "calendar": "calendar", "mail": "mail",
@@ -44,7 +44,9 @@ def home(lang):
             "groups": [group(lang, ["mail", "calendar", "messages"])]}
     focus = {"id": "focus", "name": L["focus"], "focusOnSwitch": True,
              "groups": [group(lang, ["phone", "messages", "maps"])]}
-    return {"version": 1, "activeId": ACTIVE, "profiles": [personal, work, focus]}
+    # O Lite não tem modo foco e guarda no máximo dois perfis
+    profiles = [personal, work] if ".lite" in PKG else [personal, work, focus]
+    return {"version": 1, "activeId": ACTIVE, "profiles": profiles}
 
 def xml_value(k, v):
     if isinstance(v, bool):
@@ -74,7 +76,6 @@ def parse(v):
     except ValueError: return v
 
 lang = sys.argv[1]
-import os
 ACTIVE = os.environ.get("ACTIVE", "personal")
 prefs = {"FIRST_OPEN": False, "FIRST_SETTINGS_OPEN": False, "FIRST_HIDE": False, "TUTORIAL_DONE": True,
          "HIDE_SET_DEFAULT_LAUNCHER": True, "KEYBOARD_MESSAGE": True, "LANGUAGE": lang if lang != "pt" else "pt-BR",

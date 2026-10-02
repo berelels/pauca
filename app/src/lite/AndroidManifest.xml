@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- Entrega os ajustes do Lite para o Pauca, que é assinado com a mesma chave -->
+        <provider
+            android:name="app.pauca.helper.LiteExportProvider"
+            android:authorities="${applicationId}.export"
+            android:exported="true"
+            android:readPermission="${migratePermission}" />
+    </application>
+</manifest>

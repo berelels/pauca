@@ -22,6 +22,7 @@ import app.pauca.R
 import app.pauca.data.Constants
 import app.pauca.data.HomeStore
 import app.pauca.data.Prefs
+import app.pauca.helper.Edition
 import app.pauca.helper.Language
 import app.pauca.helper.MyAccessibilityService
 
@@ -53,6 +54,8 @@ object FocusManager {
     }
 
     fun activate(context: Context, source: String) {
+        // O modo foco é só da versão completa
+        if (Edition.isLite) return
         val prefs = Prefs(context)
         if (!prefs.focusActive) {
             prefs.focusSince = System.currentTimeMillis()

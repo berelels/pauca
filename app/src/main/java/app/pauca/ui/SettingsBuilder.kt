@@ -18,6 +18,7 @@ import app.pauca.R
 import app.pauca.data.Accent
 import app.pauca.data.Constants
 import app.pauca.data.Palette
+import app.pauca.helper.Edition
 import app.pauca.helper.dpToPx
 import app.pauca.helper.showPopupMenu
 
@@ -32,6 +33,33 @@ class SettingsBuilder(
 ) {
     private val refreshers = mutableListOf<() -> Unit>()
     private var card: LinearLayout? = null
+
+    /** Chamado ao tocar em algo bloqueado no Lite (abre o convite para o Pauca). */
+    var onLocked: () -> Unit = {}
+    private var locking = false
+
+    /**
+     * As linhas criadas dentro de [block] são só da versão completa: no Lite aparecem com
+     * o selo "Pauca" e, ao tocar, chamam [onLocked]. Na versão completa nada muda.
+     */
+    fun locked(enabled: Boolean = true, block: () -> Unit) {
+        if (!enabled || !Edition.isLite) return block()
+        locking = true
+        try {
+            block()
+        } finally {
+            locking = false
+        }
+    }
+
+    private fun badge() = TextView(context).apply {
+        setText(R.string.full_badge)
+        textSize = 11.5f
+        setTextColor(palette.accent)
+        Look.applyFont(this, Constants.Font.JAKARTA, 700)
+        background = Look.rounded(ColorUtils.setAlphaComponent(palette.accent, 0x24), 10)
+        setPadding(9.dpToPx(), 3.dpToPx(), 9.dpToPx(), 4.dpToPx())
+    }
 
     fun refresh() = refreshers.forEach { it() }
 
@@ -135,6 +163,12 @@ class SettingsBuilder(
     ): View {
         val row = rowShell()
         row.addView(texts(title, subtitle).first, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        if (locking) {
+            row.addView(badge())
+            row.setOnClickListener { onLocked() }
+            addToCard(row)
+            return row
+        }
         if (value != null) {
             val valueView = TextView(context).apply {
                 textSize = 15f
@@ -168,6 +202,12 @@ class SettingsBuilder(
     ): View {
         val row = rowShell()
         row.addView(texts(title, subtitle).first, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        if (locking) {
+            row.addView(badge())
+            row.setOnClickListener { onLocked() }
+            addToCard(row)
+            return row
+        }
         val switch = SwitchCompat(context).apply {
             isClickable = false
             isFocusable = false
@@ -326,7 +366,7 @@ class SettingsBuilder(
     }
 
     /** Linha de amostras de cor, uma para cada paleta. */
-    fun palettes(current: () -> String, onPick: (Palette) -> Unit) {
+    fun palettes(current: () -> String, locked: (Palette) -> Boolean = { false }, onPick: (Palette) -> Unit) {
         val row = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             setPadding(8.dpToPx(), 16.dpToPx(), 8.dpToPx(), 12.dpToPx())
@@ -346,7 +386,9 @@ class SettingsBuilder(
                 gravity = Gravity.CENTER_HORIZONTAL
                 addView(swatch, LinearLayout.LayoutParams(46.dpToPx(), 46.dpToPx()))
                 addView(label)
-                setOnClickListener { onPick(p) }
+                // Bloqueada no Lite: apagada, e o toque abre o convite
+                if (locked(p)) alpha = LOCKED_ALPHA
+                setOnClickListener { if (locked(p)) onLocked() else onPick(p) }
             }
             row.addView(column, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             Triple(p, swatch, label)
@@ -383,6 +425,7 @@ class SettingsBuilder(
         onPick: (String) -> Unit,
         customLabel: String,
         onCustom: () -> Unit,
+        locked: (String?) -> Boolean = { false },
     ) {
         val grid = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
@@ -415,7 +458,14 @@ class SettingsBuilder(
                     gravity = Gravity.CENTER_HORIZONTAL
                     addView(swatch, LinearLayout.LayoutParams(42.dpToPx(), 42.dpToPx()))
                     addView(name)
-                    setOnClickListener { if (id == null) onCustom() else onPick(id) }
+                    if (locked(id)) alpha = LOCKED_ALPHA
+                    setOnClickListener {
+                        when {
+                            locked(id) -> onLocked()
+                            id == null -> onCustom()
+                            else -> onPick(id)
+                        }
+                    }
                 }
                 row.addView(column, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 cells.add(Triple(id, swatch, name))
@@ -449,6 +499,8 @@ class SettingsBuilder(
     }
 
     companion object {
+        private const val LOCKED_ALPHA = 0.38f
+
         /** Menu de opções preso à linha, com um ✓ na atual. */
         fun <T> choose(anchor: View, options: List<Pair<String, T>>, current: T, onPick: (T) -> Unit) {
             anchor.showPopupMenu(configure = { menu ->

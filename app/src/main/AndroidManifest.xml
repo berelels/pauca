@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Lite → Pauca: só apps com a mesma assinatura leem os ajustes do Lite (veja LiteImport) -->
+    <permission
+        android:name="${migratePermission}"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="${migratePermission}" />
+
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <!-- Só para pôr a imagem escolhida na tela de bloqueio, quando a pessoa pede -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />

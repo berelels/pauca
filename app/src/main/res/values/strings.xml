@@ -339,4 +339,15 @@
         <item quantity="one">During focus: %1$d notification from %2$d app · view</item>
         <item quantity="other">During focus: %1$d notifications from %2$d apps · view</item>
     </plurals>
+
+    <!-- Pauca Lite e versão completa -->
+    <string name="full_title">Available in Pauca</string>
+    <string name="full_message">Pauca Lite is the free version. Pauca, the full version, adds focus mode, unlimited profiles, more themes and colors (your own wallpaper too), fonts and alignment, and buttons you can hide. It\'s a one-time purchase, with no subscription and, like this one, no internet access.\n\nYour cards and settings come with you.</string>
+    <string name="full_action">See in the Play Store</string>
+    <string name="full_badge">Pauca</string>
+    <string name="full_row">Get Pauca</string>
+    <string name="full_row_summary">Focus mode, unlimited profiles, more themes, colors and fonts</string>
+    <string name="focus_lite_summary">Silence your phone and let through only what you choose</string>
+    <string name="profiles_hint_lite">Each profile has its own cards. Pauca Lite has room for two; Pauca has no limit.</string>
+    <string name="lite_imported">Your cards and settings from Pauca Lite came along.</string>
 </resources>

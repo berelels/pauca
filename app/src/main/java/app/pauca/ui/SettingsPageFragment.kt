@@ -34,6 +34,7 @@ import app.pauca.data.Prefs
 import app.pauca.data.Profile
 import app.pauca.databinding.FragmentSettingsBinding
 import app.pauca.focus.FocusManager
+import app.pauca.helper.Edition
 import app.pauca.helper.OlDialog
 import app.pauca.helper.appUsagePermissionGranted
 import app.pauca.helper.copyToClipboard
@@ -87,6 +88,7 @@ class SettingsPageFragment : BaseFragment() {
         palette = prefs.palette.forScreens
         binding.root.applyScreenStyle(palette)
         ui = SettingsBuilder(requireContext(), binding.content, palette)
+        ui.onLocked = { Edition.showUpsell(requireContext()) { showDialog(it) } }
 
         val title = when (page) {
             Constants.Page.APPEARANCE -> R.string.appearance
@@ -126,6 +128,10 @@ class SettingsPageFragment : BaseFragment() {
     private fun buildMain() {
         val context = requireContext()
         ui.header(getString(R.string.app_name), getString(R.string.settings_tagline))
+        if (Edition.isLite) {
+            ui.section(null)
+            ui.row(getString(R.string.full_row), subtitle = { getString(R.string.full_row_summary) }, chevron = true) { ui.onLocked() }
+        }
 
         ui.section(getString(R.string.section_home))
         ui.row(getString(R.string.edit_apps), chevron = true) { go(R.id.editHomeFragment) }
@@ -134,13 +140,17 @@ class SettingsPageFragment : BaseFragment() {
         ui.row(getString(R.string.clock_and_date), chevron = true) { openPage(Constants.Page.CLOCK) }
 
         ui.section(getString(R.string.focus_mode))
-        ui.toggle(
-            getString(R.string.focus_mode),
-            subtitle = { focusStatus() },
-            get = { prefs.focusActive },
-            set = { toggleFocus() },
-        )
-        ui.row(getString(R.string.focus_configure), chevron = true) { openPage(Constants.Page.FOCUS) }
+        if (Edition.isLite) ui.locked {
+            ui.row(getString(R.string.focus_mode), subtitle = { getString(R.string.focus_lite_summary) }) {}
+        } else {
+            ui.toggle(
+                getString(R.string.focus_mode),
+                subtitle = { focusStatus() },
+                get = { prefs.focusActive },
+                set = { toggleFocus() },
+            )
+            ui.row(getString(R.string.focus_configure), chevron = true) { openPage(Constants.Page.FOCUS) }
+        }
 
         ui.section(getString(R.string.section_drawer))
         ui.row(getString(R.string.gestures), subtitle = { getString(R.string.gestures_summary) }, chevron = true) { openPage(Constants.Page.GESTURES) }
@@ -203,7 +213,7 @@ class SettingsPageFragment : BaseFragment() {
 
     private fun buildAppearance() {
         ui.section(getString(R.string.theme))
-        ui.palettes(current = { prefs.paletteId }) { picked ->
+        ui.palettes(current = { prefs.paletteId }, locked = { !Edition.hasPalette(it.id) }) { picked ->
             // "Fundo" abre o editor (imagem, desfoque, brilho) antes de aplicar
             if (picked.showsWallpaper) return@palettes go(R.id.wallpaperFragment)
             if (picked.id == prefs.paletteId) return@palettes
@@ -236,69 +246,78 @@ class SettingsPageFragment : BaseFragment() {
             onPick = { setAccent(it) },
             customLabel = getString(R.string.accent_custom),
             onCustom = { askCustomAccent() },
+            // null é a cor personalizada, que também é só da versão completa
+            locked = { id -> if (id == null) Edition.isLite else !Edition.hasAccent(id) },
         )
         ui.note(getString(R.string.accent_hint))
 
         ui.section(getString(R.string.section_apps_text))
         val preview = homePreview()
         ui.custom(preview.first, preview.second)
-        ui.row(getString(R.string.home_style), value = { styleLabel(prefs.homeStyle) }) { anchor ->
-            SettingsBuilder.choose(anchor, listOf(
-                getString(R.string.style_cards) to Constants.HomeStyle.CARDS,
-                getString(R.string.style_list) to Constants.HomeStyle.LIST,
-            ), prefs.homeStyle) { prefs.homeStyle = it; ui.refresh() }
-        }
-        ui.row(getString(R.string.font), value = { fontLabel(prefs.appFont) }) { anchor ->
-            SettingsBuilder.choose(anchor, fontOptions(), prefs.appFont) { prefs.appFont = it; ui.refresh() }
+        ui.locked {
+            ui.row(getString(R.string.home_style), value = { styleLabel(prefs.homeStyle) }) { anchor ->
+                SettingsBuilder.choose(anchor, listOf(
+                    getString(R.string.style_cards) to Constants.HomeStyle.CARDS,
+                    getString(R.string.style_list) to Constants.HomeStyle.LIST,
+                ), prefs.homeStyle) { prefs.homeStyle = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.font), value = { fontLabel(prefs.appFont) }) { anchor ->
+                SettingsBuilder.choose(anchor, fontOptions(), prefs.appFont) { prefs.appFont = it; ui.refresh() }
+            }
         }
         ui.stepper(getString(R.string.text_size), get = { prefs.appTextSize }, set = { prefs.appTextSize = it }, min = 16, max = 56, step = 2)
-        ui.row(getString(R.string.weight), value = { weightLabel(prefs.appWeight) }) { anchor ->
-            SettingsBuilder.choose(anchor, weightOptions(), prefs.appWeight) { prefs.appWeight = it; ui.refresh() }
+        ui.locked {
+            ui.row(getString(R.string.weight), value = { weightLabel(prefs.appWeight) }) { anchor ->
+                SettingsBuilder.choose(anchor, weightOptions(), prefs.appWeight) { prefs.appWeight = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.letters), value = { caseLabel(prefs.textCase) }) { anchor ->
+                SettingsBuilder.choose(anchor, listOf(
+                    getString(R.string.case_lower) to Constants.TextCase.LOWER,
+                    getString(R.string.case_as_typed) to Constants.TextCase.AS_TYPED,
+                    getString(R.string.case_upper) to Constants.TextCase.UPPER,
+                ), prefs.textCase) { prefs.textCase = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.alignment), value = { alignmentLabel(prefs.homeAlignment) }) { anchor ->
+                SettingsBuilder.choose(anchor, alignmentOptions(), prefs.homeAlignment) { prefs.homeAlignment = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.position), value = { verticalLabel(prefs.homeVertical) }) { anchor ->
+                SettingsBuilder.choose(anchor, listOf(
+                    getString(R.string.top) to Constants.Vertical.TOP,
+                    getString(R.string.center) to Constants.Vertical.CENTER,
+                    getString(R.string.bottom) to Constants.Vertical.BOTTOM,
+                ), prefs.homeVertical) { prefs.homeVertical = it; ui.refresh() }
+            }
         }
-        ui.row(getString(R.string.letters), value = { caseLabel(prefs.textCase) }) { anchor ->
-            SettingsBuilder.choose(anchor, listOf(
-                getString(R.string.case_lower) to Constants.TextCase.LOWER,
-                getString(R.string.case_as_typed) to Constants.TextCase.AS_TYPED,
-                getString(R.string.case_upper) to Constants.TextCase.UPPER,
-            ), prefs.textCase) { prefs.textCase = it; ui.refresh() }
+        ui.locked {
+            ui.section(getString(R.string.section_buttons))
+            ui.row(getString(R.string.top_bar), value = { barModeLabel(prefs.topBarMode) }) { anchor ->
+                SettingsBuilder.choose(anchor, barModeOptions(), prefs.topBarMode) { prefs.topBarMode = it; ui.refresh() }
+            }
+            ui.toggle(getString(R.string.button_settings), get = { prefs.showSettingsButton }, set = { prefs.showSettingsButton = it; true })
+            ui.toggle(getString(R.string.button_edit), get = { prefs.showEditButton }, set = { prefs.showEditButton = it; true })
+            ui.section(null)
+            ui.row(getString(R.string.bottom_bar), value = { barModeLabel(prefs.bottomBarMode) }) { anchor ->
+                SettingsBuilder.choose(anchor, barModeOptions(), prefs.bottomBarMode) { prefs.bottomBarMode = it; ui.refresh() }
+            }
+            ui.toggle(getString(R.string.button_theme), get = { prefs.showThemeButton }, set = { prefs.showThemeButton = it; true })
+            ui.toggle(getString(R.string.button_profile), get = { prefs.showProfileButton }, set = { prefs.showProfileButton = it; true })
+            if (!Edition.isLite) ui.toggle(getString(R.string.button_focus), get = { prefs.showFocusButton }, set = { prefs.showFocusButton = it; true })
         }
-        ui.row(getString(R.string.alignment), value = { alignmentLabel(prefs.homeAlignment) }) { anchor ->
-            SettingsBuilder.choose(anchor, alignmentOptions(), prefs.homeAlignment) { prefs.homeAlignment = it; ui.refresh() }
-        }
-        ui.row(getString(R.string.position), value = { verticalLabel(prefs.homeVertical) }) { anchor ->
-            SettingsBuilder.choose(anchor, listOf(
-                getString(R.string.top) to Constants.Vertical.TOP,
-                getString(R.string.center) to Constants.Vertical.CENTER,
-                getString(R.string.bottom) to Constants.Vertical.BOTTOM,
-            ), prefs.homeVertical) { prefs.homeVertical = it; ui.refresh() }
-        }
+        if (!Edition.isLite) ui.note(getString(R.string.buttons_hint))
 
-        ui.section(getString(R.string.section_buttons))
-        ui.row(getString(R.string.top_bar), value = { barModeLabel(prefs.topBarMode) }) { anchor ->
-            SettingsBuilder.choose(anchor, barModeOptions(), prefs.topBarMode) { prefs.topBarMode = it; ui.refresh() }
+        ui.locked {
+            ui.section(getString(R.string.section_screen))
+            ui.toggle(
+                getString(R.string.status_bar_show),
+                subtitle = { getString(R.string.status_bar_summary) },
+                get = { prefs.showStatusBar },
+                set = {
+                    prefs.showStatusBar = it
+                    if (it) requireActivity().window.showStatusBar() else requireActivity().window.hideStatusBar()
+                    true
+                },
+            )
         }
-        ui.toggle(getString(R.string.button_settings), get = { prefs.showSettingsButton }, set = { prefs.showSettingsButton = it; true })
-        ui.toggle(getString(R.string.button_edit), get = { prefs.showEditButton }, set = { prefs.showEditButton = it; true })
-        ui.section(null)
-        ui.row(getString(R.string.bottom_bar), value = { barModeLabel(prefs.bottomBarMode) }) { anchor ->
-            SettingsBuilder.choose(anchor, barModeOptions(), prefs.bottomBarMode) { prefs.bottomBarMode = it; ui.refresh() }
-        }
-        ui.toggle(getString(R.string.button_theme), get = { prefs.showThemeButton }, set = { prefs.showThemeButton = it; true })
-        ui.toggle(getString(R.string.button_profile), get = { prefs.showProfileButton }, set = { prefs.showProfileButton = it; true })
-        ui.toggle(getString(R.string.button_focus), get = { prefs.showFocusButton }, set = { prefs.showFocusButton = it; true })
-        ui.note(getString(R.string.buttons_hint))
-
-        ui.section(getString(R.string.section_screen))
-        ui.toggle(
-            getString(R.string.status_bar_show),
-            subtitle = { getString(R.string.status_bar_summary) },
-            get = { prefs.showStatusBar },
-            set = {
-                prefs.showStatusBar = it
-                if (it) requireActivity().window.showStatusBar() else requireActivity().window.hideStatusBar()
-                true
-            },
-        )
     }
 
     private fun setAccent(accent: String) {
@@ -377,42 +396,48 @@ class SettingsPageFragment : BaseFragment() {
         }
 
         ui.section(getString(R.string.section_clock))
-        ui.row(getString(R.string.time_format), value = { timeFormatLabel(prefs.clockPattern) }) { anchor ->
-            val options = listOf(
-                getString(R.string.format_auto) to "",
-                "24h · 19:42" to "HH:mm",
-                "12h · 7:42" to "h:mm",
-                "12h · 7:42 PM" to "h:mm a",
-                getString(R.string.format_seconds) to "HH:mm:ss",
-                getString(R.string.format_custom) to CUSTOM,
-            )
-            SettingsBuilder.choose(anchor, options, prefs.clockPattern.takeIf { p -> options.any { it.second == p } } ?: CUSTOM) {
-                if (it == CUSTOM) askPattern(getString(R.string.time_format), prefs.clockPattern.ifEmpty { "HH:mm" }) { p -> prefs.clockPattern = p }
-                else prefs.clockPattern = it
-                ui.refresh()
+        ui.locked {
+            ui.row(getString(R.string.time_format), value = { timeFormatLabel(prefs.clockPattern) }) { anchor ->
+                val options = listOf(
+                    getString(R.string.format_auto) to "",
+                    "24h · 19:42" to "HH:mm",
+                    "12h · 7:42" to "h:mm",
+                    "12h · 7:42 PM" to "h:mm a",
+                    getString(R.string.format_seconds) to "HH:mm:ss",
+                    getString(R.string.format_custom) to CUSTOM,
+                )
+                SettingsBuilder.choose(anchor, options, prefs.clockPattern.takeIf { p -> options.any { it.second == p } } ?: CUSTOM) {
+                    if (it == CUSTOM) askPattern(getString(R.string.time_format), prefs.clockPattern.ifEmpty { "HH:mm" }) { p -> prefs.clockPattern = p }
+                    else prefs.clockPattern = it
+                    ui.refresh()
+                }
+            }
+            ui.row(getString(R.string.font), value = { fontLabel(prefs.clockFont) }) { anchor ->
+                SettingsBuilder.choose(anchor, fontOptions(), prefs.clockFont) { prefs.clockFont = it; ui.refresh() }
             }
         }
-        ui.row(getString(R.string.font), value = { fontLabel(prefs.clockFont) }) { anchor ->
-            SettingsBuilder.choose(anchor, fontOptions(), prefs.clockFont) { prefs.clockFont = it; ui.refresh() }
-        }
         ui.stepper(getString(R.string.size), get = { prefs.clockSize }, set = { prefs.clockSize = it }, min = 28, max = 160, step = 4)
-        ui.row(getString(R.string.weight), value = { weightLabel(prefs.clockWeight) }) { anchor ->
-            SettingsBuilder.choose(anchor, weightOptions(), prefs.clockWeight) { prefs.clockWeight = it; ui.refresh() }
+        ui.locked {
+            ui.row(getString(R.string.weight), value = { weightLabel(prefs.clockWeight) }) { anchor ->
+                SettingsBuilder.choose(anchor, weightOptions(), prefs.clockWeight) { prefs.clockWeight = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.alignment), value = { alignmentLabel(prefs.clockAlignment) }) { anchor ->
+                SettingsBuilder.choose(anchor, alignmentOptions(), prefs.clockAlignment) { prefs.clockAlignment = it; ui.refresh() }
+            }
+            ui.toggle(getString(R.string.clock_accent), get = { prefs.clockAccent }, set = { prefs.clockAccent = it; true })
         }
-        ui.row(getString(R.string.alignment), value = { alignmentLabel(prefs.clockAlignment) }) { anchor ->
-            SettingsBuilder.choose(anchor, alignmentOptions(), prefs.clockAlignment) { prefs.clockAlignment = it; ui.refresh() }
-        }
-        ui.toggle(getString(R.string.clock_accent), get = { prefs.clockAccent }, set = { prefs.clockAccent = it; true })
 
         ui.section(getString(R.string.section_date))
-        ui.row(getString(R.string.date_format), value = { formatDate(prefs.datePattern.ifEmpty { defaultDatePattern() }) }) { anchor ->
-            val patterns = listOf("", "EEE, d MMM", "EEEE", "d MMM yyyy", "dd/MM/yyyy", "dd/MM")
-            val options = patterns.map { formatDate(it.ifEmpty { defaultDatePattern() }) to it } +
-                    (getString(R.string.format_custom) to CUSTOM)
-            SettingsBuilder.choose(anchor, options, prefs.datePattern.takeIf { it in patterns } ?: CUSTOM) {
-                if (it == CUSTOM) askPattern(getString(R.string.date_format), prefs.datePattern.ifEmpty { defaultDatePattern() }) { p -> prefs.datePattern = p }
-                else prefs.datePattern = it
-                ui.refresh()
+        ui.locked {
+            ui.row(getString(R.string.date_format), value = { formatDate(prefs.datePattern.ifEmpty { defaultDatePattern() }) }) { anchor ->
+                val patterns = listOf("", "EEE, d MMM", "EEEE", "d MMM yyyy", "dd/MM/yyyy", "dd/MM")
+                val options = patterns.map { formatDate(it.ifEmpty { defaultDatePattern() }) to it } +
+                        (getString(R.string.format_custom) to CUSTOM)
+                SettingsBuilder.choose(anchor, options, prefs.datePattern.takeIf { it in patterns } ?: CUSTOM) {
+                    if (it == CUSTOM) askPattern(getString(R.string.date_format), prefs.datePattern.ifEmpty { defaultDatePattern() }) { p -> prefs.datePattern = p }
+                    else prefs.datePattern = it
+                    ui.refresh()
+                }
             }
         }
         ui.toggle(getString(R.string.show_battery), get = { prefs.showBattery }, set = { prefs.showBattery = it; true })
@@ -658,15 +683,18 @@ class SettingsPageFragment : BaseFragment() {
                 accentValue = true,
             ) { anchor -> showProfileMenu(anchor, profile) }
         }
-        ui.row("+  " + getString(R.string.new_profile), accentValue = true) {
-            context.showInputDialog(getString(R.string.new_profile), "", hint = getString(R.string.profile_name_hint)) { name ->
-                if (name.isEmpty()) return@showInputDialog
-                val profile = Profile(name = name, groups = mutableListOf(HomeGroup()))
-                HomeStore.update(context) { it.profiles.add(profile) }
-                go(R.id.editHomeFragment, bundleOf(Constants.Key.PROFILE_ID to profile.id))
+        // No Lite: o perfil padrão e mais um
+        ui.locked(!Edition.canAddProfile(data.profiles.size)) {
+            ui.row("+  " + getString(R.string.new_profile), accentValue = true) {
+                context.showInputDialog(getString(R.string.new_profile), "", hint = getString(R.string.profile_name_hint)) { name ->
+                    if (name.isEmpty()) return@showInputDialog
+                    val profile = Profile(name = name, groups = mutableListOf(HomeGroup()))
+                    HomeStore.update(context) { it.profiles.add(profile) }
+                    go(R.id.editHomeFragment, bundleOf(Constants.Key.PROFILE_ID to profile.id))
+                }
             }
         }
-        ui.note(getString(R.string.profiles_hint))
+        ui.note(getString(if (Edition.isLite) R.string.profiles_hint_lite else R.string.profiles_hint))
     }
 
     private fun profileSummary(profile: Profile): String {
@@ -681,7 +709,7 @@ class SettingsPageFragment : BaseFragment() {
             if (data.activeId != profile.id) menu.add(0, 1, 0, R.string.use_profile)
             menu.add(0, 2, 1, R.string.edit_apps)
             menu.add(0, 3, 2, R.string.rename)
-            menu.add(0, 4, 3, if (profile.focusOnSwitch) R.string.focus_on_switch_off else R.string.focus_on_switch_on)
+            if (!Edition.isLite) menu.add(0, 4, 3, if (profile.focusOnSwitch) R.string.focus_on_switch_off else R.string.focus_on_switch_on)
             if (data.profiles.size > 1) menu.add(0, 5, 4, R.string.delete)
         }) {
             when (it.itemId) {

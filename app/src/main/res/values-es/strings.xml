@@ -340,4 +340,15 @@
         <item quantity="many">Durante la concentración: %1$d notificaciones de %2$d apps · ver</item>
         <item quantity="other">Durante la concentración: %1$d notificaciones de %2$d apps · ver</item>
     </plurals>
+
+    <!-- Pauca Lite e versão completa -->
+    <string name="full_title">Disponible en Pauca</string>
+    <string name="full_message">Pauca Lite es la versión gratuita. Pauca, la versión completa, tiene modo concentración, perfiles ilimitados, más temas y colores (incluido tu fondo de pantalla), fuentes y alineación, y botones que se pueden ocultar. Es un pago único, sin suscripción y, como esta, sin acceso a internet.\n\nTus tarjetas y ajustes vienen contigo.</string>
+    <string name="full_action">Ver en Play Store</string>
+    <string name="full_badge">Pauca</string>
+    <string name="full_row">Conoce Pauca</string>
+    <string name="full_row_summary">Modo concentración, perfiles ilimitados, más temas, colores y fuentes</string>
+    <string name="focus_lite_summary">Silencia el teléfono y deja pasar solo lo que elijas</string>
+    <string name="profiles_hint_lite">Cada perfil tiene sus propias tarjetas. Pauca Lite tiene espacio para dos; Pauca, sin límite.</string>
+    <string name="lite_imported">Tus tarjetas y ajustes de Pauca Lite vinieron contigo.</string>
 </resources>

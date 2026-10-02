@@ -1,9 +1,13 @@
 #!/bin/bash
-# capture_all.sh <en|pt|es>: troca o idioma do emulador e captura todas as telas usadas nos slides.
+# capture_all.sh <en|pt|es> [full|lite]: troca o idioma do emulador e captura as telas usadas nos
+# slides de uma das versões (o padrão é a completa).
 # Precisa do emulador (imagem google_apis, com root) e do build de debug instalado; veja README.md.
 set -e
 cd "$(dirname "$0")"
-L=$1; E="adb -s emulator-5554"
+L=$1; EDITION=${2:-full}; E="adb -s emulator-5554"
+if [ $EDITION = lite ]; then PKG=app.pauca.lite.debug; OUT=shots/lite/$L; else PKG=app.pauca.debug; OUT=shots/$L; fi
+export PKG
+$E shell cmd role add-role-holder --user 0 android.app.role.HOME $PKG
 # Espanhol latino-americano: o da Espanha mostra "9:42" na barra de status, sem o zero
 case $L in en) LOC=en-US;; pt) LOC=pt-BR;; es) LOC=es-419;; esac
 if [ "$($E shell getprop persist.sys.locale | tr -d '\r')" != "$LOC" ]; then
@@ -13,12 +17,31 @@ fi
 # 24 horas em todos os idiomas, para o horário aparecer como 09:42 (antes do demo.sh, que fixa a barra)
 $E shell settings put system time_12_24 24
 ./demo.sh
+mkdir -p $OUT
+snap() { sleep 3; $E exec-out screencap -p > $OUT/$1.png; }
+P="AUTO_SHOW_KEYBOARD=false"
+
+if [ $EDITION = lite ]; then
+  python3 prefs.py $L $P; snap home_dark
+  python3 prefs.py $L $P PALETTE=papel ACCENT=#5E7FA3; snap home_paper
+  python3 prefs.py $L $P; sleep 3; $E shell input swipe 540 1900 540 500 250; snap drawer
+  $E shell input keyevent BACK; sleep 1; $E shell input tap 70 165; snap settings
+  # Aparência: a linha fica na mesma altura em todos os idiomas
+  $E shell uiautomator dump /data/local/tmp/ui.xml >/dev/null
+  Y=$($E shell cat /data/local/tmp/ui.xml | python3 -c "
+import re, sys
+xml = sys.stdin.read()
+rows = re.findall(r'text=\"([^\"]*)\"[^>]*bounds=\"\[\d+,(\d+)\]\[\d+,(\d+)\]', xml)
+names = {'Appearance', 'Aparência', 'Apariencia'}
+print(next((int(a) + int(b)) // 2 for t, a, b in rows if t in names))")
+  $E shell input tap 400 $Y; snap appearance
+  $E shell input keyevent BACK; $E shell input keyevent BACK
+  exit 0
+fi
+
 # Papel de parede de exemplo para o tema "Fundo"
 $E push wallpaper.jpg /data/local/tmp/w.jpg >/dev/null
 $E shell 'mkdir -p /data/data/app.pauca.debug/files && cp /data/local/tmp/w.jpg /data/data/app.pauca.debug/files/wallpaper.jpg && chown -R $(stat -c %u:%g /data/data/app.pauca.debug) /data/data/app.pauca.debug/files'
-OUT=shots/$L; mkdir -p $OUT
-snap() { sleep 3; $E exec-out screencap -p > $OUT/$1.png; }
-P="AUTO_SHOW_KEYBOARD=false"
 python3 prefs.py $L $P; snap home_dark
 python3 prefs.py $L $P PALETTE=papel; snap home_paper
 python3 prefs.py $L $P PALETTE=grafite; snap home_grafite

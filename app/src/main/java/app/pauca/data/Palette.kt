@@ -110,13 +110,14 @@ data class Palette(
 object Accent {
     const val NONE = "none"
     const val DEFAULT = "#7E8C54"
+    const val BLUE = "#5E7FA3"
 
     /** Cor e nome (recurso de texto). */
     val PRESETS = listOf(
         DEFAULT to R.string.accent_olive,
         "#C4673F" to R.string.accent_terracotta,
         "#B8893A" to R.string.accent_ochre,
-        "#5E7FA3" to R.string.accent_blue,
+        BLUE to R.string.accent_blue,
         "#8E5E7E" to R.string.accent_plum,
         "#C2707A" to R.string.accent_rose,
     )

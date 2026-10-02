@@ -1,6 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+// Assinatura das versões de lançamento. keystore.properties (fora do git) aponta para a chave;
+// sem ele, o release sai sem assinatura, como antes (útil para quem compila o código aberto).
+def keystoreFile = rootProject.file("keystore.properties")
+def keystore = new Properties()
+if (keystoreFile.exists()) keystoreFile.withInputStream { keystore.load(it) }
+
 android {
     compileSdk 36
 
@@ -24,17 +30,47 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        if (keystoreFile.exists()) {
+            release {
+                storeFile file(keystore["storeFile"])
+                storePassword keystore["storePassword"]
+                keyAlias keystore["keyAlias"]
+                keyPassword keystore["keyPassword"]
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (keystoreFile.exists()) signingConfig signingConfigs.release
+            // Nomes diferentes no debug e no release: os dois podem conviver no mesmo celular
+            manifestPlaceholders = [migratePermission: "app.pauca.permission.MIGRATE"]
             debuggable false
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+            manifestPlaceholders = [migratePermission: "app.pauca.debug.permission.MIGRATE"]
             debuggable true
             minifyEnabled false
             applicationIdSuffix ".debug"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // Dois apps do mesmo código: o Pauca (pago) e o Pauca Lite (grátis, com menos recursos).
+    // São apps separados na loja para nenhum dos dois precisar de internet (compra dentro
+    // do app exigiria a biblioteca de cobrança, que usa a rede).
+    flavorDimensions += "edition"
+    productFlavors {
+        full {
+            dimension "edition"
+            buildConfigField "boolean", "LITE", "false"
+        }
+        lite {
+            dimension "edition"
+            applicationIdSuffix ".lite"
+            buildConfigField "boolean", "LITE", "true"
         }
     }
     buildFeatures {

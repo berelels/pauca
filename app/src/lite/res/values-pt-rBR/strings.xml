@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pauca Lite</string>
+    <!-- O Lite não tem modo foco: a acessibilidade só bloqueia a tela -->
+    <string name="accessibility_disclosure">O Pauca Lite usa o serviço de acessibilidade só para uma coisa: bloquear a tela com o toque duplo. Ele não lê o conteúdo da tela, não coleta e não compartilha nenhum dado.\n\nAtive o Pauca Lite nos ajustes de acessibilidade do celular.</string>
+    <string name="accessibility_service_description">Bloqueia a tela com o toque duplo. O Pauca Lite não coleta nem compartilha dados.</string>
 </resources>

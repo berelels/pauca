@@ -19,3 +19,6 @@ google-services.json
 .kotlin
 # Assinatura (senhas e chave ficam fora do git)
 keystore.properties
+
+# Configuração local do Claude Code (servidor de prévia do site)
+/.claude/

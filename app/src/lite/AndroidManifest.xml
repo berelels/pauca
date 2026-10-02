@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- O Lite não tem modo foco nem papel de parede próprio: sem as permissões deles -->
+    <uses-permission
+        android:name="android.permission.ACCESS_NOTIFICATION_POLICY"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.SET_WALLPAPER"
+        tools:node="remove" />
 
     <application>
         <!-- Entrega os ajustes do Lite para o Pauca, que é assinado com a mesma chave -->
@@ -8,5 +20,10 @@
             android:authorities="${applicationId}.export"
             android:exported="true"
             android:readPermission="${migratePermission}" />
+
+        <!-- Segurar notificações é do modo foco -->
+        <service
+            android:name="app.pauca.focus.FocusListenerService"
+            tools:node="remove" />
     </application>
 </manifest>

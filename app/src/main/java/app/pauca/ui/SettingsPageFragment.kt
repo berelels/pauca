@@ -620,7 +620,7 @@ class SettingsPageFragment : BaseFragment() {
     }
 
     private fun focusStatus(): String =
-        if (prefs.focusActive) getString(R.string.focus_on_since, DateFormat.getTimeFormat(requireContext()).format(prefs.focusSince))
+        if (prefs.focusActive) getString(R.string.focus_on_since, Look.shortTime(requireContext(), prefs.focusSince))
         else getString(R.string.focus_off)
 
     private fun toggleFocus(): Boolean {

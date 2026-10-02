@@ -6,7 +6,7 @@ A minimalist Android launcher inspired by the iOS Dumb Phone: text only, in card
 
 The name comes from the Latin *pauca*, "few things", as in Gauss's motto: *pauca sed matura*, few, but ripe.
 
-<p align="center"><img src="art/telas.png" width="720" alt="Pauca screens"></p>
+<p align="center"><img src="art/screens.png" width="900" alt="Pauca screens"></p>
 
 Made by [Gabriel Dias](https://github.com/berelels), based on [Olauncher](https://github.com/tanujnotes/Olauncher) by Tanuj.
 
@@ -72,6 +72,10 @@ adb shell pm grant app.pauca android.permission.WRITE_SECURE_SETTINGS
 | Settings (all pages) | `ui/SettingsPageFragment.kt`, `ui/SettingsBuilder.kt` |
 | Focus mode | `focus/FocusManager.kt`, `focus/FocusListenerService.kt`, `helper/MyAccessibilityService.kt` |
 | App drawer and categories | `ui/AppDrawerFragment.kt`, `ui/AppDrawerAdapter.kt`, `data/AppCategory.kt` |
+
+## Store images
+
+The Play Store screenshots and feature graphic, in English, Portuguese and Spanish, are built from real captures of the app. They live in `fastlane/metadata/android/`, and the scripts that make them are in [art/store/](art/store/).
 
 ## License
 

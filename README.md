@@ -10,7 +10,7 @@ O nome vem do latim *pauca*, "poucas coisas", como no lema de Gauss: *pauca sed 
 
 Feito por [Gabriel Dias](https://github.com/berelels) a partir do [Olauncher](https://github.com/tanujnotes/Olauncher), de Tanuj.
 
-<sub>Uma nota honesta: eu não programo em Kotlin. A ideia, o design, as decisões e os testes no meu próprio celular são meus; o código foi escrito pelo Claude, a IA da Anthropic, sob a minha direção. Por isso este README explica com calma como cada parte funciona: é o mapa que eu também uso para entender o projeto.</sub>
+<sub>Uma nota honesta: eu não programo em Kotlin. A ideia, o design, as decisões e os testes no meu próprio celular são meus; o código foi escrito pelo Claude, a IA da Anthropic, sob a minha direção. Por isso este README explica com calma como cada parte funciona: é o mapa para entender o projeto.</sub>
 
 ## Onde baixar
 

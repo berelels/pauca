@@ -335,10 +335,17 @@
         <item quantity="many">Este grupo tiene %d apps. Salen de la pantalla de inicio (siguen instaladas).</item>
         <item quantity="other">Este grupo tiene %d apps. Salen de la pantalla de inicio (siguen instaladas).</item>
     </plurals>
-    <plurals name="focus_digest">
-        <item quantity="one">Durante la concentración: %1$d notificación de %2$d app · ver</item>
-        <item quantity="many">Durante la concentración: %1$d notificaciones de %2$d apps · ver</item>
-        <item quantity="other">Durante la concentración: %1$d notificaciones de %2$d apps · ver</item>
+    <!-- Resumo do foco: "%1$s" e "%2$s" são as duas contagens abaixo, cada uma com o seu plural -->
+    <string name="focus_digest">Durante la concentración: %1$s de %2$s · ver</string>
+    <plurals name="focus_digest_notifications">
+        <item quantity="one">%d notificación</item>
+        <item quantity="many">%d notificaciones</item>
+        <item quantity="other">%d notificaciones</item>
+    </plurals>
+    <plurals name="focus_digest_apps">
+        <item quantity="one">%d app</item>
+        <item quantity="many">%d apps</item>
+        <item quantity="other">%d apps</item>
     </plurals>
 
     <!-- Pauca Lite e versão completa -->

@@ -153,6 +153,8 @@ class MainActivity : AppCompatActivity() {
         keepCurrentScreen = false
         viewModel.isPrivateSpaceToggling = false
         viewModel.getAppList()
+        // Durante o foco, confere se o ouvinte de notificações continua ligado
+        if (prefs.focusActive) FocusManager.ensureListener(this)
     }
 
     private fun registerShortcutCallback() {

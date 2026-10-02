@@ -332,7 +332,11 @@ class HomeFragment : BaseFragment() {
         binding.digest.isVisible = show
         if (!show) return
         val total = digest.values.sum()
-        binding.digest.text = resources.getQuantityString(R.plurals.focus_digest, total, total, digest.size)
+        binding.digest.text = getString(
+            R.string.focus_digest,
+            resources.getQuantityString(R.plurals.focus_digest_notifications, total, total),
+            resources.getQuantityString(R.plurals.focus_digest_apps, digest.size, digest.size),
+        )
         binding.digest.setTextColor(palette.text)
         binding.digest.background = Look.pressable(ColorUtils.setAlphaComponent(palette.accent, 0x2E), 18, palette.text)
     }

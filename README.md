@@ -6,6 +6,8 @@ A minimalist Android launcher inspired by the iOS Dumb Phone: text only, in card
 
 The name comes from the Latin *pauca*, "few things", as in Gauss's motto: *pauca sed matura*, few, but ripe.
 
+**Website:** [berelels.github.io/pauca](https://berelels.github.io/pauca/) · [Privacy policy](https://berelels.github.io/pauca/privacy/)
+
 <p align="center"><img src="art/screens.png" width="900" alt="Pauca screens"></p>
 
 Made by [Gabriel Dias](https://github.com/berelels), based on [Olauncher](https://github.com/tanujnotes/Olauncher) by Tanuj.

@@ -247,6 +247,8 @@
     <string name="center">Center</string>
     <string name="okay">OK</string>
     <string name="auto_show_keyboard">Open keyboard in the drawer</string>
+    <string name="auto_launch_search">Open when only one app is left</string>
+    <string name="auto_launch_search_summary">While searching in the drawer</string>
     <string name="hide">Hide</string>
     <string name="rename">Rename</string>
     <string name="gestures">Gestures</string>

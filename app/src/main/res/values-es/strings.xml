@@ -243,6 +243,8 @@
     <string name="center">Centro</string>
     <string name="okay">Aceptar</string>
     <string name="auto_show_keyboard">Abrir el teclado en el cajón</string>
+    <string name="auto_launch_search">Abrir cuando quede una sola app</string>
+    <string name="auto_launch_search_summary">Al buscar en el cajón</string>
     <string name="hide">Ocultar</string>
     <string name="rename">Renombrar</string>
     <string name="gestures">Gestos</string>

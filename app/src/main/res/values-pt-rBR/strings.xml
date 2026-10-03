@@ -243,6 +243,8 @@
     <string name="center">Centro</string>
     <string name="okay">Ok</string>
     <string name="auto_show_keyboard">Abrir o teclado na gaveta</string>
+    <string name="auto_launch_search">Abrir quando sobrar um só app</string>
+    <string name="auto_launch_search_summary">Ao buscar na gaveta</string>
     <string name="hide">Ocultar</string>
     <string name="rename">Renomear</string>
     <string name="gestures">Gestos</string>

@@ -160,6 +160,12 @@ class SettingsPageFragment : BaseFragment() {
             get = { prefs.autoShowKeyboard },
             set = { prefs.autoShowKeyboard = it; true },
         )
+        ui.toggle(
+            getString(R.string.auto_launch_search),
+            subtitle = { getString(R.string.auto_launch_search_summary) },
+            get = { prefs.autoLaunchSearch },
+            set = { prefs.autoLaunchSearch = it; true },
+        )
 
         ui.section(getString(R.string.section_system))
         ui.row(getString(R.string.language), value = { languageLabel(currentLanguage()) }) { anchor ->

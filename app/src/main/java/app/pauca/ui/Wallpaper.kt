@@ -101,8 +101,16 @@ object Wallpaper {
         shade.setBackgroundColor(shadeColor(look.brightness))
     }
 
+    /**
+     * Desfoca o que fica atrás da janela (o papel de parede do sistema). Usa o "blur behind",
+     * e não o setBackgroundBlurRadius: esse só vale em janela translúcida, e o Pauca não pode
+     * ser uma (o último app aberto apareceria atrás da tela inicial).
+     */
     private fun setWindowBlur(window: Window, radius: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) window.setBackgroundBlurRadius(radius)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return
+        if (radius > 0) window.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+        else window.clearFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+        window.attributes = window.attributes.apply { blurBehindRadius = radius }
     }
 
     private fun load(context: Context): Bitmap? {

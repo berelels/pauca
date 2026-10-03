@@ -334,6 +334,11 @@ class Prefs(context: Context) {
         get() = bool("AUTO_SHOW_KEYBOARD", true)
         set(value) = put("AUTO_SHOW_KEYBOARD", value)
 
+    /** Na busca da gaveta, abrir o app sozinho quando sobra um só. */
+    var autoLaunchSearch: Boolean
+        get() = bool("AUTO_LAUNCH_SEARCH", true)
+        set(value) = put("AUTO_LAUNCH_SEARCH", value)
+
     var keyboardMessageShown: Boolean
         get() = bool("KEYBOARD_MESSAGE", false)
         set(value) = put("KEYBOARD_MESSAGE", value)

@@ -1,42 +1,18 @@
-Pauca acerca tu smartphone a un dumbphone, un teléfono sencillo. Tus apps se convierten en palabras dentro de tarjetas tranquilas, con los nombres que elijas. Sin iconos, sin globos rojos, nada que te distraiga.
+Pauca acerca tu teléfono a un dumbphone: tus apps se convierten en palabras dentro de tarjetas tranquilas, con los nombres que elijas. Sin iconos, sin globos rojos.
 
-El nombre viene del latín pauca: "pocas cosas".
-
-TU PANTALLA DE INICIO
-• Agrupa tus apps en tarjetas y arrástralas para reordenarlas, incluso de una tarjeta a otra
-• Cambia el nombre de cualquier app: "mamá", "banco", "trabajo"
-• Perfiles como Personal, Trabajo y Noche, cada uno con sus tarjetas
-• Reloj y fecha a tu manera: formato, fuente, tamaño, grosor y alineación
-
-APARIENCIA
-• Cinco temas: Pauca, Papel, Grafito, Negro y Fondo
-• Una foto tuya de fondo, con desenfoque y brillo, también en la pantalla de bloqueo
-• Colores de acento: oliva, terracota, ocre, azul, ciruela, rosa, sin color o cualquier color que escribas
-• Fuentes, grosor, tamaño, alineación, minúsculas o MAYÚSCULAS
-• Oculta los botones, el reloj e incluso la barra de estado
+PANTALLA DE INICIO
+• Tarjetas de apps que renombras y reordenas
+• Perfiles como Personal, Trabajo y Noche
+• Reloj, temas, fuentes y colores a tu manera, u ocúltalo todo
 
 MODO CONCENTRACIÓN
-Actívalo con un toque, o deja que un perfil lo active por ti. Funciona por capas, cada una con su permiso:
-• No molestar con una regla propia de Pauca, eligiendo quién puede seguir llamando
-• Notificaciones de otras apps retenidas, con un resumen cuando termina
-• Un cajón solo con las apps permitidas
-• Apps en pausa: si una se abre, vuelves al inicio
-• Pantalla en escala de grises (necesita un comando desde un ordenador, una vez)
+Con un toque, o automático por perfil:
+• No molestar, eligiendo quién puede seguir llamando
+• Notificaciones retenidas, con un resumen al final
+• Solo las apps permitidas en el cajón; las demás te devuelven al inicio
+• Pantalla en escala de grises (un comando desde un ordenador, una vez)
 
-Y MÁS
-• Desliza hacia arriba para ver todas tus apps, con búsqueda y categorías
-• Desliza hacia abajo para las notificaciones y hacia los lados para abrir la app que elijas
-• Doble toque para bloquear la pantalla
-• Español, inglés y portugués
-• Un recorrido breve al empezar
+PRIVADO
+Sin permiso de internet, sin recopilar datos. El servicio de accesibilidad solo bloquea la pantalla con el doble toque y, en concentración, vuelve al inicio cuando se abre una app bloqueada.
 
-PRIVADO DE VERDAD
-Pauca no tiene permiso de internet y no recopila ningún dato. Todo se queda en tu teléfono.
-
-Accesibilidad: Pauca usa el servicio de accesibilidad solo para bloquear la pantalla con el doble toque y, en el modo concentración, volver al inicio cuando se abre una app que no está en tu lista. No lee lo que hay en tu pantalla.
-
-PRUÉBALO ANTES
-Pauca Lite es una versión más pequeña que puedes probar sin pagar. Cuando instalas Pauca, tus tarjetas y ajustes vienen contigo.
-
-CÓDIGO ABIERTO
-Pauca es de código abierto, bajo la GPLv3, basado en Olauncher, de Tanuj. Pago único, sin suscripción y sin anuncios.
+Prueba antes Pauca Lite sin pagar; tus tarjetas y ajustes vienen contigo. Código abierto (GPLv3), basado en Olauncher. Pago único, sin anuncios.

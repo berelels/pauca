@@ -155,6 +155,7 @@ class WallpaperFragment : BaseFragment() {
             setTextColor(0xFFFFFFFF.toInt())
             setShadowLayer(6f, 0f, 1.5f, shadow)
             Look.applyFont(this, prefs.clockFont, prefs.clockWeight, prefs.clockSize.toFloat())
+            Look.fitClock(this, box)
         })
         listOf(R.string.preview_app_1, R.string.preview_app_2).forEach {
             box.addView(TextView(context).also { label -> mockLabels.add(label) }.apply {

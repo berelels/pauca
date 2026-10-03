@@ -73,6 +73,7 @@
     <string name="format_custom">Personalizado…</string>
     <string name="invalid_pattern">Formato inválido. Ex.: HH:mm ou EEEE, d MMM</string>
     <string name="clock_accent">Relógio na cor de destaque</string>
+    <string name="apps_accent">Nomes dos apps na cor de destaque</string>
     <string name="show_battery">Bateria ao lado da data</string>
     <string name="show_screen_time">Tempo de tela ao lado da data</string>
     <string name="show_screen_time_summary">Precisa do acesso ao uso de apps</string>
@@ -360,4 +361,8 @@
     <string name="focus_lite_summary">Silencie o celular e deixe passar só o que você escolher</string>
     <string name="profiles_hint_lite">Cada perfil tem os seus próprios cartões. O Pauca Lite tem espaço para dois; o Pauca, sem limite.</string>
     <string name="lite_imported">Seus cartões e ajustes do Pauca Lite vieram junto.</string>
+    <string name="crash_reset_title">Ajustes de texto restaurados</string>
+    <string name="crash_reset_message">O Pauca fechou sozinho algumas vezes seguidas, então a fonte, o peso e o tamanho voltaram ao padrão. Se foi um erro, copie os detalhes e mande para a gente.</string>
+    <string name="crash_copy">Copiar detalhes</string>
+    <string name="crash_copied">Detalhes copiados</string>
 </resources>

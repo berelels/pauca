@@ -2,6 +2,7 @@ package app.pauca.ui
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
@@ -9,10 +10,12 @@ import android.os.Build
 import android.provider.Settings
 import android.text.format.DateFormat
 import android.util.TypedValue
+import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
+import androidx.core.view.doOnLayout
 import app.pauca.R
 import app.pauca.data.Constants
 import app.pauca.helper.Language
@@ -40,8 +43,21 @@ object Look {
      * vai pelo eixo 'wght'; a do sistema usa o peso mais próximo disponível.
      */
     fun applyFont(view: TextView, font: String, weight: Int, opticalSize: Float? = null) {
+        try {
+            setFont(view, font, weight, opticalSize)
+        } catch (e: Exception) {
+            // Alguns celulares recusam uma combinação de fonte e peso; melhor a fonte sem
+            // peso do que o app fechando a cada abertura
+            e.printStackTrace()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) runCatching { view.fontVariationSettings = null }
+            view.typeface = runCatching { typeface(view.context, font) }.getOrDefault(Typeface.DEFAULT)
+        }
+    }
+
+    private fun setFont(view: TextView, font: String, weight: Int, opticalSize: Float?) {
         val base = typeface(view.context, font)
         val variable = font == Constants.Font.JAKARTA || font == Constants.Font.NEWSREADER
+        val weight = weight.coerceIn(100, 900)
         // Trocar a fonte descarta o peso já aplicado, mas o TextView ignora o mesmo peso de
         // novo (acha que nada mudou). Limpar antes garante que o peso volte a cada redesenho.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) view.fontVariationSettings = null
@@ -50,13 +66,48 @@ object Look {
             val axes = buildList {
                 add("'wght' $weight")
                 if (font == Constants.Font.NEWSREADER && opticalSize != null)
-                    add("'opsz' ${opticalSize.coerceIn(6f, 72f)}")
+                    add("'opsz' ${opticalSize.coerceIn(6f, 72f).toInt()}")
             }
             view.fontVariationSettings = axes.joinToString(", ")
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            view.typeface = Typeface.create(base, weight.coerceIn(1, 1000), false)
+            view.typeface = Typeface.create(base, weight, false)
         } else {
             view.typeface = Typeface.create(base, if (weight >= 600) Typeface.BOLD else Typeface.NORMAL)
+        }
+    }
+
+    /**
+     * Sem o espaço extra da fonte (includeFontPadding falso), números grossos ou grandes passam
+     * da altura que a fonte declara e saem cortados em cima. Mede o desenho de verdade e dá
+     * só a folga que falta. Chamar depois de definir fonte, peso e tamanho.
+     */
+    fun fitGlyphs(view: TextView, sample: String = "0123456789:APM") {
+        val bounds = Rect()
+        view.paint.getTextBounds(sample, 0, sample.length, bounds)
+        val metrics = view.paint.fontMetricsInt
+        val top = (metrics.ascent - bounds.top).coerceAtLeast(0)
+        val bottom = (bounds.bottom - metrics.descent).coerceAtLeast(0)
+        val extra = 2.dpToPx()
+        view.setPadding(view.paddingLeft, if (top > 0) top + extra else 0, view.paddingRight, if (bottom > 0) bottom + extra else 0)
+    }
+
+    /**
+     * Relógio sempre numa linha: se no tamanho escolhido a hora não couber em [container],
+     * encolhe só o bastante (antes, "10:00" grande e grosso quebrava em "10:0" e "0").
+     * Depois acerta a folga de cima com [fitGlyphs].
+     */
+    fun fitClock(clock: TextView, container: View) {
+        clock.maxLines = 1
+        container.doOnLayout {
+            val available = container.width - container.paddingLeft - container.paddingRight -
+                    clock.paddingLeft - clock.paddingRight
+            // Todos os dígitos como "0", um dos mais largos: a largura não muda a cada minuto
+            val sample = clock.text.toString().replace(Regex("\\d"), "0")
+            val width = clock.paint.measureText(sample)
+            if (available > 0 && width > available) {
+                clock.setTextSize(TypedValue.COMPLEX_UNIT_PX, clock.textSize * available / width * 0.97f)
+            }
+            fitGlyphs(clock)
         }
     }
 

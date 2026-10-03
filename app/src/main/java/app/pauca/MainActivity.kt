@@ -29,6 +29,7 @@ import app.pauca.data.Palette
 import app.pauca.data.Prefs
 import app.pauca.databinding.ActivityMainBinding
 import app.pauca.focus.FocusManager
+import app.pauca.helper.CrashGuard
 import app.pauca.helper.Language
 import app.pauca.helper.LiteImport
 import app.pauca.helper.OlDialog
@@ -63,6 +64,9 @@ class MainActivity : AppCompatActivity() {
     private var importedFromLite = false
 
     override fun attachBaseContext(context: Context) {
+        // Antes de tudo: se as últimas aberturas fecharam sozinhas, os ajustes de texto voltam ao padrão
+        CrashGuard.install(context)
+        CrashGuard.onStart(context)
         // Antes de ler qualquer ajuste: na primeira abertura, o Pauca traz os do Lite
         importedFromLite = LiteImport.runOnce(context)
         // Só o que o app muda (escala da fonte e idioma): copiar a configuração inteira
@@ -98,6 +102,7 @@ class MainActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         if (importedFromLite) showToast(getString(R.string.lite_imported), Toast.LENGTH_LONG)
+        CrashGuard.takeReset(this)?.let { CrashGuard.showResetNotice(this, it) }
         if (prefs.firstOpen) {
             prefs.firstOpen = false
             prefs.firstOpenTime = System.currentTimeMillis()
@@ -155,6 +160,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.getAppList()
         // Durante o foco, confere se o ouvinte de notificações continua ligado
         if (prefs.focusActive) FocusManager.ensureListener(this)
+        window.decorView.postDelayed(markStable, CrashGuard.STABLE_MS)
+    }
+
+    private val markStable = Runnable { CrashGuard.onStable(this) }
+
+    override fun onPause() {
+        window.decorView.removeCallbacks(markStable)
+        super.onPause()
     }
 
     private fun registerShortcutCallback() {

@@ -1,6 +1,13 @@
 package app.pauca.helper
 
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
+import android.text.InputFilter
+import androidx.annotation.ColorInt
+import androidx.core.graphics.ColorUtils
+import androidx.core.widget.doAfterTextChanged
+import app.pauca.data.Accent
+import app.pauca.ui.ColorTriangleView
 import android.text.InputType
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
@@ -179,6 +186,83 @@ fun Context.showInputDialog(
     dialog.setOnShowListener {
         input.requestFocus()
         input.postDelayed({ input.showKeyboard() }, 150)
+    }
+    dialog.show()
+    return dialog
+}
+
+/**
+ * Cor personalizada: o seletor de anel e triângulo e, embaixo, o código (#RRGGBB) para quem
+ * já sabe a cor que quer. Os dois andam juntos.
+ */
+fun Context.showColorDialog(
+    title: CharSequence,
+    @ColorInt initial: Int,
+    onSave: (Int) -> Unit,
+): OlDialog {
+    val textColor = getColorFromAttr(app.pauca.R.attr.primaryColor)
+    val picker = ColorTriangleView(this).apply { color = initial }
+    val swatch = View(this)
+    fun paintSwatch(color: Int) {
+        swatch.background = GradientDrawable().apply {
+            shape = GradientDrawable.OVAL
+            setColor(color)
+            setStroke(1.dpToPx(), ColorUtils.setAlphaComponent(textColor, 0x33))
+        }
+    }
+    fun hex(color: Int) = String.format("#%06X", color and 0xFFFFFF)
+    val input = EditText(this).apply {
+        setText(hex(initial))
+        isSingleLine = true
+        imeOptions = EditorInfo.IME_ACTION_DONE
+        inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+        filters = arrayOf(InputFilter.LengthFilter(7))
+        textSize = 18f
+        setTextColor(textColor)
+        typeface = ResourcesCompat.getFont(this@showColorDialog, app.pauca.R.font.jakarta)
+        Look.tintTextInput(this, Prefs(this@showColorDialog).palette.accent)
+    }
+    paintSwatch(initial)
+    // O texto muda pelo seletor sem disparar a volta (o seletor mudando pelo texto)
+    var syncing = false
+    picker.onColorChanged = { color ->
+        paintSwatch(color)
+        syncing = true
+        input.setText(hex(color))
+        input.setSelection(input.text.length)
+        syncing = false
+    }
+    input.doAfterTextChanged { text ->
+        if (syncing) return@doAfterTextChanged
+        val parsed = Accent.normalize(text?.toString().orEmpty()) ?: return@doAfterTextChanged
+        val color = Accent.parse(parsed) ?: return@doAfterTextChanged
+        picker.color = color
+        paintSwatch(color)
+    }
+    lateinit var dialog: OlDialog
+    dialog = createDialog(
+        title = title,
+        action = getString(app.pauca.R.string.save),
+        onAction = { onSave(picker.color) },
+        content = { container ->
+            LinearLayout(container.context).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(0, 16.dpToPx(), 8.dpToPx(), 8.dpToPx())
+                addView(picker, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+                addView(LinearLayout(container.context).apply {
+                    orientation = LinearLayout.HORIZONTAL
+                    gravity = Gravity.CENTER_VERTICAL
+                    setPadding(0, 16.dpToPx(), 0, 0)
+                    addView(swatch, LinearLayout.LayoutParams(32.dpToPx(), 32.dpToPx()).apply { marginEnd = 14.dpToPx() })
+                    addView(input, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                })
+            }
+        },
+    )
+    input.setOnEditorActionListener { _, actionId, _ ->
+        if (actionId != EditorInfo.IME_ACTION_DONE) return@setOnEditorActionListener false
+        input.hideKeyboard()
+        true
     }
     dialog.show()
     return dialog

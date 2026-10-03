@@ -45,6 +45,7 @@ import app.pauca.helper.isAccessServiceEnabled
 import app.pauca.helper.isDefaultHome
 import app.pauca.helper.openAppInfo
 import app.pauca.helper.openUrl
+import app.pauca.helper.showColorDialog
 import app.pauca.helper.showInputDialog
 import app.pauca.helper.showPopupMenu
 import app.pauca.helper.showStatusBar
@@ -293,6 +294,7 @@ class SettingsPageFragment : BaseFragment() {
                     getString(R.string.bottom) to Constants.Vertical.BOTTOM,
                 ), prefs.homeVertical) { prefs.homeVertical = it; ui.refresh() }
             }
+            ui.toggle(getString(R.string.apps_accent), get = { prefs.appsAccent }, set = { prefs.appsAccent = it; true })
         }
         ui.locked {
             ui.section(getString(R.string.section_buttons))
@@ -335,11 +337,9 @@ class SettingsPageFragment : BaseFragment() {
     }
 
     private fun askCustomAccent() {
-        val initial = prefs.accent.takeIf { it != Accent.NONE && Accent.PRESETS.none { p -> p.first == it } } ?: ""
-        requireContext().showInputDialog(getString(R.string.accent_custom), initial, hint = Accent.DEFAULT) { input ->
-            val hex = Accent.normalize(input)
-            if (hex == null) requireContext().showToast(R.string.invalid_color)
-            else setAccent(hex)
+        val initial = Accent.parse(prefs.accent) ?: Accent.parse(Accent.DEFAULT)!!
+        requireContext().showColorDialog(getString(R.string.accent_color), initial) { color ->
+            setAccent(String.format("#%06X", color and 0xFFFFFF))
         }
     }
 
@@ -378,6 +378,7 @@ class SettingsPageFragment : BaseFragment() {
                 it.text = Look.applyCase(it.tag as String, prefs.textCase)
                 it.textSize = prefs.appTextSize.toFloat()
                 it.gravity = prefs.homeAlignment
+                it.setTextColor(if (prefs.appsAccent) home.accent else home.text)
                 Look.applyFont(it, prefs.appFont, prefs.appWeight, prefs.appTextSize.toFloat())
             }
         }
@@ -488,6 +489,7 @@ class SettingsPageFragment : BaseFragment() {
             clock.textSize = prefs.clockSize.coerceAtMost(96).toFloat()
             clock.setTextColor(if (prefs.clockAccent) home.accent else home.text)
             Look.applyFont(clock, prefs.clockFont, prefs.clockWeight, prefs.clockSize.toFloat())
+            Look.fitClock(clock, box)
             val datePattern = prefs.datePattern.ifEmpty { defaultDatePattern() }
             date.format12Hour = datePattern
             date.format24Hour = datePattern

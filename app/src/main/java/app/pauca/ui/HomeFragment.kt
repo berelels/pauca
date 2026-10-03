@@ -304,6 +304,7 @@ class HomeFragment : BaseFragment() {
         binding.clock.textSize = prefs.clockSize.toFloat()
         binding.clock.setTextColor(if (prefs.clockAccent) palette.accent else palette.text)
         Look.applyFont(binding.clock, prefs.clockFont, prefs.clockWeight, prefs.clockSize.toFloat())
+        Look.fitClock(binding.clock, binding.dateTimeLayout)
 
         val datePattern = prefs.datePattern.ifEmpty { defaultDatePattern() }
         binding.date.format12Hour = datePattern
@@ -387,7 +388,7 @@ class HomeFragment : BaseFragment() {
         TextView(requireContext()).apply {
             text = Look.applyCase(item.label, prefs.textCase)
             textSize = prefs.appTextSize.toFloat()
-            setTextColor(palette.text)
+            setTextColor(if (prefs.appsAccent) palette.accent else palette.text)
             gravity = alignment
             includeFontPadding = false
             setPadding(8.dpToPx(), 7.dpToPx(), 8.dpToPx(), 7.dpToPx())

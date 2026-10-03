@@ -77,6 +77,7 @@
     <string name="format_custom">Custom…</string>
     <string name="invalid_pattern">Invalid format. E.g. HH:mm or EEEE, d MMM</string>
     <string name="clock_accent">Clock in accent color</string>
+    <string name="apps_accent">App names in accent color</string>
     <string name="show_battery">Battery next to the date</string>
     <string name="show_screen_time">Screen time next to the date</string>
     <string name="show_screen_time_summary">Needs usage access</string>
@@ -358,4 +359,8 @@
     <string name="focus_lite_summary">Silence your phone and let through only what you choose</string>
     <string name="profiles_hint_lite">Each profile has its own cards. Pauca Lite has room for two; Pauca has no limit.</string>
     <string name="lite_imported">Your cards and settings from Pauca Lite came along.</string>
+    <string name="crash_reset_title">Text settings reset</string>
+    <string name="crash_reset_message">Pauca closed by itself a few times in a row, so the font, weight and size went back to the default. If it was a bug, copy the details and send them to us.</string>
+    <string name="crash_copy">Copy details</string>
+    <string name="crash_copied">Details copied</string>
 </resources>

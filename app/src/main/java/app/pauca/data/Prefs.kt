@@ -49,9 +49,9 @@ class Prefs(context: Context) {
         get() = bool("TUTORIAL_DONE", false)
         set(value) = put("TUTORIAL_DONE", value)
 
-    /** Idioma do app ("en", "pt-BR", "es"); vazio segue o do sistema. Começa em inglês. */
+    /** Idioma do app ("en", "pt-BR", "es"); vazio segue o do sistema, que é o padrão. */
     var language: String
-        get() = string("LANGUAGE", "en")
+        get() = string("LANGUAGE")
         set(value) = put("LANGUAGE", value)
 
     var hideSetDefaultLauncher: Boolean
@@ -237,6 +237,17 @@ class Prefs(context: Context) {
     var clockAccent: Boolean
         get() = bool("CLOCK_ACCENT", false)
         set(value) = put("CLOCK_ACCENT", value)
+
+    /** Nomes dos apps da tela inicial na cor de destaque. */
+    var appsAccent: Boolean
+        get() = bool("APPS_ACCENT", false)
+        set(value) = put("APPS_ACCENT", value)
+
+    /** Volta fonte, peso e tamanho dos apps e do relógio ao padrão. */
+    fun resetText() = prefs.edit(commit = true) {
+        listOf("APP_FONT", "APP_WEIGHT", "APP_TEXT_SIZE", "CLOCK_FONT", "CLOCK_WEIGHT", "CLOCK_SIZE", "TEXT_SIZE_SCALE")
+            .forEach { remove(it) }
+    }
 
     var showBattery: Boolean
         get() = bool("SHOW_BATTERY", true)

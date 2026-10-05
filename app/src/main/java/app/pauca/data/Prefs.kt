@@ -64,10 +64,23 @@ class Prefs(context: Context) {
 
     // Aparência
 
-    // No Lite, só os temas e cores dele (o que for de fora vira o padrão)
+    // No Lite, só os temas e cores dele (o que for de fora vira o padrão).
+    // Com o tema automático ligado, vale o tema da parte do dia em que estamos.
     var paletteId: String
-        get() = string("PALETTE", Palette.PAUCA.id).takeIf { Edition.hasPalette(it) } ?: Palette.PAUCA.id
+        get() {
+            val id = if (autoTheme) ThemeSchedule.current(themeSchedule).paletteId else string("PALETTE", Palette.PAUCA.id)
+            return id.takeIf { Edition.hasPalette(it) } ?: Palette.PAUCA.id
+        }
         set(value) = put("PALETTE", value)
+
+    /** Trocar o tema sozinho conforme a hora do dia (só na versão completa). */
+    var autoTheme: Boolean
+        get() = !Edition.isLite && bool("AUTO_THEME", false)
+        set(value) = put("AUTO_THEME", value)
+
+    var themeSchedule: List<ThemeSchedule.Slot>
+        get() = ThemeSchedule.parse(string("THEME_SCHEDULE"))
+        set(value) = put("THEME_SCHEDULE", ThemeSchedule.toJson(value))
 
     /** Cor de destaque: "#RRGGBB" ou [Accent.NONE]. */
     var accent: String
@@ -242,6 +255,18 @@ class Prefs(context: Context) {
     var appsAccent: Boolean
         get() = bool("APPS_ACCENT", false)
         set(value) = put("APPS_ACCENT", value)
+
+    // Pedido de avaliação
+
+    /** A pessoa já avaliou (ou disse que já): o pedido não volta. */
+    var ratingDone: Boolean
+        get() = bool("RATING_DONE", false)
+        set(value) = put("RATING_DONE", value)
+
+    /** Quando o pedido pode aparecer de novo; 0 é "ainda não marcado". */
+    var ratingNextAt: Long
+        get() = long("RATING_NEXT_AT", 0L)
+        set(value) = put("RATING_NEXT_AT", value)
 
     /** Volta fonte, peso e tamanho dos apps e do relógio ao padrão. */
     fun resetText() = prefs.edit(commit = true) {

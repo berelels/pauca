@@ -14,6 +14,8 @@ import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 import android.widget.Toast
@@ -27,6 +29,7 @@ import androidx.navigation.findNavController
 import app.pauca.data.Constants
 import app.pauca.data.Palette
 import app.pauca.data.Prefs
+import app.pauca.data.ThemeSchedule
 import app.pauca.databinding.ActivityMainBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.CrashGuard
@@ -62,6 +65,10 @@ class MainActivity : AppCompatActivity() {
     var keepCurrentScreen = false
 
     private var importedFromLite = false
+
+    /** O tema desenhado agora; com o tema automático, muda quando a hora vira. */
+    private var shownPaletteId = ""
+    private val themeCheck = Runnable { checkAutoTheme() }
 
     override fun attachBaseContext(context: Context) {
         // Antes de tudo: se as últimas aberturas fecharam sozinhas, os ajustes de texto voltam ao padrão
@@ -145,6 +152,7 @@ class MainActivity : AppCompatActivity() {
         // A janela fica sempre translúcida e mostrando o papel de parede (vem do tema);
         // quem cobre com a cor sólida é a raiz do layout. Ver Wallpaper.
         window.setBackgroundDrawable(ColorDrawable(0))
+        if (palette == prefs.palette) shownPaletteId = palette.id
         Wallpaper.apply(window, binding.mainActivityLayout, binding.wallpaperImage, binding.wallpaperShade, palette, look)
     }
 
@@ -160,13 +168,33 @@ class MainActivity : AppCompatActivity() {
         viewModel.getAppList()
         // Durante o foco, confere se o ouvinte de notificações continua ligado
         if (prefs.focusActive) FocusManager.ensureListener(this)
-        window.decorView.postDelayed(markStable, CrashGuard.STABLE_MS)
+        // Conta como abertura boa se o app segue vivo um tempo depois de aparecer, mesmo que a
+        // pessoa já tenha aberto outro app (quem fecha em loop cai logo no primeiro desenho)
+        stableHandler.removeCallbacks(markStable)
+        stableHandler.postDelayed(markStable, CrashGuard.STABLE_MS)
+        checkAutoTheme()
     }
 
-    private val markStable = Runnable { CrashGuard.onStable(this) }
+    /**
+     * Tema automático: se a parte do dia mudou, redesenha tudo com o tema novo (recriar
+     * cobre também a troca entre claro e escuro). Com a tela aberta, confere de novo na
+     * hora exata da próxima troca.
+     */
+    private fun checkAutoTheme() {
+        window.decorView.removeCallbacks(themeCheck)
+        if (!prefs.autoTheme) return
+        if (prefs.paletteId != shownPaletteId) {
+            recreate()
+            return
+        }
+        window.decorView.postDelayed(themeCheck, ThemeSchedule.millisToNextChange(prefs.themeSchedule))
+    }
+
+    private val stableHandler = Handler(Looper.getMainLooper())
+    private val markStable = Runnable { CrashGuard.onStable(applicationContext) }
 
     override fun onPause() {
-        window.decorView.removeCallbacks(markStable)
+        window.decorView.removeCallbacks(themeCheck)
         super.onPause()
     }
 

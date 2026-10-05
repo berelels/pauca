@@ -43,17 +43,18 @@ object Edition {
             title = R.string.full_title,
             message = R.string.full_message,
             action = R.string.full_action,
-            onAction = { openStore(context) },
+            onAction = { openStore(context, FULL_PACKAGE) },
         ))
     }
 
-    private fun openStore(context: Context) {
-        val market = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$FULL_PACKAGE"))
+    /** A página de um app na Play Store (no app da loja, ou no navegador se ela não existir). */
+    fun openStore(context: Context, pkg: String) {
+        val market = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$pkg"))
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
             context.startActivity(market)
         } catch (_: ActivityNotFoundException) {
-            context.openUrl("https://play.google.com/store/apps/details?id=$FULL_PACKAGE")
+            context.openUrl("https://play.google.com/store/apps/details?id=$pkg")
         }
     }
 }

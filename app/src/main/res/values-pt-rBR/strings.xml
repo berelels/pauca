@@ -123,7 +123,7 @@
     <string name="focus_app_blocked">Esse app está pausado no modo foco</string>
     <string name="focus_drawer_hint">só o essencial</string>
     <string name="focus_digest_title">Enquanto você estava em foco</string>
-    <string name="focus_digest_message">Estas notificações foram seguradas. Toque num app para abrir.</string>
+    <string name="focus_digest_message">Estas notificações chegaram enquanto você estava em foco. Toque num app para abrir.</string>
     <string name="clear">Limpar</string>
     <string name="use_profile">Usar este perfil</string>
     <string name="in_use">em uso</string>
@@ -365,4 +365,21 @@
     <string name="crash_reset_message">O Pauca fechou sozinho algumas vezes seguidas, então a fonte, o peso e o tamanho voltaram ao padrão. Se foi um erro, copie os detalhes e mande para a gente.</string>
     <string name="crash_copy">Copiar detalhes</string>
     <string name="crash_copied">Detalhes copiados</string>
+    <string name="auto_theme_section">Tema pelo horário</string>
+    <string name="auto_theme">Trocar o tema sozinho</string>
+    <string name="auto_theme_summary">Claro de dia, escuro à noite</string>
+    <string name="auto_theme_now">Agora: %1$s</string>
+    <string name="auto_theme_day">Dia</string>
+    <string name="auto_theme_evening">Fim de tarde</string>
+    <string name="auto_theme_night">Noite</string>
+    <string name="auto_theme_from">A partir das %1$s</string>
+    <string name="auto_theme_change_time">Mudar o horário…</string>
+    <string name="auto_theme_turned_off">Tema automático desligado</string>
+    <string name="rate_title">Gostando do Pauca?</string>
+    <string name="rate_message">Uma avaliação na Play Store ajuda o Pauca a chegar a mais gente.</string>
+    <string name="rate_title_lite">Gostando do Pauca Lite?</string>
+    <string name="rate_message_lite">Se ele está te ajudando a usar menos o celular, uma avaliação na Play Store ajuda muito.</string>
+    <string name="rate_action">Avaliar</string>
+    <string name="rate_already">Já avaliei</string>
+    <string name="rate_later">Agora não</string>
 </resources>

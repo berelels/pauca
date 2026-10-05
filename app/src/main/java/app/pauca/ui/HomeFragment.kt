@@ -1,5 +1,6 @@
 package app.pauca.ui
 
+import android.animation.ValueAnimator
 import android.app.admin.DevicePolicyManager
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -12,24 +13,29 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.format.DateFormat
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewAnimationUtils
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.animation.doOnEnd
 import androidx.core.graphics.ColorUtils
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import app.pauca.MainViewModel
-import app.pauca.R
 import app.pauca.data.AppModel
 import app.pauca.data.Constants
 import app.pauca.data.HomeItem
@@ -39,8 +45,8 @@ import app.pauca.data.Prefs
 import app.pauca.databinding.FragmentHomeBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.appUsagePermissionGranted
-import app.pauca.helper.Edition
 import app.pauca.helper.dpToPx
+import app.pauca.helper.Edition
 import app.pauca.helper.expandNotificationDrawer
 import app.pauca.helper.getUserHandleFromString
 import app.pauca.helper.hideStatusBar
@@ -56,7 +62,10 @@ import app.pauca.helper.showListDialog
 import app.pauca.helper.showPopupMenu
 import app.pauca.helper.showStatusBar
 import app.pauca.helper.showToast
+import app.pauca.MainViewModel
+import app.pauca.R
 import java.util.Locale
+import kotlin.math.hypot
 
 class HomeFragment : BaseFragment() {
 
@@ -90,6 +99,10 @@ class HomeFragment : BaseFragment() {
     }
 
     private var tour: TourView? = null
+
+    /** Estado do foco no último desenho, para animar só quando ele muda. */
+    private var renderedFocus: Boolean? = null
+    private var chipLeaving = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -146,15 +159,115 @@ class HomeFragment : BaseFragment() {
 
     private fun render() {
         val palette = prefs.palette
+        val focusOn = prefs.focusActive
+        val focusChanged = renderedFocus != null && renderedFocus != focusOn && isResumed
+        renderedFocus = focusOn
         binding.mainLayout.setBackgroundColor(palette.bg)
-        renderBars(palette)
+        renderBars(palette, animateFocusExit = focusChanged && !focusOn)
         renderClock(palette)
         renderDigest(palette)
         renderGroups(palette)
         binding.setDefaultLauncher.setTextColor(palette.accent)
+        if (focusChanged) animateFocus(focusOn, palette)
     }
 
-    private fun renderBars(palette: Palette) {
+    // Animações do foco
+
+    /**
+     * Entrar no foco: uma onda na cor de destaque sai da lua e cobre a tela, a lua dá um
+     * pulo e o aviso "modo foco" desce no topo. Sair: a onda volta para a lua, o aviso sobe
+     * e some, e a caixa do resumo se abre empurrando os apps.
+     */
+    private fun animateFocus(entering: Boolean, palette: Palette) {
+        focusWave(entering, palette)
+        binding.btnFocus.apply {
+            animate().cancel()
+            scaleX = 0.6f
+            scaleY = 0.6f
+            animate().scaleX(1f).scaleY(1f).setDuration(420).setInterpolator(OvershootInterpolator(3f)).start()
+        }
+        if (entering) {
+            binding.focusChip.apply {
+                animate().cancel()
+                alpha = 0f
+                translationY = -14f.dp()
+                scaleX = 0.92f
+                scaleY = 0.92f
+                animate().alpha(1f).translationY(0f).scaleX(1f).scaleY(1f)
+                    .setStartDelay(160).setDuration(420).setInterpolator(DecelerateInterpolator(2f)).start()
+            }
+        } else {
+            revealDigest()
+        }
+    }
+
+    private fun focusWave(entering: Boolean, palette: Palette) {
+        val root = binding.mainLayout
+        val wave = View(requireContext()).apply {
+            setBackgroundColor(ColorUtils.setAlphaComponent(palette.accent, if (palette.isDark) 0x40 else 0x30))
+        }
+        root.addView(wave, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        // A onda nasce da lua; com a barra escondida, do meio da parte de baixo
+        val moon = binding.btnFocus
+        val origin = IntArray(2)
+        val rootOrigin = IntArray(2)
+        root.getLocationInWindow(rootOrigin)
+        val (cx, cy) = if (moon.isShown && moon.alpha > 0f) {
+            moon.getLocationInWindow(origin)
+            (origin[0] - rootOrigin[0] + moon.width / 2) to (origin[1] - rootOrigin[1] + moon.height / 2)
+        } else (root.width / 2) to root.height
+        val radius = hypot(maxOf(cx, root.width - cx).toFloat(), maxOf(cy, root.height - cy).toFloat())
+        wave.post {
+            if (!wave.isAttachedToWindow) return@post
+            val reveal = if (entering) ViewAnimationUtils.createCircularReveal(wave, cx, cy, 0f, radius)
+            else ViewAnimationUtils.createCircularReveal(wave, cx, cy, radius, 0f)
+            reveal.duration = if (entering) 560 else 460
+            reveal.interpolator = if (entering) DecelerateInterpolator(1.5f) else AccelerateDecelerateInterpolator()
+            reveal.doOnEnd {
+                if (entering) wave.animate().alpha(0f).setDuration(420).withEndAction { root.removeView(wave) }.start()
+                else root.removeView(wave)
+            }
+            reveal.start()
+        }
+    }
+
+    /** A caixa do resumo cresce do nada até a altura dela, empurrando os apps com calma. */
+    private fun revealDigest() {
+        val digest = binding.digest
+        if (!digest.isVisible) return
+        val content = binding.scrollContent
+        val width = content.width - content.paddingLeft - content.paddingRight
+        if (width <= 0) return
+        digest.measure(
+            View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+        )
+        val target = digest.measuredHeight
+        val margin = 12.dpToPx()
+        digest.alpha = 0f
+        digest.translationY = 10f.dp()
+        ValueAnimator.ofFloat(0f, 1f).apply {
+            startDelay = 220
+            duration = 460
+            interpolator = DecelerateInterpolator(2f)
+            addUpdateListener {
+                val f = it.animatedValue as Float
+                digest.updateLayoutParams<LinearLayout.LayoutParams> {
+                    height = (target * f).toInt()
+                    bottomMargin = (margin * f).toInt()
+                }
+            }
+            doOnEnd { digest.updateLayoutParams<LinearLayout.LayoutParams> { height = ViewGroup.LayoutParams.WRAP_CONTENT; bottomMargin = margin } }
+            digest.updateLayoutParams<LinearLayout.LayoutParams> { height = 0; bottomMargin = 0 }
+            start()
+        }
+        digest.animate().alpha(1f).translationY(0f).setStartDelay(380).setDuration(360)
+            .setInterpolator(DecelerateInterpolator()).start()
+    }
+
+    private fun Float.dp() = this * resources.displayMetrics.density
+
+    private fun renderBars(palette: Palette, animateFocusExit: Boolean = false) {
         val iconTint = ColorStateList.valueOf(palette.muted)
         listOf(binding.btnSettings, binding.btnEdit, binding.btnAppearance).forEach {
             it.imageTintList = iconTint
@@ -165,7 +278,30 @@ class HomeFragment : BaseFragment() {
         binding.btnFocus.imageTintList = ColorStateList.valueOf(if (focusOn) palette.accent else palette.muted)
         binding.btnFocus.background = Look.pressable(0, 24, palette.text)
 
-        binding.focusChip.isVisible = focusOn
+        val chip = binding.focusChip
+        if (animateFocusExit && chip.isVisible) {
+            // O aviso sobe e some antes de sair do layout
+            chipLeaving = true
+            chip.animate().cancel()
+            chip.animate().alpha(0f).translationY(-12f.dp()).setStartDelay(0).setDuration(260)
+                .setInterpolator(AccelerateInterpolator()).withEndAction {
+                    chipLeaving = false
+                    if (_binding == null) return@withEndAction
+                    chip.isVisible = prefs.focusActive
+                    chip.alpha = 1f
+                    chip.translationY = 0f
+                    applyBarVisibility(animate = false)
+                }.start()
+        } else if (focusOn && chipLeaving) {
+            // Voltou para o foco no meio da saída
+            chipLeaving = false
+            chip.animate().cancel()
+            chip.alpha = 1f
+            chip.translationY = 0f
+            chip.isVisible = true
+        } else if (!chipLeaving) {
+            chip.isVisible = focusOn
+        }
         if (focusOn) {
             val since = Look.shortTime(requireContext(), prefs.focusSince)
             binding.focusChip.text = getString(R.string.focus_chip, since)

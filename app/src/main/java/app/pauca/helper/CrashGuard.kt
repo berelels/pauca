@@ -24,7 +24,7 @@ object CrashGuard {
     private const val WAS_RESET = "WAS_RESET"
     private const val LIMIT = 2
 
-    /** Tempo de tela inicial aberta para contar como uma abertura que deu certo. */
+    /** Tempo de vida depois de a tela aparecer para contar como uma abertura que deu certo. */
     const val STABLE_MS = 4000L
 
     private var installed = false
@@ -57,7 +57,7 @@ object CrashGuard {
         }
     }
 
-    /** A tela inicial ficou aberta um tempo: a abertura deu certo. */
+    /** O app seguiu vivo um tempo depois de aparecer: a abertura deu certo. */
     fun onStable(context: Context) = store(context).edit { putInt(PENDING, 0) }
 
     /** Depois de uma volta ao padrão, o erro guardado (uma vez só); null se não houve. */

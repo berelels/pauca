@@ -74,6 +74,8 @@ object FocusManager {
     fun deactivate(context: Context) {
         val prefs = Prefs(context)
         if (!prefs.focusActive) return
+        // Antes de o Não Perturbe sair: o que ele calou ainda está marcado como calado
+        FocusListenerService.instance?.collectSilenced(prefs.focusSince)
         prefs.focusActive = false
         applyAll(context, on = false)
         notifyListeners()
@@ -130,6 +132,12 @@ object FocusManager {
             (context.getSystemService(Context.TELECOM_SERVICE) as TelecomManager).defaultDialerPackage?.let { add(it) }
         } catch (_: Exception) {
         }
+    }
+
+    /** Tem ícone na gaveta (é um app de verdade, não uma parte do sistema)? */
+    fun isLaunchable(context: Context, pkg: String): Boolean {
+        if (launchable.isEmpty()) refreshLaunchable(context)
+        return pkg in launchable
     }
 
     /** Este pacote deve ser segurado/bloqueado agora? */

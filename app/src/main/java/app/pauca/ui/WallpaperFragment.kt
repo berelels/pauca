@@ -361,6 +361,8 @@ class WallpaperFragment : BaseFragment() {
         prefs.lockBlurRadius = lockBlurRadius
         prefs.lockBrightness = lockBrightness
         if (lockEnabled && Wallpaper.hasImage(requireContext())) applyLockScreen()
+        // Escolher o tema "Fundo" à mão desliga o automático (editar o fundo da vez dele, não)
+        if (prefs.autoTheme && !prefs.palette.showsWallpaper) prefs.autoTheme = false
         prefs.paletteId = Palette.WALLPAPER.id
         applied = true
         val activity = requireActivity()

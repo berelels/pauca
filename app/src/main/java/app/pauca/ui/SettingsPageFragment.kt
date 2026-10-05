@@ -1,9 +1,11 @@
 package app.pauca.ui
 
+import android.app.TimePickerDialog
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
 import android.os.Process
@@ -14,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.ImageView
 import android.widget.TextClock
 import android.widget.TextView
 import android.widget.Toast
@@ -32,10 +35,12 @@ import app.pauca.data.HomeStore
 import app.pauca.data.Palette
 import app.pauca.data.Prefs
 import app.pauca.data.Profile
+import app.pauca.data.ThemeSchedule
 import app.pauca.databinding.FragmentSettingsBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.Edition
 import app.pauca.helper.OlDialog
+import app.pauca.helper.RatePrompt
 import app.pauca.helper.appUsagePermissionGranted
 import app.pauca.helper.copyToClipboard
 import app.pauca.helper.createDialog
@@ -107,6 +112,11 @@ class SettingsPageFragment : BaseFragment() {
         super.onResume()
         // Reconstrói ao voltar: permissões concedidas nos ajustes do sistema mudam a página
         build()
+        // Lite: o pedido de avaliação aparece aqui nos ajustes, nunca na tela inicial ou na gaveta
+        if (Edition.isLite) binding.root.postDelayed({
+            if (!isResumed || dialog?.isShowing == true || !RatePrompt.isDue(requireContext())) return@postDelayed
+            showDialog(RatePrompt.dialog(requireContext()))
+        }, 600)
     }
 
     private fun build() {
@@ -129,6 +139,10 @@ class SettingsPageFragment : BaseFragment() {
     private fun buildMain() {
         val context = requireContext()
         ui.header(getString(R.string.app_name), getString(R.string.settings_tagline))
+        if (!Edition.isLite && RatePrompt.isDue(context)) {
+            ui.section(null)
+            ui.custom(rateCard())
+        }
         if (Edition.isLite) {
             ui.section(null)
             ui.row(getString(R.string.full_row), subtitle = { getString(R.string.full_row_summary) }, chevron = true) { ui.onLocked() }
@@ -223,16 +237,15 @@ class SettingsPageFragment : BaseFragment() {
         ui.palettes(current = { prefs.paletteId }, locked = { !Edition.hasPalette(it.id) }) { picked ->
             // "Fundo" abre o editor (imagem, desfoque, brilho) antes de aplicar
             if (picked.showsWallpaper) return@palettes go(R.id.wallpaperFragment)
-            if (picked.id == prefs.paletteId) return@palettes
-            val themeChanges = picked.isDark != prefs.palette.isDark
-            prefs.paletteId = picked.id
-            // Claro/escuro muda o tema do AppCompat inteiro: recria a activity
-            if (themeChanges) requireActivity().recreate()
-            else {
-                (requireActivity() as MainActivity).applyBackground()
-                restyle()
-                build()
+            if (picked.id == prefs.paletteId && !prefs.autoTheme) return@palettes
+            val before = prefs.palette
+            // Escolher um tema à mão desliga o automático
+            if (prefs.autoTheme) {
+                prefs.autoTheme = false
+                requireContext().showToast(R.string.auto_theme_turned_off)
             }
+            prefs.paletteId = picked.id
+            applyThemeChange(before)
         }
         if (prefs.palette.showsWallpaper) ui.row(
             getString(R.string.wallpaper_title),
@@ -244,6 +257,7 @@ class SettingsPageFragment : BaseFragment() {
             },
             chevron = true,
         ) { go(R.id.wallpaperFragment) }
+        buildAutoTheme()
 
         ui.section(getString(R.string.accent_color))
         ui.accents(
@@ -326,6 +340,64 @@ class SettingsPageFragment : BaseFragment() {
                 },
             )
         }
+    }
+
+    /** Tema automático: liga/desliga e, ligado, o tema e a hora de cada parte do dia. */
+    private fun buildAutoTheme() {
+        ui.section(getString(R.string.auto_theme_section))
+        ui.locked {
+            ui.toggle(
+                getString(R.string.auto_theme),
+                subtitle = {
+                    if (prefs.autoTheme) getString(R.string.auto_theme_now, getString(prefs.palette.label))
+                    else getString(R.string.auto_theme_summary)
+                },
+                get = { prefs.autoTheme },
+                set = { on ->
+                    val before = prefs.palette
+                    prefs.autoTheme = on
+                    applyThemeChange(before)
+                    true
+                },
+            )
+        }
+        if (!prefs.autoTheme) return
+        prefs.themeSchedule.forEachIndexed { index, slot ->
+            ui.row(
+                getString(slot.label),
+                subtitle = { getString(R.string.auto_theme_from, ThemeSchedule.formatMinute(prefs.themeSchedule[index].startMinute)) },
+                value = { getString(Palette.byId(prefs.themeSchedule[index].paletteId).label) },
+            ) { anchor ->
+                val current = prefs.themeSchedule[index]
+                val options = Palette.ALL.map { getString(it.label) to it.id } + (getString(R.string.auto_theme_change_time) to CUSTOM)
+                SettingsBuilder.choose(anchor, options, current.paletteId) { picked ->
+                    if (picked == CUSTOM) askSlotTime(index)
+                    else updateSlot(index) { it.copy(paletteId = picked) }
+                }
+            }
+        }
+    }
+
+    private fun askSlotTime(index: Int) {
+        val slot = prefs.themeSchedule[index]
+        TimePickerDialog(requireContext(), { _, hour, minute ->
+            updateSlot(index) { it.copy(startMinute = hour * 60 + minute) }
+        }, slot.startMinute / 60, slot.startMinute % 60, DateFormat.is24HourFormat(requireContext())).show()
+    }
+
+    private fun updateSlot(index: Int, change: (ThemeSchedule.Slot) -> ThemeSchedule.Slot) {
+        val before = prefs.palette
+        prefs.themeSchedule = prefs.themeSchedule.toMutableList().also { it[index] = change(it[index]) }
+        applyThemeChange(before)
+    }
+
+    /** Depois de mudar o tema em vigor: claro/escuro recria a activity; o resto só redesenha. */
+    private fun applyThemeChange(before: Palette) {
+        val after = prefs.palette
+        if (after.isDark != before.isDark) return requireActivity().recreate()
+        (requireActivity() as MainActivity).applyBackground()
+        restyle()
+        build()
     }
 
     private fun setAccent(accent: String) {
@@ -908,6 +980,75 @@ class SettingsPageFragment : BaseFragment() {
         } catch (_: Exception) {
             startActivity(Intent(Settings.ACTION_SETTINGS))
         }
+    }
+
+    /** Pauca: o pedido de avaliação, como um cartão no topo da tela principal. */
+    private fun rateCard(): View {
+        val context = requireContext()
+        val box = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(18.dpToPx(), 16.dpToPx(), 10.dpToPx(), 10.dpToPx())
+        }
+        val top = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.TOP
+        }
+        top.addView(LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            addView(TextView(context).apply {
+                text = getString(R.string.rate_title)
+                textSize = 17f
+                setTextColor(palette.text)
+                Look.applyFont(this, Constants.Font.JAKARTA, 600)
+            })
+            addView(TextView(context).apply {
+                text = getString(R.string.rate_message)
+                textSize = 14f
+                setTextColor(palette.muted)
+                setLineSpacing(2.dpToPx().toFloat(), 1f)
+                Look.applyFont(this, Constants.Font.JAKARTA, 400)
+                setPadding(0, 4.dpToPx(), 0, 0)
+            })
+        }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        // X: agora não, volta daqui a uma semana
+        top.addView(ImageView(context).apply {
+            setImageResource(R.drawable.ic_close)
+            imageTintList = ColorStateList.valueOf(palette.muted)
+            contentDescription = getString(R.string.rate_later)
+            setPadding(8.dpToPx(), 4.dpToPx(), 8.dpToPx(), 8.dpToPx())
+            background = Look.pressable(0, 18, palette.text)
+            setOnClickListener {
+                RatePrompt.snooze(context)
+                build()
+            }
+        })
+        box.addView(top)
+        val actions = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(0, 12.dpToPx(), 0, 0)
+        }
+        fun button(label: Int, filled: Boolean, onClick: () -> Unit) = TextView(context).apply {
+            text = getString(label)
+            textSize = 14f
+            setTextColor(if (filled) palette.accentInk else palette.muted)
+            Look.applyFont(this, Constants.Font.JAKARTA, 600)
+            setPadding(16.dpToPx(), 9.dpToPx(), 16.dpToPx(), 9.dpToPx())
+            background = if (filled) Look.pressable(palette.accent, 20, palette.accentInk) else Look.pressable(0, 20, palette.text)
+            setOnClickListener { onClick() }
+        }
+        actions.addView(button(R.string.rate_action, filled = true) {
+            RatePrompt.rate(context)
+            build()
+        })
+        actions.addView(button(R.string.rate_already, filled = false) {
+            RatePrompt.markDone(context)
+            build()
+        }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
+            marginStart = 4.dpToPx()
+        })
+        box.addView(actions)
+        return box
     }
 
     private fun showDialog(newDialog: OlDialog) {

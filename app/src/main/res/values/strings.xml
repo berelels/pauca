@@ -127,7 +127,7 @@
     <string name="focus_app_blocked">This app is paused in focus mode</string>
     <string name="focus_drawer_hint">essentials only</string>
     <string name="focus_digest_title">While you were focused</string>
-    <string name="focus_digest_message">These notifications were held. Tap an app to open it.</string>
+    <string name="focus_digest_message">These came in while you were focused. Tap an app to open it.</string>
     <string name="clear">Clear</string>
     <string name="use_profile">Use this profile</string>
     <string name="in_use">in use</string>
@@ -363,4 +363,21 @@
     <string name="crash_reset_message">Pauca closed by itself a few times in a row, so the font, weight and size went back to the default. If it was a bug, copy the details and send them to us.</string>
     <string name="crash_copy">Copy details</string>
     <string name="crash_copied">Details copied</string>
+    <string name="auto_theme_section">Theme by time of day</string>
+    <string name="auto_theme">Change theme automatically</string>
+    <string name="auto_theme_summary">Light during the day, dark at night</string>
+    <string name="auto_theme_now">Now: %1$s</string>
+    <string name="auto_theme_day">Day</string>
+    <string name="auto_theme_evening">Evening</string>
+    <string name="auto_theme_night">Night</string>
+    <string name="auto_theme_from">From %1$s</string>
+    <string name="auto_theme_change_time">Change time…</string>
+    <string name="auto_theme_turned_off">Automatic theme turned off</string>
+    <string name="rate_title">Enjoying Pauca?</string>
+    <string name="rate_message">A review on the Play Store helps Pauca reach more people.</string>
+    <string name="rate_title_lite">Enjoying Pauca Lite?</string>
+    <string name="rate_message_lite">If it is helping you use your phone less, a review on the Play Store helps a lot.</string>
+    <string name="rate_action">Rate</string>
+    <string name="rate_already">Already did</string>
+    <string name="rate_later">Not now</string>
 </resources>

@@ -291,8 +291,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupOrientation() {
         if (isTablet(this) || Build.VERSION.SDK_INT == Build.VERSION_CODES.O)
             return
-        // In Android 8.0, windowIsTranslucent cannot be used with screenOrientation=portrait
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        // Não gira com o sensor, mas sem "travar em retrato": o Android trata a orientação fixa
+        // como app que não divide a tela, e a Xiaomi aí quebra a tela dividida dos outros apps
+        // (ela põe a tela inicial numa das metades). Num celular, a orientação natural já é retrato.
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
     }
 
     private fun backToHomeScreen() {

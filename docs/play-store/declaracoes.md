@@ -7,9 +7,9 @@ Respostas para os formulários da Play Console, para o **Pauca** e o **Pauca Lit
 - **Pago ou grátis:** crie o Pauca já como **pago**. Um app publicado como grátis nunca mais pode virar pago (o contrário pode). O Pauca Lite é grátis.
 - **Assinatura do app:** ao criar o segundo app, escolha usar a mesma chave de assinatura do primeiro (veja `assinatura.md`).
 - **Política de privacidade:** use estes endereços:
-  - inglês: https://berelels.github.io/pauca/privacy/
-  - português: https://berelels.github.io/pauca/privacy/pt/
-  - espanhol: https://berelels.github.io/pauca/privacy/es/
+  - inglês: https://cattastudios.com.br/pauca/privacy/
+  - português: https://cattastudios.com.br/pauca/privacy/pt/
+  - espanhol: https://cattastudios.com.br/pauca/privacy/es/
 
 ## Detalhes do app
 

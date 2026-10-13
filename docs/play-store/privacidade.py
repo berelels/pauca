@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Gera a política de privacidade (docs/privacy/), publicada pelo GitHub Pages em
-https://berelels.github.io/pauca/privacy/ (inglês), .../privacy/pt/ e .../privacy/es/.
+https://cattastudios.com.br/pauca/privacy/ (inglês), .../privacy/pt/ e .../privacy/es/.
 Edite os textos aqui e rode: python3 docs/play-store/privacidade.py
 
 A página não carrega nada de fora (fontes, scripts, contadores): é só HTML e CSS.

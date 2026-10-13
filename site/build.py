@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Gera a página do Pauca em docs/ (publicada pelo GitHub Pages em https://berelels.github.io/pauca/):
+Gera a página do Pauca em docs/ (publicada pelo GitHub Pages em https://cattastudios.com.br/pauca/):
 docs/index.html (inglês), docs/pt/ e docs/es/, com estilo, fontes e imagens em docs/assets/.
 
 As telas vêm das capturas reais em art/store/shots/ (as mesmas da loja). Edite os textos aqui e rode:
@@ -15,7 +15,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, "docs")
 ASSETS = os.path.join(DOCS, "assets")
-SITE = "https://berelels.github.io/pauca/"
+SITE = "https://cattastudios.com.br/pauca/"
 REPO = "https://github.com/berelels/pauca"
 PLAY = "https://play.google.com/store/apps/details?id="
 SHOTS = ["home_dark", "home_paper", "home_focus", "home_wall", "paper_list_serif", "paper_mono", "paper_terracotta", "drawer"]

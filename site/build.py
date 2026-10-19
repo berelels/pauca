@@ -18,6 +18,7 @@ ASSETS = os.path.join(DOCS, "assets")
 SITE = "https://cattastudios.com.br/pauca/"
 REPO = "https://github.com/berelels/pauca"
 PLAY = "https://play.google.com/store/apps/details?id="
+COLORS = ["#7E8C54", "#C4673F", "#B8893A", "#5E7FA3", "#8E5E7E", "#C2707A"]
 SHOTS = ["home_dark", "home_paper", "home_focus", "home_wall", "paper_list_serif", "paper_mono", "paper_terracotta", "drawer"]
 
 EYE = ('<svg viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="34" stroke-linecap="round" '
@@ -57,6 +58,8 @@ T = {
         yours_eyebrow="Appearance",
         yours_h2="Make it yours.",
         yours_p="Five themes, any accent color, and your own fonts, sizes, weight and alignment. Hide the clock, the buttons, even the status bar.",
+        swatch_label='Try an accent color', swatch_names=['Olive', 'Terracotta', 'Ochre', 'Blue', 'Plum', 'Rose'],
+        marquee=['no icons', 'no red badges', 'no endless feeds', 'no noise', 'just your words'],
         wall_eyebrow="Wallpaper",
         wall_h2="Your photo, softened.",
         wall_p="Use any photo as the background, with blur and brightness, so it stays in the background. On the lock screen too, with its own settings.",
@@ -127,6 +130,8 @@ T = {
         yours_eyebrow="Aparência",
         yours_h2="Do seu jeito.",
         yours_p="Cinco temas, qualquer cor de destaque, e as suas fontes, tamanhos, peso e alinhamento. Esconda o relógio, os botões e até a barra de status.",
+        swatch_label='Experimente uma cor de destaque', swatch_names=['Oliva', 'Terracota', 'Ocre', 'Azul', 'Ameixa', 'Rosa'],
+        marquee=['sem ícones', 'sem bolinhas vermelhas', 'sem feeds infinitos', 'sem barulho', 'só as suas palavras'],
         wall_eyebrow="Papel de parede",
         wall_h2="Sua foto, suavizada.",
         wall_p="Use qualquer foto como fundo, com desfoque e brilho, para ela ficar no fundo mesmo. Também na tela de bloqueio, com ajustes próprios.",
@@ -197,6 +202,8 @@ T = {
         yours_eyebrow="Apariencia",
         yours_h2="A tu manera.",
         yours_p="Cinco temas, cualquier color de acento, y tus fuentes, tamaños, grosor y alineación. Oculta el reloj, los botones e incluso la barra de estado.",
+        swatch_label='Prueba un color de acento', swatch_names=['Oliva', 'Terracota', 'Ocre', 'Azul', 'Ciruela', 'Rosa'],
+        marquee=['sin iconos', 'sin globos rojos', 'sin feeds infinitos', 'sin ruido', 'solo tus palabras'],
         wall_eyebrow="Fondo de pantalla",
         wall_h2="Tu foto, suavizada.",
         wall_p="Usa cualquier foto de fondo, con desenfoque y brillo, para que se quede en segundo plano. También en la pantalla de bloqueo, con sus propios ajustes.",
@@ -264,8 +271,17 @@ def page(lang: str, t: dict) -> str:
         for code in T)
     alternates = "\n".join(f'<link rel="alternate" hreflang="{T[c]["html_lang"]}" href="{SITE}{T[c]["path"]}">' for c in T)
     ph = lambda shot, cls, eager=False: phone(lang, shot, cls, eager=eager)
+    words = t["h1"].split()
+    h1 = "".join(f'<span class="w" aria-hidden="true"><span style="--i:{i}">{esc(w)}</span></span> ' for i, w in enumerate(words)).strip()
+    marquee = "".join(f"<span>{esc(m)}</span>" for m in t["marquee"]) * 2
+    swatches = "".join(
+        f'<button type="button" class="sw" style="--c:{c}" data-color="{c}" aria-label="{esc(n)}" aria-pressed="{"true" if i == 0 else "false"}"></button>'
+        for i, (c, n) in enumerate(zip(COLORS, t["swatch_names"])))
+    wordmark = "".join(f'<span style="--i:{i}">{c}</span>' for i, c in enumerate("pauca"))
     body = f"""
+<div class="veil" aria-hidden="true"><svg viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M132 226c40 62 84 90 124 90s84-28 124-90M166 290l-26 40M256 318v48M346 290l26 40"/></svg></div>
 <header class="top">
+  <div class="progress" aria-hidden="true"></div>
   <div class="wrap">
     <a class="brand" href="{root}{t['path']}">{EYE}<span>Pauca</span></a>
     <nav>
@@ -281,7 +297,7 @@ def page(lang: str, t: dict) -> str:
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">{esc(t['eyebrow'])}</div>
-    <h1>{esc(t['h1'])}</h1>
+    <h1 aria-label="{esc(t['h1'])}">{h1}</h1>
     <p class="lead">{esc(t['lead'])}</p>
     <div class="ctas">
       <a class="btn primary" href="{play_full}">{esc(t['get'])} <span class="price">· {esc(t['price'])}</span></a>
@@ -293,6 +309,8 @@ def page(lang: str, t: dict) -> str:
     </div>
   </div>
 </section>
+
+<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
 
 <section class="manifesto" id="why">
   <div class="wrap reveal">
@@ -330,6 +348,9 @@ def page(lang: str, t: dict) -> str:
       <div class="eyebrow">{esc(t['yours_eyebrow'])}</div>
       <h2>{esc(t['yours_h2'])}</h2>
       <p class="lead">{esc(t['yours_p'])}</p>
+      <div class="swatches" role="group" aria-label="{esc(t['swatch_label'])}">
+        <p class="sw-label">{esc(t['swatch_label'])}</p>{swatches}
+      </div>
     </div>
     <div class="visual trio reveal" aria-hidden="true">{ph('paper_list_serif', 'a')}{ph('paper_terracotta', 'b')}{ph('paper_mono', 'c')}</div>
   </div>
@@ -416,6 +437,7 @@ def page(lang: str, t: dict) -> str:
 </main>
 
 <footer>
+  <div class="wordmark" aria-hidden="true">{wordmark}</div>
   <div class="wrap">
     <a class="brand" href="{root}{t['path']}">{EYE}<span>Pauca</span></a>
     <a href="{root}{t['privacy']}">{esc(t['footer_privacy'])}</a>
@@ -444,7 +466,7 @@ def page(lang: str, t: dict) -> str:
 <link rel="icon" href="{root}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
 <link rel="stylesheet" href="{root}assets/site.css">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");try{{if(!location.hash&&!sessionStorage.getItem("pauca-veil")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("veil-on")}}catch(e){{}}</script>
 </head>
 <body>
 {body}
@@ -454,12 +476,6 @@ def page(lang: str, t: dict) -> str:
 """
 
 
-JS = """// Os blocos aparecem suavemente ao entrar na tela (o CSS ignora isso com "menos movimento").
-const io = new IntersectionObserver(entries => {
-  for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-}, { rootMargin: "0px 0px -10% 0px" });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-"""
 
 ICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#7E8C54"/>
 <g fill="none" stroke="#FBF3E6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" transform="translate(-6 -30) scale(1.02)">
@@ -472,7 +488,7 @@ def assets():
     for f in ("jakarta.ttf", "newsreader.ttf"):
         shutil.copy(os.path.join(ROOT, "app/src/main/res/font", f), os.path.join(ASSETS, "fonts", f))
     shutil.copy(os.path.join(ROOT, "site/site.css"), os.path.join(ASSETS, "site.css"))
-    open(os.path.join(ASSETS, "site.js"), "w").write(JS)
+    shutil.copy(os.path.join(ROOT, "site/site.js"), os.path.join(ASSETS, "site.js"))
     open(os.path.join(ASSETS, "icon.svg"), "w").write(ICON_SVG)
     Image.open(os.path.join(ROOT, "fastlane/metadata/android/en-US/images/icon.png")).resize((180, 180), Image.LANCZOS) \
         .save(os.path.join(ASSETS, "apple-touch-icon.png"), optimize=True)

@@ -18,11 +18,13 @@
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../assets/site.css">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");try{if(!location.hash&&!sessionStorage.getItem("pauca-veil")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("veil-on")}catch(e){}</script>
 </head>
 <body>
 
+<div class="veil" aria-hidden="true"><svg viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M132 226c40 62 84 90 124 90s84-28 124-90M166 290l-26 40M256 318v48M346 290l26 40"/></svg></div>
 <header class="top">
+  <div class="progress" aria-hidden="true"></div>
   <div class="wrap">
     <a class="brand" href="../pt/"><svg viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M132 226c40 62 84 90 124 90s84-28 124-90M166 290l-26 40M256 318v48M346 290l26 40"/></svg><span>Pauca</span></a>
     <nav>
@@ -38,7 +40,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Um launcher minimalista para Android</div>
-    <h1>Seu celular, mais calmo.</h1>
+    <h1 aria-label="Seu celular, mais calmo."><span class="w" aria-hidden="true"><span style="--i:0">Seu</span></span> <span class="w" aria-hidden="true"><span style="--i:1">celular,</span></span> <span class="w" aria-hidden="true"><span style="--i:2">mais</span></span> <span class="w" aria-hidden="true"><span style="--i:3">calmo.</span></span></h1>
     <p class="lead">O Pauca transforma a sua tela inicial numa lista calma de palavras. Sem ícones, sem bolinhas vermelhas, nada chamando sua atenção. Só os apps que você usa, com os nomes que você escolher.</p>
     <div class="ctas">
       <a class="btn primary" href="https://play.google.com/store/apps/details?id=app.pauca&amp;hl=pt_BR">Comprar o Pauca <span class="price">· R$ 5</span></a>
@@ -50,6 +52,8 @@
     </div>
   </div>
 </section>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>sem ícones</span><span>sem bolinhas vermelhas</span><span>sem feeds infinitos</span><span>sem barulho</span><span>só as suas palavras</span><span>sem ícones</span><span>sem bolinhas vermelhas</span><span>sem feeds infinitos</span><span>sem barulho</span><span>só as suas palavras</span></div></div>
 
 <section class="manifesto" id="why">
   <div class="wrap reveal">
@@ -87,6 +91,9 @@
       <div class="eyebrow">Aparência</div>
       <h2>Do seu jeito.</h2>
       <p class="lead">Cinco temas, qualquer cor de destaque, e as suas fontes, tamanhos, peso e alinhamento. Esconda o relógio, os botões e até a barra de status.</p>
+      <div class="swatches" role="group" aria-label="Experimente uma cor de destaque">
+        <p class="sw-label">Experimente uma cor de destaque</p><button type="button" class="sw" style="--c:#7E8C54" data-color="#7E8C54" aria-label="Oliva" aria-pressed="true"></button><button type="button" class="sw" style="--c:#C4673F" data-color="#C4673F" aria-label="Terracota" aria-pressed="false"></button><button type="button" class="sw" style="--c:#B8893A" data-color="#B8893A" aria-label="Ocre" aria-pressed="false"></button><button type="button" class="sw" style="--c:#5E7FA3" data-color="#5E7FA3" aria-label="Azul" aria-pressed="false"></button><button type="button" class="sw" style="--c:#8E5E7E" data-color="#8E5E7E" aria-label="Ameixa" aria-pressed="false"></button><button type="button" class="sw" style="--c:#C2707A" data-color="#C2707A" aria-label="Rosa" aria-pressed="false"></button>
+      </div>
     </div>
     <div class="visual trio reveal" aria-hidden="true"><div class="phone a"><img src="../assets/img/pt/paper_list_serif.webp" alt="" loading="lazy" decoding="async"></div><div class="phone b"><img src="../assets/img/pt/paper_terracotta.webp" alt="" loading="lazy" decoding="async"></div><div class="phone c"><img src="../assets/img/pt/paper_mono.webp" alt="" loading="lazy" decoding="async"></div></div>
   </div>
@@ -173,6 +180,7 @@
 </main>
 
 <footer>
+  <div class="wordmark" aria-hidden="true"><span style="--i:0">p</span><span style="--i:1">a</span><span style="--i:2">u</span><span style="--i:3">c</span><span style="--i:4">a</span></div>
   <div class="wrap">
     <a class="brand" href="../pt/"><svg viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M132 226c40 62 84 90 124 90s84-28 124-90M166 290l-26 40M256 318v48M346 290l26 40"/></svg><span>Pauca</span></a>
     <a href="../privacy/pt/">Política de privacidade</a>

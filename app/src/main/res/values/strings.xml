@@ -380,4 +380,6 @@
     <string name="rate_action">Rate</string>
     <string name="rate_already">Already did</string>
     <string name="rate_later">Not now</string>
+    <string name="accessibility_accept">I agree</string>
+    <string name="accessibility_decline">No thanks</string>
 </resources>

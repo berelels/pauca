@@ -382,4 +382,6 @@
     <string name="rate_action">Valorar</string>
     <string name="rate_already">Ya lo hice</string>
     <string name="rate_later">Ahora no</string>
+    <string name="accessibility_accept">Acepto</string>
+    <string name="accessibility_decline">No, gracias</string>
 </resources>

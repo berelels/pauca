@@ -702,7 +702,11 @@ class SettingsPageFragment : BaseFragment() {
             set = { on ->
                 prefs.focusBlockApps = on
                 FocusManager.refresh(context)
-                if (on && !isAccessServiceEnabled(context)) showAccessibilityDialog()
+                if (on && !isAccessServiceEnabled(context)) showAccessibilityDialog {
+                    prefs.focusBlockApps = false
+                    FocusManager.refresh(context)
+                    ui.refresh()
+                }
                 true
             },
         )
@@ -907,12 +911,14 @@ class SettingsPageFragment : BaseFragment() {
     }
 
     /** Aviso claro antes de mandar para a acessibilidade (exigência do Google Play). */
-    private fun showAccessibilityDialog() {
+    private fun showAccessibilityDialog(onDecline: () -> Unit = {}) {
         val enabled = isAccessServiceEnabled(requireContext())
         showDialog(requireContext().createDialog(
             title = R.string.perm_accessibility,
-            action = if (enabled) R.string.disable else R.string.enable,
+            action = if (enabled) R.string.disable else R.string.accessibility_accept,
             message = R.string.accessibility_disclosure,
+            neutral = if (enabled) 0 else R.string.accessibility_decline,
+            onNeutral = onDecline,
             onAction = { openSystem(Settings.ACTION_ACCESSIBILITY_SETTINGS) },
         ))
     }

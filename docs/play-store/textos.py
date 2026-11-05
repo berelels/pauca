@@ -6,7 +6,7 @@ L = {}
 
 L[("android", "en-US")] = dict(
 title="Pauca: Minimalist Launcher",
-short="A calm, text-only home screen and a focus mode that really silences your phone.",
+short="Turn your phone into a calm dumbphone: text-only home and real focus mode.",
 full="""Pauca turns your phone into something closer to a dumbphone: your apps become words in calm cards, with the names you choose. No icons, no red badges.
 
 HOME SCREEN
@@ -65,7 +65,7 @@ Pauca is open source under the GPLv3, based on Olauncher by Tanuj. No ads.""")
 
 L[("android", "pt-BR")] = dict(
 title="Pauca: Launcher Minimalista",
-short="Uma tela inicial calma, só de texto, com um modo foco que silencia de verdade.",
+short="Seu celular mais perto de um dumbphone: tela só de texto e modo foco de verdade.",
 full="""O Pauca deixa seu celular mais perto de um dumbphone: seus apps viram palavras em cartões calmos, com os nomes que você escolher. Sem ícones, sem bolinhas vermelhas.
 
 TELA INICIAL
@@ -124,7 +124,7 @@ O Pauca é código aberto, sob a GPLv3, feito a partir do Olauncher, de Tanuj. S
 
 L[("android", "es-ES")] = dict(
 title="Pauca: Launcher Minimalista",
-short="Una pantalla de inicio tranquila, solo texto, con concentración que silencia.",
+short="Acerca tu teléfono a un dumbphone: inicio solo texto y concentración de verdad.",
 full="""Pauca acerca tu teléfono a un dumbphone: tus apps se convierten en palabras dentro de tarjetas tranquilas, con los nombres que elijas. Sin iconos, sin globos rojos.
 
 PANTALLA DE INICIO

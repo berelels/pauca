@@ -146,6 +146,12 @@ class SettingsPageFragment : BaseFragment() {
         if (Edition.isLite) {
             ui.section(null)
             ui.row(getString(R.string.full_row), subtitle = { getString(R.string.full_row_summary) }, chevron = true) { ui.onLocked() }
+            // No Lite o aviso ficava escondido em Gestos e a revisão do Google não o encontrava
+            ui.row(
+                getString(R.string.perm_accessibility),
+                subtitle = { getString(R.string.perm_accessibility_summary) },
+                value = { permissionLabel(isAccessServiceEnabled(context)) },
+            ) { showAccessibilityDialog() }
         }
 
         ui.section(getString(R.string.section_home))

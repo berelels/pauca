@@ -6,6 +6,7 @@ docs/index.html (inglês), docs/pt/ e docs/es/, com estilo, fontes e imagens em 
 As telas vêm das capturas reais em art/store/shots/ (as mesmas da loja). Edite os textos aqui e rode:
     python3 site/build.py
 """
+import hashlib
 import html
 import os
 import shutil
@@ -18,6 +19,8 @@ ASSETS = os.path.join(DOCS, "assets")
 SITE = "https://cattastudios.com.br/pauca/"
 REPO = "https://github.com/berelels/pauca"
 PLAY = "https://play.google.com/store/apps/details?id="
+# Muda a cada build para o navegador e a CDN não servirem CSS/JS antigos
+VERSION = hashlib.sha1(b"".join(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), f), "rb").read() for f in ("site.css", "site.js"))).hexdigest()[:8]
 COLORS = ["#7E8C54", "#C4673F", "#B8893A", "#5E7FA3", "#8E5E7E", "#C2707A"]
 SHOTS = ["home_dark", "home_paper", "home_focus", "home_wall", "paper_list_serif", "paper_mono", "paper_terracotta", "drawer"]
 
@@ -59,7 +62,6 @@ T = {
         yours_h2="Make it yours.",
         yours_p="Five themes, any accent color, and your own fonts, sizes, weight and alignment. Hide the clock, the buttons, even the status bar.",
         swatch_label='Try an accent color', swatch_names=['Olive', 'Terracotta', 'Ochre', 'Blue', 'Plum', 'Rose'],
-        marquee=['no icons', 'no red badges', 'no endless feeds', 'no noise', 'just your words'],
         wall_eyebrow="Wallpaper",
         wall_h2="Your photo, softened.",
         wall_p="Use any photo as the background, with blur and brightness, so it stays in the background. On the lock screen too, with its own settings.",
@@ -131,7 +133,6 @@ T = {
         yours_h2="Do seu jeito.",
         yours_p="Cinco temas, qualquer cor de destaque, e as suas fontes, tamanhos, peso e alinhamento. Esconda o relógio, os botões e até a barra de status.",
         swatch_label='Experimente uma cor de destaque', swatch_names=['Oliva', 'Terracota', 'Ocre', 'Azul', 'Ameixa', 'Rosa'],
-        marquee=['sem ícones', 'sem bolinhas vermelhas', 'sem feeds infinitos', 'sem barulho', 'só as suas palavras'],
         wall_eyebrow="Papel de parede",
         wall_h2="Sua foto, suavizada.",
         wall_p="Use qualquer foto como fundo, com desfoque e brilho, para ela ficar no fundo mesmo. Também na tela de bloqueio, com ajustes próprios.",
@@ -203,7 +204,6 @@ T = {
         yours_h2="A tu manera.",
         yours_p="Cinco temas, cualquier color de acento, y tus fuentes, tamaños, grosor y alineación. Oculta el reloj, los botones e incluso la barra de estado.",
         swatch_label='Prueba un color de acento', swatch_names=['Oliva', 'Terracota', 'Ocre', 'Azul', 'Ciruela', 'Rosa'],
-        marquee=['sin iconos', 'sin globos rojos', 'sin feeds infinitos', 'sin ruido', 'solo tus palabras'],
         wall_eyebrow="Fondo de pantalla",
         wall_h2="Tu foto, suavizada.",
         wall_p="Usa cualquier foto de fondo, con desenfoque y brillo, para que se quede en segundo plano. También en la pantalla de bloqueo, con sus propios ajustes.",
@@ -273,7 +273,6 @@ def page(lang: str, t: dict) -> str:
     ph = lambda shot, cls, eager=False: phone(lang, shot, cls, eager=eager)
     words = t["h1"].split()
     h1 = "".join(f'<span class="w" aria-hidden="true"><span style="--i:{i}">{esc(w)}</span></span> ' for i, w in enumerate(words)).strip()
-    marquee = "".join(f"<span>{esc(m)}</span>" for m in t["marquee"]) * 2
     swatches = "".join(
         f'<button type="button" class="sw" style="--c:{c}" data-color="{c}" aria-label="{esc(n)}" aria-pressed="{"true" if i == 0 else "false"}"></button>'
         for i, (c, n) in enumerate(zip(COLORS, t["swatch_names"])))
@@ -310,7 +309,6 @@ def page(lang: str, t: dict) -> str:
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
 
 <section class="manifesto" id="why">
   <div class="wrap reveal">
@@ -465,12 +463,12 @@ def page(lang: str, t: dict) -> str:
 <meta name="theme-color" content="#F4EFE4">
 <link rel="icon" href="{root}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{root}assets/site.css">
+<link rel="stylesheet" href="{root}assets/site.css?v={VERSION}">
 <script>document.documentElement.classList.add("js");try{{if(!location.hash&&!sessionStorage.getItem("pauca-veil")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("veil-on")}}catch(e){{}}</script>
 </head>
 <body>
 {body}
-<script src="{root}assets/site.js" defer></script>
+<script src="{root}assets/site.js?v={VERSION}" defer></script>
 </body>
 </html>
 """

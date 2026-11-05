@@ -79,7 +79,7 @@ section { padding: 120px 0; }
 .hero .lead { margin: 0 auto 36px; }
 .hero .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .hero .fine { margin-top: 18px; }
-.stage { position: relative; height: 640px; margin-top: 72px; }
+.stage { position: relative; height: 640px; margin-top: 72px; pointer-events: none; }
 .stage::before { content: ""; position: absolute; left: 50%; top: 52%; width: 980px; height: 980px; transform: translate(-50%, -50%);
   background: radial-gradient(closest-side, color-mix(in srgb, var(--olive) 30%, transparent), transparent); }
 

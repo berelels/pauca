@@ -239,10 +239,6 @@ footer .legal { flex-basis: 100%; font-size: 12.5px; opacity: .8; }
 .brand:hover svg { rotate: -8deg; }
 
 /* Faixa: o que o Pauca tira da tela */
-.marquee { overflow: hidden; border-block: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); padding: 24px 0; background: var(--paper); }
-.marquee .track { display: flex; width: max-content; }
-.marquee span { display: flex; align-items: center; gap: 56px; padding-right: 56px; white-space: nowrap; font: italic 400 clamp(26px, 3.6vw, 44px)/1 var(--serif); color: var(--ink-2); }
-.marquee span::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--olive); }
 
 /* Amostras de cor: a própria página muda de cor */
 .swatches { margin-top: 36px; }
@@ -299,9 +295,6 @@ footer .legal { flex-basis: 100%; font-size: 12.5px; opacity: .8; }
   .js .rv.in { opacity: 1; translate: 0 0; }
 
   /* Faixa andando devagar; para ao passar o mouse */
-  .marquee .track { animation: slide 46s linear infinite; }
-  .marquee:hover .track { animation-play-state: paused; }
-  @keyframes slide { to { transform: translateX(-50%); } }
 
   /* Assinatura: uma onda passa pelas letras quando ela aparece */
   .wordmark.in span { animation: wave 1.4s var(--ease) calc(var(--i) * 90ms) 1; }
@@ -309,5 +302,4 @@ footer .legal { flex-basis: 100%; font-size: 12.5px; opacity: .8; }
   .wordmark span.pop { animation: pop .6s var(--ease); }
   @keyframes pop { 35% { font-variation-settings: "wght" 800; translate: 0 -.09em; } }
 }
-@media (prefers-reduced-motion: reduce) { .marquee .track { flex-wrap: wrap; justify-content: center; width: auto; } .marquee span:nth-child(n+6) { display: none; } }
 @media (hover: none), (prefers-reduced-motion: reduce) { .cursor { display: none; } }

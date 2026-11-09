@@ -55,17 +55,13 @@ Marque **13 anos ou mais**: 13 a 15, 16 a 17 e 18 ou mais. Não marque menores d
 
   > O Pauca é um app de tela inicial (launcher). Ele precisa ver todos os apps instalados para mostrá-los na tela inicial e na gaveta de apps, que é a sua função principal. A lista nunca sai do aparelho: o app não tem permissão de internet.
 
-### API de acessibilidade: os dois apps
+### API de acessibilidade: só o Pauca
 
 O app **não** é uma ferramenta de acessibilidade. Responda que não é; a declaração pede uma descrição e um vídeo.
 
-**Pauca:**
-
 > Pauca uses the AccessibilityService API for two features the user turns on explicitly: (1) locking the screen with a double tap on the home screen (performGlobalAction GLOBAL_ACTION_LOCK_SCREEN), and (2) in focus mode, if the user enables "block other apps", going back to the home screen when an app outside the user's allowed list is opened (GLOBAL_ACTION_HOME). Normally the service only receives click events from Pauca's own home screen, to detect the double tap. Only while focus mode with app blocking is on, it also receives window changes from other apps, and it reads just their package name. It does not read screen content or what the user types, and nothing leaves the device (the app has no internet permission). Before sending the user to Android's settings, the app shows a disclosure explaining exactly this.
 
-**Pauca Lite:**
-
-> Pauca Lite uses the AccessibilityService API for one feature the user turns on explicitly: locking the screen with a double tap on the home screen (performGlobalAction GLOBAL_ACTION_LOCK_SCREEN). The service only receives click events from Pauca Lite's own home screen, to detect the double tap. It does not read other apps, screen content or what the user types, and nothing leaves the device (the app has no internet permission). Before sending the user to Android's settings, the app shows a disclosure explaining exactly this.
+O Pauca Lite não usa essa API: desde a versão 0.1.7 ele não tem o serviço de acessibilidade nem o toque duplo para bloquear.
 
 **O vídeo** pode ser gravado com a gravação de tela do próprio celular e enviado ao YouTube como "não listado". Uns 30 a 60 segundos bastam:
 
@@ -73,7 +69,7 @@ O app **não** é uma ferramenta de acessibilidade. Responda que não é; a decl
 2. Mostre o aviso do app que explica o uso da acessibilidade e toque para continuar.
 3. Nos ajustes do Android, ligue o serviço do Pauca.
 4. Volte à tela inicial e dê um toque duplo: a tela bloqueia.
-5. Só no Pauca: ligue o modo foco com "Bloquear outros apps", abra um app fora da lista e mostre o celular voltando para o início.
+5. Ligue o modo foco com "Bloquear outros apps", abra um app fora da lista e mostre o celular voltando para o início.
 
 ## Outras permissões
 

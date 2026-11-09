@@ -10,13 +10,10 @@ WHAT YOU GET
 • Text and clock size, and the clock and date shown or hidden
 • Swipe up for all your apps, with search and categories
 • Swipe down for notifications, sideways to open an app you choose
-• Double tap to lock the screen
 • English, Portuguese and Spanish, and a short guided tour
 
 PRIVATE BY DESIGN
 Pauca Lite has no internet permission and collects no data. Everything stays on your phone.
-
-Accessibility: Pauca Lite uses the accessibility service only to lock the screen with a double tap. It doesn't read what's on your screen.
 
 WANT MORE? GET PAUCA
 Pauca, the full version, is a one-time purchase with no subscription. It adds:
@@ -26,6 +23,7 @@ Pauca, the full version, is a one-time purchase with no subscription. It adds:
 • Every accent color, or any color you type
 • Fonts, weight, alignment and letter case
 • Hide the buttons, the clock, even the status bar
+• Double tap to lock the screen
 
 When you install Pauca, your cards and settings from Lite come along.
 

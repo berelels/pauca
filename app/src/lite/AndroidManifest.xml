@@ -25,5 +25,13 @@
         <service
             android:name="app.pauca.focus.FocusListenerService"
             tools:node="remove" />
+
+        <!-- Bloquear a tela com o toque duplo é só do Pauca: o Lite não pede acessibilidade -->
+        <service
+            android:name="app.pauca.helper.MyAccessibilityService"
+            tools:node="remove" />
+        <receiver
+            android:name="app.pauca.listener.DeviceAdmin"
+            tools:node="remove" />
     </application>
 </manifest>

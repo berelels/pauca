@@ -10,13 +10,10 @@ O QUE TEM
 • Tamanho do texto e do relógio, e relógio e data à mostra ou escondidos
 • Deslize para cima para ver todos os apps, com busca e categorias
 • Deslize para baixo para as notificações e para os lados para abrir um app que você escolher
-• Toque duplo para bloquear a tela
 • Português, inglês e espanhol, e um tour rápido
 
 PRIVADO DE VERDADE
 O Pauca Lite não tem permissão de internet e não coleta nenhum dado. Tudo fica no seu celular.
-
-Acessibilidade: o Pauca Lite usa o serviço de acessibilidade só para bloquear a tela com o toque duplo. Ele não lê o que está na sua tela.
 
 QUER MAIS? CONHEÇA O PAUCA
 O Pauca, a versão completa, é uma compra única, sem assinatura. Ele traz:
@@ -26,6 +23,7 @@ O Pauca, a versão completa, é uma compra única, sem assinatura. Ele traz:
 • Todas as cores de destaque, ou qualquer cor que você digitar
 • Fontes, peso, alinhamento, minúsculas e maiúsculas
 • Esconda os botões, o relógio e até a barra de status
+• Toque duplo para bloquear a tela
 
 Quando você instala o Pauca, seus cartões e ajustes do Lite vão junto.
 

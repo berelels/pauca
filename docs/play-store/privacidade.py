@@ -16,7 +16,7 @@ REPO = "https://github.com/berelels/pauca"
 PAGES = {
     "en": dict(
         lang="en", path="", title="Privacy policy",
-        sub="Pauca and Pauca Lite · Last updated October 2, 2026",
+        sub="Pauca and Pauca Lite · Last updated November 9, 2026",
         sections=[
             ("In short", [
                 "Pauca doesn't collect, sell or share any data about you. The app has no internet permission, so it can't send anything anywhere. There are no ads, no analytics, no accounts and no trackers.",
@@ -35,11 +35,11 @@ PAGES = {
             ]),
             ("Permissions, and why", [
                 ("<b>See your installed apps</b>: to list them on the home screen and in the drawer. The list never leaves your phone.",
-                 "<b>Accessibility service</b> (optional): only to lock the screen with a double tap and, in focus mode, to go back home when an app outside your list opens. It only checks which app is in front. It doesn't read what's on the screen or what you type. You turn it on yourself in Android's settings, after the app explains it.",
+                 "<b>Accessibility service</b> (optional, Pauca only): only to lock the screen with a double tap and, in focus mode, to go back home when an app outside your list opens. It only checks which app is in front. It doesn't read what's on the screen or what you type. You turn it on yourself in Android's settings, after the app explains it.",
                  "<b>Notification access</b> (optional, Pauca only): to hold notifications from apps outside your list during focus mode and count them for the summary.",
                  "<b>Do Not Disturb access</b> (optional, Pauca only): to turn Pauca's own Do Not Disturb rule on and off during focus mode.",
                  "<b>Usage access</b> (optional): to show today's screen time next to the date, if you turn it on. It's calculated on the phone.",
-                 "<b>Device administrator</b> (optional, older Android versions): only to lock the screen with a double tap.",
+                 "<b>Device administrator</b> (optional, Pauca only, older Android versions): only to lock the screen with a double tap.",
                  "<b>Set wallpaper</b> (Pauca only): to put the image you chose on the lock screen, when you ask for it.",
                  "<b>Change secure settings</b> (optional, Pauca only): for the grayscale screen in focus mode. Android only allows it if you grant it yourself, with a command from a computer.",
                  "<b>Others</b>: open the notification panel, open the alarm app, ask Android to uninstall an app you chose, and show apps from Android's private space."),
@@ -63,7 +63,7 @@ PAGES = {
     ),
     "pt": dict(
         lang="pt-BR", path="pt/", title="Política de privacidade",
-        sub="Pauca e Pauca Lite · Atualizada em 2 de outubro de 2026",
+        sub="Pauca e Pauca Lite · Atualizada em 9 de novembro de 2026",
         sections=[
             ("Em resumo", [
                 "O Pauca não coleta, não vende e não compartilha nenhum dado sobre você. O app não tem permissão de internet, então não consegue enviar nada para lugar nenhum. Não tem anúncios, estatísticas de uso, contas nem rastreadores.",
@@ -82,11 +82,11 @@ PAGES = {
             ]),
             ("Permissões, e para quê", [
                 ("<b>Ver os apps instalados</b>: para listá-los na tela inicial e na gaveta. A lista nunca sai do seu celular.",
-                 "<b>Serviço de acessibilidade</b> (opcional): só para bloquear a tela com o toque duplo e, no modo foco, voltar para o início quando um app fora da sua lista abre. Ele só confere qual app está na frente. Não lê o que está na tela nem o que você digita. Você mesmo o liga nos ajustes do Android, depois de o app explicar.",
+                 "<b>Serviço de acessibilidade</b> (opcional, só no Pauca): só para bloquear a tela com o toque duplo e, no modo foco, voltar para o início quando um app fora da sua lista abre. Ele só confere qual app está na frente. Não lê o que está na tela nem o que você digita. Você mesmo o liga nos ajustes do Android, depois de o app explicar.",
                  "<b>Acesso às notificações</b> (opcional, só no Pauca): para segurar as notificações dos apps fora da sua lista durante o modo foco e contá-las para o resumo.",
                  "<b>Acesso ao Não Perturbe</b> (opcional, só no Pauca): para ligar e desligar a regra de Não Perturbe do próprio Pauca durante o modo foco.",
                  "<b>Acesso ao uso</b> (opcional): para mostrar o tempo de tela do dia ao lado da data, se você ligar. A conta é feita no celular.",
-                 "<b>Administrador do dispositivo</b> (opcional, em versões antigas do Android): só para bloquear a tela com o toque duplo.",
+                 "<b>Administrador do dispositivo</b> (opcional, só no Pauca, em versões antigas do Android): só para bloquear a tela com o toque duplo.",
                  "<b>Definir papel de parede</b> (só no Pauca): para pôr a imagem escolhida na tela de bloqueio, quando você pedir.",
                  "<b>Alterar configurações seguras</b> (opcional, só no Pauca): para a tela em tons de cinza do modo foco. O Android só permite se você mesmo conceder, com um comando no computador.",
                  "<b>Outras</b>: abrir o painel de notificações, abrir o app de alarme, pedir ao Android para desinstalar um app que você escolheu e mostrar os apps do espaço privado do Android."),
@@ -110,7 +110,7 @@ PAGES = {
     ),
     "es": dict(
         lang="es", path="es/", title="Política de privacidad",
-        sub="Pauca y Pauca Lite · Actualizada el 2 de octubre de 2026",
+        sub="Pauca y Pauca Lite · Actualizada el 9 de noviembre de 2026",
         sections=[
             ("En resumen", [
                 "Pauca no recopila, no vende y no comparte ningún dato sobre ti. La app no tiene permiso de internet, así que no puede enviar nada a ningún sitio. No tiene anuncios, estadísticas de uso, cuentas ni rastreadores.",
@@ -129,11 +129,11 @@ PAGES = {
             ]),
             ("Permisos, y para qué", [
                 ("<b>Ver las apps instaladas</b>: para mostrarlas en la pantalla de inicio y en el cajón. La lista nunca sale de tu teléfono.",
-                 "<b>Servicio de accesibilidad</b> (opcional): solo para bloquear la pantalla con el doble toque y, en el modo concentración, volver al inicio cuando se abre una app que no está en tu lista. Solo comprueba qué app está delante. No lee lo que hay en la pantalla ni lo que escribes. Lo activas tú en los ajustes de Android, después de que la app lo explique.",
+                 "<b>Servicio de accesibilidad</b> (opcional, solo en Pauca): solo para bloquear la pantalla con el doble toque y, en el modo concentración, volver al inicio cuando se abre una app que no está en tu lista. Solo comprueba qué app está delante. No lee lo que hay en la pantalla ni lo que escribes. Lo activas tú en los ajustes de Android, después de que la app lo explique.",
                  "<b>Acceso a las notificaciones</b> (opcional, solo en Pauca): para retener las notificaciones de las apps fuera de tu lista durante el modo concentración y contarlas para el resumen.",
                  "<b>Acceso a No molestar</b> (opcional, solo en Pauca): para activar y desactivar la regla de No molestar propia de Pauca durante el modo concentración.",
                  "<b>Acceso al uso</b> (opcional): para mostrar el tiempo de pantalla del día junto a la fecha, si lo activas. Se calcula en el teléfono.",
-                 "<b>Administrador del dispositivo</b> (opcional, en versiones antiguas de Android): solo para bloquear la pantalla con el doble toque.",
+                 "<b>Administrador del dispositivo</b> (opcional, solo en Pauca, en versiones antiguas de Android): solo para bloquear la pantalla con el doble toque.",
                  "<b>Establecer fondo de pantalla</b> (solo en Pauca): para poner la imagen elegida en la pantalla de bloqueo, cuando lo pidas.",
                  "<b>Cambiar ajustes seguros</b> (opcional, solo en Pauca): para la pantalla en escala de grises del modo concentración. Android solo lo permite si lo concedes tú, con un comando desde un ordenador.",
                  "<b>Otros</b>: abrir el panel de notificaciones, abrir la app de alarmas, pedir a Android que desinstale una app que elegiste y mostrar las apps del espacio privado de Android."),

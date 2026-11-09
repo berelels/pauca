@@ -10,13 +10,10 @@ QUÉ INCLUYE
 • Tamaño del texto y del reloj, y reloj y fecha visibles u ocultos
 • Desliza hacia arriba para ver todas tus apps, con búsqueda y categorías
 • Desliza hacia abajo para las notificaciones y hacia los lados para abrir la app que elijas
-• Doble toque para bloquear la pantalla
 • Español, inglés y portugués, y un recorrido breve
 
 PRIVADO DE VERDAD
 Pauca Lite no tiene permiso de internet y no recopila ningún dato. Todo se queda en tu teléfono.
-
-Accesibilidad: Pauca Lite usa el servicio de accesibilidad solo para bloquear la pantalla con el doble toque. No lee lo que hay en tu pantalla.
 
 ¿QUIERES MÁS? CONOCE PAUCA
 Pauca, la versión completa, es un pago único, sin suscripción. Incluye:
@@ -26,6 +23,7 @@ Pauca, la versión completa, es un pago único, sin suscripción. Incluye:
 • Todos los colores de acento, o cualquier color que escribas
 • Fuentes, grosor, alineación, minúsculas y mayúsculas
 • Oculta los botones, el reloj e incluso la barra de estado
+• Doble toque para bloquear la pantalla
 
 Cuando instalas Pauca, tus tarjetas y ajustes de Lite vienen contigo.
 

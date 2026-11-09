@@ -146,12 +146,6 @@ class SettingsPageFragment : BaseFragment() {
         if (Edition.isLite) {
             ui.section(null)
             ui.row(getString(R.string.full_row), subtitle = { getString(R.string.full_row_summary) }, chevron = true) { ui.onLocked() }
-            // No Lite o aviso ficava escondido em Gestos e a revisão do Google não o encontrava
-            ui.row(
-                getString(R.string.perm_accessibility),
-                subtitle = { getString(R.string.perm_accessibility_summary) },
-                value = { permissionLabel(isAccessServiceEnabled(context)) },
-            ) { showAccessibilityDialog() }
         }
 
         ui.section(getString(R.string.section_home))
@@ -851,12 +845,14 @@ class SettingsPageFragment : BaseFragment() {
             getString(R.string.swipe_right),
             value = { swipeLabel(left = false) },
         ) { anchor -> showSwipeMenu(anchor, left = false) }
-        ui.toggle(
-            getString(R.string.double_tap_to_lock),
-            subtitle = { getString(R.string.double_tap_summary) },
-            get = { lockEnabled() },
-            set = { toggleLockMode() },
-        )
+        ui.locked {
+            ui.toggle(
+                getString(R.string.double_tap_to_lock),
+                subtitle = { getString(R.string.double_tap_summary) },
+                get = { lockEnabled() },
+                set = { toggleLockMode() },
+            )
+        }
         ui.note(getString(R.string.gestures_hint))
     }
 

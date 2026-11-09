@@ -363,7 +363,7 @@ class Prefs(context: Context) {
     // Gestos
 
     var lockModeOn: Boolean
-        get() = bool("LOCK_MODE", false)
+        get() = !Edition.isLite && bool("LOCK_MODE", false)
         set(value) = put("LOCK_MODE", value)
 
     var autoShowKeyboard: Boolean

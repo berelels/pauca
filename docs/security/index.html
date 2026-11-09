@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pauca · Security policy</title>
+<meta name="description" content="How to report a security problem in Pauca, Pauca Lite or this website, what&#x27;s covered and what to expect.">
+<link rel="canonical" href="https://cattastudios.com.br/pauca/security/">
+<link rel="alternate" hreflang="en" href="https://cattastudios.com.br/pauca/security/">
+<link rel="alternate" hreflang="pt-BR" href="https://cattastudios.com.br/pauca/security/pt/">
+<link rel="alternate" hreflang="es" href="https://cattastudios.com.br/pauca/security/es/">
+<link rel="alternate" hreflang="x-default" href="https://cattastudios.com.br/pauca/security/">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<style>
+:root { --bg: #F4EFE4; --card: #EAE3D3; --text: #1C1915; --muted: #6B645A; --accent: #5E6A3B; color-scheme: light; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1C1915; --card: #2A2620; --text: #F4EFE4; --muted: #A79F92; --accent: #A9B77E; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 680px; margin: 0 auto; padding: 48px 16px 72px; }
+nav { display: flex; gap: 14px; justify-content: flex-end; font-size: 14px; margin-bottom: 32px; }
+nav a, nav span { color: var(--muted); text-decoration: none; }
+nav span { color: var(--text); font-weight: 600; }
+.mark { width: 44px; height: auto; color: var(--accent); }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 40px; line-height: 1.1; margin: 16px 0 6px; }
+.sub { color: var(--muted); font-size: 15px; margin: 0 0 36px; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 25px; margin: 36px 0 8px; }
+p, li { margin: 0 0 12px; }
+ul { padding-left: 20px; margin: 0 0 12px; }
+a { color: var(--accent); }
+.short { background: var(--card); border-radius: 18px; padding: 18px 22px; }
+.short h2 { margin-top: 0; }
+code { font-size: .9em; }
+.also { margin-top: 44px; color: var(--muted); font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+<nav><a href="../" style="margin-right:auto">← Pauca</a> <span>English</span> <a href="pt/">Português</a> <a href="es/">Español</a></nav>
+<svg class="mark" viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M132 226c40 62 84 90 124 90s84-28 124-90M166 290l-26 40M256 318v48M346 290l26 40"/></svg>
+<h1>Security policy</h1>
+<p class="sub">Pauca, Pauca Lite and this website · Last updated November 9, 2026</p>
+<section class="short"><h2>Report a vulnerability</h2>
+<p>Found a security problem? Email <a href="mailto:gabrieldiasdev@proton.me">gabrieldiasdev@proton.me</a> with what you found and the steps to reproduce it. If it's about the app, include its version and your phone model.</p>
+<p>Please don't open a public GitHub issue for it, and allow reasonable time for a fix before sharing details publicly.</p></section>
+<section><h2>What this covers</h2>
+<ul><li>The latest versions of Pauca and Pauca Lite on Google Play.</li><li>The source code at <a href="https://github.com/berelels/pauca">github.com/berelels/pauca</a>.</li><li>The pages under cattastudios.com.br/pauca/.</li></ul></section>
+<section><h2>What to expect</h2>
+<p>Pauca is made by one person, so there's no fixed deadline and no paid bug bounty. Reports are read and valid ones are fixed as soon as possible. If you'd like, you'll be credited once the fix is out.</p></section>
+<section><h2>How Pauca is built</h2>
+<ul><li>The apps have no internet permission, so they can't send data anywhere on their own.</li><li>Your cards and settings stay on your phone. Moving from Lite to Pauca happens on the phone, and only apps signed by the same developer can read that data.</li><li>Sensitive permissions, such as accessibility and notification access, are optional and you turn them on yourself. The privacy policy explains each one.</li><li>Release signing keys are kept outside the public repository.</li><li>This website is made of static files, with no forms, accounts, cookies or third-party scripts.</li></ul></section>
+<p class="also"><a href="../privacy/">Privacy policy</a></p>
+</main>
+</body>
+</html>

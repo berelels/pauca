@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pauca · Política de segurança</title>
+<meta name="description" content="Como relatar um problema de segurança no Pauca, no Pauca Lite ou neste site, o que está coberto e o que esperar.">
+<link rel="canonical" href="https://cattastudios.com.br/pauca/security/pt/">
+<link rel="alternate" hreflang="en" href="https://cattastudios.com.br/pauca/security/">
+<link rel="alternate" hreflang="pt-BR" href="https://cattastudios.com.br/pauca/security/pt/">
+<link rel="alternate" hreflang="es" href="https://cattastudios.com.br/pauca/security/es/">
+<link rel="alternate" hreflang="x-default" href="https://cattastudios.com.br/pauca/security/">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<style>
+:root { --bg: #F4EFE4; --card: #EAE3D3; --text: #1C1915; --muted: #6B645A; --accent: #5E6A3B; color-scheme: light; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1C1915; --card: #2A2620; --text: #F4EFE4; --muted: #A79F92; --accent: #A9B77E; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 680px; margin: 0 auto; padding: 48px 16px 72px; }
+nav { display: flex; gap: 14px; justify-content: flex-end; font-size: 14px; margin-bottom: 32px; }
+nav a, nav span { color: var(--muted); text-decoration: none; }
+nav span { color: var(--text); font-weight: 600; }
+.mark { width: 44px; height: auto; color: var(--accent); }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 40px; line-height: 1.1; margin: 16px 0 6px; }
+.sub { color: var(--muted); font-size: 15px; margin: 0 0 36px; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 25px; margin: 36px 0 8px; }
+p, li { margin: 0 0 12px; }
+ul { padding-left: 20px; margin: 0 0 12px; }
+a { color: var(--accent); }
+.short { background: var(--card); border-radius: 18px; padding: 18px 22px; }
+.short h2 { margin-top: 0; }
+code { font-size: .9em; }
+.also { margin-top: 44px; color: var(--muted); font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+<nav><a href="../../pt/" style="margin-right:auto">← Pauca</a> <a href="../">English</a> <span>Português</span> <a href="../es/">Español</a></nav>
+<svg class="mark" viewBox="115 209 282 174" fill="none" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M132 226c40 62 84 90 124 90s84-28 124-90M166 290l-26 40M256 318v48M346 290l26 40"/></svg>
+<h1>Política de segurança</h1>
+<p class="sub">Pauca, Pauca Lite e este site · Atualizada em 9 de novembro de 2026</p>
+<section class="short"><h2>Relate uma vulnerabilidade</h2>
+<p>Encontrou um problema de segurança? Escreva para <a href="mailto:gabrieldiasdev@proton.me">gabrieldiasdev@proton.me</a> contando o que achou e os passos para reproduzir. Se for no app, inclua a versão e o modelo do seu celular.</p>
+<p>Por favor, não abra uma issue pública no GitHub sobre isso, e dê um tempo razoável para a correção antes de divulgar os detalhes.</p></section>
+<section><h2>O que está coberto</h2>
+<ul><li>As versões mais recentes do Pauca e do Pauca Lite na Google Play.</li><li>O código-fonte em <a href="https://github.com/berelels/pauca">github.com/berelels/pauca</a>.</li><li>As páginas em cattastudios.com.br/pauca/.</li></ul></section>
+<section><h2>O que esperar</h2>
+<p>O Pauca é feito por uma pessoa só, então não há prazo fixo nem recompensa em dinheiro. Os relatos são lidos e os válidos são corrigidos o quanto antes. Se quiser, você recebe o crédito quando a correção sair.</p></section>
+<section><h2>Como o Pauca é feito</h2>
+<ul><li>Os apps não têm permissão de internet, então não conseguem enviar dados por conta própria.</li><li>Seus cartões e ajustes ficam no seu celular. A passagem do Lite para o Pauca acontece no celular, e só apps assinados pelo mesmo desenvolvedor conseguem ler esses dados.</li><li>As permissões sensíveis, como acessibilidade e acesso às notificações, são opcionais e você mesmo as liga. A política de privacidade explica cada uma.</li><li>As chaves de assinatura ficam fora do repositório público.</li><li>Este site é feito de arquivos estáticos, sem formulários, contas, cookies nem scripts de terceiros.</li></ul></section>
+<p class="also"><a href="../../privacy/pt/">Política de privacidade</a></p>
+</main>
+</body>
+</html>

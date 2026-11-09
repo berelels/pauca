@@ -1,0 +1,56 @@
+# Pauca
+
+> Pauca is a minimalist launcher for Android: a calm, text-only home screen with no icons, badges or widgets, plus a focus mode that really silences the phone. Made in Brazil by Gabriel Dias (Catta Studios). Open source under the GPLv3, based on Olauncher.
+
+## Facts
+
+- Platform: Android 7.0 or newer, any brand. Languages: English, Portuguese and Spanish.
+- Pauca: one-time purchase on Google Play, R$ 4.99 in Brazil and US$ 0.99 in the United States. No subscription, no ads.
+- Pauca Lite: free, not yet published on Google Play. It has the essentials and doesn't use accessibility or double tap to lock.
+- Privacy: the apps have no internet permission and collect no data. No accounts, analytics or trackers.
+- Accessibility: optional and only in Pauca, to lock the screen with a double tap and to pause apps outside your list in focus mode.
+
+## Pages
+
+- [Pauca (English)](https://cattastudios.com.br/pauca/)
+- [Pauca (Português)](https://cattastudios.com.br/pauca/pt/)
+- [Pauca (Español)](https://cattastudios.com.br/pauca/es/)
+- [Privacy policy](https://cattastudios.com.br/pauca/privacy/)
+- [Security policy](https://cattastudios.com.br/pauca/security/)
+- [Pauca on Google Play](https://play.google.com/store/apps/details?id=app.pauca)
+- [Source code](https://github.com/berelels/pauca)
+
+## Questions
+
+### What is Pauca?
+Pauca is a minimalist launcher for Android. It replaces your home screen with a calm, text-only list of the apps you choose, with no icons, badges or widgets, and adds a focus mode that really silences your phone. It's made by Gabriel Dias, of Catta Studios, and it's open source under the GPLv3.
+
+### Does Pauca turn my phone into a dumbphone?
+In spirit, yes: your home screen becomes as simple as a dumbphone's, only words. But it's still your Android phone, and every app stays one swipe away unless you pause it in focus mode.
+
+### How much does Pauca cost?
+US$ 0.99 as a one-time purchase on Google Play, which shows the price in your currency. There's no subscription and no ads, and updates are included. Pauca Lite is coming soon to Google Play.
+
+### Does Pauca collect my data?
+No. Pauca has no internet permission, so it can't send anything anywhere. There are no accounts, analytics, ads or trackers, and your cards and settings stay on your phone.
+
+### Will it work on my phone?
+Pauca works on Android 7 or newer, on any brand, including Samsung Galaxy and Google Pixel.
+
+### Can I go back to my old home screen?
+Anytime. Pauca is just a home screen app: choose another one in your phone's settings, or uninstall it. Nothing else on your phone changes.
+
+### Does it block my apps?
+Only if you want. In focus mode, Pauca can pause the apps outside your list. Outside focus, every app is one swipe away.
+
+### What's the difference between Pauca and Pauca Lite?
+Lite is free and covers the essentials. Pauca adds focus mode, unlimited profiles and full customization, for a one-time price. If you start with Lite, Pauca brings your setup along. Pauca Lite is coming soon to Google Play.
+
+### Is there a subscription?
+No. You pay once, and updates come with it.
+
+### Does it support widgets or icon packs?
+No, on purpose. Pauca is about having fewer things on your screen.
+
+### Why does it ask for accessibility?
+Only Pauca asks, Pauca Lite doesn't. It's only to lock the screen with a double tap and, in focus mode, to pause apps outside your list. It's optional and it doesn't read your screen.

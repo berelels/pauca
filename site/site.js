@@ -12,6 +12,13 @@
   // A abertura (o olho se desenhando) passa uma vez por visita
   try { sessionStorage.setItem("pauca-veil", "1"); } catch (e) { /* sem armazenamento */ }
 
+  // O aviso de cookies fica fechado neste navegador depois do X
+  const notice = $(".notice");
+  if (notice) $("button", notice).addEventListener("click", () => {
+    root.classList.add("notice-off");
+    try { localStorage.setItem("pauca-notice", "1"); } catch (e) { /* sem armazenamento: volta na próxima visita */ }
+  });
+
   // ---------- Aparecer ao rolar ----------
   // Os blocos inteiros, e os itens de listas e grades um depois do outro
   $$(".steps .step, .more > div, .checks li, .plans .plan, .cols p, .faq details").forEach((el) => {

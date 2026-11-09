@@ -1,6 +1,6 @@
 /* Página do Pauca: papel, tinta e oliva, como o app. Fontes do próprio app, sem nada de fora. */
-@font-face { font-family: "Newsreader"; src: url("fonts/newsreader.ttf") format("truetype"); font-weight: 200 800; font-display: swap; }
-@font-face { font-family: "Jakarta"; src: url("fonts/jakarta.ttf") format("truetype"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/newsreader.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Jakarta"; src: url("fonts/jakarta.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
 
 @property --olive { syntax: "<color>"; inherits: true; initial-value: #7E8C54; }
 :root {
@@ -50,6 +50,8 @@ a { color: inherit; }
 .btn.primary:hover { background: var(--ink); }
 .btn.ghost { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, currentColor 35%, transparent); }
 .btn.small { padding: 10px 18px; font-size: 14px; }
+.btn.soon { color: var(--muted); }
+.btn.soon::before { display: none; }
 .btn .price { opacity: .7; font-weight: 500; }
 .on-dark .btn.primary { background: var(--cream); color: var(--ink); }
 .on-dark .btn.primary:hover { background: var(--cream); }
@@ -179,6 +181,16 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: cent
 footer a { color: var(--muted); }
 footer .legal { flex-basis: 100%; font-size: 12.5px; opacity: .8; }
 
+/* Aviso de cookies: informativo, sem "aceitar" (não há o que aceitar). Sem JavaScript fica parado no fim da página, sem o X. */
+.notice { display: flex; align-items: flex-start; gap: 6px; max-width: 1140px; margin: 0 auto; padding: 0 24px 32px; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.notice p { margin: 0; }
+.notice button { display: none; flex: none; width: 40px; height: 40px; margin: -2px -4px -2px auto; padding: 0; border: 0; border-radius: 50%; background: none; color: inherit; font: 400 22px/1 var(--sans); cursor: pointer; }
+.notice button:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.js .notice { position: fixed; left: 16px; bottom: 16px; z-index: 30; width: min(640px, calc(100vw - 32px)); margin: 0; padding: 10px 12px 10px 18px; border-radius: 18px;
+  background: var(--paper); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 18px 40px -18px rgba(28, 25, 21, .4); }
+.js .notice button { display: block; }
+.notice-off .notice { display: none; }
+
 /* Aparecer ao rolar (só com JavaScript e sem preferência por menos movimento) */
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal { opacity: 0; translate: 0 18px; transition: opacity .7s ease, translate .7s ease; }
@@ -276,6 +288,7 @@ footer .legal { flex-basis: 100%; font-size: 12.5px; opacity: .8; }
   .js .hero h1 .w > span { display: inline-block; translate: 0 112%; animation: rise 1s var(--ease) calc(var(--t0) + var(--i) * 80ms) forwards; }
   .js .hero .eyebrow, .js .hero .lead, .js .hero .ctas, .js .hero .fine { animation: fadeUp 1s var(--ease) calc(var(--t0) + var(--d)) backwards; }
   .hero .eyebrow { --d: 0s; } .hero .lead { --d: .5s; } .hero .ctas { --d: .66s; } .hero .fine { --d: .8s; }
+  .js .notice { animation: fadeUp 1s var(--ease) calc(var(--t0) + 1.2s) backwards; }
   .js .stage .phone { animation: phoneIn 1.2s var(--ease) calc(var(--t0) + .45s) backwards; }
   .stage .p1 { --fx: 130px; --k: .07; } .stage .p2 { --fx: 0px; --k: .03; } .stage .p3 { --fx: -130px; --k: .1; }
   .stage .phone { translate: 0 calc(var(--sy, 0) * var(--k, 0) * 1px); }

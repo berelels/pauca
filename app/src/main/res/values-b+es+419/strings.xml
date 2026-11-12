@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Configuración</string>
+    <string name="settings_hint">En la pantalla de inicio: desliza hacia arriba para ver todas las apps, hacia abajo para las notificaciones y mantén presionado el fondo para abrir la configuración.</string>
+    <string name="clock_hint">Consejo: mantén presionado el reloj en la pantalla de inicio para volver aquí.</string>
+    <string name="focus_grayscale_summary">Menos color, menos ganas de deslizar. Necesita un comando desde un computadora, una vez.</string>
+    <string name="grayscale_help">Android solo deja que una app cambie los colores de la pantalla con un permiso especial. Conecta el teléfono a un computadora con la depuración USB activada y ejecuta, una vez:\n\n%1$s</string>
+    <string name="accessibility_disclosure">Pauca usa el servicio de accesibilidad solo para dos cosas: bloquear la pantalla con el doble toque y, en el modo concentración, volver al inicio cuando se abre una app que no está en la lista. No lee el contenido de la pantalla y no recopila ni comparte ningún dato.\n\nActiva Pauca en la configuración de accesibilidad del teléfono.</string>
+    <string name="button_settings">Icono de configuración</string>
+    <string name="buttons_hint">«Al tocar»: los botones quedan ocultos y aparecen 5 segundos al tocar la parte superior o inferior de la pantalla. Si están ocultos, mantén presionado el fondo para abrir la configuración.</string>
+    <string name="tour_clock_body">Toca el reloj para las alarmas y la fecha para el calendario. Mantén presionado para cambiar el formato, la fuente, el tamaño y la posición.</string>
+    <string name="tour_apps_body">Solo lo importante, con los nombres que elijas. Toca para abrir. Mantén presionado para renombrar, cambiar o quitar.</string>
+    <string name="tour_settings_title">Configuración</string>
+    <string name="tour_focus_body">Silencia las notificaciones, oculta las apps que distraen y puede poner la pantalla en gris. Toca para activarlo; mantén presionado para configurarlo.</string>
+    <string name="tour_gestures_body">Desliza hacia abajo para las notificaciones. Mantén presionado el fondo para la configuración. Desliza a los lados para abrir las apps que elijas.</string>
+    <string name="keyboard_message">El teclado es la forma más rápida de encontrar una app: empieza a escribir y Pauca la abre cuando solo queda una. Puedes desactivarlo en la configuración.</string>
+    <string name="hidden_apps_message">Las apps ocultas no aparecen en la lista de apps. Para verlas de nuevo, abre Configuración › Apps ocultas.</string>
+    <string name="full_message">Pauca Lite es la versión gratuita. Pauca, la versión completa, tiene modo concentración, perfiles ilimitados, más temas y colores (incluido tu fondo de pantalla), fuentes y alineación, y botones que se pueden ocultar. Es un pago único, sin suscripción y, como esta, sin acceso a internet.\n\nTus tarjetas y configuración vienen contigo.</string>
+    <string name="lite_imported">Tus tarjetas y configuración de Pauca Lite vinieron contigo.</string>
+    <string name="crash_reset_title">Configuración de texto restablecidos</string>
+</resources>

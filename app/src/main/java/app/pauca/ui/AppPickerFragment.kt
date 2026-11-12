@@ -39,6 +39,7 @@ import java.text.Normalizer
  *  - HOME: marca/desmarca os apps de um perfil (entram no grupo escolhido).
  *  - REPLACE: toque único troca o app de um item, mantendo o lugar.
  *  - FOCUS_ALLOWED: quais apps podem notificar e abrir durante o foco.
+ *  - PAUSE_APPS: quais apps ganham a pausa para respirar.
  */
 class AppPickerFragment : BaseFragment() {
 
@@ -75,6 +76,7 @@ class AppPickerFragment : BaseFragment() {
         val title = when (mode) {
             Constants.PickerMode.REPLACE -> R.string.replace_app
             Constants.PickerMode.FOCUS_ALLOWED -> R.string.focus_allowed_apps
+            Constants.PickerMode.PAUSE_APPS -> R.string.pause_apps
             else -> R.string.choose_apps
         }
         binding.topBar.style(palette, getString(title), onBack = { finish() }, onDone = { finish() }.takeIf { mode != Constants.PickerMode.REPLACE })
@@ -89,8 +91,8 @@ class AppPickerFragment : BaseFragment() {
             override fun afterTextChanged(s: Editable?) = applyFilter()
         })
 
-        binding.hint.isVisible = mode == Constants.PickerMode.FOCUS_ALLOWED
-        binding.hint.text = getString(R.string.focus_allowed_hint)
+        binding.hint.isVisible = mode == Constants.PickerMode.FOCUS_ALLOWED || mode == Constants.PickerMode.PAUSE_APPS
+        binding.hint.text = getString(if (mode == Constants.PickerMode.PAUSE_APPS) R.string.pause_apps_hint else R.string.focus_allowed_hint)
         binding.hint.setTextColor(palette.muted)
         binding.count.setTextColor(palette.muted)
 
@@ -129,6 +131,7 @@ class AppPickerFragment : BaseFragment() {
     private fun updateCount() {
         val count = when (mode) {
             Constants.PickerMode.FOCUS_ALLOWED -> prefs.focusAllowed.size
+            Constants.PickerMode.PAUSE_APPS -> prefs.pauseApps.size
             Constants.PickerMode.REPLACE -> -1
             else -> profile.allItems.size
         }
@@ -147,6 +150,7 @@ class AppPickerFragment : BaseFragment() {
 
     private fun isSelected(app: AppModel): Boolean = when (mode) {
         Constants.PickerMode.FOCUS_ALLOWED -> app.appPackage in prefs.focusAllowed || app.appPackage in homePackages
+        Constants.PickerMode.PAUSE_APPS -> app.appPackage in prefs.pauseApps
         Constants.PickerMode.REPLACE -> false
         else -> profile.allItems.any { it.key == key(app) }
     }
@@ -168,6 +172,12 @@ class AppPickerFragment : BaseFragment() {
                 val allowed = prefs.focusAllowed.toMutableSet()
                 if (!allowed.add(app.appPackage)) allowed.remove(app.appPackage)
                 prefs.focusAllowed = allowed
+            }
+
+            Constants.PickerMode.PAUSE_APPS -> {
+                val chosen = prefs.pauseApps.toMutableSet()
+                if (!chosen.add(app.appPackage)) chosen.remove(app.appPackage)
+                prefs.pauseApps = chosen
             }
 
             else -> {
@@ -211,7 +221,7 @@ class AppPickerFragment : BaseFragment() {
             val row = LinearLayout(parent.context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(16.dpToPx(), 0, 12.dpToPx(), 0)
+                setPaddingRelative(16.dpToPx(), 0, 12.dpToPx(), 0)
                 minimumHeight = 56.dpToPx()
                 background = Look.pressable(0, 16, palette.text)
                 layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -225,7 +235,7 @@ class AppPickerFragment : BaseFragment() {
                 }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 addView(ImageView(context).apply {
                     id = R.id.check
-                    setPadding(3.dpToPx(), 3.dpToPx(), 3.dpToPx(), 3.dpToPx())
+                    setPaddingRelative(3.dpToPx(), 3.dpToPx(), 3.dpToPx(), 3.dpToPx())
                 }, LinearLayout.LayoutParams(28.dpToPx(), 28.dpToPx()))
             }
             return object : RecyclerView.ViewHolder(row) {}

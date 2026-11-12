@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="section_on_tap">按一下時</string>
+    <string name="gestures_summary">左右滑動、按兩下</string>
+    <string name="font">字體</string>
+    <string name="preview_app_2">短訊</string>
+    <string name="show_screen_time_summary">需要使用情況存取權限</string>
+    <string name="clock_tap_app">按一下時鐘會開啟</string>
+    <string name="date_tap_app">按一下日期會開啟</string>
+    <string name="perm_notifications">通知存取權限</string>
+    <string name="perm_accessibility_summary">用來封鎖應用程式以及按兩下</string>
+    <string name="focus_digest_message">這些是你專注期間收到的內容。按一下應用程式即可開啟。</string>
+    <string name="double_tap_to_lock">按兩下鎖定</string>
+    <string name="about_license_summary">Pauca 是自由軟件：你可以研究、修改和再散布其程式碼。</string>
+    <string name="about_fonts">字體</string>
+    <string name="about_fonts_summary">Newsreader 和 Plus Jakarta Sans，採用 SIL 開放字體授權</string>
+    <string name="about_privacy">Pauca 不上網，也不蒐集任何資料。一切都留在你的手機上。</string>
+    <string name="home_empty">按一下這裡，選擇主畫面上的應用程式。</string>
+    <string name="accessibility_disclosure">Pauca 使用無障礙服務只為了兩件事：按兩下鎖定螢幕；在專注模式下，開啟清單以外的應用程式時回到主畫面。它不會讀取螢幕內容，也不會蒐集或分享任何資料。\n\n請在手機的無障礙設定中開啟 Pauca。</string>
+    <string name="accessibility_service_description">按兩下鎖定螢幕；在專注模式下暫停不在你清單中的應用程式。Pauca 不蒐集或分享資料。</string>
+    <string name="admin_permission_message">Pauca 僅使用此權限，透過按兩下來鎖定螢幕。不會蒐集任何資料。</string>
+    <string name="bar_auto">按一下後顯示 5 秒</string>
+    <string name="buttons_hint">「按一下後顯示」：按鈕預設隱藏，按一下螢幕頂部或底部後會顯示 5 秒。按鈕隱藏時，長按背景即可開啟設定。</string>
+    <string name="tour_clock_body">按一下時鐘開啟鬧鐘，按一下日期開啟日曆。長按可變更格式、字體、大小和位置。</string>
+    <string name="tour_apps_body">只留下重要的，名稱由你決定。按一下即可開啟。長按可重新命名、更換或移除。</string>
+    <string name="tour_settings_body">所有內容都在這裡：顏色、字體、時鐘、專注模式、手勢和語言。</string>
+    <string name="tour_profile_body">每個設定檔有各自的應用程式：個人、工作、夜間……按一下即可切換。</string>
+    <string name="tour_focus_body">讓通知靜音，隱藏分散注意力的應用程式，還能把螢幕變成灰色。按一下開啟；長按進行設定。</string>
+    <string name="tour_buttons_body">在「外觀 › 按鈕」中，你可以隱藏這些按鈕，或讓它們只在你按一下螢幕頂部或底部時出現。</string>
+    <string name="please_turn_on_double_tap_to_unlock">請開啟按兩下鎖定</string>
+    <string name="full_message">Pauca Lite 是免費版。完整版 Pauca 增加了專注模式、不限數量的設定檔、更多主題和顏色（也可使用自己的桌布）、字體和對齊方式，以及可隱藏的按鈕。一次買斷，沒有訂閱，而且和本版本一樣，無需上網。\n\n你的卡片和設定會一併帶過去。</string>
+    <string name="full_row_summary">專注模式、不限數量的設定檔、更多主題、顏色和字體</string>
+    <string name="crash_reset_message">Pauca 連續幾次自行關閉，因此字體、粗細和大小已恢復預設。如果是程式錯誤，請複製詳細資料並傳送給我們。</string>
+    <string name="weather_summary">在主畫面上顯示氣溫和天況。需要上網，但絕不使用你的位置。</string>
+    <string name="weather_city_not_found">找不到該城市。請檢查名稱和網絡連接。</string>
+</resources>

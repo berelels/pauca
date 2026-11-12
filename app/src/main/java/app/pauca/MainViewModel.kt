@@ -15,7 +15,10 @@ import app.pauca.data.AppModel
 import app.pauca.data.Constants
 import app.pauca.data.Prefs
 import app.pauca.focus.FocusManager
+import app.pauca.helper.Pause
+import app.pauca.helper.PauseRequest
 import app.pauca.helper.SingleLiveEvent
+import app.pauca.helper.Weather
 import app.pauca.helper.formattedTimeSpent
 import app.pauca.helper.getAppsList
 import app.pauca.helper.getPrivateSpaceApps
@@ -24,9 +27,12 @@ import app.pauca.helper.hasBeenMinutes
 import app.pauca.helper.isDefaultHome
 import app.pauca.helper.isPackageInstalled
 import app.pauca.helper.isPrivateSpaceLocked
+import app.pauca.helper.Language
 import app.pauca.helper.showToast
 import app.pauca.helper.usageStats.EventLogWrapper
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Calendar
 
 
@@ -52,25 +58,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val showDialog = SingleLiveEvent<String>()
     val resetLauncherLiveData = SingleLiveEvent<Unit?>()
+    val pauseRequest = SingleLiveEvent<PauseRequest>()
+    val weatherChanged = MutableLiveData<Unit>()
+    private var weatherLoading = false
 
     fun selectedApp(appModel: AppModel, flag: Int) {
         if (appModel is AppModel.PrivateSpaceHeader) return
         when (flag) {
-            Constants.FLAG_LAUNCH_APP -> {
-                when (appModel) {
-                    is AppModel.PinnedShortcut -> launchShortcut(appModel)
-                    is AppModel.App ->
-                        launchApp(appModel.appPackage, appModel.activityClassName, appModel.user)
-
-                    else -> {}
-                }
-            }
-
-            Constants.FLAG_HIDDEN_APPS -> {
-                if (appModel is AppModel.App) {
-                    launchApp(appModel.appPackage, appModel.activityClassName, appModel.user)
-                }
-            }
+            Constants.FLAG_LAUNCH_APP -> open(appModel)
+            Constants.FLAG_HIDDEN_APPS -> if (appModel is AppModel.App) open(appModel)
 
 
             Constants.FLAG_SET_SWIPE_LEFT_APP -> saveSwipeApp(appModel, isLeft = true)
@@ -78,6 +74,60 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             Constants.FLAG_SET_CLOCK_APP -> saveClockApp(appModel)
             Constants.FLAG_SET_CALENDAR_APP -> saveCalendarApp(appModel)
             Constants.FLAG_SET_SCREEN_TIME_APP -> saveScreenTimeApp(appModel)
+        }
+    }
+
+    /** Único caminho de abertura de apps (tela inicial, gaveta, gestos): é aqui que a pausa entra. */
+    private fun open(appModel: AppModel) {
+        val count = Pause.check(prefs, appModel.appPackage)
+        if (count != null) pauseRequest.value = PauseRequest(appModel, count)
+        else launch(appModel)
+    }
+
+    /** "Abrir mesmo assim": o app fica liberado pelo resto do dia. */
+    fun openAnyway(appModel: AppModel) {
+        Pause.allowToday(prefs, appModel.appPackage)
+        launch(appModel)
+    }
+
+    private fun launch(appModel: AppModel) {
+        Pause.countOpen(prefs, appModel.appPackage)
+        when (appModel) {
+            is AppModel.PinnedShortcut -> launchShortcut(appModel)
+            is AppModel.App -> launchApp(appModel.appPackage, appModel.activityClassName, appModel.user)
+            else -> {}
+        }
+    }
+
+    /** Busca o tempo se passou o intervalo (ou se [force]); em falha, fica o último valor. */
+    fun refreshWeather(force: Boolean = false) {
+        if (!prefs.weatherOn || prefs.weatherCity.isEmpty() || weatherLoading) return
+        if (!force && !prefs.weatherAt.hasBeenMinutes(Weather.REFRESH_MINUTES)) return
+        weatherLoading = true
+        viewModelScope.launch {
+            val reading = withContext(Dispatchers.IO) { Weather.fetch(prefs.weatherLat, prefs.weatherLon) }
+            weatherLoading = false
+            reading ?: return@launch
+            prefs.weatherTemp = reading.celsius.toString()
+            prefs.weatherCode = reading.code
+            prefs.weatherAt = System.currentTimeMillis()
+            weatherChanged.value = Unit
+        }
+    }
+
+    /** Resolve a cidade digitada e guarda; [onDone] diz se achou. */
+    fun setWeatherCity(name: String, onDone: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            val lang = Language.locale(appContext).language
+            val city = withContext(Dispatchers.IO) { Weather.findCity(name, lang) }
+            if (city != null) {
+                prefs.weatherCity = city.name
+                prefs.weatherLat = city.lat.toString()
+                prefs.weatherLon = city.lon.toString()
+                prefs.weatherAt = 0L
+                refreshWeather(force = true)
+            }
+            onDone(city != null)
         }
     }
 

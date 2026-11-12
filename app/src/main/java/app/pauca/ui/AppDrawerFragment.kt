@@ -107,7 +107,7 @@ class AppDrawerFragment : BaseFragment() {
         else if (prefs.focusActive && prefs.focusHideApps)
             binding.search.queryHint = getString(R.string.focus_drawer_hint)
         try {
-            searchTextView = binding.search.findViewById(R.id.search_src_text)
+            searchTextView = binding.search.findViewById(androidx.appcompat.R.id.search_src_text)
             searchTextView?.apply {
                 gravity = prefs.appLabelAlignment
                 textSize = 26f
@@ -206,7 +206,7 @@ class AppDrawerFragment : BaseFragment() {
             container.addView(TextView(requireContext()).apply {
                 text = getString(if (id == null) R.string.category_all else AppCategory.label(id))
                 textSize = 14f
-                setPadding(16.dpToPx(), 9.dpToPx(), 16.dpToPx(), 9.dpToPx())
+                setPaddingRelative(16.dpToPx(), 9.dpToPx(), 16.dpToPx(), 9.dpToPx())
                 val chipText = if (palette.showsWallpaper) 0xFF1A1713.toInt() else palette.bg
                 setTextColor(if (selected) chipText else palette.text)
                 background = Look.pressable(

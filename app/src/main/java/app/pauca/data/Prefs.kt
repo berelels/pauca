@@ -360,6 +360,86 @@ class Prefs(context: Context) {
         }
         set(value) = put("FOCUS_DIGEST", JSONObject(value).toString())
 
+    // Tempo na tela inicial (só no Pauca). A temperatura fica guardada em °C; a unidade só muda na hora de mostrar.
+
+    var weatherOn: Boolean
+        get() = !Edition.isLite && bool("WEATHER_ON", false)
+        set(value) = put("WEATHER_ON", value)
+
+    /** 0 pequeno, 1 médio, 2 grande. */
+    var weatherSize: Int
+        get() = int("WEATHER_SIZE", 1)
+        set(value) = put("WEATHER_SIZE", value)
+
+    var weatherPosition: Int
+        get() = int("WEATHER_POSITION", Constants.WeatherPosition.BELOW_DATE)
+        set(value) = put("WEATHER_POSITION", value)
+
+    var weatherFahrenheit: Boolean
+        get() = bool("WEATHER_FAHRENHEIT", false)
+        set(value) = put("WEATHER_FAHRENHEIT", value)
+
+    var weatherCity: String
+        get() = string("WEATHER_CITY")
+        set(value) = put("WEATHER_CITY", value)
+
+    var weatherLat: String
+        get() = string("WEATHER_LAT")
+        set(value) = put("WEATHER_LAT", value)
+
+    var weatherLon: String
+        get() = string("WEATHER_LON")
+        set(value) = put("WEATHER_LON", value)
+
+    /** Última leitura: temperatura em °C, código WMO e quando foi buscada (0 = nunca). */
+    var weatherTemp: String
+        get() = string("WEATHER_TEMP")
+        set(value) = put("WEATHER_TEMP", value)
+
+    var weatherCode: Int
+        get() = int("WEATHER_CODE", -1)
+        set(value) = put("WEATHER_CODE", value)
+
+    var weatherAt: Long
+        get() = long("WEATHER_AT", 0L)
+        set(value) = put("WEATHER_AT", value)
+
+    // Pausa para respirar (só no Pauca)
+
+    var pauseOn: Boolean
+        get() = !Edition.isLite && bool("PAUSE_ON", false)
+        set(value) = put("PAUSE_ON", value)
+
+    /** Pacotes que ganham a pausa. */
+    var pauseApps: Set<String>
+        get() = prefs.getStringSet("PAUSE_APPS", emptySet())?.toSet() ?: emptySet()
+        set(value) = put("PAUSE_APPS", value)
+
+    /** A partir de qual abertura do dia a pausa aparece. */
+    var pauseLimit: Int
+        get() = int("PAUSE_LIMIT", 10)
+        set(value) = put("PAUSE_LIMIT", value)
+
+    /** Dia (aaaa-mm-dd, hora local) a que [pauseCounts] e [pauseAllowed] se referem. */
+    var pauseDay: String
+        get() = string("PAUSE_DAY")
+        set(value) = put("PAUSE_DAY", value)
+
+    /** Aberturas de hoje: pacote -> quantidade. */
+    var pauseCounts: Map<String, Int>
+        get() = try {
+            val o = JSONObject(string("PAUSE_COUNTS", "{}"))
+            o.keys().asSequence().associateWith { o.optInt(it) }
+        } catch (_: Exception) {
+            emptyMap()
+        }
+        set(value) = put("PAUSE_COUNTS", JSONObject(value).toString())
+
+    /** Apps em que a pessoa escolheu "abrir mesmo assim" hoje. */
+    var pauseAllowed: Set<String>
+        get() = prefs.getStringSet("PAUSE_ALLOWED", emptySet())?.toSet() ?: emptySet()
+        set(value) = put("PAUSE_ALLOWED", value)
+
     // Gestos
 
     var lockModeOn: Boolean

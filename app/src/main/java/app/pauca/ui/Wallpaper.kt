@@ -113,11 +113,22 @@ object Wallpaper {
         window.attributes = window.attributes.apply { blurBehindRadius = radius }
     }
 
+    /** Lê a imagem salva reduzida ao tamanho da tela, para não ocupar memória à toa. */
+    private fun decodeScaled(context: Context, path: String): Bitmap? {
+        val metrics = context.resources.displayMetrics
+        val target = max(metrics.widthPixels, metrics.heightPixels)
+        val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        BitmapFactory.decodeFile(path, bounds)
+        var sample = 1
+        while (max(bounds.outWidth, bounds.outHeight) / (sample * 2) >= target) sample *= 2
+        return BitmapFactory.decodeFile(path, BitmapFactory.Options().apply { inSampleSize = sample })
+    }
+
     private fun load(context: Context): Bitmap? {
         val file = file(context)
         if (!file.exists()) return null
         if (cached == null || cachedStamp != file.lastModified()) {
-            cached = BitmapFactory.decodeFile(file.path)
+            cached = decodeScaled(context, file.path)
             cachedStamp = file.lastModified()
         }
         return cached
@@ -128,7 +139,7 @@ object Wallpaper {
      * não desenha nada: o Android mostra um bitmap pronto). Roda fora da thread principal.
      */
     fun bake(context: Context, look: Look): Bitmap? {
-        val source = BitmapFactory.decodeFile(file(context).path) ?: return null
+        val source = decodeScaled(context, file(context).path) ?: return null
         var out = source
         if (look.blur) {
             // Desfoca numa cópia 4x menor (bem mais rápido) e amplia de volta, já suave

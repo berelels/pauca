@@ -40,6 +40,7 @@ import app.pauca.databinding.FragmentSettingsBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.Edition
 import app.pauca.helper.OlDialog
+import app.pauca.helper.Pause
 import app.pauca.helper.RatePrompt
 import app.pauca.helper.appUsagePermissionGranted
 import app.pauca.helper.copyToClipboard
@@ -100,6 +101,7 @@ class SettingsPageFragment : BaseFragment() {
             Constants.Page.APPEARANCE -> R.string.appearance
             Constants.Page.CLOCK -> R.string.clock_and_date
             Constants.Page.FOCUS -> R.string.focus_mode
+            Constants.Page.PAUSE -> R.string.pause_title
             Constants.Page.PROFILES -> R.string.profiles
             Constants.Page.GESTURES -> R.string.gestures
             Constants.Page.ABOUT -> R.string.about
@@ -126,6 +128,7 @@ class SettingsPageFragment : BaseFragment() {
             Constants.Page.APPEARANCE -> buildAppearance()
             Constants.Page.CLOCK -> buildClock()
             Constants.Page.FOCUS -> buildFocus()
+            Constants.Page.PAUSE -> buildPause()
             Constants.Page.PROFILES -> buildProfiles()
             Constants.Page.GESTURES -> buildGestures()
             Constants.Page.ABOUT -> buildAbout()
@@ -165,6 +168,18 @@ class SettingsPageFragment : BaseFragment() {
                 set = { toggleFocus() },
             )
             ui.row(getString(R.string.focus_configure), chevron = true) { openPage(Constants.Page.FOCUS) }
+        }
+
+        ui.section(null)
+        if (Edition.isLite) ui.locked {
+            ui.row(getString(R.string.pause_title), subtitle = { getString(R.string.pause_summary) }) {}
+        } else {
+            ui.row(
+                getString(R.string.pause_title),
+                subtitle = { getString(R.string.pause_summary) },
+                value = { getString(if (prefs.pauseOn) R.string.on else R.string.off) },
+                chevron = true,
+            ) { openPage(Constants.Page.PAUSE) }
         }
 
         ui.section(getString(R.string.section_drawer))
@@ -221,7 +236,29 @@ class SettingsPageFragment : BaseFragment() {
     private fun languageOptions() = listOf(
         "English" to "en",
         "Português (Brasil)" to "pt-BR",
+        "Português (Portugal)" to "pt-PT",
         "Español" to "es",
+        "Español (Latinoamérica)" to "es-419",
+        "Français" to "fr",
+        "Français (Canada)" to "fr-CA",
+        "Deutsch" to "de",
+        "Italiano" to "it",
+        "Nederlands" to "nl",
+        "Català" to "ca",
+        "Galego" to "gl",
+        "Euskara" to "eu",
+        "Русский" to "ru",
+        "العربية" to "ar",
+        "हिन्दी" to "hi",
+        "বাংলা" to "bn",
+        "தமிழ்" to "ta",
+        "తెలుగు" to "te",
+        "मराठी" to "mr",
+        "日本語" to "ja",
+        "한국어" to "ko",
+        "简体中文" to "zh-CN",
+        "繁體中文（台灣）" to "zh-TW",
+        "繁體中文（香港）" to "zh-HK",
         getString(R.string.language_system) to "",
     )
 
@@ -428,18 +465,18 @@ class SettingsPageFragment : BaseFragment() {
         val home = prefs.palette
         val box = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(14.dpToPx(), 14.dpToPx(), 14.dpToPx(), 14.dpToPx())
+            setPaddingRelative(14.dpToPx(), 14.dpToPx(), 14.dpToPx(), 14.dpToPx())
         }
         val inner = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(14.dpToPx(), 12.dpToPx(), 14.dpToPx(), 12.dpToPx())
+            setPaddingRelative(14.dpToPx(), 12.dpToPx(), 14.dpToPx(), 12.dpToPx())
         }
         box.addView(inner)
         val labels = listOf(getString(R.string.preview_app_1), getString(R.string.preview_app_2)).map {
             TextView(requireContext()).apply {
                 tag = it
                 setTextColor(home.text)
-                setPadding(0, 4.dpToPx(), 0, 4.dpToPx())
+                setPaddingRelative(0, 4.dpToPx(), 0, 4.dpToPx())
                 inner.addView(this, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             }
         }
@@ -536,17 +573,82 @@ class SettingsPageFragment : BaseFragment() {
             },
         )
 
+        ui.section(getString(R.string.section_weather))
+        if (Edition.isLite) ui.locked {
+            ui.row(getString(R.string.weather), subtitle = { getString(R.string.weather_summary) }) {}
+        } else {
+            ui.toggle(
+                getString(R.string.weather),
+                subtitle = { getString(R.string.weather_summary) },
+                get = { prefs.weatherOn },
+                set = {
+                    prefs.weatherOn = it
+                    if (it && prefs.weatherCity.isEmpty()) askWeatherCity()
+                    viewModel.refreshWeather()
+                    true
+                },
+            )
+            ui.row(getString(R.string.weather_city), value = { prefs.weatherCity.ifEmpty { getString(R.string.not_set) } }) { askWeatherCity() }
+            ui.row(getString(R.string.weather_size), value = { weatherSizeLabel(prefs.weatherSize) }) { anchor ->
+                SettingsBuilder.choose(anchor, listOf(
+                    getString(R.string.size_small) to 0,
+                    getString(R.string.size_medium) to 1,
+                    getString(R.string.size_large) to 2,
+                ), prefs.weatherSize) { prefs.weatherSize = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.weather_position), value = { weatherPositionLabel(prefs.weatherPosition) }) { anchor ->
+                SettingsBuilder.choose(anchor, listOf(
+                    getString(R.string.weather_below_date) to Constants.WeatherPosition.BELOW_DATE,
+                    getString(R.string.weather_above_clock) to Constants.WeatherPosition.ABOVE_CLOCK,
+                    getString(R.string.weather_bottom) to Constants.WeatherPosition.BOTTOM,
+                ), prefs.weatherPosition) { prefs.weatherPosition = it; ui.refresh() }
+            }
+            ui.row(getString(R.string.weather_unit), value = { if (prefs.weatherFahrenheit) "°F" else "°C" }) { anchor ->
+                SettingsBuilder.choose(anchor, listOf("°C" to false, "°F" to true), prefs.weatherFahrenheit) {
+                    prefs.weatherFahrenheit = it
+                    ui.refresh()
+                }
+            }
+        }
+
         ui.section(getString(R.string.section_on_tap))
         ui.row(getString(R.string.clock_tap_app), value = { appLabelFor(prefs.clockAppPackage) }) { pickApp(Constants.FLAG_SET_CLOCK_APP) }
         ui.row(getString(R.string.date_tap_app), value = { appLabelFor(prefs.calendarAppPackage) }) { pickApp(Constants.FLAG_SET_CALENDAR_APP) }
         ui.note(getString(R.string.clock_hint))
     }
 
+    private fun askWeatherCity() {
+        val context = requireContext()
+        showDialog(context.showInputDialog(getString(R.string.weather_city), prefs.weatherCity) { name ->
+            if (name.isBlank()) return@showInputDialog
+            viewModel.setWeatherCity(name.trim()) { found ->
+                if (!found) context.showToast(getString(R.string.weather_city_not_found))
+                if (_binding != null) ui.refresh()
+            }
+        })
+    }
+
+    private fun weatherSizeLabel(v: Int) = getString(
+        when (v) {
+            0 -> R.string.size_small
+            2 -> R.string.size_large
+            else -> R.string.size_medium
+        }
+    )
+
+    private fun weatherPositionLabel(v: Int) = getString(
+        when (v) {
+            Constants.WeatherPosition.ABOVE_CLOCK -> R.string.weather_above_clock
+            Constants.WeatherPosition.BOTTOM -> R.string.weather_bottom
+            else -> R.string.weather_below_date
+        }
+    )
+
     private fun clockPreview(): Pair<View, () -> Unit> {
         val home = prefs.palette
         val box = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(22.dpToPx(), 18.dpToPx(), 22.dpToPx(), 20.dpToPx())
+            setPaddingRelative(22.dpToPx(), 18.dpToPx(), 22.dpToPx(), 20.dpToPx())
         }
         val clock = TextClock(requireContext()).apply { includeFontPadding = false }
         val date = TextClock(requireContext()).apply { textSize = 15f }
@@ -726,6 +828,35 @@ class SettingsPageFragment : BaseFragment() {
             },
         )
         ui.note(getString(R.string.focus_profiles_hint))
+    }
+
+    // Pausa para respirar
+
+    private fun buildPause() {
+        ui.section(null)
+        ui.toggle(
+            getString(R.string.pause_title),
+            get = { prefs.pauseOn },
+            set = { prefs.pauseOn = it; true },
+        )
+        ui.note(getString(R.string.pause_intro))
+
+        ui.section(getString(R.string.section_apps))
+        ui.row(
+            getString(R.string.pause_apps),
+            value = { prefs.pauseApps.size.takeIf { it > 0 }?.toString() ?: getString(R.string.none) },
+            chevron = true,
+        ) {
+            viewModel.getAppList(includeHiddenApps = true)
+            go(R.id.appPickerFragment, bundleOf(Constants.Key.MODE to Constants.PickerMode.PAUSE_APPS))
+        }
+        ui.row(getString(R.string.pause_limit), value = { getString(R.string.pause_opens, prefs.pauseLimit) }) { anchor ->
+            SettingsBuilder.choose(anchor, Pause.LIMITS.map { getString(R.string.pause_opens, it) to it }, prefs.pauseLimit) {
+                prefs.pauseLimit = it
+                ui.refresh()
+            }
+        }
+        ui.note(getString(R.string.pause_hint))
     }
 
     private fun focusStatus(): String =
@@ -995,7 +1126,7 @@ class SettingsPageFragment : BaseFragment() {
         val context = requireContext()
         val box = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(18.dpToPx(), 16.dpToPx(), 10.dpToPx(), 10.dpToPx())
+            setPaddingRelative(18.dpToPx(), 16.dpToPx(), 10.dpToPx(), 10.dpToPx())
         }
         val top = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
@@ -1015,7 +1146,7 @@ class SettingsPageFragment : BaseFragment() {
                 setTextColor(palette.muted)
                 setLineSpacing(2.dpToPx().toFloat(), 1f)
                 Look.applyFont(this, Constants.Font.JAKARTA, 400)
-                setPadding(0, 4.dpToPx(), 0, 0)
+                setPaddingRelative(0, 4.dpToPx(), 0, 0)
             })
         }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
         // X: agora não, volta daqui a uma semana
@@ -1023,7 +1154,7 @@ class SettingsPageFragment : BaseFragment() {
             setImageResource(R.drawable.ic_close)
             imageTintList = ColorStateList.valueOf(palette.muted)
             contentDescription = getString(R.string.rate_later)
-            setPadding(8.dpToPx(), 4.dpToPx(), 8.dpToPx(), 8.dpToPx())
+            setPaddingRelative(8.dpToPx(), 4.dpToPx(), 8.dpToPx(), 8.dpToPx())
             background = Look.pressable(0, 18, palette.text)
             setOnClickListener {
                 RatePrompt.snooze(context)
@@ -1034,14 +1165,14 @@ class SettingsPageFragment : BaseFragment() {
         val actions = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(0, 12.dpToPx(), 0, 0)
+            setPaddingRelative(0, 12.dpToPx(), 0, 0)
         }
         fun button(label: Int, filled: Boolean, onClick: () -> Unit) = TextView(context).apply {
             text = getString(label)
             textSize = 14f
             setTextColor(if (filled) palette.accentInk else palette.muted)
             Look.applyFont(this, Constants.Font.JAKARTA, 600)
-            setPadding(16.dpToPx(), 9.dpToPx(), 16.dpToPx(), 9.dpToPx())
+            setPaddingRelative(16.dpToPx(), 9.dpToPx(), 16.dpToPx(), 9.dpToPx())
             background = if (filled) Look.pressable(palette.accent, 20, palette.accentInk) else Look.pressable(0, 20, palette.text)
             setOnClickListener { onClick() }
         }

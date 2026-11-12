@@ -23,10 +23,10 @@ android {
         applicationId "app.pauca"
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 8
-        versionName "0.1.7"
+        versionCode 9
+        versionName "0.1.8"
 
-        resourceConfigurations += ["en", "pt-rBR", "es"]
+        resourceConfigurations += ["en", "pt-rBR", "es", "zh-rCN", "fr", "ar", "ja", "ko", "hi", "de", "ru", "it", "nl", "pt-rPT", "b+es+419", "zh-rTW", "zh-rHK", "fr-rCA", "bn", "ta", "te", "mr", "ca", "gl", "eu"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,6 +48,7 @@ android {
             manifestPlaceholders = [migratePermission: "app.pauca.permission.MIGRATE"]
             debuggable false
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {

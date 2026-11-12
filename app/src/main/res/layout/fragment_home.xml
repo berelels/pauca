@@ -83,6 +83,16 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="4dp">
 
+                    <TextView
+                        android:id="@+id/weatherTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/jakarta"
+                        android:textSize="15sp"
+                        android:visibility="gone"
+                        tools:text="23° · Nublado" />
+
                     <TextClock
                         android:id="@+id/clock"
                         android:layout_width="wrap_content"
@@ -114,6 +124,16 @@
                             android:textSize="15sp"
                             tools:text=" · 82%" />
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/weatherBelow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/jakarta"
+                        android:textSize="15sp"
+                        android:visibility="gone"
+                        tools:text="23° · Nublado" />
                 </LinearLayout>
 
                 <TextView
@@ -146,8 +166,31 @@
                     android:text="@string/set_as_default_launcher"
                     android:textSize="14sp"
                     android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/permissionOff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/jakarta"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/permission_off_hint"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
             </LinearLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/weatherBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/jakarta"
+            android:paddingBottom="6dp"
+            android:textSize="15sp"
+            android:visibility="gone"
+            tools:text="23° · Nublado" />
 
         <FrameLayout
             android:id="@+id/bottomBar"

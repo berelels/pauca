@@ -18,6 +18,7 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,7 @@ import app.pauca.helper.CrashGuard
 import app.pauca.helper.Language
 import app.pauca.helper.LiteImport
 import app.pauca.helper.OlDialog
+import app.pauca.helper.PauseRequest
 import app.pauca.helper.hasBeenHours
 import app.pauca.helper.isDefaultLauncher
 import app.pauca.helper.isEinkDisplay
@@ -45,7 +47,9 @@ import app.pauca.helper.resetLauncherViaFakeActivity
 import app.pauca.helper.showLauncherSelector
 import app.pauca.helper.showMessageDialog
 import app.pauca.helper.showToast
+import app.pauca.ui.PauseView
 import app.pauca.ui.Wallpaper
+import app.pauca.ui.forScreens
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -57,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     private var profileReceiver: BroadcastReceiver? = null
     private var launcherAppsCallback: LauncherApps.Callback? = null
     private var messageDialog: OlDialog? = null
+    private var pauseView: PauseView? = null
 
     /**
      * Uma tela abriu outro app de propósito (ex.: o seletor de fotos) e espera a resposta:
@@ -101,6 +106,11 @@ class MainActivity : AppCompatActivity() {
 
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
+                // Voltar na pausa é "Voltar" mesmo
+                if (pauseView != null) {
+                    closePause()
+                    return
+                }
                 // Voltar nunca sai da tela inicial; nas outras, volta uma tela
                 if (navController.currentDestination?.id != R.id.mainFragment)
                     navController.popBackStack()
@@ -166,8 +176,9 @@ class MainActivity : AppCompatActivity() {
         keepCurrentScreen = false
         viewModel.isPrivateSpaceToggling = false
         viewModel.getAppList()
-        // Durante o foco, confere se o ouvinte de notificações continua ligado
-        if (prefs.focusActive) FocusManager.ensureListener(this)
+        // Confere sempre se o ouvinte de notificações continua ligado: depois de o sistema
+        // fechar o Pauca à força ele só volta se alguém pedir
+        FocusManager.ensureListener(this)
         // Conta como abertura boa se o app segue vivo um tempo depois de aparecer, mesmo que a
         // pessoa já tenha aberto outro app (quem fecha em loop cai logo no primeiro desenho)
         stableHandler.removeCallbacks(markStable)
@@ -231,6 +242,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        // Saiu no meio da pausa: some, e o minuto recomeça se a pessoa tentar abrir de novo
+        closePause()
         backToHomeScreen()
         super.onStop()
     }
@@ -266,6 +279,7 @@ class MainActivity : AppCompatActivity() {
             else
                 showLauncherSelector(Constants.REQUEST_CODE_LAUNCHER_SELECTOR)
         }
+        viewModel.pauseRequest.observe(this) { showPause(it) }
         viewModel.showDialog.observe(this) {
             when (it) {
                 Constants.Dialog.HIDDEN ->
@@ -280,6 +294,27 @@ class MainActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private fun showPause(request: PauseRequest) {
+        closePause()
+        val view = PauseView(
+            this, prefs.palette.forScreens, request.app.appLabel, request.count,
+            onBack = { closePause() },
+            onOpen = {
+                closePause()
+                viewModel.openAnyway(request.app)
+            },
+        )
+        pauseView = view
+        findViewById<ViewGroup>(android.R.id.content).addView(
+            view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        )
+    }
+
+    private fun closePause() {
+        pauseView?.dismiss()
+        pauseView = null
     }
 
     private fun showMessage(title: Int, message: Int, action: Int, clickListener: () -> Unit) {

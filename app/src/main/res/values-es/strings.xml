@@ -384,4 +384,52 @@
     <string name="rate_later">Ahora no</string>
     <string name="accessibility_accept">Acepto</string>
     <string name="accessibility_decline">No, gracias</string>
+
+    <!-- Tempo na tela inicial -->
+    <string name="on">Activado</string>
+    <string name="none">Ninguno</string>
+    <string name="not_set">Sin definir</string>
+    <string name="size_small">Pequeño</string>
+    <string name="size_medium">Mediano</string>
+    <string name="size_large">Grande</string>
+    <string name="section_weather">Clima</string>
+    <string name="weather">Mostrar el clima</string>
+    <string name="weather_summary">Temperatura y cielo en la pantalla de inicio. Usa internet, nunca tu ubicación.</string>
+    <string name="weather_city">Ciudad</string>
+    <string name="weather_size">Tamaño</string>
+    <string name="weather_position">Posición</string>
+    <string name="weather_unit">Unidad</string>
+    <string name="weather_below_date">Debajo de la fecha</string>
+    <string name="weather_above_clock">Encima del reloj</string>
+    <string name="weather_bottom">Parte inferior de la pantalla</string>
+    <string name="weather_city_not_found">Ciudad no encontrada. Revisa el nombre y la conexión.</string>
+    <string name="weather_clear">Despejado</string>
+    <string name="weather_partly_cloudy">Parcialmente nublado</string>
+    <string name="weather_cloudy">Nublado</string>
+    <string name="weather_fog">Niebla</string>
+    <string name="weather_drizzle">Llovizna</string>
+    <string name="weather_rain">Lluvia</string>
+    <string name="weather_snow">Nieve</string>
+    <string name="weather_showers">Chubascos</string>
+    <string name="weather_thunderstorm">Tormenta</string>
+
+    <!-- Pausa para respirar -->
+    <string name="pause_title">Pausa para respirar</string>
+    <string name="pause_summary">Un minuto de calma antes de abrir las apps que abres demasiado</string>
+    <string name="pause_intro">Cuando abres una de las apps elegidas demasiadas veces en el día, Pauca te pide un minuto de respiración antes.</string>
+    <string name="pause_apps">Apps con pausa</string>
+    <string name="pause_apps_hint">Elige las apps que deben pedirte una pausa cuando las abres demasiado.</string>
+    <string name="pause_limit">Pausar desde la apertura</string>
+    <string name="pause_opens">%1$d aperturas</string>
+    <string name="pause_hint">El conteo se reinicia a medianoche. Solo cuentan las aperturas hechas desde Pauca.</string>
+    <string name="pause_breathe">Respira</string>
+    <string name="pause_message">Abriste ^1 ^2 veces hoy. ¿Seguro que lo necesitas ahora? Si es así, no te volveremos a interrumpir hoy.</string>
+    <string name="pause_back">Volver</string>
+    <string name="pause_open_anyway">Abrir de todos modos</string>
+    <string name="pause_open_wait">Abrir de todos modos en %1$d s</string>
+    <string name="permission_off_hint">Android desactivó el doble toque por su cuenta. Toca para solucionarlo.</string>
+    <string name="permission_off_title">Doble toque desactivado</string>
+    <string name="permission_off_message">Android desactivó el doble toque para bloquear por su cuenta, para ahorrar batería. Vuelve a activarlo y quita Pauca de la optimización de batería para que no vuelva a pasar.</string>
+    <string name="permission_off_turn_on">Activar</string>
+    <string name="permission_off_battery">Batería</string>
 </resources>

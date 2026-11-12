@@ -75,6 +75,13 @@ object Constants {
         const val PROFILE = "profile"
     }
 
+    /** Onde o tempo aparece na tela inicial. */
+    object WeatherPosition {
+        const val BELOW_DATE = 0
+        const val ABOVE_CLOCK = 1
+        const val BOTTOM = 2
+    }
+
     /** Mesmos valores de ZenPolicy.PEOPLE_TYPE_*. */
     object Callers {
         const val ANYONE = 1
@@ -88,12 +95,14 @@ object Constants {
         const val HOME = 0
         const val REPLACE = 1
         const val FOCUS_ALLOWED = 2
+        const val PAUSE_APPS = 3
     }
 
     object Page {
         const val APPEARANCE = "appearance"
         const val CLOCK = "clock"
         const val FOCUS = "focus"
+        const val PAUSE = "pause"
         const val PROFILES = "profiles"
         const val GESTURES = "gestures"
         const val ABOUT = "about"

@@ -45,11 +45,13 @@ import app.pauca.data.Prefs
 import app.pauca.databinding.FragmentHomeBinding
 import app.pauca.focus.FocusManager
 import app.pauca.helper.appUsagePermissionGranted
+import app.pauca.helper.createDialog
 import app.pauca.helper.dpToPx
 import app.pauca.helper.Edition
 import app.pauca.helper.expandNotificationDrawer
 import app.pauca.helper.getUserHandleFromString
 import app.pauca.helper.hideStatusBar
+import app.pauca.helper.isAccessServiceEnabled
 import app.pauca.helper.isDefaultHome
 import app.pauca.helper.isPackageInstalled
 import app.pauca.helper.openAlarmApp
@@ -62,6 +64,7 @@ import app.pauca.helper.showListDialog
 import app.pauca.helper.showPopupMenu
 import app.pauca.helper.showStatusBar
 import app.pauca.helper.showToast
+import app.pauca.helper.Weather
 import app.pauca.MainViewModel
 import app.pauca.R
 import java.util.Locale
@@ -119,6 +122,7 @@ class HomeFragment : BaseFragment() {
         initClicks()
 
         viewModel.refreshHome.observe(viewLifecycleOwner) { render() }
+        viewModel.weatherChanged.observe(viewLifecycleOwner) { renderWeather(prefs.palette) }
         viewModel.screenTimeValue.observe(viewLifecycleOwner) {
             screenTime = it
             renderDateExtra()
@@ -134,11 +138,42 @@ class HomeFragment : BaseFragment() {
         else requireActivity().window.hideStatusBar()
         viewModel.isDefaultHome()
         render()
+        viewModel.refreshWeather()
+        renderPermissionOff()
         maybeStartTour()
         FocusManager.addListener(focusListener)
         requireContext().registerReceiver(batteryReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
         if (prefs.showScreenTime && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && requireContext().appUsagePermissionGranted())
             viewModel.getTodaysScreenTime()
+    }
+
+    /**
+     * A Samsung (e outros) fecha o Pauca à força de madrugada para "otimizar", e o Android
+     * desliga a acessibilidade de quem foi fechado à força. Avisa em vez de falhar calado;
+     * o toque leva aos Gestos, onde o aviso de acessibilidade aparece de novo antes de religar.
+     */
+    private fun renderPermissionOff() {
+        val wanted = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && !Edition.isLite &&
+                (prefs.lockModeOn || (prefs.focusActive && prefs.focusBlockApps))
+        binding.permissionOff.isVisible = wanted && !isAccessServiceEnabled(requireContext())
+    }
+
+    /** Explica o que houve: religar (passa pelo aviso de acessibilidade) ou tirar da otimização de bateria. */
+    private fun showPermissionOff() {
+        requireContext().createDialog(
+            title = R.string.permission_off_title,
+            action = R.string.permission_off_turn_on,
+            message = R.string.permission_off_message,
+            neutral = R.string.permission_off_battery,
+            onNeutral = {
+                try {
+                    startActivity(Intent(android.provider.Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+                } catch (e: Exception) {
+                    openAppInfo(requireContext(), android.os.Process.myUserHandle(), requireContext().packageName)
+                }
+            },
+            onAction = { openSettingsPage(Constants.Page.GESTURES) },
+        ).showRespectingStatusBar()
     }
 
     override fun onPause() {
@@ -165,9 +200,11 @@ class HomeFragment : BaseFragment() {
         binding.mainLayout.setBackgroundColor(palette.bg)
         renderBars(palette, animateFocusExit = focusChanged && !focusOn)
         renderClock(palette)
+        renderWeather(palette)
         renderDigest(palette)
         renderGroups(palette)
         binding.setDefaultLauncher.setTextColor(palette.accent)
+        binding.permissionOff.setTextColor(palette.accent)
         if (focusChanged) animateFocus(focusOn, palette)
     }
 
@@ -456,6 +493,23 @@ class HomeFragment : BaseFragment() {
         applyTextShadow(palette, binding.clock, binding.date, binding.dateExtra)
     }
 
+    /** O tempo (se ligado e já carregado) aparece só no lugar escolhido; os outros ficam escondidos. */
+    private fun renderWeather(palette: Palette) {
+        val text = Weather.text(requireContext(), prefs)
+        val slots = listOf(binding.weatherBelow, binding.weatherTop, binding.weatherBottom)
+        val target = slots[prefs.weatherPosition.coerceIn(0, slots.lastIndex)]
+        slots.forEach { it.isVisible = it === target && text != null }
+        target.text = text
+        target.textSize = when (prefs.weatherSize) {
+            0 -> 13f
+            2 -> 20f
+            else -> 15f
+        }
+        target.setTextColor(palette.muted)
+        applyTextShadow(palette, target)
+        if (target !== binding.weatherBottom) target.updateLayoutParams<LinearLayout.LayoutParams> { gravity = prefs.clockAlignment }
+    }
+
     private fun renderDateExtra() {
         val parts = mutableListOf<String>()
         if (prefs.showBattery && batteryLevel >= 0) parts.add("$batteryLevel%")
@@ -507,9 +561,9 @@ class HomeFragment : BaseFragment() {
                 gravity = alignment
                 if (cards) {
                     background = Look.rounded(palette.card, 24)
-                    setPadding(14.dpToPx(), 14.dpToPx(), 14.dpToPx(), 14.dpToPx())
+                    setPaddingRelative(14.dpToPx(), 14.dpToPx(), 14.dpToPx(), 14.dpToPx())
                 } else {
-                    setPadding(4.dpToPx(), 0, 4.dpToPx(), 0)
+                    setPaddingRelative(4.dpToPx(), 0, 4.dpToPx(), 0)
                 }
             }
             items.forEach { card.addView(appLabel(it, palette, alignment)) }
@@ -527,7 +581,7 @@ class HomeFragment : BaseFragment() {
             setTextColor(if (prefs.appsAccent) palette.accent else palette.text)
             gravity = alignment
             includeFontPadding = false
-            setPadding(8.dpToPx(), 7.dpToPx(), 8.dpToPx(), 7.dpToPx())
+            setPaddingRelative(8.dpToPx(), 7.dpToPx(), 8.dpToPx(), 7.dpToPx())
             Look.applyFont(this, prefs.appFont, prefs.appWeight, prefs.appTextSize.toFloat())
             background = Look.pressable(0, 14, palette.text)
             layoutParams = LinearLayout.LayoutParams(
@@ -547,7 +601,7 @@ class HomeFragment : BaseFragment() {
             textSize = 18f
             setTextColor(palette.muted)
             Look.applyFont(this, Constants.Font.JAKARTA, 500)
-            setPadding(22.dpToPx(), 22.dpToPx(), 22.dpToPx(), 22.dpToPx())
+            setPaddingRelative(22.dpToPx(), 22.dpToPx(), 22.dpToPx(), 22.dpToPx())
             background = if (cards) Look.pressable(palette.card, 24, palette.text) else Look.pressable(0, 24, palette.text)
             setOnClickListener { openEditor() }
         }
@@ -601,6 +655,7 @@ class HomeFragment : BaseFragment() {
         }
         binding.digest.setOnClickListener { showDigest() }
         binding.setDefaultLauncher.setOnClickListener { viewModel.resetLauncherLiveData.call() }
+        binding.permissionOff.setOnClickListener { showPermissionOff() }
         binding.setDefaultLauncher.setOnLongClickListener {
             prefs.hideSetDefaultLauncher = true
             binding.setDefaultLauncher.isVisible = false

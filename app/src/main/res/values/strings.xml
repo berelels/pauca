@@ -382,4 +382,52 @@
     <string name="rate_later">Not now</string>
     <string name="accessibility_accept">I agree</string>
     <string name="accessibility_decline">No thanks</string>
+
+    <!-- Tempo na tela inicial -->
+    <string name="on">On</string>
+    <string name="none">None</string>
+    <string name="not_set">Not set</string>
+    <string name="size_small">Small</string>
+    <string name="size_medium">Medium</string>
+    <string name="size_large">Large</string>
+    <string name="section_weather">Weather</string>
+    <string name="weather">Show the weather</string>
+    <string name="weather_summary">Temperature and sky on the home screen. Needs internet, never your location.</string>
+    <string name="weather_city">City</string>
+    <string name="weather_size">Size</string>
+    <string name="weather_position">Position</string>
+    <string name="weather_unit">Unit</string>
+    <string name="weather_below_date">Below the date</string>
+    <string name="weather_above_clock">Above the clock</string>
+    <string name="weather_bottom">Bottom of the screen</string>
+    <string name="weather_city_not_found">City not found. Check the name and your connection.</string>
+    <string name="weather_clear">Clear</string>
+    <string name="weather_partly_cloudy">Partly cloudy</string>
+    <string name="weather_cloudy">Cloudy</string>
+    <string name="weather_fog">Fog</string>
+    <string name="weather_drizzle">Drizzle</string>
+    <string name="weather_rain">Rain</string>
+    <string name="weather_snow">Snow</string>
+    <string name="weather_showers">Showers</string>
+    <string name="weather_thunderstorm">Thunderstorm</string>
+
+    <!-- Pausa para respirar -->
+    <string name="pause_title">Pause to breathe</string>
+    <string name="pause_summary">A calm minute before you open apps you reach for too often</string>
+    <string name="pause_intro">When you open one of your chosen apps too many times in a day, Pauca asks you to breathe for a minute first.</string>
+    <string name="pause_apps">Apps with a pause</string>
+    <string name="pause_apps_hint">Pick the apps that should ask you to pause once you open them too often.</string>
+    <string name="pause_limit">Pause from the opening</string>
+    <string name="pause_opens">%1$d opens</string>
+    <string name="pause_hint">Counts reset at midnight. Only opens that go through Pauca are counted.</string>
+    <string name="pause_breathe">Breathe</string>
+    <string name="pause_message">You opened ^1 ^2 times today. Are you sure you need it right now? If so, we won\'t interrupt you again today.</string>
+    <string name="pause_back">Go back</string>
+    <string name="pause_open_anyway">Open anyway</string>
+    <string name="pause_open_wait">Open anyway in %1$d s</string>
+    <string name="permission_off_hint">Android turned off double tap to lock. Tap to fix.</string>
+    <string name="permission_off_title">Double tap to lock is off</string>
+    <string name="permission_off_message">Android turned off double tap to lock on its own to save battery. Turn it back on, and take Pauca out of battery optimization so it doesn\'t happen again.</string>
+    <string name="permission_off_turn_on">Turn on</string>
+    <string name="permission_off_battery">Battery</string>
 </resources>

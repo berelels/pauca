@@ -169,7 +169,7 @@ fun Context.showInputDialog(
         onAction = { onSave(input.text.toString().trim()) },
         content = { container ->
             FrameLayout(container.context).apply {
-                setPadding(0, 16.dpToPx(), 8.dpToPx(), 16.dpToPx())
+                setPaddingRelative(0, 16.dpToPx(), 8.dpToPx(), 16.dpToPx())
                 addView(input, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             }
         },
@@ -247,12 +247,12 @@ fun Context.showColorDialog(
         content = { container ->
             LinearLayout(container.context).apply {
                 orientation = LinearLayout.VERTICAL
-                setPadding(0, 16.dpToPx(), 8.dpToPx(), 8.dpToPx())
+                setPaddingRelative(0, 16.dpToPx(), 8.dpToPx(), 8.dpToPx())
                 addView(picker, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
                 addView(LinearLayout(container.context).apply {
                     orientation = LinearLayout.HORIZONTAL
                     gravity = Gravity.CENTER_VERTICAL
-                    setPadding(0, 16.dpToPx(), 0, 0)
+                    setPaddingRelative(0, 16.dpToPx(), 0, 0)
                     addView(swatch, LinearLayout.LayoutParams(32.dpToPx(), 32.dpToPx()).apply { marginEnd = 14.dpToPx() })
                     addView(input, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 })
@@ -285,14 +285,14 @@ fun Context.showListDialog(
         content = { container ->
             LinearLayout(container.context).apply {
                 orientation = LinearLayout.VERTICAL
-                setPadding(0, 8.dpToPx(), 8.dpToPx(), 8.dpToPx())
+                setPaddingRelative(0, 8.dpToPx(), 8.dpToPx(), 8.dpToPx())
                 options.forEach { (label, onClick) ->
                     addView(TextView(context).apply {
                         text = label
                         textSize = 17f
                         typeface = ResourcesCompat.getFont(context, app.pauca.R.font.jakarta)
                         setTextColor(getColorFromAttr(app.pauca.R.attr.primaryColor))
-                        setPadding(0, 12.dpToPx(), 0, 12.dpToPx())
+                        setPaddingRelative(0, 12.dpToPx(), 0, 12.dpToPx())
                         setOnClickListener {
                             onClick()
                             dialog.dismiss()

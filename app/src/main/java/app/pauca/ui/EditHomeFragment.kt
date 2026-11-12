@@ -276,7 +276,7 @@ class EditHomeFragment : BaseFragment() {
         private fun headerView(): View = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(8.dpToPx(), 18.dpToPx(), 0, 4.dpToPx())
+            setPaddingRelative(8.dpToPx(), 18.dpToPx(), 0, 4.dpToPx())
             layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             addView(TextView(context).apply {
                 id = R.id.label
@@ -293,7 +293,7 @@ class EditHomeFragment : BaseFragment() {
         private fun itemView(): View = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(0, 4.dpToPx(), 0, 4.dpToPx())
+            setPaddingRelative(0, 4.dpToPx(), 0, 4.dpToPx())
             layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             addView(TextView(context).apply {
                 id = R.id.label
@@ -302,7 +302,7 @@ class EditHomeFragment : BaseFragment() {
                 ellipsize = TextUtils.TruncateAt.END
                 setTextColor(palette.text)
                 Look.applyFont(this, Constants.Font.JAKARTA, 500)
-                setPadding(18.dpToPx(), 14.dpToPx(), 18.dpToPx(), 14.dpToPx())
+                setPaddingRelative(18.dpToPx(), 14.dpToPx(), 18.dpToPx(), 14.dpToPx())
                 background = Look.pressable(palette.card, 16, palette.text)
             }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
                 marginEnd = 6.dpToPx()
@@ -317,7 +317,7 @@ class EditHomeFragment : BaseFragment() {
             gravity = Gravity.CENTER
             setTextColor(palette.accent)
             Look.applyFont(this, Constants.Font.JAKARTA, 600)
-            setPadding(0, 16.dpToPx(), 0, 16.dpToPx())
+            setPaddingRelative(0, 16.dpToPx(), 0, 16.dpToPx())
             background = Look.rounded(0, 16, ColorUtils.setAlphaComponent(palette.accent, 0x66))
             layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 topMargin = 20.dpToPx()
@@ -329,7 +329,7 @@ class EditHomeFragment : BaseFragment() {
             setImageResource(icon)
             imageTintList = ColorStateList.valueOf(tint)
             contentDescription = getString(description)
-            setPadding(9.dpToPx(), 9.dpToPx(), 9.dpToPx(), 9.dpToPx())
+            setPaddingRelative(9.dpToPx(), 9.dpToPx(), 9.dpToPx(), 9.dpToPx())
             background = Look.pressable(0, 20, palette.text)
             layoutParams = LinearLayout.LayoutParams(42.dpToPx(), 42.dpToPx())
         }

@@ -8,6 +8,8 @@
         android:protectionLevel="signature" />
     <uses-permission android:name="${migratePermission}" />
 
+    <!-- Só para o tempo na tela inicial (Open-Meteo); o Lite não tem -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <!-- Só para pôr a imagem escolhida na tela de bloqueio, quando a pessoa pede -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />

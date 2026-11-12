@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_battery">Pile à côté de la date</string>
+    <string name="profile_name_hint">Ex. : Travail, Nuit, Fin de semaine</string>
+    <string name="status_bar_summary">Heure, pile et icônes de notification en haut. Si elle est masquée, balayez vers le bas depuis le bord supérieur pour la voir.</string>
+</resources>

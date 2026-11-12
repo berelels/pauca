@@ -95,27 +95,27 @@ class TourView(
 
         card.orientation = LinearLayout.VERTICAL
         card.background = Look.rounded(if (screen.isDark) screen.card else screen.bg, 24, screen.divider)
-        card.setPadding(22.dpToPx(), 20.dpToPx(), 16.dpToPx(), 14.dpToPx())
+        card.setPaddingRelative(22.dpToPx(), 20.dpToPx(), 16.dpToPx(), 14.dpToPx())
         card.isClickable = true
         card.setOnClickListener { advance() }
 
         titleView.textSize = 24f
         titleView.setTextColor(screen.text)
-        titleView.setPadding(0, 0, 6.dpToPx(), 0)
+        titleView.setPaddingRelative(0, 0, 6.dpToPx(), 0)
         Look.applyFont(titleView, Constants.Font.NEWSREADER, 500, 24f)
         card.addView(titleView)
 
         bodyView.textSize = 15f
         bodyView.setTextColor(ColorUtils.setAlphaComponent(screen.text, 0xD0))
         bodyView.setLineSpacing(3.dpToPx().toFloat(), 1f)
-        bodyView.setPadding(0, 8.dpToPx(), 6.dpToPx(), 0)
+        bodyView.setPaddingRelative(0, 8.dpToPx(), 6.dpToPx(), 0)
         Look.applyFont(bodyView, Constants.Font.JAKARTA, 400)
         card.addView(bodyView)
 
         val footer = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(0, 16.dpToPx(), 0, 0)
+            setPaddingRelative(0, 16.dpToPx(), 0, 0)
         }
         counter.textSize = 13f
         counter.setTextColor(screen.muted)
@@ -125,7 +125,7 @@ class TourView(
         skip.text = context.getString(R.string.tour_skip)
         skip.textSize = 14f
         skip.setTextColor(screen.muted)
-        skip.setPadding(14.dpToPx(), 10.dpToPx(), 14.dpToPx(), 10.dpToPx())
+        skip.setPaddingRelative(14.dpToPx(), 10.dpToPx(), 14.dpToPx(), 10.dpToPx())
         skip.background = Look.pressable(0, 20, screen.text)
         Look.applyFont(skip, Constants.Font.JAKARTA, 600)
         skip.setOnClickListener { finish() }
@@ -133,7 +133,7 @@ class TourView(
 
         next.textSize = 14f
         next.setTextColor(palette.accentInk)
-        next.setPadding(20.dpToPx(), 10.dpToPx(), 20.dpToPx(), 10.dpToPx())
+        next.setPaddingRelative(20.dpToPx(), 10.dpToPx(), 20.dpToPx(), 10.dpToPx())
         next.background = Look.pressable(accent, 20, palette.accentInk)
         Look.applyFont(next, Constants.Font.JAKARTA, 700)
         next.setOnClickListener { advance() }

@@ -58,7 +58,7 @@ class SettingsBuilder(
         setTextColor(palette.accent)
         Look.applyFont(this, Constants.Font.JAKARTA, 700)
         background = Look.rounded(ColorUtils.setAlphaComponent(palette.accent, 0x24), 10)
-        setPadding(9.dpToPx(), 3.dpToPx(), 9.dpToPx(), 4.dpToPx())
+        setPaddingRelative(9.dpToPx(), 3.dpToPx(), 9.dpToPx(), 4.dpToPx())
     }
 
     fun refresh() = refreshers.forEach { it() }
@@ -76,14 +76,14 @@ class SettingsBuilder(
             textSize = 34f
             setTextColor(palette.text)
             Look.applyFont(this, Constants.Font.NEWSREADER, 400, 34f)
-            setPadding(6.dpToPx(), 8.dpToPx(), 6.dpToPx(), 0)
+            setPaddingRelative(6.dpToPx(), 8.dpToPx(), 6.dpToPx(), 0)
         })
         if (subtitle != null) container.addView(TextView(context).apply {
             text = subtitle
             textSize = 15f
             setTextColor(palette.muted)
             Look.applyFont(this, Constants.Font.JAKARTA, 400)
-            setPadding(6.dpToPx(), 4.dpToPx(), 6.dpToPx(), 0)
+            setPaddingRelative(6.dpToPx(), 4.dpToPx(), 6.dpToPx(), 0)
         })
     }
 
@@ -95,7 +95,7 @@ class SettingsBuilder(
             isAllCaps = true
             setTextColor(palette.muted)
             Look.applyFont(this, Constants.Font.JAKARTA, 700)
-            setPadding(10.dpToPx(), 26.dpToPx(), 10.dpToPx(), 8.dpToPx())
+            setPaddingRelative(10.dpToPx(), 26.dpToPx(), 10.dpToPx(), 8.dpToPx())
         })
         else container.addView(View(context), LinearLayout.LayoutParams(1, 18.dpToPx()))
         card = LinearLayout(context).apply {
@@ -123,7 +123,7 @@ class SettingsBuilder(
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         minimumHeight = 58.dpToPx()
-        setPadding(18.dpToPx(), 12.dpToPx(), 14.dpToPx(), 12.dpToPx())
+        setPaddingRelative(18.dpToPx(), 12.dpToPx(), 14.dpToPx(), 12.dpToPx())
         background = Look.pressable(0, 0, palette.text)
     }
 
@@ -139,7 +139,7 @@ class SettingsBuilder(
             textSize = 13f
             setTextColor(palette.muted)
             Look.applyFont(this, Constants.Font.JAKARTA, 400)
-            setPadding(0, 2.dpToPx(), 0, 0)
+            setPaddingRelative(0, 2.dpToPx(), 0, 0)
         }
         column.addView(sub)
         val update = {
@@ -177,7 +177,7 @@ class SettingsBuilder(
                 maxWidth = 170.dpToPx()
                 setTextColor(if (accentValue) palette.accent else palette.muted)
                 Look.applyFont(this, Constants.Font.JAKARTA, if (accentValue) 600 else 500)
-                setPadding(12.dpToPx(), 0, 4.dpToPx(), 0)
+                setPaddingRelative(12.dpToPx(), 0, 4.dpToPx(), 0)
             }
             row.addView(valueView)
             val update = { valueView.text = value() }
@@ -219,7 +219,7 @@ class SettingsBuilder(
                 arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
                 intArrayOf(palette.accent, ColorUtils.setAlphaComponent(palette.text, 0x33))
             )
-            setPadding(12.dpToPx(), 0, 0, 0)
+            setPaddingRelative(12.dpToPx(), 0, 0, 0)
         }
         row.addView(switch)
         val update = { switch.isChecked = get() }
@@ -292,7 +292,7 @@ class SettingsBuilder(
     ): View {
         val column = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(18.dpToPx(), 14.dpToPx(), 14.dpToPx(), 8.dpToPx())
+            setPaddingRelative(18.dpToPx(), 14.dpToPx(), 14.dpToPx(), 8.dpToPx())
         }
         val top = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
@@ -317,7 +317,7 @@ class SettingsBuilder(
             progressTintList = ColorStateList.valueOf(palette.accent)
             thumbTintList = ColorStateList.valueOf(palette.accent)
             progressBackgroundTintList = ColorStateList.valueOf(palette.text)
-            setPadding(6.dpToPx(), 10.dpToPx(), 6.dpToPx(), 6.dpToPx())
+            setPaddingRelative(6.dpToPx(), 10.dpToPx(), 6.dpToPx(), 6.dpToPx())
         }
         valueView.text = format(get())
         bar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -356,7 +356,7 @@ class SettingsBuilder(
             setTextColor(palette.muted)
             Look.applyFont(this, Constants.Font.JAKARTA, 400)
             setLineSpacing(2.dpToPx().toFloat(), 1f)
-            setPadding(10.dpToPx(), 10.dpToPx(), 10.dpToPx(), 0)
+            setPaddingRelative(10.dpToPx(), 10.dpToPx(), 10.dpToPx(), 0)
         })
         card = null
     }
@@ -369,7 +369,7 @@ class SettingsBuilder(
     fun palettes(current: () -> String, locked: (Palette) -> Boolean = { false }, onPick: (Palette) -> Unit) {
         val row = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
-            setPadding(8.dpToPx(), 16.dpToPx(), 8.dpToPx(), 12.dpToPx())
+            setPaddingRelative(8.dpToPx(), 16.dpToPx(), 8.dpToPx(), 12.dpToPx())
         }
         val swatches = Palette.ALL.map { p ->
             val swatch = View(context)
@@ -379,7 +379,7 @@ class SettingsBuilder(
                 gravity = Gravity.CENTER
                 maxLines = 1
                 Look.applyFont(this, Constants.Font.JAKARTA, 500)
-                setPadding(0, 6.dpToPx(), 0, 0)
+                setPaddingRelative(0, 6.dpToPx(), 0, 0)
             }
             val column = LinearLayout(context).apply {
                 orientation = LinearLayout.VERTICAL
@@ -429,7 +429,7 @@ class SettingsBuilder(
     ) {
         val grid = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(8.dpToPx(), 14.dpToPx(), 8.dpToPx(), 10.dpToPx())
+            setPaddingRelative(8.dpToPx(), 14.dpToPx(), 8.dpToPx(), 10.dpToPx())
         }
         // (id, amostra, nome); id null é a personalizada
         val cells = mutableListOf<Triple<String?, TextView, TextView>>()
@@ -437,7 +437,7 @@ class SettingsBuilder(
         all.chunked(4).forEach { chunk ->
             val row = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
-                setPadding(0, 4.dpToPx(), 0, 6.dpToPx())
+                setPaddingRelative(0, 4.dpToPx(), 0, 6.dpToPx())
             }
             chunk.forEach { (id, label) ->
                 val swatch = TextView(context).apply {
@@ -451,7 +451,7 @@ class SettingsBuilder(
                     maxLines = 1
                     ellipsize = TextUtils.TruncateAt.END
                     Look.applyFont(this, Constants.Font.JAKARTA, 500)
-                    setPadding(2.dpToPx(), 6.dpToPx(), 2.dpToPx(), 0)
+                    setPaddingRelative(2.dpToPx(), 6.dpToPx(), 2.dpToPx(), 0)
                 }
                 val column = LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL

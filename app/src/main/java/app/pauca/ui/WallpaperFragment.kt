@@ -101,7 +101,7 @@ class WallpaperFragment : BaseFragment() {
                 val r = 28.dpToPx().toFloat()
                 cornerRadii = floatArrayOf(r, r, r, r, 0f, 0f, 0f, 0f)
             }
-            setPadding(16.dpToPx(), 20.dpToPx(), 16.dpToPx(), 12.dpToPx())
+            setPaddingRelative(16.dpToPx(), 20.dpToPx(), 16.dpToPx(), 12.dpToPx())
             isClickable = true
         }
         panel.addView(TextView(context).apply {
@@ -109,7 +109,7 @@ class WallpaperFragment : BaseFragment() {
             textSize = 26f
             setTextColor(screen.text)
             Look.applyFont(this, Constants.Font.NEWSREADER, 500, 26f)
-            setPadding(6.dpToPx(), 0, 6.dpToPx(), 4.dpToPx())
+            setPaddingRelative(6.dpToPx(), 0, 6.dpToPx(), 4.dpToPx())
         })
         val content = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
         val scroll = ScrollView(context).apply {
@@ -143,7 +143,7 @@ class WallpaperFragment : BaseFragment() {
         val context = requireContext()
         val box = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(28.dpToPx(), 0, 28.dpToPx(), 0)
+            setPaddingRelative(28.dpToPx(), 0, 28.dpToPx(), 0)
         }
         val shadow = 0x80000000.toInt()
         box.addView(TextClock(context).apply {
@@ -163,7 +163,7 @@ class WallpaperFragment : BaseFragment() {
                 textSize = prefs.appTextSize.toFloat()
                 setTextColor(0xFFFFFFFF.toInt())
                 setShadowLayer(6f, 0f, 1.5f, shadow)
-                setPadding(0, 10.dpToPx(), 0, 0)
+                setPaddingRelative(0, 10.dpToPx(), 0, 0)
                 Look.applyFont(this, prefs.appFont, prefs.appWeight, prefs.appTextSize.toFloat())
             })
         }
@@ -175,13 +175,13 @@ class WallpaperFragment : BaseFragment() {
         val row = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL or Gravity.END
-            setPadding(0, 12.dpToPx(), 0, 0)
+            setPaddingRelative(0, 12.dpToPx(), 0, 0)
         }
         row.addView(TextView(context).apply {
             text = getString(R.string.cancel)
             textSize = 15f
             setTextColor(screen.muted)
-            setPadding(20.dpToPx(), 12.dpToPx(), 20.dpToPx(), 12.dpToPx())
+            setPaddingRelative(20.dpToPx(), 12.dpToPx(), 20.dpToPx(), 12.dpToPx())
             background = Look.pressable(0, 22, screen.text)
             Look.applyFont(this, Constants.Font.JAKARTA, 600)
             setOnClickListener { findNavController().popBackStack() }
@@ -190,7 +190,7 @@ class WallpaperFragment : BaseFragment() {
             text = getString(R.string.wallpaper_apply)
             textSize = 15f
             setTextColor(screen.accentInk)
-            setPadding(26.dpToPx(), 12.dpToPx(), 26.dpToPx(), 12.dpToPx())
+            setPaddingRelative(26.dpToPx(), 12.dpToPx(), 26.dpToPx(), 12.dpToPx())
             background = Look.pressable(screen.accent, 22, screen.accentInk)
             Look.applyFont(this, Constants.Font.JAKARTA, 700)
             setOnClickListener { apply() }
@@ -310,7 +310,7 @@ class WallpaperFragment : BaseFragment() {
         val context = requireContext()
         val row = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
-            setPadding(10.dpToPx(), 10.dpToPx(), 10.dpToPx(), 10.dpToPx())
+            setPaddingRelative(10.dpToPx(), 10.dpToPx(), 10.dpToPx(), 10.dpToPx())
         }
         options.forEach { (id, label) ->
             val on = id == selected
@@ -320,7 +320,7 @@ class WallpaperFragment : BaseFragment() {
                 gravity = Gravity.CENTER
                 maxLines = 1
                 setTextColor(if (on) screen.bg else screen.text)
-                setPadding(12.dpToPx(), 11.dpToPx(), 12.dpToPx(), 11.dpToPx())
+                setPaddingRelative(12.dpToPx(), 11.dpToPx(), 12.dpToPx(), 11.dpToPx())
                 background = if (on) Look.pressable(screen.text, 20, screen.bg) else Look.pressable(0, 20, screen.text)
                 Look.applyFont(this, Constants.Font.JAKARTA, 600)
                 setOnClickListener { if (!on) onPick(id) }

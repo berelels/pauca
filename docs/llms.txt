@@ -6,7 +6,7 @@
 
 - Platform: Android 7.0 or newer, any brand. Languages: English, Portuguese and Spanish.
 - Pauca: one-time purchase on Google Play, R$ 4.99 in Brazil and US$ 0.99 in the United States. No subscription, no ads.
-- Pauca Lite: free, not yet published on Google Play. It has the essentials and doesn't use accessibility or double tap to lock.
+- Pauca Lite: free, on Google Play. It has the essentials and doesn't use accessibility or double tap to lock.
 - Privacy: the apps have no internet permission and collect no data. No accounts, analytics or trackers.
 - Accessibility: optional and only in Pauca, to lock the screen with a double tap and to pause apps outside your list in focus mode.
 
@@ -29,7 +29,7 @@ Pauca is a minimalist launcher for Android. It replaces your home screen with a 
 In spirit, yes: your home screen becomes as simple as a dumbphone's, only words. But it's still your Android phone, and every app stays one swipe away unless you pause it in focus mode.
 
 ### How much does Pauca cost?
-US$ 0.99 as a one-time purchase on Google Play, which shows the price in your currency. There's no subscription and no ads, and updates are included. Pauca Lite is coming soon to Google Play.
+US$ 0.99 as a one-time purchase on Google Play, which shows the price in your currency. There's no subscription and no ads, and updates are included. Pauca Lite is on Google Play now.
 
 ### Does Pauca collect my data?
 No. Pauca has no internet permission, so it can't send anything anywhere. There are no accounts, analytics, ads or trackers, and your cards and settings stay on your phone.
@@ -44,7 +44,7 @@ Anytime. Pauca is just a home screen app: choose another one in your phone's set
 Only if you want. In focus mode, Pauca can pause the apps outside your list. Outside focus, every app is one swipe away.
 
 ### What's the difference between Pauca and Pauca Lite?
-Lite is free and covers the essentials. Pauca adds focus mode, unlimited profiles and full customization, for a one-time price. If you start with Lite, Pauca brings your setup along. Pauca Lite is coming soon to Google Play.
+Lite is free and covers the essentials. Pauca adds focus mode, unlimited profiles and full customization, for a one-time price. If you start with Lite, Pauca brings your setup along. Pauca Lite is on Google Play now.
 
 ### Is there a subscription?
 No. You pay once, and updates come with it.

@@ -24,7 +24,7 @@ REPO = "https://github.com/berelels/pauca"
 PLAY = "https://play.google.com/store/apps/details?id="
 EMAIL = "gabrieldiasdev@proton.me"
 # Vire para True quando a Play aprovar o Pauca Lite (hoje o link dá 404): religa os botões, os textos e o JSON-LD do Lite
-LITE_LIVE = False
+LITE_LIVE = True
 # Data da última mudança de conteúdo: atualize junto com "updated" de cada idioma
 UPDATED = "2026-11-09"
 # Muda a cada build para o navegador e a CDN não servirem CSS/JS antigos

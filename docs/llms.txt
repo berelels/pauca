@@ -6,9 +6,9 @@
 
 - Platform: Android 7.0 or newer, any brand. Languages: English, Portuguese and Spanish.
 - Pauca: one-time purchase on Google Play, R$ 4.99 in Brazil and US$ 0.99 in the United States. No subscription, no ads.
-- Pauca Lite: free, on Google Play. It has the essentials, including double tap to lock.
+- Pauca Lite: free, on Google Play. It has the essentials and doesn't use accessibility or double tap to lock.
 - Privacy: the apps have no internet permission and collect no data. No accounts, analytics or trackers.
-- Accessibility: optional, in both apps, to lock the screen with a double tap and, in Pauca's focus mode, to pause apps outside your list.
+- Accessibility: optional and only in Pauca, to lock the screen with a double tap and to pause apps outside your list in focus mode.
 
 ## Pages
 
@@ -53,4 +53,4 @@ No. You pay once, and updates come with it.
 No, on purpose. Pauca is about having fewer things on your screen.
 
 ### Why does it ask for accessibility?
-It's only to lock the screen with a double tap and, in Pauca's focus mode, to pause apps outside your list. It asks before turning it on, and you can say no. It's optional and it doesn't read your screen.
+Only Pauca asks, Pauca Lite doesn't. It's only to lock the screen with a double tap and, in focus mode, to pause apps outside your list. It's optional and it doesn't read your screen.

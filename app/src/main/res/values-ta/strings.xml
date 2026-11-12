@@ -386,7 +386,6 @@
     <string name="weather_below_date">தேதிக்குக் கீழே</string>
     <string name="weather_above_clock">கடிகாரத்துக்கு மேலே</string>
     <string name="weather_bottom">திரையின் கீழே</string>
-    <string name="weather_city_not_found">நகரம் கிடைக்கவில்லை. பெயரையும் உங்கள் இணைப்பையும் சரிபாருங்கள்.</string>
     <string name="weather_clear">தெளிவு</string>
     <string name="weather_partly_cloudy">பகுதி மேகமூட்டம்</string>
     <string name="weather_cloudy">மேகமூட்டம்</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d முறை திறப்பு</string>
     <string name="pause_hint">எண்ணிக்கை நள்ளிரவில் மீட்டமையும். Pauca வழியாகத் திறப்பவை மட்டுமே கணக்கிடப்படும்.</string>
     <string name="pause_breathe">மூச்சுவிடுங்கள்</string>
-    <string name="pause_message">இன்று ^1 பயன்பாட்டை ^2 முறை திறந்துள்ளீர்கள். இப்போது உண்மையிலேயே இது தேவையா? அப்படியெனில், இன்று மீண்டும் உங்களைத் தொந்தரவு செய்ய மாட்டோம்.</string>
     <string name="pause_back">திரும்பிச் செல்</string>
     <string name="pause_open_anyway">இருந்தாலும் திற</string>
     <string name="pause_open_wait">%1$d வி கழித்து இருந்தாலும் திற</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">பேட்டரியைச் சேமிக்க Android தானாகவே பூட்டுவதற்கான இருமுறை தட்டலை முடக்கியது. மீண்டும் இயக்கி, மீண்டும் நடக்காமல் இருக்க Pauca-வை பேட்டரி மேம்படுத்தலிலிருந்து நீக்கவும்.</string>
     <string name="permission_off_turn_on">இயக்கு</string>
     <string name="permission_off_battery">பேட்டரி</string>
+    <string name="pause_message">இன்று ^1 பயன்பாட்டை ^2 முறை திறந்துள்ளீர்கள். இப்போது இதைத் திறக்க உண்மையிலேயே தேவையா? அப்படியெனில், இன்று மீண்டும் உங்களைத் தொந்தரவு செய்ய மாட்டோம்.</string>
+    <string name="pause_hold">அழுத்திப் பிடித்து மூச்சுவிடுங்கள்</string>
+    <string name="pause_suggest">இடைவேளைக்கான பயன்பாடுகளைப் பரிந்துரை</string>
+    <string name="pause_suggest_summary">பட்டியலில் இல்லாத பயன்பாடு திறப்பு வரம்பைத் தாண்டினால் ஓர் அறிவிப்பு</string>
+    <string name="pause_suggest_message">இன்று ^1 பயன்பாட்டை ^2 முறை திறந்துள்ளீர்கள். இடைவேளை உள்ள உங்கள் பயன்பாடுகளில் இதைச் சேர்க்கவா?</string>
+    <string name="pause_suggest_add">சேர்</string>
+    <string name="pause_suggest_never">மீண்டும் கேட்காதே</string>
+    <string name="pause_suggest_channel">இடைவேளைப் பரிந்துரைகள்</string>
+    <string name="weather_city_hint">நகரத்தைத் தேடு</string>
+    <string name="weather_city_loading">தேடுகிறது…</string>
+    <string name="weather_city_empty">முடிவுகள் இல்லை</string>
+    <string name="weather_city_error">தேட இயலவில்லை. உங்கள் இணைப்பைச் சரிபாருங்கள்.</string>
 </resources>

@@ -1,5 +1,6 @@
 package app.pauca.helper
 
+import android.content.Context
 import app.pauca.data.AppModel
 import app.pauca.data.Prefs
 import java.text.SimpleDateFormat
@@ -26,6 +27,7 @@ object Pause {
         prefs.pauseDay = day
         prefs.pauseCounts = emptyMap()
         prefs.pauseAllowed = emptySet()
+        prefs.pauseAsked = emptySet()
     }
 
     /** Se [pkg] deve pausar agora, devolve o número desta abertura (a que ainda não aconteceu). */
@@ -37,10 +39,18 @@ object Pause {
         return next.takeIf { it >= prefs.pauseLimit }
     }
 
-    fun countOpen(prefs: Prefs, pkg: String) {
+    fun countOpen(context: Context, prefs: Prefs, pkg: String, label: String) {
         if (!prefs.pauseOn) return
         rollDay(prefs)
-        prefs.pauseCounts = prefs.pauseCounts + (pkg to (prefs.pauseCounts[pkg] ?: 0) + 1)
+        val count = (prefs.pauseCounts[pkg] ?: 0) + 1
+        prefs.pauseCounts = prefs.pauseCounts + (pkg to count)
+        // App fora da lista que já passou do limite: sugere uma vez por dia (e nunca mais se a pessoa pediu)
+        if (prefs.pauseSuggest && pkg !in prefs.pauseApps && count >= prefs.pauseLimit &&
+            pkg !in prefs.pauseNeverAsk && pkg !in prefs.pauseAsked
+        ) {
+            prefs.pauseAsked = prefs.pauseAsked + pkg
+            PauseSuggestion.post(context, pkg, label, count)
+        }
     }
 
     fun allowToday(prefs: Prefs, pkg: String) {

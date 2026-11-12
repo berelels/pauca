@@ -386,7 +386,6 @@
     <string name="weather_below_date">तारीख़ के नीचे</string>
     <string name="weather_above_clock">घड़ी के ऊपर</string>
     <string name="weather_bottom">स्क्रीन के नीचे</string>
-    <string name="weather_city_not_found">शहर नहीं मिला। नाम और अपना कनेक्शन जाँचें।</string>
     <string name="weather_clear">साफ़</string>
     <string name="weather_partly_cloudy">आंशिक बादल</string>
     <string name="weather_cloudy">बादल</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d बार खोलना</string>
     <string name="pause_hint">गिनती आधी रात को शून्य हो जाती है। सिर्फ़ Pauca से खोली गई बार गिनी जाती हैं।</string>
     <string name="pause_breathe">साँस लें</string>
-    <string name="pause_message">आपने आज ^1 को ^2 बार खोला है। क्या आपको इसकी अभी सच में ज़रूरत है? अगर हाँ, तो आज हम आपको दोबारा नहीं टोकेंगे।</string>
     <string name="pause_back">वापस जाएँ</string>
     <string name="pause_open_anyway">फिर भी खोलें</string>
     <string name="pause_open_wait">%1$d सेकंड में फिर भी खोलें</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">बैटरी बचाने के लिए Android ने लॉक करने का डबल टैप अपने आप बंद कर दिया। इसे फिर चालू करें और Pauca को बैटरी ऑप्टिमाइज़ेशन से हटाएँ ताकि ऐसा दोबारा न हो।</string>
     <string name="permission_off_turn_on">चालू करें</string>
     <string name="permission_off_battery">बैटरी</string>
+    <string name="pause_message">आपने आज ऐप ^1 को ^2 बार खोला है। क्या आपको इसे अभी खोलना सच में ज़रूरी है? अगर हाँ, तो आज हम आपको दोबारा नहीं टोकेंगे।</string>
+    <string name="pause_hold">दबाए रखें और साँस लें</string>
+    <string name="pause_suggest">ठहराव के लिए ऐप सुझाएँ</string>
+    <string name="pause_suggest_summary">सूची से बाहर का कोई ऐप खोलने की सीमा पार करे तो सूचना</string>
+    <string name="pause_suggest_message">आपने आज ऐप ^1 को ^2 बार खोला है। क्या इसे ठहराव वाले ऐप में जोड़ना चाहेंगे?</string>
+    <string name="pause_suggest_add">जोड़ें</string>
+    <string name="pause_suggest_never">दोबारा न पूछें</string>
+    <string name="pause_suggest_channel">ठहराव के सुझाव</string>
+    <string name="weather_city_hint">शहर खोजें</string>
+    <string name="weather_city_loading">खोज रहे हैं…</string>
+    <string name="weather_city_empty">कोई नतीजा नहीं</string>
+    <string name="weather_city_error">खोज नहीं हो सकी। अपना कनेक्शन जाँचें।</string>
 </resources>

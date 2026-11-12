@@ -410,7 +410,6 @@
     <string name="weather_below_date">أسفل التاريخ</string>
     <string name="weather_above_clock">فوق الساعة</string>
     <string name="weather_bottom">أسفل الشاشة</string>
-    <string name="weather_city_not_found">المدينة غير موجودة. تحقق من الاسم ومن اتصالك.</string>
     <string name="weather_clear">صافٍ</string>
     <string name="weather_partly_cloudy">غائم جزئيًا</string>
     <string name="weather_cloudy">غائم</string>
@@ -429,7 +428,6 @@
     <string name="pause_opens">%1$d مرات فتح</string>
     <string name="pause_hint">تُصفَّر العدادات عند منتصف الليل. تُحتسب فقط مرات الفتح التي تمر عبر Pauca.</string>
     <string name="pause_breathe">تنفّس</string>
-    <string name="pause_message">فتحت ^1 ^2 مرات اليوم. هل أنت متأكد أنك تحتاجه الآن؟ إن كان الأمر كذلك، فلن نقاطعك مجددًا اليوم.</string>
     <string name="pause_back">رجوع</string>
     <string name="pause_open_anyway">الفتح على أي حال</string>
     <string name="pause_open_wait">الفتح على أي حال بعد %1$d ث</string>
@@ -438,4 +436,16 @@
     <string name="permission_off_message">أوقف أندرويد النقر المزدوج للقفل تلقائيًا لتوفير البطارية. أعد تشغيله وأخرج Pauca من تحسين البطارية حتى لا يتكرر ذلك.</string>
     <string name="permission_off_turn_on">إعادة التشغيل</string>
     <string name="permission_off_battery">البطارية</string>
+    <string name="pause_message">فتحت تطبيق ^1 ^2 مرات اليوم. هل أنت متأكد أنك تحتاج إلى فتحه الآن؟ إن كان الأمر كذلك، فلن نقاطعك مجددًا اليوم.</string>
+    <string name="pause_hold">اضغط مطولًا وتنفّس</string>
+    <string name="pause_suggest">اقتراح تطبيقات للتوقف</string>
+    <string name="pause_suggest_summary">إشعار عندما يتجاوز تطبيق غير موجود في القائمة حد مرات الفتح</string>
+    <string name="pause_suggest_message">فتحت تطبيق ^1 ^2 مرات اليوم. هل تريد إضافته إلى تطبيقاتك ذات التوقف؟</string>
+    <string name="pause_suggest_add">إضافة</string>
+    <string name="pause_suggest_never">عدم السؤال مجددًا</string>
+    <string name="pause_suggest_channel">اقتراحات التوقف</string>
+    <string name="weather_city_hint">ابحث عن مدينة</string>
+    <string name="weather_city_loading">جارٍ البحث…</string>
+    <string name="weather_city_empty">لا توجد نتائج</string>
+    <string name="weather_city_error">تعذّر البحث. تحقق من اتصالك.</string>
 </resources>

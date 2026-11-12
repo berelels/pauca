@@ -16,6 +16,9 @@
     <uses-permission
         android:name="android.permission.INTERNET"
         tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        tools:node="remove" />
 
     <application>
         <!-- Entrega os ajustes do Lite para o Pauca, que é assinado com a mesma chave -->
@@ -33,6 +36,10 @@
         <!-- Bloquear a tela com o toque duplo é só do Pauca: o Lite não pede acessibilidade -->
         <service
             android:name="app.pauca.helper.MyAccessibilityService"
+            tools:node="remove" />
+        <!-- A pausa e as sugestões dela são só do Pauca -->
+        <receiver
+            android:name="app.pauca.helper.PauseSuggestionReceiver"
             tools:node="remove" />
         <receiver
             android:name="app.pauca.listener.DeviceAdmin"

@@ -380,7 +380,6 @@
     <string name="weather_below_date">날짜 아래</string>
     <string name="weather_above_clock">시계 위</string>
     <string name="weather_bottom">화면 아래</string>
-    <string name="weather_city_not_found">도시를 찾을 수 없습니다. 이름과 연결 상태를 확인하세요.</string>
     <string name="weather_clear">맑음</string>
     <string name="weather_partly_cloudy">구름 조금</string>
     <string name="weather_cloudy">흐림</string>
@@ -399,7 +398,6 @@
     <string name="pause_opens">%1$d번 실행</string>
     <string name="pause_hint">횟수는 자정에 초기화됩니다. Pauca를 통해 연 횟수만 계산됩니다.</string>
     <string name="pause_breathe">숨쉬기</string>
-    <string name="pause_message">오늘 ^1 앱을 ^2번 열었습니다. 지금 정말 필요한가요? 그렇다면 오늘은 더 이상 방해하지 않겠습니다.</string>
     <string name="pause_back">돌아가기</string>
     <string name="pause_open_anyway">그래도 열기</string>
     <string name="pause_open_wait">%1$d초 후 그래도 열기</string>
@@ -408,4 +406,16 @@
     <string name="permission_off_message">배터리를 아끼려고 Android가 두 번 탭하여 잠금을 자동으로 껐습니다. 다시 켜고 Pauca를 배터리 최적화에서 빼면 다시 생기지 않습니다.</string>
     <string name="permission_off_turn_on">다시 켜기</string>
     <string name="permission_off_battery">배터리</string>
+    <string name="pause_message">오늘 ^1 앱을 ^2번 열었습니다. 지금 정말 열어야 하나요? 그렇다면 오늘은 더 이상 방해하지 않겠습니다.</string>
+    <string name="pause_hold">길게 누르고 숨쉬기</string>
+    <string name="pause_suggest">잠깐 멈출 앱 추천</string>
+    <string name="pause_suggest_summary">목록에 없는 앱이 실행 횟수 한도를 넘으면 알려 줍니다</string>
+    <string name="pause_suggest_message">오늘 ^1 앱을 ^2번 열었습니다. 잠깐 멈추는 앱에 추가할까요?</string>
+    <string name="pause_suggest_add">추가</string>
+    <string name="pause_suggest_never">다시 묻지 않기</string>
+    <string name="pause_suggest_channel">멈춤 추천</string>
+    <string name="weather_city_hint">도시 검색</string>
+    <string name="weather_city_loading">검색 중…</string>
+    <string name="weather_city_empty">결과 없음</string>
+    <string name="weather_city_error">검색할 수 없습니다. 연결을 확인하세요.</string>
 </resources>

@@ -386,7 +386,6 @@
     <string name="weather_below_date">తేదీ కింద</string>
     <string name="weather_above_clock">గడియారం పైన</string>
     <string name="weather_bottom">స్క్రీన్ కింద</string>
-    <string name="weather_city_not_found">నగరం కనబడలేదు. పేరును, మీ కనెక్షన్‌ను తనిఖీ చేయండి.</string>
     <string name="weather_clear">నిర్మలం</string>
     <string name="weather_partly_cloudy">పాక్షికంగా మేఘావృతం</string>
     <string name="weather_cloudy">మేఘావృతం</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d సార్లు తెరవడం</string>
     <string name="pause_hint">లెక్కలు అర్ధరాత్రి రీసెట్ అవుతాయి. Pauca ద్వారా తెరిచినవి మాత్రమే లెక్కించబడతాయి.</string>
     <string name="pause_breathe">ఊపిరి తీసుకోండి</string>
-    <string name="pause_message">మీరు ఈరోజు ^1 ను ^2 సార్లు తెరిచారు. ఇప్పుడు నిజంగా ఇది అవసరమా? అయితే, ఈరోజు మళ్లీ మిమ్మల్ని అడ్డుకోము.</string>
     <string name="pause_back">వెనక్కి వెళ్లండి</string>
     <string name="pause_open_anyway">అయినా తెరవండి</string>
     <string name="pause_open_wait">%1$d సె లో అయినా తెరవండి</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">బ్యాటరీ ఆదా చేయడానికి Android లాక్ చేసే రెండుసార్లు నొక్కడాన్ని స్వయంగా ఆపివేసింది. మళ్లీ ఆన్ చేసి, మళ్లీ జరగకుండా Pauca‌ను బ్యాటరీ ఆప్టిమైజేషన్ నుండి తీసివేయండి.</string>
     <string name="permission_off_turn_on">ఆన్ చేయి</string>
     <string name="permission_off_battery">బ్యాటరీ</string>
+    <string name="pause_message">మీరు ఈరోజు ^1 యాప్‌ను ^2 సార్లు తెరిచారు. ఇప్పుడు దాన్ని తెరవడం నిజంగా అవసరమా? అయితే, ఈరోజు మళ్లీ మిమ్మల్ని అడ్డుకోము.</string>
+    <string name="pause_hold">నొక్కి పట్టుకుని ఊపిరి తీసుకోండి</string>
+    <string name="pause_suggest">విరామం కోసం యాప్‌లను సూచించండి</string>
+    <string name="pause_suggest_summary">జాబితాలో లేని యాప్ తెరిచే పరిమితి దాటినప్పుడు నోటిఫికేషన్</string>
+    <string name="pause_suggest_message">మీరు ఈరోజు ^1 యాప్‌ను ^2 సార్లు తెరిచారు. దాన్ని విరామం ఉన్న మీ యాప్‌లకు జోడించాలా?</string>
+    <string name="pause_suggest_add">జోడించండి</string>
+    <string name="pause_suggest_never">మళ్లీ అడగవద్దు</string>
+    <string name="pause_suggest_channel">విరామ సూచనలు</string>
+    <string name="weather_city_hint">నగరం కోసం వెతకండి</string>
+    <string name="weather_city_loading">వెతుకుతున్నాం…</string>
+    <string name="weather_city_empty">ఫలితాలు లేవు</string>
+    <string name="weather_city_error">వెతకలేకపోయాం. మీ కనెక్షన్‌ను తనిఖీ చేయండి.</string>
 </resources>

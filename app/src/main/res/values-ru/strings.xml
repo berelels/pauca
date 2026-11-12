@@ -398,7 +398,6 @@
     <string name="weather_below_date">Под датой</string>
     <string name="weather_above_clock">Над часами</string>
     <string name="weather_bottom">Внизу экрана</string>
-    <string name="weather_city_not_found">Город не найден. Проверьте название и соединение.</string>
     <string name="weather_clear">Ясно</string>
     <string name="weather_partly_cloudy">Переменная облачность</string>
     <string name="weather_cloudy">Пасмурно</string>
@@ -417,7 +416,6 @@
     <string name="pause_opens">Открытий: %1$d</string>
     <string name="pause_hint">Счётчики обнуляются в полночь. Считаются только открытия через Pauca.</string>
     <string name="pause_breathe">Дышите</string>
-    <string name="pause_message">Сегодня вы открыли ^1 ^2 раз. Вам правда нужно это сейчас? Если да, мы больше не будем вас отвлекать сегодня.</string>
     <string name="pause_back">Вернуться</string>
     <string name="pause_open_anyway">Всё равно открыть</string>
     <string name="pause_open_wait">Всё равно открыть через %1$d с</string>
@@ -426,4 +424,16 @@
     <string name="permission_off_message">Android сам отключил блокировку двойным касанием, чтобы сэкономить заряд. Включите её снова и уберите Pauca из оптимизации батареи, чтобы это не повторялось.</string>
     <string name="permission_off_turn_on">Включить</string>
     <string name="permission_off_battery">Батарея</string>
+    <string name="pause_message">Сегодня вы открыли приложение ^1 ^2 раз. Вам правда нужно открыть его прямо сейчас? Если да, мы больше не будем вас отвлекать сегодня.</string>
+    <string name="pause_hold">Удерживайте и дышите</string>
+    <string name="pause_suggest">Предлагать приложения для паузы</string>
+    <string name="pause_suggest_summary">Уведомление, когда приложение не из списка превышает лимит открытий</string>
+    <string name="pause_suggest_message">Сегодня вы открыли приложение ^1 ^2 раз. Добавить его к приложениям с паузой?</string>
+    <string name="pause_suggest_add">Добавить</string>
+    <string name="pause_suggest_never">Больше не спрашивать</string>
+    <string name="pause_suggest_channel">Предложения паузы</string>
+    <string name="weather_city_hint">Найти город</string>
+    <string name="weather_city_loading">Поиск…</string>
+    <string name="weather_city_empty">Ничего не найдено</string>
+    <string name="weather_city_error">Не удалось выполнить поиск. Проверьте соединение.</string>
 </resources>

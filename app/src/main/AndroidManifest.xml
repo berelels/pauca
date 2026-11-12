@@ -10,6 +10,8 @@
 
     <!-- Só para o tempo na tela inicial (Open-Meteo); o Lite não tem -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Só para sugerir um app para a pausa (Android 13+); o Lite não tem -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <!-- Só para pôr a imagem escolhida na tela de bloqueio, quando a pessoa pede -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -94,6 +96,9 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".helper.PauseSuggestionReceiver"
+            android:exported="false" />
         <receiver
             android:name=".listener.DeviceAdmin"
             android:exported="false"

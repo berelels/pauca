@@ -392,7 +392,6 @@
     <string name="weather_below_date">Sotto la data</string>
     <string name="weather_above_clock">Sopra l\'orologio</string>
     <string name="weather_bottom">In fondo allo schermo</string>
-    <string name="weather_city_not_found">Città non trovata. Controlla il nome e la connessione.</string>
     <string name="weather_clear">Sereno</string>
     <string name="weather_partly_cloudy">Parzialmente nuvoloso</string>
     <string name="weather_cloudy">Nuvoloso</string>
@@ -411,7 +410,6 @@
     <string name="pause_opens">%1$d aperture</string>
     <string name="pause_hint">I conteggi si azzerano a mezzanotte. Vengono contate solo le aperture che passano da Pauca.</string>
     <string name="pause_breathe">Respira</string>
-    <string name="pause_message">Oggi hai aperto ^1 ^2 volte. Ti serve davvero adesso? Se sì, oggi non ti interromperemo più.</string>
     <string name="pause_back">Torna indietro</string>
     <string name="pause_open_anyway">Apri comunque</string>
     <string name="pause_open_wait">Apri comunque tra %1$d s</string>
@@ -420,4 +418,16 @@
     <string name="permission_off_message">Android ha disattivato da solo il doppio tocco per bloccare, per risparmiare batteria. Riattivalo e togli Pauca dall\'ottimizzazione della batteria perché non succeda più.</string>
     <string name="permission_off_turn_on">Riattiva</string>
     <string name="permission_off_battery">Batteria</string>
+    <string name="pause_message">Oggi hai aperto l\'app ^1 ^2 volte. Ti serve davvero aprirla adesso? Se sì, oggi non ti interromperemo più.</string>
+    <string name="pause_hold">Tieni premuto e respira</string>
+    <string name="pause_suggest">Suggerisci app per la pausa</string>
+    <string name="pause_suggest_summary">Una notifica quando un\'app fuori dall\'elenco supera il limite di aperture</string>
+    <string name="pause_suggest_message">Oggi hai aperto l\'app ^1 ^2 volte. Vuoi aggiungerla alle tue app con pausa?</string>
+    <string name="pause_suggest_add">Aggiungi</string>
+    <string name="pause_suggest_never">Non chiedere più</string>
+    <string name="pause_suggest_channel">Suggerimenti di pausa</string>
+    <string name="weather_city_hint">Cerca una città</string>
+    <string name="weather_city_loading">Ricerca in corso…</string>
+    <string name="weather_city_empty">Nessun risultato</string>
+    <string name="weather_city_error">Impossibile cercare. Controlla la connessione.</string>
 </resources>

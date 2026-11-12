@@ -1,6 +1,5 @@
 package app.pauca.ui
 
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
@@ -11,11 +10,12 @@ import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
 import android.view.Gravity
+import android.view.HapticFeedbackConstants
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
-import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -29,10 +29,12 @@ import app.pauca.data.Constants
 import app.pauca.data.Palette
 import app.pauca.helper.dpToPx
 import app.pauca.helper.isSystemAnimationsDisabled
+import kotlin.math.acos
 
 /**
- * Pausa para respirar, por cima de tudo: o fundo sobe na cor de destaque, um círculo respira
- * por um minuto (4 s para dentro, 6 s para fora) e só depois "abrir mesmo assim" é liberado.
+ * Pausa para respirar, por cima de tudo: o fundo sobe na cor de destaque e o círculo só respira
+ * (4 s para dentro, 6 s para fora) enquanto a pessoa o segura. "Abrir mesmo assim" é liberado
+ * depois de 30 s de toque acumulados, não de relógio.
  */
 @SuppressLint("ViewConstructor")
 class PauseView(
@@ -47,17 +49,45 @@ class PauseView(
     private val still = context.isSystemAnimationsDisabled()
     private val ink = palette.accentInk
     private val accent = palette.accent
-    private var breathing: ValueAnimator? = null
     private val openAnyway = TextView(context)
-    private val endAt = SystemClock.elapsedRealtime() + WAIT_MS
+    private val circle = View(context)
+    private val label = TextView(context)
 
-    private val tick = object : Runnable {
+    // Respiração: segurando, a fase anda pelo ciclo de 10 s; soltando, o círculo assenta devagar
+    private var holding = false
+    private var unlocked = false
+    private var heldMs = 0L
+    private var phaseMs = 0f
+    private var scale = REST
+    private var lastFrame = 0L
+    private val ease = AccelerateDecelerateInterpolator()
+
+    private val frame = object : Runnable {
         override fun run() {
-            val left = ((endAt - SystemClock.elapsedRealtime() + 999) / 1000).toInt()
-            if (left > 0) {
-                openAnyway.text = context.getString(R.string.pause_open_wait, left)
-                postDelayed(this, 1000)
-            } else unlock()
+            val now = SystemClock.elapsedRealtime()
+            val dt = (now - lastFrame).coerceIn(0, 100)
+            lastFrame = now
+            if (holding) {
+                heldMs += dt
+                phaseMs = (phaseMs + dt) % (IN_MS + OUT_MS)
+                if (!still) {
+                    val f = if (phaseMs < IN_MS) ease.getInterpolation(phaseMs / IN_MS)
+                    else 1f - ease.getInterpolation((phaseMs - IN_MS) / OUT_MS)
+                    scale = REST + (1f - REST) * f
+                }
+                if (heldMs >= HOLD_MS) unlock() else showRemaining()
+            } else if (!still) {
+                scale += (REST - scale) * (1f - Math.exp(-dt / 700.0).toFloat())
+            }
+            circle.scaleX = scale
+            circle.scaleY = scale
+            // Solto e já assentado: para o laço até o próximo toque
+            if (holding || (!still && scale - REST > 0.002f)) postOnAnimation(this)
+            else {
+                scale = if (still) STILL else REST
+                circle.scaleX = scale
+                circle.scaleY = scale
+            }
         }
     }
 
@@ -82,8 +112,8 @@ class PauseView(
 
         // Círculo que respira, com a palavra parada no meio
         val circleBox = FrameLayout(context).apply { clipChildren = false }
-        val size = 190.dpToPx()
-        val circle = View(context).apply {
+        val size = 210.dpToPx()
+        circle.apply {
             background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL
                 setColor(ColorUtils.setAlphaComponent(ink, 0x26))
@@ -91,12 +121,24 @@ class PauseView(
             }
         }
         circleBox.addView(circle, LayoutParams(size, size, Gravity.CENTER))
-        circleBox.addView(TextView(context).apply {
-            setText(R.string.pause_breathe)
-            textSize = 24f
+        circleBox.addView(label.apply {
+            setText(R.string.pause_hold)
+            textSize = 18f
+            gravity = Gravity.CENTER
             setTextColor(ink)
-            Look.applyFont(this, Constants.Font.NEWSREADER, 500, 24f)
-        }, LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER))
+            Look.applyFont(this, Constants.Font.NEWSREADER, 500, 18f)
+        }, LayoutParams(110.dpToPx(), ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER))
+        circleBox.setOnTouchListener { v, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    v.parent.requestDisallowInterceptTouchEvent(true)
+                    v.performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
+                    hold(true)
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> hold(false)
+            }
+            true
+        }
         column.addView(circleBox, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
 
         // O texto comum fica um pouco mais suave que o número, que fica na tinta cheia e maior
@@ -143,27 +185,33 @@ class PauseView(
 
         contentDescription = TextUtils.expandTemplate(context.getText(R.string.pause_message), appLabel, count.toString())
 
+        circle.scaleX = scale
+        circle.scaleY = scale
         if (still) {
-            circle.scaleX = 0.8f
-            circle.scaleY = 0.8f
-        } else {
-            doOnLayout { rise() }
-            breathing = ValueAnimator.ofFloat(0f, 1f).apply {
-                duration = (IN_MS + OUT_MS).toLong()
-                repeatCount = ValueAnimator.INFINITE
-                interpolator = LinearInterpolator()
-                val ease = AccelerateDecelerateInterpolator()
-                addUpdateListener {
-                    val t = it.animatedFraction * (IN_MS + OUT_MS)
-                    val f = if (t < IN_MS) ease.getInterpolation(t / IN_MS) else 1f - ease.getInterpolation((t - IN_MS) / OUT_MS)
-                    val s = 0.55f + 0.45f * f
-                    circle.scaleX = s
-                    circle.scaleY = s
-                }
-                start()
-            }
+            scale = STILL
+            circle.scaleX = scale
+            circle.scaleY = scale
+        } else doOnLayout { rise() }
+        showRemaining()
+    }
+
+    private fun hold(on: Boolean) {
+        if (holding == on) return
+        holding = on
+        label.setText(if (on) R.string.pause_breathe else R.string.pause_hold)
+        if (on) {
+            // Recomeça a inspirar do tamanho em que o círculo está
+            phaseMs = (acos((1f - 2f * ((scale - REST) / (1f - REST)).coerceIn(0f, 1f)).toDouble()) / Math.PI).toFloat() * IN_MS
         }
-        tick.run()
+        lastFrame = SystemClock.elapsedRealtime()
+        removeCallbacks(frame)
+        postOnAnimation(frame)
+    }
+
+    private fun showRemaining() {
+        if (unlocked) return
+        val left = ((HOLD_MS - heldMs + 999) / 1000).toInt()
+        openAnyway.text = context.getString(R.string.pause_open_wait, left)
     }
 
     /** O fundo sobe de baixo, junto com o resto. */
@@ -173,6 +221,8 @@ class PauseView(
     }
 
     private fun unlock() {
+        if (unlocked) return
+        unlocked = true
         openAnyway.setText(R.string.pause_open_anyway)
         openAnyway.isEnabled = true
         openAnyway.animate().alpha(1f).setDuration(300).start()
@@ -180,15 +230,16 @@ class PauseView(
 
     /** Tira da tela; não decide nada sobre o app. */
     fun dismiss() {
-        removeCallbacks(tick)
-        breathing?.cancel()
+        removeCallbacks(frame)
         animate().cancel()
         (parent as? ViewGroup)?.removeView(this)
     }
 
     private companion object {
-        const val WAIT_MS = 60_000L
+        const val HOLD_MS = 30_000L
         const val IN_MS = 4000f
         const val OUT_MS = 6000f
+        const val REST = 0.65f
+        const val STILL = 0.8f
     }
 }

@@ -386,7 +386,6 @@
     <string name="weather_below_date">Baixo a data</string>
     <string name="weather_above_clock">Sobre o reloxo</string>
     <string name="weather_bottom">Abaixo na pantalla</string>
-    <string name="weather_city_not_found">Cidade non atopada. Revisa o nome e a conexión.</string>
     <string name="weather_clear">Despexado</string>
     <string name="weather_partly_cloudy">Parcialmente nubrado</string>
     <string name="weather_cloudy">Nubrado</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d aperturas</string>
     <string name="pause_hint">As contas volven a cero á media noite. Só se contan as aperturas que pasan por Pauca.</string>
     <string name="pause_breathe">Respira</string>
-    <string name="pause_message">Hoxe abriches ^1 ^2 veces. De verdade o precisas agora? Se é que si, hoxe non te volveremos interromper.</string>
     <string name="pause_back">Volver</string>
     <string name="pause_open_anyway">Abrir igualmente</string>
     <string name="pause_open_wait">Abrir igualmente en %1$d s</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">Android desactivou o dobre toque para bloquear pola súa conta, para aforrar batería. Volve activalo e quita Pauca da optimización de batería para que non volva pasar.</string>
     <string name="permission_off_turn_on">Activar</string>
     <string name="permission_off_battery">Batería</string>
+    <string name="pause_message">Hoxe abriches a aplicación ^1 ^2 veces. De verdade precisas abrila agora? Se é que si, hoxe non te volveremos interromper.</string>
+    <string name="pause_hold">Mantén premido e respira</string>
+    <string name="pause_suggest">Suxerir aplicacións para a pausa</string>
+    <string name="pause_suggest_summary">Unha notificación cando unha aplicación fóra da lista supera o límite de aperturas</string>
+    <string name="pause_suggest_message">Hoxe abriches a aplicación ^1 ^2 veces. Queres engadila ás túas aplicacións con pausa?</string>
+    <string name="pause_suggest_add">Engadir</string>
+    <string name="pause_suggest_never">Non preguntar máis</string>
+    <string name="pause_suggest_channel">Suxestións de pausa</string>
+    <string name="weather_city_hint">Buscar unha cidade</string>
+    <string name="weather_city_loading">Buscando…</string>
+    <string name="weather_city_empty">Sen resultados</string>
+    <string name="weather_city_error">Non se puido buscar. Revisa a conexión.</string>
 </resources>

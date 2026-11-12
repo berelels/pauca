@@ -386,7 +386,6 @@
     <string name="weather_below_date">তারিখের নিচে</string>
     <string name="weather_above_clock">ঘড়ির উপরে</string>
     <string name="weather_bottom">স্ক্রিনের নিচে</string>
-    <string name="weather_city_not_found">শহর পাওয়া যায়নি। নাম ও আপনার সংযোগ দেখে নিন।</string>
     <string name="weather_clear">পরিষ্কার</string>
     <string name="weather_partly_cloudy">আংশিক মেঘলা</string>
     <string name="weather_cloudy">মেঘলা</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$dবার খোলা</string>
     <string name="pause_hint">গণনা মধ্যরাতে শূন্য হয়ে যায়। শুধু Pauca-র মাধ্যমে খোলাগুলোই গোনা হয়।</string>
     <string name="pause_breathe">শ্বাস নিন</string>
-    <string name="pause_message">আজ আপনি ^1 অ্যাপ ^2 বার খুলেছেন। এখনই কি সত্যিই এটি দরকার? যদি হয়, আজ আর আপনাকে বিরক্ত করব না।</string>
     <string name="pause_back">ফিরে যান</string>
     <string name="pause_open_anyway">তবুও খুলুন</string>
     <string name="pause_open_wait">%1$d সেকেন্ড পরে তবুও খুলুন</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">ব্যাটারি বাঁচাতে Android নিজে থেকেই লক করার ডাবল ট্যাপ বন্ধ করেছে। আবার চালু করুন এবং Pauca-কে ব্যাটারি অপ্টিমাইজেশন থেকে সরান, যাতে আর না হয়।</string>
     <string name="permission_off_turn_on">চালু করুন</string>
     <string name="permission_off_battery">ব্যাটারি</string>
+    <string name="pause_message">আজ আপনি অ্যাপ ^1 ^2 বার খুলেছেন। এখনই এটি খোলা কি সত্যিই দরকার? যদি হয়, আজ আর আপনাকে বিরক্ত করব না।</string>
+    <string name="pause_hold">চেপে ধরে শ্বাস নিন</string>
+    <string name="pause_suggest">বিরতির জন্য অ্যাপ প্রস্তাব করুন</string>
+    <string name="pause_suggest_summary">তালিকার বাইরের কোনো অ্যাপ খোলার সীমা ছাড়ালে একটি বিজ্ঞপ্তি</string>
+    <string name="pause_suggest_message">আজ আপনি অ্যাপ ^1 ^2 বার খুলেছেন। এটিকে বিরতি থাকা অ্যাপের তালিকায় যোগ করবেন?</string>
+    <string name="pause_suggest_add">যোগ করুন</string>
+    <string name="pause_suggest_never">আর জিজ্ঞেস করবেন না</string>
+    <string name="pause_suggest_channel">বিরতির প্রস্তাব</string>
+    <string name="weather_city_hint">একটি শহর খুঁজুন</string>
+    <string name="weather_city_loading">খোঁজা হচ্ছে…</string>
+    <string name="weather_city_empty">কোনো ফলাফল নেই</string>
+    <string name="weather_city_error">খোঁজা গেল না। আপনার সংযোগ দেখে নিন।</string>
 </resources>

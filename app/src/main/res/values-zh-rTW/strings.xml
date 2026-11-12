@@ -380,7 +380,6 @@
     <string name="weather_below_date">日期下方</string>
     <string name="weather_above_clock">時鐘上方</string>
     <string name="weather_bottom">螢幕底部</string>
-    <string name="weather_city_not_found">找不到該城市。請檢查名稱和網路連線。</string>
     <string name="weather_clear">晴</string>
     <string name="weather_partly_cloudy">多雲時晴</string>
     <string name="weather_cloudy">陰</string>
@@ -399,7 +398,6 @@
     <string name="pause_opens">開啟 %1$d 次</string>
     <string name="pause_hint">次數在午夜重設。只計算透過 Pauca 開啟的次數。</string>
     <string name="pause_breathe">呼吸</string>
-    <string name="pause_message">今天你已經開啟 ^1 ^2 次了。你現在真的需要它嗎？如果需要，今天不會再打擾你。</string>
     <string name="pause_back">返回</string>
     <string name="pause_open_anyway">仍然開啟</string>
     <string name="pause_open_wait">%1$d 秒後可開啟</string>
@@ -408,4 +406,16 @@
     <string name="permission_off_message">為了省電，Android 自動關閉了點兩下鎖定螢幕。請重新開啟，並將 Pauca 移出電池最佳化，以免再次發生。</string>
     <string name="permission_off_turn_on">重新開啟</string>
     <string name="permission_off_battery">電池</string>
+    <string name="pause_message">今天你已經開啟應用程式 ^1 ^2 次了。你現在真的需要開啟它嗎？如果需要，今天不會再打擾你。</string>
+    <string name="pause_hold">按住並呼吸</string>
+    <string name="pause_suggest">建議加入暫停的應用程式</string>
+    <string name="pause_suggest_summary">當清單以外的應用程式開啟次數超過上限時發出通知</string>
+    <string name="pause_suggest_message">今天你已經開啟應用程式 ^1 ^2 次了。要把它加入設有暫停的應用程式嗎？</string>
+    <string name="pause_suggest_add">新增</string>
+    <string name="pause_suggest_never">不再詢問</string>
+    <string name="pause_suggest_channel">暫停建議</string>
+    <string name="weather_city_hint">搜尋城市</string>
+    <string name="weather_city_loading">搜尋中…</string>
+    <string name="weather_city_empty">沒有結果</string>
+    <string name="weather_city_error">無法搜尋。請檢查網路連線。</string>
 </resources>

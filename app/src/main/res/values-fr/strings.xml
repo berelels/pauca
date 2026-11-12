@@ -392,7 +392,6 @@
     <string name="weather_below_date">Sous la date</string>
     <string name="weather_above_clock">Au-dessus de l\'horloge</string>
     <string name="weather_bottom">Bas de l\'écran</string>
-    <string name="weather_city_not_found">Ville introuvable. Vérifiez le nom et votre connexion.</string>
     <string name="weather_clear">Dégagé</string>
     <string name="weather_partly_cloudy">Partiellement nuageux</string>
     <string name="weather_cloudy">Nuageux</string>
@@ -411,7 +410,6 @@
     <string name="pause_opens">%1$d ouvertures</string>
     <string name="pause_hint">Les compteurs repartent à zéro à minuit. Seules les ouvertures passant par Pauca sont comptées.</string>
     <string name="pause_breathe">Respirez</string>
-    <string name="pause_message">Vous avez ouvert ^1 ^2 fois aujourd\'hui. En avez-vous vraiment besoin maintenant ? Si oui, nous ne vous interromprons plus aujourd\'hui.</string>
     <string name="pause_back">Revenir</string>
     <string name="pause_open_anyway">Ouvrir quand même</string>
     <string name="pause_open_wait">Ouvrir quand même dans %1$d s</string>
@@ -420,4 +418,16 @@
     <string name="permission_off_message">Android a désactivé le double appui pour verrouiller tout seul, pour économiser la batterie. Réactivez-le et retirez Pauca de l\'optimisation de la batterie pour que cela ne se reproduise plus.</string>
     <string name="permission_off_turn_on">Réactiver</string>
     <string name="permission_off_battery">Batterie</string>
+    <string name="pause_message">Vous avez ouvert l\'appli ^1 ^2 fois aujourd\'hui. En avez-vous vraiment besoin maintenant ? Si oui, nous ne vous interromprons plus aujourd\'hui.</string>
+    <string name="pause_hold">Maintenez et respirez</string>
+    <string name="pause_suggest">Suggérer des applis pour la pause</string>
+    <string name="pause_suggest_summary">Une notification quand une appli hors de la liste dépasse la limite d\'ouvertures</string>
+    <string name="pause_suggest_message">Vous avez ouvert l\'appli ^1 ^2 fois aujourd\'hui. Voulez-vous l\'ajouter à vos applis avec pause ?</string>
+    <string name="pause_suggest_add">Ajouter</string>
+    <string name="pause_suggest_never">Ne plus demander</string>
+    <string name="pause_suggest_channel">Suggestions de pause</string>
+    <string name="weather_city_hint">Rechercher une ville</string>
+    <string name="weather_city_loading">Recherche…</string>
+    <string name="weather_city_empty">Aucun résultat</string>
+    <string name="weather_city_error">Recherche impossible. Vérifiez votre connexion.</string>
 </resources>

@@ -1,5 +1,6 @@
 package app.pauca
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.NotificationManager
@@ -9,6 +10,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ActivityInfo
 import android.content.pm.LauncherApps
+import android.content.pm.PackageManager
 import android.content.pm.ShortcutInfo
 import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
@@ -21,6 +23,7 @@ import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.bundleOf
@@ -294,6 +297,16 @@ class MainActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private val notificationPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
+
+    /** Android 13+: pede o aviso de sugestões na hora em que a pessoa liga o recurso; negado, só não avisa. */
+    fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
     }
 
     private fun showPause(request: PauseRequest) {

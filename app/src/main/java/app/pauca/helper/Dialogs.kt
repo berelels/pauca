@@ -14,6 +14,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import android.view.Gravity
@@ -186,6 +187,110 @@ fun Context.showInputDialog(
     dialog.setOnShowListener {
         input.requestFocus()
         input.postDelayed({ input.showKeyboard() }, 150)
+    }
+    dialog.show()
+    return dialog
+}
+
+/**
+ * Busca de cidade: campo de texto e, embaixo, a lista que se atualiza enquanto digita
+ * (espera 300 ms parado). [search] devolve null se falhou. Tocar numa linha escolhe e fecha.
+ */
+fun Context.showCityDialog(
+    title: CharSequence,
+    search: (String, (List<Weather.City>?) -> Unit) -> Unit,
+    onPick: (Weather.City) -> Unit,
+): OlDialog {
+    val textColor = getColorFromAttr(app.pauca.R.attr.primaryColor)
+    val font = ResourcesCompat.getFont(this, app.pauca.R.font.jakarta)
+    val input = EditText(this).apply {
+        setText(Prefs(this@showCityDialog).weatherCity)
+        setSelection(text.length)
+        hint = getString(app.pauca.R.string.weather_city_hint)
+        isSingleLine = true
+        imeOptions = EditorInfo.IME_ACTION_DONE
+        inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_WORDS
+        textSize = 20f
+        setTextColor(textColor)
+        setHintTextColor(getColorFromAttr(app.pauca.R.attr.primaryColorTrans50))
+        typeface = font
+        Look.tintTextInput(this, Prefs(this@showCityDialog).palette.accent)
+    }
+    val list = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+    lateinit var dialog: OlDialog
+
+    fun note(text: Int) {
+        list.removeAllViews()
+        list.addView(TextView(this).apply {
+            setText(text)
+            textSize = 15f
+            typeface = font
+            setTextColor(getColorFromAttr(app.pauca.R.attr.primaryColorTrans50))
+            setPaddingRelative(0, 14.dpToPx(), 0, 14.dpToPx())
+        })
+    }
+
+    fun show(cities: List<Weather.City>) {
+        list.removeAllViews()
+        cities.forEach { city ->
+            list.addView(TextView(this).apply {
+                text = city.label
+                textSize = 17f
+                typeface = font
+                setTextColor(textColor)
+                setPaddingRelative(0, 12.dpToPx(), 0, 12.dpToPx())
+                setOnClickListener {
+                    onPick(city)
+                    dialog.dismiss()
+                }
+            })
+        }
+    }
+
+    // Resposta velha (de um texto que já mudou) não pode sobrescrever a nova
+    var latest = ""
+    val run = Runnable {
+        val query = input.text.toString().trim()
+        latest = query
+        if (query.length < 2) {
+            list.removeAllViews()
+            return@Runnable
+        }
+        note(app.pauca.R.string.weather_city_loading)
+        search(query) { cities ->
+            if (query != latest) return@search
+            when {
+                cities == null -> note(app.pauca.R.string.weather_city_error)
+                cities.isEmpty() -> note(app.pauca.R.string.weather_city_empty)
+                else -> show(cities)
+            }
+        }
+    }
+    input.doAfterTextChanged {
+        input.removeCallbacks(run)
+        input.postDelayed(run, 300)
+    }
+
+    dialog = createDialog(
+        title = title,
+        action = null,
+        content = { container ->
+            LinearLayout(container.context).apply {
+                orientation = LinearLayout.VERTICAL
+                setPaddingRelative(0, 16.dpToPx(), 8.dpToPx(), 8.dpToPx())
+                addView(input, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+                addView(ScrollView(container.context).apply {
+                    addView(list)
+                }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 240.dpToPx()))
+            }
+        },
+    )
+    dialog.setOnDismissListener { input.removeCallbacks(run) }
+    // Abre com o teclado: a janela precisa ser focável, ao contrário dos outros diálogos
+    dialog.setOnShowListener {
+        input.requestFocus()
+        input.postDelayed({ input.showKeyboard() }, 150)
+        if (input.text.isNotBlank()) input.post(run)
     }
     dialog.show()
     return dialog

@@ -386,7 +386,6 @@
     <string name="weather_below_date">Unter dem Datum</string>
     <string name="weather_above_clock">Über der Uhr</string>
     <string name="weather_bottom">Unten auf dem Bildschirm</string>
-    <string name="weather_city_not_found">Stadt nicht gefunden. Prüfe den Namen und deine Verbindung.</string>
     <string name="weather_clear">Klar</string>
     <string name="weather_partly_cloudy">Teils bewölkt</string>
     <string name="weather_cloudy">Bewölkt</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d-mal geöffnet</string>
     <string name="pause_hint">Die Zähler werden um Mitternacht zurückgesetzt. Nur Öffnungen über Pauca werden gezählt.</string>
     <string name="pause_breathe">Atmen</string>
-    <string name="pause_message">Du hast ^1 heute ^2-mal geöffnet. Brauchst du es gerade wirklich? Wenn ja, unterbrechen wir dich heute nicht noch einmal.</string>
     <string name="pause_back">Zurück</string>
     <string name="pause_open_anyway">Trotzdem öffnen</string>
     <string name="pause_open_wait">Trotzdem öffnen in %1$d s</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">Android hat Doppeltippen zum Sperren von selbst ausgeschaltet, um Akku zu sparen. Schalte es wieder ein und nimm Pauca aus der Akku-Optimierung, damit das nicht wieder passiert.</string>
     <string name="permission_off_turn_on">Einschalten</string>
     <string name="permission_off_battery">Akku</string>
+    <string name="pause_message">Du hast die App ^1 heute ^2-mal geöffnet. Musst du sie gerade wirklich öffnen? Wenn ja, unterbrechen wir dich heute nicht noch einmal.</string>
+    <string name="pause_hold">Halten und atmen</string>
+    <string name="pause_suggest">Apps für die Pause vorschlagen</string>
+    <string name="pause_suggest_summary">Eine Benachrichtigung, wenn eine App außerhalb der Liste das Öffnungslimit überschreitet</string>
+    <string name="pause_suggest_message">Du hast die App ^1 heute ^2-mal geöffnet. Möchtest du sie zu deinen Apps mit Pause hinzufügen?</string>
+    <string name="pause_suggest_add">Hinzufügen</string>
+    <string name="pause_suggest_never">Nicht mehr fragen</string>
+    <string name="pause_suggest_channel">Pausenvorschläge</string>
+    <string name="weather_city_hint">Nach einer Stadt suchen</string>
+    <string name="weather_city_loading">Suche läuft…</string>
+    <string name="weather_city_empty">Keine Ergebnisse</string>
+    <string name="weather_city_error">Suche nicht möglich. Prüfe deine Verbindung.</string>
 </resources>

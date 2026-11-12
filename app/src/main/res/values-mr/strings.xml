@@ -386,7 +386,6 @@
     <string name="weather_below_date">तारखेखाली</string>
     <string name="weather_above_clock">घड्याळाच्या वर</string>
     <string name="weather_bottom">स्क्रीनच्या खाली</string>
-    <string name="weather_city_not_found">शहर सापडले नाही. नाव आणि तुमचे कनेक्शन तपासा.</string>
     <string name="weather_clear">निरभ्र</string>
     <string name="weather_partly_cloudy">अंशतः ढगाळ</string>
     <string name="weather_cloudy">ढगाळ</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d वेळा उघडले</string>
     <string name="pause_hint">मोजणी मध्यरात्री शून्य होते. फक्त Pauca मधून उघडलेले मोजले जाते.</string>
     <string name="pause_breathe">श्वास घ्या</string>
-    <string name="pause_message">तुम्ही आज ^1 ^2 वेळा उघडले. आत्ता खरंच याची गरज आहे का? असेल तर आज पुन्हा तुम्हाला अडवणार नाही.</string>
     <string name="pause_back">मागे जा</string>
     <string name="pause_open_anyway">तरीही उघडा</string>
     <string name="pause_open_wait">%1$d से मध्ये तरीही उघडा</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">बॅटरी वाचवण्यासाठी Android ने लॉक करण्याचा डबल टॅप आपोआप बंद केला. तो पुन्हा सुरू करा आणि पुन्हा असे होऊ नये म्हणून Pauca ला बॅटरी ऑप्टिमायझेशनमधून काढा.</string>
     <string name="permission_off_turn_on">सुरू करा</string>
     <string name="permission_off_battery">बॅटरी</string>
+    <string name="pause_message">तुम्ही आज ^1 अ‍ॅप ^2 वेळा उघडले. आत्ता ते उघडण्याची खरंच गरज आहे का? असेल तर आज पुन्हा तुम्हाला अडवणार नाही.</string>
+    <string name="pause_hold">दाबून धरा आणि श्वास घ्या</string>
+    <string name="pause_suggest">विरामासाठी अ‍ॅप्स सुचवा</string>
+    <string name="pause_suggest_summary">यादीबाहेरचे अ‍ॅप उघडण्याची मर्यादा ओलांडल्यावर सूचना</string>
+    <string name="pause_suggest_message">तुम्ही आज ^1 अ‍ॅप ^2 वेळा उघडले. ते विराम असलेल्या अ‍ॅप्समध्ये जोडायचे का?</string>
+    <string name="pause_suggest_add">जोडा</string>
+    <string name="pause_suggest_never">पुन्हा विचारू नका</string>
+    <string name="pause_suggest_channel">विरामाच्या सूचना</string>
+    <string name="weather_city_hint">शहर शोधा</string>
+    <string name="weather_city_loading">शोधत आहे…</string>
+    <string name="weather_city_empty">निकाल नाही</string>
+    <string name="weather_city_error">शोधता आले नाही. तुमचे कनेक्शन तपासा.</string>
 </resources>

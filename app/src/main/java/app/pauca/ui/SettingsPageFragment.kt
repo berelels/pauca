@@ -52,6 +52,7 @@ import app.pauca.helper.isDefaultHome
 import app.pauca.helper.openAppInfo
 import app.pauca.helper.openUrl
 import app.pauca.helper.showColorDialog
+import app.pauca.helper.showCityDialog
 import app.pauca.helper.showInputDialog
 import app.pauca.helper.showPopupMenu
 import app.pauca.helper.showStatusBar
@@ -618,14 +619,15 @@ class SettingsPageFragment : BaseFragment() {
     }
 
     private fun askWeatherCity() {
-        val context = requireContext()
-        showDialog(context.showInputDialog(getString(R.string.weather_city), prefs.weatherCity) { name ->
-            if (name.isBlank()) return@showInputDialog
-            viewModel.setWeatherCity(name.trim()) { found ->
-                if (!found) context.showToast(getString(R.string.weather_city_not_found))
+        dialog?.dismiss()
+        dialog = requireContext().showCityDialog(
+            title = getString(R.string.weather_city),
+            search = { query, onResult -> viewModel.searchCities(query, onResult) },
+            onPick = {
+                viewModel.setWeatherCity(it)
                 if (_binding != null) ui.refresh()
-            }
-        })
+            },
+        )
     }
 
     private fun weatherSizeLabel(v: Int) = getString(
@@ -837,7 +839,11 @@ class SettingsPageFragment : BaseFragment() {
         ui.toggle(
             getString(R.string.pause_title),
             get = { prefs.pauseOn },
-            set = { prefs.pauseOn = it; true },
+            set = {
+                prefs.pauseOn = it
+                if (it && prefs.pauseSuggest) (requireActivity() as MainActivity).requestNotificationPermission()
+                true
+            },
         )
         ui.note(getString(R.string.pause_intro))
 
@@ -856,6 +862,16 @@ class SettingsPageFragment : BaseFragment() {
                 ui.refresh()
             }
         }
+        ui.toggle(
+            getString(R.string.pause_suggest),
+            subtitle = { getString(R.string.pause_suggest_summary) },
+            get = { prefs.pauseSuggest },
+            set = {
+                prefs.pauseSuggest = it
+                if (it) (requireActivity() as MainActivity).requestNotificationPermission()
+                true
+            },
+        )
         ui.note(getString(R.string.pause_hint))
     }
 

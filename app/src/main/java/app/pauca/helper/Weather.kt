@@ -18,15 +18,23 @@ object Weather {
     /** No máximo uma busca a cada tanto, quando a tela inicial volta. */
     const val REFRESH_MINUTES = 45
 
-    class City(val name: String, val lat: Double, val lon: Double)
+    class City(val name: String, val lat: Double, val lon: Double, val region: String = "", val country: String = "") {
+        /** "Cidade, Região, País" sem partes vazias nem repetidas. */
+        val label: String get() = listOf(name, region, country).filter { it.isNotBlank() }.distinct().joinToString(", ")
+    }
 
     /** Temperatura em °C e código WMO. */
     class Reading(val celsius: Double, val code: Int)
 
-    fun findCity(name: String, lang: String): City? {
-        val url = "https://geocoding-api.open-meteo.com/v1/search?name=${URLEncoder.encode(name, "UTF-8")}&count=1&language=$lang"
-        val result = get(url)?.optJSONArray("results")?.optJSONObject(0) ?: return null
-        return City(result.optString("name", name), result.getDouble("latitude"), result.getDouble("longitude"))
+    fun findCities(name: String, lang: String): List<City>? {
+        val url = "https://geocoding-api.open-meteo.com/v1/search?name=${URLEncoder.encode(name, "UTF-8")}&count=10&language=$lang"
+        val json = get(url) ?: return null
+        val results = json.optJSONArray("results") ?: return emptyList()
+        return (0 until results.length()).mapNotNull { i ->
+            val r = results.optJSONObject(i) ?: return@mapNotNull null
+            if (!r.has("latitude") || !r.has("longitude")) return@mapNotNull null
+            City(r.optString("name"), r.getDouble("latitude"), r.getDouble("longitude"), r.optString("admin1"), r.optString("country"))
+        }.filter { it.name.isNotBlank() }
     }
 
     fun fetch(lat: String, lon: String): Reading? {

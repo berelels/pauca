@@ -380,7 +380,6 @@
     <string name="weather_below_date">日付の下</string>
     <string name="weather_above_clock">時計の上</string>
     <string name="weather_bottom">画面の下部</string>
-    <string name="weather_city_not_found">都市が見つかりません。名前と接続を確認してください。</string>
     <string name="weather_clear">晴れ</string>
     <string name="weather_partly_cloudy">晴れ時々くもり</string>
     <string name="weather_cloudy">くもり</string>
@@ -399,7 +398,6 @@
     <string name="pause_opens">%1$d 回</string>
     <string name="pause_hint">回数は午前0時にリセットされます。Pauca 経由で開いた回数だけが数えられます。</string>
     <string name="pause_breathe">呼吸</string>
-    <string name="pause_message">今日は ^1 を ^2 回開きました。本当に今、必要ですか？必要なら、今日はもう邪魔しません。</string>
     <string name="pause_back">戻る</string>
     <string name="pause_open_anyway">それでも開く</string>
     <string name="pause_open_wait">%1$d 秒後にそれでも開く</string>
@@ -408,4 +406,16 @@
     <string name="permission_off_message">電池を節約するため、Android がダブルタップでロックを自動でオフにしました。もう一度オンにし、Pauca を電池の最適化から外すと再発しません。</string>
     <string name="permission_off_turn_on">オンにする</string>
     <string name="permission_off_battery">電池</string>
+    <string name="pause_message">今日は ^1 アプリを ^2 回開きました。本当に今開く必要がありますか？必要なら、今日はもう邪魔しません。</string>
+    <string name="pause_hold">長押しして呼吸</string>
+    <string name="pause_suggest">ひと呼吸おくアプリを提案</string>
+    <string name="pause_suggest_summary">リストにないアプリが開く回数の上限を超えたときに通知します</string>
+    <string name="pause_suggest_message">今日は ^1 アプリを ^2 回開きました。ひと呼吸おくアプリに追加しますか？</string>
+    <string name="pause_suggest_add">追加</string>
+    <string name="pause_suggest_never">今後は確認しない</string>
+    <string name="pause_suggest_channel">ひと呼吸の提案</string>
+    <string name="weather_city_hint">都市を検索</string>
+    <string name="weather_city_loading">検索中…</string>
+    <string name="weather_city_empty">結果がありません</string>
+    <string name="weather_city_error">検索できませんでした。接続を確認してください。</string>
 </resources>

@@ -109,10 +109,17 @@
     <string name="pause_summary">Um minuto de calma antes de abrir as apps que abre em demasia</string>
     <string name="pause_intro">Quando abre uma das apps escolhidas demasiadas vezes no dia, o Pauca pede primeiro um minuto de respiração.</string>
     <string name="pause_apps_hint">Escolha as apps que devem pedir uma pausa quando as abre em demasia.</string>
-    <string name="pause_message">Abriu a app ^1 ^2 vezes hoje. Tem a certeza de que precisa dela agora? Se sim, não o voltamos a interromper hoje.</string>
     <string name="permission_off_hint">O Android desligou o toque duplo sozinho. Toque para resolver.</string>
     <string name="permission_off_title">Toque duplo desligado</string>
     <string name="permission_off_message">O Android desligou o toque duplo para bloquear sozinho, para poupar bateria. Volte a ligá-lo e retire o Pauca da otimização de bateria para que não volte a acontecer.</string>
     <string name="permission_off_turn_on">Voltar a ligar</string>
     <string name="permission_off_battery">Bateria</string>
+    <string name="pause_message">Abriu a app ^1 ^2 vezes hoje. Tem a certeza de que precisa de a abrir agora? Se sim, não voltamos a interrompê-lo hoje.</string>
+    <string name="pause_hold">Mantenha premido e respire</string>
+    <string name="pause_suggest_summary">Uma notificação quando uma app fora da lista ultrapassa o limite de aberturas</string>
+    <string name="pause_suggest_message">Abriu a app ^1 ^2 vezes hoje. Quer adicioná-la às apps com pausa?</string>
+    <string name="pause_suggest_never">Não perguntar novamente</string>
+    <string name="weather_city_hint">Procurar uma cidade</string>
+    <string name="weather_city_loading">A procurar…</string>
+    <string name="weather_city_error">Não foi possível pesquisar. Verifique a ligação.</string>
 </resources>

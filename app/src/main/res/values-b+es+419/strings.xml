@@ -18,4 +18,6 @@
     <string name="full_message">Pauca Lite es la versión gratuita. Pauca, la versión completa, tiene modo concentración, perfiles ilimitados, más temas y colores (incluido tu fondo de pantalla), fuentes y alineación, y botones que se pueden ocultar. Es un pago único, sin suscripción y, como esta, sin acceso a internet.\n\nTus tarjetas y configuración vienen contigo.</string>
     <string name="lite_imported">Tus tarjetas y configuración de Pauca Lite vinieron contigo.</string>
     <string name="crash_reset_title">Configuración de texto restablecidos</string>
+    <string name="pause_hold">Mantén presionado y respira</string>
+    <string name="pause_suggest_message">Abriste la app ^1 ^2 veces hoy. ¿Quieres agregarla a las apps con pausa?</string>
 </resources>

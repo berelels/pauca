@@ -380,7 +380,6 @@
     <string name="weather_below_date">日期下方</string>
     <string name="weather_above_clock">时钟上方</string>
     <string name="weather_bottom">屏幕底部</string>
-    <string name="weather_city_not_found">未找到该城市。请检查名称和网络连接。</string>
     <string name="weather_clear">晴</string>
     <string name="weather_partly_cloudy">多云间晴</string>
     <string name="weather_cloudy">阴</string>
@@ -399,7 +398,6 @@
     <string name="pause_opens">打开 %1$d 次</string>
     <string name="pause_hint">次数在午夜重置。只统计通过 Pauca 打开的次数。</string>
     <string name="pause_breathe">呼吸</string>
-    <string name="pause_message">今天你已经打开 ^1 ^2 次了。你现在真的需要它吗？如果需要，今天不会再打扰你。</string>
     <string name="pause_back">返回</string>
     <string name="pause_open_anyway">仍然打开</string>
     <string name="pause_open_wait">%1$d 秒后可打开</string>
@@ -408,4 +406,16 @@
     <string name="permission_off_message">为了省电，安卓自动关闭了双击锁屏。请重新开启，并将 Pauca 移出电池优化，以免再次发生。</string>
     <string name="permission_off_turn_on">重新开启</string>
     <string name="permission_off_battery">电池</string>
+    <string name="pause_message">今天你已经打开应用 ^1 ^2 次了。你现在真的需要打开它吗？如果需要，今天不会再打扰你。</string>
+    <string name="pause_hold">按住并呼吸</string>
+    <string name="pause_suggest">推荐加入暂停的应用</string>
+    <string name="pause_suggest_summary">当列表之外的应用打开次数超过上限时发出通知</string>
+    <string name="pause_suggest_message">今天你已经打开应用 ^1 ^2 次了。要把它加入设有暂停的应用吗？</string>
+    <string name="pause_suggest_add">添加</string>
+    <string name="pause_suggest_never">不再询问</string>
+    <string name="pause_suggest_channel">暂停建议</string>
+    <string name="weather_city_hint">搜索城市</string>
+    <string name="weather_city_loading">正在搜索…</string>
+    <string name="weather_city_empty">没有结果</string>
+    <string name="weather_city_error">无法搜索。请检查网络连接。</string>
 </resources>

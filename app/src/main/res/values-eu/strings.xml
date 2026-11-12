@@ -386,7 +386,6 @@
     <string name="weather_below_date">Dataren azpian</string>
     <string name="weather_above_clock">Erlojuaren gainean</string>
     <string name="weather_bottom">Pantailaren behean</string>
-    <string name="weather_city_not_found">Ez da hiria aurkitu. Egiaztatu izena eta konexioa.</string>
     <string name="weather_clear">Zerua garbi</string>
     <string name="weather_partly_cloudy">Hodei batzuk</string>
     <string name="weather_cloudy">Hodeitsua</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d irekiera</string>
     <string name="pause_hint">Kontagailuak gauerdian zeroratzen dira. Pauca-tik igarotzen diren irekierak bakarrik zenbatzen dira.</string>
     <string name="pause_breathe">Hartu arnasa</string>
-    <string name="pause_message">Gaur ^1 aplikazioa ^2 aldiz ireki duzu. Benetan behar duzu orain? Hala bada, gaur ez zaitugu berriro oztopatuko.</string>
     <string name="pause_back">Itzuli</string>
     <string name="pause_open_anyway">Ireki hala ere</string>
     <string name="pause_open_wait">Ireki hala ere %1$d s barru</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">Androidek berez desaktibatu du blokeatzeko sakatze bikoitza, bateria aurrezteko. Aktibatu berriro eta kendu Pauca bateriaren optimizaziotik berriro gerta ez dadin.</string>
     <string name="permission_off_turn_on">Aktibatu</string>
     <string name="permission_off_battery">Bateria</string>
+    <string name="pause_message">Gaur ^1 aplikazioa ^2 aldiz ireki duzu. Benetan ireki behar duzu orain? Hala bada, gaur ez zaitugu berriro oztopatuko.</string>
+    <string name="pause_hold">Eutsi sakatuta eta hartu arnasa</string>
+    <string name="pause_suggest">Iradoki aplikazioak etenaldirako</string>
+    <string name="pause_suggest_summary">Zerrendatik kanpoko aplikazio batek irekiera-muga gainditzen duenean jakinarazpen bat</string>
+    <string name="pause_suggest_message">Gaur ^1 aplikazioa ^2 aldiz ireki duzu. Etenaldia duten zure aplikazioetara gehitu nahi duzu?</string>
+    <string name="pause_suggest_add">Gehitu</string>
+    <string name="pause_suggest_never">Ez galdetu berriro</string>
+    <string name="pause_suggest_channel">Etenaldi-iradokizunak</string>
+    <string name="weather_city_hint">Bilatu hiri bat</string>
+    <string name="weather_city_loading">Bilatzen…</string>
+    <string name="weather_city_empty">Emaitzarik ez</string>
+    <string name="weather_city_error">Ezin izan da bilatu. Egiaztatu konexioa.</string>
 </resources>

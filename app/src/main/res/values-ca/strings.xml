@@ -392,7 +392,6 @@
     <string name="weather_below_date">Sota la data</string>
     <string name="weather_above_clock">Sobre el rellotge</string>
     <string name="weather_bottom">A baix de la pantalla</string>
-    <string name="weather_city_not_found">Ciutat no trobada. Revisa el nom i la connexió.</string>
     <string name="weather_clear">Serè</string>
     <string name="weather_partly_cloudy">Parcialment ennuvolat</string>
     <string name="weather_cloudy">Ennuvolat</string>
@@ -411,7 +410,6 @@
     <string name="pause_opens">%1$d obertures</string>
     <string name="pause_hint">Els recomptes es posen a zero a mitjanit. Només es compten les obertures que passen per Pauca.</string>
     <string name="pause_breathe">Respira</string>
-    <string name="pause_message">Avui has obert ^1 ^2 vegades. De debò ho necessites ara mateix? Si és que sí, avui no et tornarem a interrompre.</string>
     <string name="pause_back">Torna enrere</string>
     <string name="pause_open_anyway">Obre igualment</string>
     <string name="pause_open_wait">Obre igualment d\'aquí a %1$d s</string>
@@ -420,4 +418,16 @@
     <string name="permission_off_message">Android ha desactivat el doble toc per bloquejar pel seu compte, per estalviar bateria. Torna\'l a activar i treu Pauca de l\'optimització de bateria perquè no torni a passar.</string>
     <string name="permission_off_turn_on">Activa</string>
     <string name="permission_off_battery">Bateria</string>
+    <string name="pause_message">Avui has obert l\'aplicació ^1 ^2 vegades. De debò necessites obrir-la ara mateix? Si és que sí, avui no et tornarem a interrompre.</string>
+    <string name="pause_hold">Mantén premut i respira</string>
+    <string name="pause_suggest">Suggereix aplicacions per a la pausa</string>
+    <string name="pause_suggest_summary">Una notificació quan una aplicació fora de la llista supera el límit d\'obertures</string>
+    <string name="pause_suggest_message">Avui has obert l\'aplicació ^1 ^2 vegades. Vols afegir-la a les teves aplicacions amb pausa?</string>
+    <string name="pause_suggest_add">Afegeix</string>
+    <string name="pause_suggest_never">No ho tornis a preguntar</string>
+    <string name="pause_suggest_channel">Suggeriments de pausa</string>
+    <string name="weather_city_hint">Cerca una ciutat</string>
+    <string name="weather_city_loading">Cercant…</string>
+    <string name="weather_city_empty">Cap resultat</string>
+    <string name="weather_city_error">No s\'ha pogut cercar. Revisa la connexió.</string>
 </resources>

@@ -23,8 +23,8 @@ android {
         applicationId "app.pauca"
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 9
-        versionName "0.1.8"
+        versionCode 10
+        versionName "1.0.0"
 
         resourceConfigurations += ["en", "pt-rBR", "es", "zh-rCN", "fr", "ar", "ja", "ko", "hi", "de", "ru", "it", "nl", "pt-rPT", "b+es+419", "zh-rTW", "zh-rHK", "fr-rCA", "bn", "ta", "te", "mr", "ca", "gl", "eu"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

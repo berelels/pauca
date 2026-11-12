@@ -91,7 +91,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun launch(appModel: AppModel) {
-        Pause.countOpen(prefs, appModel.appPackage)
+        Pause.countOpen(appContext, prefs, appModel.appPackage, appModel.appLabel)
         when (appModel) {
             is AppModel.PinnedShortcut -> launchShortcut(appModel)
             is AppModel.App -> launchApp(appModel.appPackage, appModel.activityClassName, appModel.user)
@@ -115,20 +115,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /** Resolve a cidade digitada e guarda; [onDone] diz se achou. */
-    fun setWeatherCity(name: String, onDone: (Boolean) -> Unit) {
-        viewModelScope.launch {
+    private var citySearch: kotlinx.coroutines.Job? = null
+
+    /** Busca cidades pelo nome; a busca anterior ainda em andamento é cancelada. [onResult] null é falha de rede. */
+    fun searchCities(query: String, onResult: (List<Weather.City>?) -> Unit) {
+        citySearch?.cancel()
+        citySearch = viewModelScope.launch {
             val lang = Language.locale(appContext).language
-            val city = withContext(Dispatchers.IO) { Weather.findCity(name, lang) }
-            if (city != null) {
-                prefs.weatherCity = city.name
-                prefs.weatherLat = city.lat.toString()
-                prefs.weatherLon = city.lon.toString()
-                prefs.weatherAt = 0L
-                refreshWeather(force = true)
-            }
-            onDone(city != null)
+            onResult(withContext(Dispatchers.IO) { Weather.findCities(query, lang) })
         }
+    }
+
+    fun setWeatherCity(city: Weather.City) {
+        prefs.weatherCity = city.name
+        prefs.weatherLat = city.lat.toString()
+        prefs.weatherLon = city.lon.toString()
+        prefs.weatherAt = 0L
+        refreshWeather(force = true)
     }
 
     private fun launchShortcut(appModel: AppModel.PinnedShortcut) {

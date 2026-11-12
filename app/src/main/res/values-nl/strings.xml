@@ -386,7 +386,6 @@
     <string name="weather_below_date">Onder de datum</string>
     <string name="weather_above_clock">Boven de klok</string>
     <string name="weather_bottom">Onderaan het scherm</string>
-    <string name="weather_city_not_found">Plaats niet gevonden. Controleer de naam en je verbinding.</string>
     <string name="weather_clear">Helder</string>
     <string name="weather_partly_cloudy">Half bewolkt</string>
     <string name="weather_cloudy">Bewolkt</string>
@@ -405,7 +404,6 @@
     <string name="pause_opens">%1$d keer geopend</string>
     <string name="pause_hint">De tellers worden om middernacht gereset. Alleen openingen via Pauca worden geteld.</string>
     <string name="pause_breathe">Adem</string>
-    <string name="pause_message">Je hebt ^1 vandaag ^2 keer geopend. Heb je het nu echt nodig? Zo ja, dan storen we je vandaag niet meer.</string>
     <string name="pause_back">Terug</string>
     <string name="pause_open_anyway">Toch openen</string>
     <string name="pause_open_wait">Toch openen over %1$d s</string>
@@ -414,4 +412,16 @@
     <string name="permission_off_message">Android heeft dubbeltikken om te vergrendelen zelf uitgezet om batterij te sparen. Zet het weer aan en haal Pauca uit de batterijoptimalisatie zodat het niet weer gebeurt.</string>
     <string name="permission_off_turn_on">Aanzetten</string>
     <string name="permission_off_battery">Batterij</string>
+    <string name="pause_message">Je hebt de app ^1 vandaag ^2 keer geopend. Moet je hem nu echt openen? Zo ja, dan storen we je vandaag niet meer.</string>
+    <string name="pause_hold">Houd vast en adem</string>
+    <string name="pause_suggest">Apps voor de pauze voorstellen</string>
+    <string name="pause_suggest_summary">Een melding als een app buiten de lijst de limiet voor openingen overschrijdt</string>
+    <string name="pause_suggest_message">Je hebt de app ^1 vandaag ^2 keer geopend. Wil je hem toevoegen aan je apps met pauze?</string>
+    <string name="pause_suggest_add">Toevoegen</string>
+    <string name="pause_suggest_never">Niet meer vragen</string>
+    <string name="pause_suggest_channel">Pauzesuggesties</string>
+    <string name="weather_city_hint">Zoek een plaats</string>
+    <string name="weather_city_loading">Zoeken…</string>
+    <string name="weather_city_empty">Geen resultaten</string>
+    <string name="weather_city_error">Zoeken mislukt. Controleer je verbinding.</string>
 </resources>

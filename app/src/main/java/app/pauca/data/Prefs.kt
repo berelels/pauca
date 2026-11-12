@@ -435,6 +435,21 @@ class Prefs(context: Context) {
         }
         set(value) = put("PAUSE_COUNTS", JSONObject(value).toString())
 
+    /** Avisar (notificação) quando um app fora da lista passa do limite de aberturas. */
+    var pauseSuggest: Boolean
+        get() = bool("PAUSE_SUGGEST", true)
+        set(value) = put("PAUSE_SUGGEST", value)
+
+    /** Pacotes que a pessoa pediu para nunca mais sugerir. */
+    var pauseNeverAsk: Set<String>
+        get() = prefs.getStringSet("PAUSE_NEVER_ASK", emptySet())?.toSet() ?: emptySet()
+        set(value) = put("PAUSE_NEVER_ASK", value)
+
+    /** Pacotes já sugeridos hoje (zera com o dia, junto com [pauseCounts]). */
+    var pauseAsked: Set<String>
+        get() = prefs.getStringSet("PAUSE_ASKED", emptySet())?.toSet() ?: emptySet()
+        set(value) = put("PAUSE_ASKED", value)
+
     /** Apps em que a pessoa escolheu "abrir mesmo assim" hoje. */
     var pauseAllowed: Set<String>
         get() = prefs.getStringSet("PAUSE_ALLOWED", emptySet())?.toSet() ?: emptySet()

@@ -3,7 +3,7 @@
 # onde a Play Store (via fastlane) e o F-Droid procuram: fastlane/metadata/android/<idioma>/images
 # (Pauca) e fastlane/metadata/android-lite/<idioma>/images (Pauca Lite).
 # Também gera art/screens.png, a faixa de telas do README.
-# Precisa do Electron: ELECTRON=/caminho/para/electron ./render.sh  (ou npx electron)
+# ONLY="pt:pt-BR ar:ar" renderiza só esses idiomas. Precisa do Electron: ELECTRON=/caminho/para/electron ./render.sh  (ou npx electron)
 set -e
 cd "$(dirname "$0")"
 ELECTRON=${ELECTRON:-"npx --yes electron"}
@@ -19,9 +19,12 @@ render() {  # render <idioma> <locale> <pasta de metadados> <slides…> -- <bann
   cp "$TMP/$ICON.png" $META/$LOC/images/icon.png
   rm -rf "$TMP"
 }
-for pair in en:en-US pt:pt-BR es:es-ES; do
+# idioma de captura/slide:pasta de metadados da Play Store
+LANGS="en:en-US pt:pt-BR es:es-ES zh-CN:zh-CN zh-TW:zh-TW zh-HK:zh-HK fr:fr-FR fr-CA:fr-CA ar:ar ja:ja-JP ko:ko-KR hi:hi-IN de:de-DE
+  ru:ru-RU it:it-IT nl:nl-NL pt-PT:pt-PT es-419:es-419 bn:bn-BD ta:ta-IN te:te-IN mr:mr-IN ca:ca gl:gl-ES eu:eu-ES"
+for pair in ${ONLY:-$LANGS}; do
   L=${pair%%:*}; LOC=${pair##*:}
-  render $L $LOC ../../fastlane/metadata/android 1 2 3 4 5 6 7 -- feature icon-full
+  render $L $LOC ../../fastlane/metadata/android pause 1 weather 2 3 4 6 7 -- feature icon-full
   render $L $LOC ../../fastlane/metadata/android-lite l1 l2 l3 l4 l5 -- lfeature icon-lite
 done
 # Faixa do README: as quatro primeiras telas em inglês, lado a lado

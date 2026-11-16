@@ -19,7 +19,8 @@ app.whenReady().then(async () => {
     const [id, size = "1080x1920"] = spec.split(":");
     const [w, h] = size.split("x").map(Number);
     const band = Math.min(BAND, h);
-    const win = new BrowserWindow({ width: w, height: band, show: false, useContentSize: true });
+    const win = new BrowserWindow({ width: w, height: band, show: false, useContentSize: true, enableLargerThanScreen: true, maxWidth: 4000, maxHeight: 4000 });
+    win.setContentSize(w, band); // nesta versão do Electron a janela nasce com no máximo 900 de largura
     const bands = [];
     for (let y = 0; y < h; y += band) {
       await win.loadFile(path.join(__dirname, "slides.html"), { query: { s: id, lang, w: String(w), h: String(h), y: String(y) } });

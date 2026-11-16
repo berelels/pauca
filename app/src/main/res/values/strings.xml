@@ -159,7 +159,6 @@
     <string name="about_license_summary">Pauca is free software: you can study, change and redistribute the code.</string>
     <string name="about_fonts">Fonts</string>
     <string name="about_fonts_summary">Newsreader and Plus Jakarta Sans, under the SIL Open Font License</string>
-    <string name="about_privacy">Pauca doesn\'t use the internet and collects no data. Everything stays on your phone.</string>
     <string name="add_apps">Add apps</string>
     <string name="choose_apps">Choose apps</string>
     <string name="replace_app">Replace app</string>
@@ -351,7 +350,6 @@
 
     <!-- Pauca Lite e versão completa -->
     <string name="full_title">Available in Pauca</string>
-    <string name="full_message">Pauca Lite is the free version. Pauca, the full version, adds focus mode, unlimited profiles, more themes and colors (your own wallpaper too), fonts and alignment, and buttons you can hide. It\'s a one-time purchase, with no subscription and, like this one, no internet access.\n\nYour cards and settings come with you.</string>
     <string name="full_action">See in the Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Get Pauca</string>
@@ -440,4 +438,6 @@
     <string name="weather_city_loading">Searching…</string>
     <string name="weather_city_empty">No results</string>
     <string name="weather_city_error">Could not search. Check your connection.</string>
+    <string name="about_privacy">Pauca collects no data. It only uses the internet for the weather, if you turn it on, sending just the city you chose. Everything else stays on your phone.</string>
+    <string name="full_message">Pauca Lite is the free version. Pauca, the full version, adds focus mode, pause to breathe, weather on the home screen, unlimited profiles, more themes and colors (your own wallpaper too), fonts and alignment, and buttons you can hide. It\'s a one-time purchase, with no subscription.\n\nYour cards and settings come with you.</string>
 </resources>

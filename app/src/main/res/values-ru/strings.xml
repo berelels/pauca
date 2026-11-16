@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca — свободное программное обеспечение: вы можете изучать, изменять и распространять код.</string>
     <string name="about_fonts">Шрифты</string>
     <string name="about_fonts_summary">Newsreader и Plus Jakarta Sans, по лицензии SIL Open Font License</string>
-    <string name="about_privacy">Pauca не использует интернет и не собирает данные. Всё остаётся на вашем телефоне.</string>
     <string name="add_apps">Добавить приложения</string>
     <string name="choose_apps">Выбрать приложения</string>
     <string name="replace_app">Заменить приложение</string>
@@ -351,7 +350,6 @@
         <item quantity="other">%d приложения</item>
     </plurals>
     <string name="full_title">Доступно в Pauca</string>
-    <string name="full_message">Pauca Lite — бесплатная версия. Pauca, полная версия, добавляет режим фокуса, неограниченное число профилей, больше тем и цветов (в том числе свои обои), шрифты и выравнивание, а также кнопки, которые можно скрыть. Разовая покупка, без подписки и, как и здесь, без доступа в интернет.\n\nВаши карточки и настройки переедут вместе с вами.</string>
     <string name="full_action">Открыть в Play Маркете</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Получить Pauca</string>
@@ -436,4 +434,6 @@
     <string name="weather_city_loading">Поиск…</string>
     <string name="weather_city_empty">Ничего не найдено</string>
     <string name="weather_city_error">Не удалось выполнить поиск. Проверьте соединение.</string>
+    <string name="about_privacy">Pauca не собирает никаких данных. Интернет используется только для погоды, если вы её включите, и отправляется лишь выбранный вами город. Всё остальное остаётся на вашем телефоне.</string>
+    <string name="full_message">Pauca Lite — бесплатная версия. Pauca, полная версия, добавляет режим фокуса, паузу для дыхания, погоду на главном экране, неограниченное число профилей, больше тем и цветов (в том числе свои обои), шрифты и выравнивание, а также кнопки, которые можно скрыть. Разовая покупка, без подписки.\n\nВаши карточки и настройки переедут вместе с вами.</string>
 </resources>

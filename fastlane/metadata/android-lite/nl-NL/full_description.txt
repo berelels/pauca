@@ -1,0 +1,18 @@
+Pauca Lite brengt je telefoon dichter bij een dumbphone: je apps worden woorden in rustige kaarten, met de namen die jij kiest. Geen pictogrammen, geen rode badges, geen reclame, geen tracking.
+
+Je startscherm
+• Apps als gewone tekst in kaarten: hernoem, herschik en groepeer ze
+• Veeg omhoog voor alle apps, met zoeken en categorieën
+• Veeg omlaag voor meldingen, opzij om de apps te openen die je kiest
+• Klok, datum en een licht of donker thema
+• Beschikbaar in 25 talen
+• Twee profielen, elk met eigen kaarten
+• Licht of donker thema, enkele accentkleuren en tekst- en klokgrootte
+
+Privé
+Geen reclame, geen tracking, geen verzamelde gegevens. Pauca Lite heeft geen internetrecht en geen toegankelijkheidsservice.
+
+Meer nodig? Haal Pauca
+Pauca Lite is de gratis versie. Pauca, de volledige versie, is een eenmalige aankoop zonder abonnement. Het voegt focusmodus, onbeperkte profielen, een pauze om adem te halen, weer op het startscherm, dubbeltikken om te vergrendelen en meer thema's, kleuren en lettertypen toe. Als je Pauca installeert, gaan je kaarten en instellingen uit Lite mee.
+
+Open source (GPLv3), gebaseerd op Olauncher van Tanuj.

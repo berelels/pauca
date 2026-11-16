@@ -1,0 +1,18 @@
+Pauca Lite achega o teu teléfono a un dumbphone: as aplicacións convértense en palabras dentro de tarxetas tranquilas, cos nomes que escollas. Sen iconas, sen insignias vermellas, sen anuncios, sen rastrexo.
+
+A túa pantalla de inicio
+• Aplicacións en texto simple, en tarxetas: renoméaas, reordénaas e agrúpaas
+• Pasa o dedo cara arriba para ver todas as aplicacións, con busca e categorías
+• Pasa o dedo cara abaixo para as notificacións e de lado para abrir as aplicacións que escollas
+• Reloxo, data e temas claro ou escuro
+• Dispoñible en 25 idiomas
+• Dous perfís, cada un coas súas tarxetas
+• Tema claro ou escuro, algunhas cores de realce e tamaño do texto e do reloxo
+
+Privado
+Sen anuncios, sen rastrexo, sen recoller datos. Pauca Lite non ten permiso de internet nin servizo de accesibilidade.
+
+Queres máis? Descubre Pauca
+Pauca Lite é a versión gratuíta. Pauca, a versión completa, é unha compra única, sen subscrición. Engade o modo concentración, perfís ilimitados, a pausa para respirar, o tempo na pantalla de inicio, o dobre toque para bloquear e máis temas, cores e tipos de letra. Cando instalas Pauca, as túas tarxetas e a configuración de Lite veñen contigo.
+
+Código aberto (GPLv3), baseado en Olauncher, de Tanuj.

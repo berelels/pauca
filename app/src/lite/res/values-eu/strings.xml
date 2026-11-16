@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Alboetara pasatzea</string>
+    <string name="about_privacy">Pauca Lite-k ez du internetik erabiltzen eta ez du daturik biltzen. Dena zure telefonoan geratzen da.</string>
 </resources>

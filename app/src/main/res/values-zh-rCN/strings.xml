@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca 是自由软件：你可以研究、修改和再分发其代码。</string>
     <string name="about_fonts">字体</string>
     <string name="about_fonts_summary">Newsreader 和 Plus Jakarta Sans，采用 SIL 开放字体许可</string>
-    <string name="about_privacy">Pauca 不联网，也不收集任何数据。一切都留在你的手机上。</string>
     <string name="add_apps">添加应用</string>
     <string name="choose_apps">选择应用</string>
     <string name="replace_app">替换应用</string>
@@ -333,7 +332,6 @@
         <item quantity="other">%d 个应用</item>
     </plurals>
     <string name="full_title">Pauca 中提供</string>
-    <string name="full_message">Pauca Lite 是免费版。完整版 Pauca 增加了专注模式、不限数量的情景、更多主题和颜色（也可用自己的壁纸）、字体和对齐方式，以及可隐藏的按钮。一次买断，没有订阅，并且和本版本一样，无需联网。\n\n你的卡片和设置会一并带过去。</string>
     <string name="full_action">在 Play 商店查看</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">获取 Pauca</string>
@@ -418,4 +416,6 @@
     <string name="weather_city_loading">正在搜索…</string>
     <string name="weather_city_empty">没有结果</string>
     <string name="weather_city_error">无法搜索。请检查网络连接。</string>
+    <string name="about_privacy">Pauca 不收集任何数据。只有在你开启天气时才会联网，并且只发送你选择的城市。其余一切都留在你的手机上。</string>
+    <string name="full_message">Pauca Lite 是免费版。完整版 Pauca 增加了专注模式、停一下呼吸、主屏幕天气、不限数量的情景、更多主题和颜色（也可用自己的壁纸）、字体和对齐方式，以及可隐藏的按钮。一次买断，没有订阅。\n\n你的卡片和设置会一并带过去。</string>
 </resources>

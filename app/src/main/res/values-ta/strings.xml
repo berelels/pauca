@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca ஒரு கட்டற்ற மென்பொருள்: நீங்கள் குறியீட்டைப் படிக்கலாம், மாற்றலாம், மறுபகிர்வு செய்யலாம்.</string>
     <string name="about_fonts">எழுத்துருக்கள்</string>
     <string name="about_fonts_summary">Newsreader மற்றும் Plus Jakarta Sans, SIL Open Font உரிமத்தின் கீழ்</string>
-    <string name="about_privacy">Pauca இணையத்தைப் பயன்படுத்தாது, எந்தத் தரவையும் சேகரிக்காது. எல்லாம் உங்கள் தொலைபேசியிலேயே இருக்கும்.</string>
     <string name="add_apps">பயன்பாடுகளைச் சேர்</string>
     <string name="choose_apps">பயன்பாடுகளைத் தேர்ந்தெடு</string>
     <string name="replace_app">பயன்பாட்டை மாற்று</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d பயன்பாடுகள்</item>
     </plurals>
     <string name="full_title">Pauca-வில் கிடைக்கும்</string>
-    <string name="full_message">Pauca Lite இலவசப் பதிப்பு. முழுப் பதிப்பான Pauca-வில் கவன முறை, வரம்பற்ற சுயவிவரங்கள், மேலும் தீம்கள் மற்றும் நிறங்கள் (உங்கள் சொந்த வால்பேப்பரும்), எழுத்துருக்கள் மற்றும் சீரமைப்பு, மறைக்கக்கூடிய பொத்தான்கள் கூடுதலாக உள்ளன. ஒருமுறை மட்டும் செலுத்தும் கொள்முதல்; சந்தா இல்லை; இதைப் போலவே இணைய அணுகலும் இல்லை.\n\nஉங்கள் அட்டைகளும் அமைப்புகளும் உங்களுடன் வரும்.</string>
     <string name="full_action">Play Store-இல் பார்</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca-வைப் பெறுங்கள்</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">தேடுகிறது…</string>
     <string name="weather_city_empty">முடிவுகள் இல்லை</string>
     <string name="weather_city_error">தேட இயலவில்லை. உங்கள் இணைப்பைச் சரிபாருங்கள்.</string>
+    <string name="about_privacy">Pauca எந்தத் தரவையும் சேகரிக்காது. நீங்கள் இயக்கினால் மட்டுமே வானிலைக்காக இணையத்தைப் பயன்படுத்தும்; நீங்கள் தேர்ந்தெடுத்த நகரத்தை மட்டும் அனுப்பும். மற்ற அனைத்தும் உங்கள் தொலைபேசியிலேயே இருக்கும்.</string>
+    <string name="full_message">Pauca Lite இலவசப் பதிப்பு. முழுப் பதிப்பான Pauca-வில் கவன முறை, மூச்சுவிடும் இடைவேளை, முகப்புத் திரையில் வானிலை, வரம்பற்ற சுயவிவரங்கள், மேலும் தீம்கள் மற்றும் நிறங்கள் (உங்கள் சொந்த வால்பேப்பரும்), எழுத்துருக்கள் மற்றும் சீரமைப்பு, மறைக்கக்கூடிய பொத்தான்கள் கூடுதலாக உள்ளன. ஒருமுறை மட்டும் செலுத்தும் கொள்முதல்; சந்தா இல்லை.\n\nஉங்கள் அட்டைகளும் அமைப்புகளும் உங்களுடன் வரும்.</string>
 </resources>

@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca és programari lliure: pots estudiar, canviar i redistribuir el codi.</string>
     <string name="about_fonts">Tipus de lletra</string>
     <string name="about_fonts_summary">Newsreader i Plus Jakarta Sans, sota la llicència SIL Open Font</string>
-    <string name="about_privacy">Pauca no fa servir internet ni recull cap dada. Tot es queda al teu telèfon.</string>
     <string name="add_apps">Afegeix aplicacions</string>
     <string name="choose_apps">Tria aplicacions</string>
     <string name="replace_app">Substitueix l\'aplicació</string>
@@ -345,7 +344,6 @@
         <item quantity="other">%d aplicacions</item>
     </plurals>
     <string name="full_title">Disponible a Pauca</string>
-    <string name="full_message">Pauca Lite és la versió gratuïta. Pauca, la versió completa, afegeix el mode concentració, perfils il·limitats, més temes i colors (també el teu propi fons de pantalla), tipus de lletra i alineació, i botons que pots amagar. És una compra única, sense subscripció i, com aquesta, sense accés a internet.\n\nLes teves targetes i la configuració t\'acompanyen.</string>
     <string name="full_action">Mira-ho al Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Aconsegueix Pauca</string>
@@ -430,4 +428,6 @@
     <string name="weather_city_loading">Cercant…</string>
     <string name="weather_city_empty">Cap resultat</string>
     <string name="weather_city_error">No s\'ha pogut cercar. Revisa la connexió.</string>
+    <string name="about_privacy">Pauca no recull cap dada. Només fa servir internet per al temps, si l\'actives, enviant únicament la ciutat que has triat. Tota la resta es queda al teu telèfon.</string>
+    <string name="full_message">Pauca Lite és la versió gratuïta. Pauca, la versió completa, afegeix el mode concentració, la pausa per respirar, el temps a la pantalla d\'inici, perfils il·limitats, més temes i colors (també el teu propi fons de pantalla), tipus de lletra i alineació, i botons que pots amagar. És una compra única, sense subscripció.\n\nLes teves targetes i la configuració t\'acompanyen.</string>
 </resources>

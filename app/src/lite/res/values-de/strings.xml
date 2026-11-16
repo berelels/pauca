@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Seitliches Wischen</string>
+    <string name="about_privacy">Pauca Lite nutzt das Internet nicht und sammelt keine Daten. Alles bleibt auf deinem Handy.</string>
 </resources>

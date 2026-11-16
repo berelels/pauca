@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">পাশে সোয়াইপ</string>
+    <string name="about_privacy">Pauca Lite ইন্টারনেট ব্যবহার করে না এবং কোনো তথ্য সংগ্রহ করে না। সবকিছু আপনার ফোনেই থাকে।</string>
 </resources>

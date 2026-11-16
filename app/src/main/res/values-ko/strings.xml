@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca는 자유 소프트웨어입니다. 코드를 살펴보고, 바꾸고, 다시 배포할 수 있습니다.</string>
     <string name="about_fonts">글꼴</string>
     <string name="about_fonts_summary">Newsreader와 Plus Jakarta Sans, SIL 오픈 폰트 라이선스</string>
-    <string name="about_privacy">Pauca는 인터넷을 쓰지 않고 데이터를 수집하지 않습니다. 모든 것이 휴대폰 안에 남습니다.</string>
     <string name="add_apps">앱 추가</string>
     <string name="choose_apps">앱 선택</string>
     <string name="replace_app">앱 바꾸기</string>
@@ -333,7 +332,6 @@
         <item quantity="other">앱 %d개</item>
     </plurals>
     <string name="full_title">Pauca에서 사용 가능</string>
-    <string name="full_message">Pauca Lite는 무료 버전입니다. 정식 버전인 Pauca에는 집중 모드, 무제한 프로필, 더 많은 테마와 색상(내 배경화면 포함), 글꼴과 정렬, 숨길 수 있는 버튼이 더해집니다. 한 번만 결제하며 구독이 없고, 이 버전처럼 인터넷도 쓰지 않습니다.\n\n카드와 설정은 그대로 옮겨집니다.</string>
     <string name="full_action">Play 스토어에서 보기</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca 받기</string>
@@ -418,4 +416,6 @@
     <string name="weather_city_loading">검색 중…</string>
     <string name="weather_city_empty">결과 없음</string>
     <string name="weather_city_error">검색할 수 없습니다. 연결을 확인하세요.</string>
+    <string name="about_privacy">Pauca는 데이터를 수집하지 않습니다. 날씨를 켠 경우에만 인터넷을 쓰며, 선택한 도시만 보냅니다. 나머지는 모두 휴대폰 안에 남습니다.</string>
+    <string name="full_message">Pauca Lite는 무료 버전입니다. 정식 버전인 Pauca에는 집중 모드, 숨 고르기, 홈 화면 날씨, 무제한 프로필, 더 많은 테마와 색상(내 배경화면 포함), 글꼴과 정렬, 숨길 수 있는 버튼이 더해집니다. 한 번만 결제하며 구독이 없습니다.\n\n카드와 설정은 그대로 옮겨집니다.</string>
 </resources>

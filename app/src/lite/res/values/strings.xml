@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Side swipes</string>
+    <string name="about_privacy">Pauca Lite doesn\'t use the internet and collects no data. Everything stays on your phone.</string>
 </resources>

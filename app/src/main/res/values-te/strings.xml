@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca ఉచిత సాఫ్ట్‌వేర్: మీరు కోడ్‌ను అధ్యయనం చేయవచ్చు, మార్చవచ్చు, తిరిగి పంపిణీ చేయవచ్చు.</string>
     <string name="about_fonts">ఫాంట్‌లు</string>
     <string name="about_fonts_summary">Newsreader మరియు Plus Jakarta Sans, SIL ఓపెన్ ఫాంట్ లైసెన్స్ కింద</string>
-    <string name="about_privacy">Pauca ఇంటర్నెట్‌ను ఉపయోగించదు మరియు ఎలాంటి డేటాను సేకరించదు. ప్రతిదీ మీ ఫోన్‌లోనే ఉంటుంది.</string>
     <string name="add_apps">యాప్‌లను జోడించండి</string>
     <string name="choose_apps">యాప్‌లను ఎంచుకోండి</string>
     <string name="replace_app">యాప్‌ను మార్చండి</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d యాప్‌లు</item>
     </plurals>
     <string name="full_title">Pauca లో అందుబాటులో ఉంది</string>
-    <string name="full_message">Pauca Lite ఉచిత వెర్షన్. పూర్తి వెర్షన్ అయిన Pauca లో ఫోకస్ మోడ్, అపరిమిత ప్రొఫైల్‌లు, మరిన్ని థీమ్‌లు, రంగులు (మీ స్వంత వాల్‌పేపర్ కూడా), ఫాంట్‌లు, అమరిక, దాచగలిగే బటన్‌లు అదనంగా ఉంటాయి. ఒక్కసారి కొనుగోలు, సబ్‌స్క్రిప్షన్ లేదు, మరియు దీనిలాగే ఇంటర్నెట్ యాక్సెస్ కూడా లేదు.\n\nమీ కార్డ్‌లు, సెట్టింగ్‌లు మీతో వస్తాయి.</string>
     <string name="full_action">Play Store లో చూడండి</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca పొందండి</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">వెతుకుతున్నాం…</string>
     <string name="weather_city_empty">ఫలితాలు లేవు</string>
     <string name="weather_city_error">వెతకలేకపోయాం. మీ కనెక్షన్‌ను తనిఖీ చేయండి.</string>
+    <string name="about_privacy">Pauca ఎలాంటి డేటాను సేకరించదు. మీరు ఆన్ చేస్తే మాత్రమే వాతావరణం కోసం ఇంటర్నెట్‌ను ఉపయోగిస్తుంది, మీరు ఎంచుకున్న నగరాన్ని మాత్రమే పంపుతుంది. మిగతావన్నీ మీ ఫోన్‌లోనే ఉంటాయి.</string>
+    <string name="full_message">Pauca Lite ఉచిత వెర్షన్. పూర్తి వెర్షన్ అయిన Pauca లో ఫోకస్ మోడ్, ఊపిరి విరామం, హోమ్ స్క్రీన్‌పై వాతావరణం, అపరిమిత ప్రొఫైల్‌లు, మరిన్ని థీమ్‌లు, రంగులు (మీ స్వంత వాల్‌పేపర్ కూడా), ఫాంట్‌లు, అమరిక, దాచగలిగే బటన్‌లు అదనంగా ఉంటాయి. ఒక్కసారి కొనుగోలు, సబ్‌స్క్రిప్షన్ లేదు.\n\nమీ కార్డ్‌లు, సెట్టింగ్‌లు మీతో వస్తాయి.</string>
 </resources>

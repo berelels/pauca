@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Scorrimenti laterali</string>
+    <string name="about_privacy">Pauca Lite non usa internet e non raccoglie alcun dato. Tutto resta sul tuo telefono.</string>
 </resources>

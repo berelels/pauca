@@ -1,0 +1,35 @@
+Pauca achega o teu teléfono a un dumbphone: as aplicacións convértense en palabras dentro de tarxetas tranquilas, cos nomes que escollas. Sen iconas, sen insignias vermellas, sen anuncios, sen rastrexo.
+
+A túa pantalla de inicio
+• Aplicacións en texto simple, en tarxetas: renoméaas, reordénaas e agrúpaas
+• Pasa o dedo cara arriba para ver todas as aplicacións, con busca e categorías
+• Pasa o dedo cara abaixo para as notificacións e de lado para abrir as aplicacións que escollas
+• Reloxo, data e temas claro ou escuro
+• Dispoñible en 25 idiomas
+
+Modo concentración
+Cun toque, ou automático por perfil:
+• Non molestar, escollendo quen pode seguir chamando
+• Notificacións retidas, cun resumo ao final
+• Só as aplicacións permitidas no caixón; as demais devólvente ao inicio
+• Pantalla en escala de grises (unha orde desde un ordenador, unha soa vez)
+
+Unha pausa para respirar
+Escolle as aplicacións que abres demasiado. Tras un certo número de aperturas ao día, Pauca pídeche que manteñas premida unha burbulla durante 30 segundos e respires, e só entón decides se abres a aplicación. Tamén che pode suxerir aplicacións que paga a pena engadir.
+
+O tempo
+Temperatura e ceo en texto simple na pantalla de inicio, para a cidade que escollas. Internet só se usa para isto, e nunca a túa localización.
+
+E máis
+• Perfís ilimitados como Persoal, Traballo e Noite, que poden activar sós o modo concentración
+• Temas, cores de realce, tipos de letra, groso e aliñamento, ou unha foto túa con desenfoque e brillo
+• Oculta os botóns, o reloxo ou ata a barra de estado
+• Dobre toque para bloquear a pantalla
+
+Privado
+Sen anuncios, sen rastrexo, sen recoller datos. O único uso de internet é o tempo, opcional, co nome da cidade que escribas.
+
+Servizo de accesibilidade
+Pauca usa o servizo de accesibilidade só para dúas cousas opcionais: bloquear a pantalla cun dobre toque e, no modo concentración, volver ao inicio cando se abre unha aplicación fóra da túa lista. Non le o que hai na pantalla e non recolle nin comparte datos. Se o deixas desactivado, todo o demais segue funcionando.
+
+Proba primeiro Pauca Lite, de balde; as túas tarxetas e a configuración veñen contigo. Pauca é unha compra única, sen subscrición. Código aberto (GPLv3), baseado en Olauncher.

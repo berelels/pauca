@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Deslizar a los lados</string>
+    <string name="about_privacy">Pauca Lite no usa internet y no recopila ningún dato. Todo se queda en tu teléfono.</string>
 </resources>

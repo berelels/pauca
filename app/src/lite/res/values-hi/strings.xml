@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">बगल में स्वाइप</string>
+    <string name="about_privacy">Pauca Lite इंटरनेट इस्तेमाल नहीं करता और कोई डेटा इकट्ठा नहीं करता। सब कुछ आपके फ़ोन पर ही रहता है।</string>
 </resources>

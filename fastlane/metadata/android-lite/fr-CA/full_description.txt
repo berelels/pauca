@@ -1,0 +1,18 @@
+Pauca Lite rapproche votre téléphone d'un dumbphone : vos applis deviennent des mots dans des cartes calmes, avec les noms que vous choisissez. Sans icônes, sans pastilles rouges, sans publicité, sans pistage.
+
+Votre écran d'accueil
+• Des applis en texte simple, dans des cartes : renommez-les, réordonnez-les, regroupez-les
+• Glissez vers le haut pour toutes les applis, avec recherche et catégories
+• Glissez vers le bas pour les notifications, sur le côté pour ouvrir les applis de votre choix
+• Horloge, date et thèmes clair ou sombre
+• Disponible en 25 langues
+• Deux profils, chacun avec ses cartes
+• Thème clair ou sombre, quelques couleurs d'accent, taille du texte et de l'horloge
+
+Privé
+Aucune publicité, aucun pistage, aucune donnée collectée. Pauca Lite n'a ni autorisation Internet ni service d'accessibilité.
+
+Envie de plus ? Découvrez Pauca
+Pauca Lite est la version gratuite. Pauca, la version complète, est un achat unique, sans abonnement. Elle ajoute le mode concentration, des profils illimités, la pause pour respirer, la météo sur l'écran d'accueil, le double toucher pour verrouiller, et plus de thèmes, de couleurs et de polices. Quand vous installez Pauca, vos cartes et réglages de Lite vous suivent.
+
+Open source (GPLv3), basé sur Olauncher de Tanuj.

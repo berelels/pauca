@@ -1,0 +1,35 @@
+Pauca acerca tu celular a un dumbphone: tus apps se convierten en palabras dentro de tarjetas tranquilas, con los nombres que elijas. Sin íconos, sin globos rojos, sin anuncios, sin rastreo.
+
+Tu pantalla de inicio
+• Apps en texto simple, en tarjetas: renómbralas, reordénalas y agrúpalas
+• Desliza hacia arriba para ver todas las apps, con búsqueda y categorías
+• Desliza hacia abajo para las notificaciones y a los lados para abrir las apps que elijas
+• Reloj, fecha y temas claro u oscuro
+• Disponible en 25 idiomas
+
+Modo concentración
+Con un toque, o automático por perfil:
+• No molestar, eligiendo quién puede seguir llamando
+• Notificaciones retenidas, con un resumen al final
+• Solo las apps permitidas en el cajón; las demás te devuelven al inicio
+• Pantalla en escala de grises (un comando desde un computadora, una vez)
+
+Pausa para respirar
+Elige las apps que abres demasiado. Tras unas cuantas aperturas en el día, Pauca te pide que mantengas presionada una burbuja 30 segundos y respires, y solo entonces decides si abres la app. También te sugiere apps que vale la pena agregar.
+
+El tiempo
+Temperatura y cielo en texto simple en tu pantalla de inicio, para la ciudad que elijas. Internet se usa solo para esto, y nunca tu ubicación.
+
+Y más
+• Perfiles ilimitados, como Personal, Trabajo y Noche, que pueden activar el modo concentración solos
+• Temas, colores de acento, fuentes, grosor y alineación, o una foto tuya con desenfoque y brillo
+• Oculta los botones, el reloj o incluso la barra de estado
+• Doble toque para bloquear la pantalla
+
+Privado
+Sin anuncios, sin rastreo, sin recopilar datos. El único uso de internet es el tiempo, opcional, con el nombre de la ciudad que escribas.
+
+Servicio de accesibilidad
+Pauca usa el servicio de accesibilidad solo para dos cosas opcionales: bloquear la pantalla con el doble toque y, en modo concentración, volver al inicio cuando se abre una app que no está en tu lista. No lee lo que hay en tu pantalla y no recopila ni comparte datos. Si lo dejas desactivado, todo lo demás sigue funcionando.
+
+Prueba primero Pauca Lite, sin pagar; tus tarjetas y configuración vienen contigo. Pauca es un pago único, sin suscripción. Código abierto (GPLv3), basado en Olauncher.

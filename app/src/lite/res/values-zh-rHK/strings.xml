@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">左右滑動</string>
+    <string name="about_privacy">Pauca Lite 不上網，也不蒐集任何資料。一切都留在你的手機上。</string>
 </resources>

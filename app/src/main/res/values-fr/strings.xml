@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca est un logiciel libre : vous pouvez étudier, modifier et redistribuer le code.</string>
     <string name="about_fonts">Polices</string>
     <string name="about_fonts_summary">Newsreader et Plus Jakarta Sans, sous licence SIL Open Font</string>
-    <string name="about_privacy">Pauca n\'utilise pas Internet et ne collecte aucune donnée. Tout reste sur votre téléphone.</string>
     <string name="add_apps">Ajouter des applis</string>
     <string name="choose_apps">Choisir des applis</string>
     <string name="replace_app">Remplacer l\'appli</string>
@@ -345,7 +344,6 @@
         <item quantity="other">%d applis</item>
     </plurals>
     <string name="full_title">Disponible dans Pauca</string>
-    <string name="full_message">Pauca Lite est la version gratuite. Pauca, la version complète, ajoute le mode concentration, des profils illimités, plus de thèmes et de couleurs (votre propre fond d\'écran aussi), des polices et l\'alignement, et des boutons masquables. Achat unique, sans abonnement et, comme celle-ci, sans accès à Internet.\n\nVos cartes et vos paramètres vous suivent.</string>
     <string name="full_action">Voir sur le Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Obtenir Pauca</string>
@@ -430,4 +428,6 @@
     <string name="weather_city_loading">Recherche…</string>
     <string name="weather_city_empty">Aucun résultat</string>
     <string name="weather_city_error">Recherche impossible. Vérifiez votre connexion.</string>
+    <string name="about_privacy">Pauca ne collecte aucune donnée. Il n\'utilise Internet que pour la météo, si vous l\'activez, en envoyant seulement la ville que vous avez choisie. Tout le reste reste sur votre téléphone.</string>
+    <string name="full_message">Pauca Lite est la version gratuite. Pauca, la version complète, ajoute le mode concentration, la pause pour respirer, la météo sur l\'écran d\'accueil, des profils illimités, plus de thèmes et de couleurs (votre propre fond d\'écran aussi), des polices et l\'alignement, et des boutons que vous pouvez masquer. C\'est un achat unique, sans abonnement.\n\nVos cartes et paramètres vous suivent.</string>
 </resources>

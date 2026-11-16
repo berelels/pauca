@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca একটি মুক্ত সফটওয়্যার: আপনি কোড দেখতে, বদলাতে ও আবার বিতরণ করতে পারেন।</string>
     <string name="about_fonts">ফন্ট</string>
     <string name="about_fonts_summary">Newsreader ও Plus Jakarta Sans, SIL ওপেন ফন্ট লাইসেন্সের অধীনে</string>
-    <string name="about_privacy">Pauca ইন্টারনেট ব্যবহার করে না এবং কোনো তথ্য সংগ্রহ করে না। সবকিছু আপনার ফোনেই থাকে।</string>
     <string name="add_apps">অ্যাপ যোগ করুন</string>
     <string name="choose_apps">অ্যাপ বেছে নিন</string>
     <string name="replace_app">অ্যাপ বদলান</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%dটি অ্যাপ</item>
     </plurals>
     <string name="full_title">Pauca-য় পাওয়া যাচ্ছে</string>
-    <string name="full_message">Pauca Lite হলো বিনামূল্যের সংস্করণ। Pauca, পূর্ণ সংস্করণে যোগ হয় ফোকাস মোড, সীমাহীন প্রোফাইল, আরও থিম ও রঙ (নিজের ওয়ালপেপারও), ফন্ট ও সারিবদ্ধকরণ, এবং লুকানো যায় এমন বোতাম। একবারের কেনা, কোনো সাবস্ক্রিপশন নেই এবং এটির মতোই ইন্টারনেট লাগে না।\n\nআপনার কার্ড ও সেটিংস সঙ্গে চলে আসে।</string>
     <string name="full_action">Play Store-এ দেখুন</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca নিন</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">খোঁজা হচ্ছে…</string>
     <string name="weather_city_empty">কোনো ফলাফল নেই</string>
     <string name="weather_city_error">খোঁজা গেল না। আপনার সংযোগ দেখে নিন।</string>
+    <string name="about_privacy">Pauca কোনো তথ্য সংগ্রহ করে না। আপনি চালু করলে শুধু আবহাওয়ার জন্য ইন্টারনেট ব্যবহার করে, এবং শুধু আপনার বেছে নেওয়া শহরটি পাঠায়। বাকি সবকিছু আপনার ফোনেই থাকে।</string>
+    <string name="full_message">Pauca Lite হলো বিনামূল্যের সংস্করণ। Pauca, পূর্ণ সংস্করণে যোগ হয় ফোকাস মোড, শ্বাস নেওয়ার বিরতি, হোম স্ক্রিনে আবহাওয়া, সীমাহীন প্রোফাইল, আরও থিম ও রঙ (নিজের ওয়ালপেপারও), ফন্ট ও সারিবদ্ধকরণ, এবং লুকানো যায় এমন বোতাম। একবারের কেনা, কোনো সাবস্ক্রিপশন নেই।\n\nআপনার কার্ড ও সেটিংস সঙ্গে চলে আসে।</string>
 </resources>

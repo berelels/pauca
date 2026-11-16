@@ -1,0 +1,35 @@
+Pauca avvicina il tuo telefono a un dumbphone: le tue app diventano parole in schede calme, con i nomi che scegli. Niente icone, niente badge rossi, niente pubblicità, niente tracciamento.
+
+La tua schermata Home
+• App come semplice testo in schede: rinominale, riordinale e raggruppale
+• Scorri verso l'alto per tutte le app, con ricerca e categorie
+• Scorri verso il basso per le notifiche, di lato per aprire le app che scegli
+• Orologio, data e temi chiaro o scuro
+• Disponibile in 25 lingue
+
+Modalità concentrazione
+Con un tocco, o in automatico per profilo:
+• Non disturbare, scegliendo chi può ancora chiamare
+• Notifiche trattenute, con un riepilogo alla fine
+• Solo le app consentite nell'elenco; le altre ti riportano alla Home
+• Schermo in scala di grigi (un comando da un computer, una sola volta)
+
+Una pausa per respirare
+Scegli le app che apri troppo spesso. Dopo un certo numero di aperture in un giorno, Pauca ti chiede di tenere premuta una bolla per 30 secondi e di respirare, e poi decidi tu se aprire l'app. Può anche suggerirti app da aggiungere.
+
+Meteo
+Temperatura e cielo come semplice testo nella schermata Home, per la città che scegli. Internet è usato solo per questo, e mai la tua posizione.
+
+E altro
+• Profili illimitati come Personale, Lavoro e Notte, che possono attivare da soli la modalità concentrazione
+• Temi, colori d'accento, caratteri, spessore e allineamento, o una tua foto con sfocatura e luminosità
+• Nascondi i pulsanti, l'orologio o perfino la barra di stato
+• Doppio tocco per bloccare lo schermo
+
+Privato
+Niente pubblicità, niente tracciamento, nessun dato raccolto. Internet è usato solo per il meteo, facoltativo, con il nome della città che scrivi.
+
+Servizio di accessibilità
+Pauca usa il servizio di accessibilità solo per due cose facoltative: bloccare lo schermo con un doppio tocco e, nella modalità concentrazione, tornare alla Home quando si apre un'app fuori dal tuo elenco. Non legge ciò che c'è sul tuo schermo e non raccoglie né condivide dati. Se lo lasci disattivato, tutto il resto continua a funzionare.
+
+Prova prima Pauca Lite, gratis; le tue schede e impostazioni vengono con te. Pauca è un acquisto una tantum, senza abbonamento. Open source (GPLv3), basato su Olauncher.

@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">பக்கவாட்டு ஸ்வைப்</string>
+    <string name="about_privacy">Pauca Lite இணையத்தைப் பயன்படுத்தாது, எந்தத் தரவையும் சேகரிக்காது. எல்லாம் உங்கள் தொலைபேசியிலேயே இருக்கும்.</string>
 </resources>

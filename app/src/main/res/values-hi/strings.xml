@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca मुफ़्त सॉफ़्टवेयर है: आप कोड को पढ़ सकते हैं, बदल सकते हैं और दोबारा बाँट सकते हैं।</string>
     <string name="about_fonts">फ़ॉन्ट</string>
     <string name="about_fonts_summary">Newsreader और Plus Jakarta Sans, SIL Open Font License के तहत</string>
-    <string name="about_privacy">Pauca इंटरनेट इस्तेमाल नहीं करता और कोई डेटा इकट्ठा नहीं करता। सब कुछ आपके फ़ोन पर ही रहता है।</string>
     <string name="add_apps">ऐप जोड़ें</string>
     <string name="choose_apps">ऐप चुनें</string>
     <string name="replace_app">ऐप बदलें</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d ऐप</item>
     </plurals>
     <string name="full_title">Pauca में उपलब्ध</string>
-    <string name="full_message">Pauca Lite मुफ़्त संस्करण है। Pauca, पूरा संस्करण, इसमें फ़ोकस मोड, असीमित प्रोफ़ाइल, ज़्यादा थीम और रंग (आपका अपना वॉलपेपर भी), फ़ॉन्ट और संरेखण, और छिपाए जा सकने वाले बटन जोड़ता है। यह एक बार की खरीद है, बिना सब्सक्रिप्शन के और, इसी की तरह, बिना इंटरनेट के।\n\nआपके कार्ड और सेटिंग आपके साथ आ जाएँगे।</string>
     <string name="full_action">Play Store में देखें</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca पाएँ</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">खोज रहे हैं…</string>
     <string name="weather_city_empty">कोई नतीजा नहीं</string>
     <string name="weather_city_error">खोज नहीं हो सकी। अपना कनेक्शन जाँचें।</string>
+    <string name="about_privacy">Pauca कोई डेटा इकट्ठा नहीं करता। यह इंटरनेट सिर्फ़ मौसम के लिए इस्तेमाल करता है, अगर आप उसे चालू करें, और सिर्फ़ आपका चुना हुआ शहर भेजता है। बाकी सब कुछ आपके फ़ोन पर ही रहता है।</string>
+    <string name="full_message">Pauca Lite मुफ़्त संस्करण है। Pauca, पूरा संस्करण, इसमें फ़ोकस मोड, साँस लेने का ठहराव, होम स्क्रीन पर मौसम, असीमित प्रोफ़ाइल, ज़्यादा थीम और रंग (आपका अपना वॉलपेपर भी), फ़ॉन्ट और संरेखण, और छिपाए जा सकने वाले बटन जोड़ता है। यह एक बार की खरीद है, बिना सब्सक्रिप्शन के।\n\nआपके कार्ड और सेटिंग आपके साथ आ जाएँगे।</string>
 </resources>

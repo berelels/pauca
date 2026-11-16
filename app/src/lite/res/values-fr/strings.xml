@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Balayages latéraux</string>
+    <string name="about_privacy">Pauca Lite n\'utilise pas Internet et ne collecte aucune donnée. Tout reste sur votre téléphone.</string>
 </resources>

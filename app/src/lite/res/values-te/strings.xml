@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">పక్కకు స్వైప్‌లు</string>
+    <string name="about_privacy">Pauca Lite ఇంటర్నెట్‌ను ఉపయోగించదు మరియు ఎలాంటి డేటాను సేకరించదు. ప్రతిదీ మీ ఫోన్‌లోనే ఉంటుంది.</string>
 </resources>

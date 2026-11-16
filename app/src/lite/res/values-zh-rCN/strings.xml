@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">侧滑</string>
+    <string name="about_privacy">Pauca Lite 不联网，也不收集任何数据。一切都留在你的手机上。</string>
 </resources>

@@ -1,18 +1,35 @@
-O Pauca deixa seu celular mais perto de um dumbphone: seus apps viram palavras em cartões calmos, com os nomes que você escolher. Sem ícones, sem bolinhas vermelhas.
+Pauca deixa seu celular mais perto de um dumbphone: seus apps viram palavras em cartões calmos, com os nomes que você escolher. Sem ícones, sem bolinhas vermelhas, sem anúncios, sem rastreamento.
 
-TELA INICIAL
-• Cartões de apps que você renomeia e reordena
-• Perfis como Pessoal, Trabalho e Noite
-• Relógio, temas, fontes e cores do seu jeito, ou tudo escondido
+Sua tela inicial
+• Apps em texto simples, em cartões: renomeie, reordene e agrupe
+• Deslize para cima para ver todos os apps, com busca e categorias
+• Deslize para baixo para as notificações e para os lados para abrir os apps que você escolher
+• Relógio, data e temas claro ou escuro
+• Disponível em 25 idiomas
 
-MODO FOCO
+Modo foco
 Com um toque, ou automático por perfil:
 • Não Perturbe, escolhendo quem ainda pode ligar
 • Notificações seguradas, com um resumo no fim
 • Só os apps permitidos na gaveta; os outros voltam para o início
 • Tela em tons de cinza (um comando no computador, uma vez)
 
-PRIVADO
-Sem permissão de internet, nenhum dado coletado. O serviço de acessibilidade só bloqueia a tela com o toque duplo e, no modo foco, volta para o início quando um app bloqueado abre.
+Pausa para respirar
+Escolha os apps que você abre demais. Depois de algumas aberturas no dia, o Pauca pede para você segurar uma bolha por 30 segundos e respirar, e só então você decide se abre o app. Ele também sugere apps que vale a pena incluir.
 
-Experimente antes o Pauca Lite, sem pagar; seus cartões e ajustes vêm junto. Código aberto (GPLv3), feito a partir do Olauncher. Compra única, sem anúncios.
+Tempo
+Temperatura e céu em texto simples na tela inicial, para a cidade que você escolher. A internet é usada só para isso, e nunca a sua localização.
+
+E mais
+• Perfis ilimitados, como Pessoal, Trabalho e Noite, que podem ligar o modo foco sozinhos
+• Temas, cores de destaque, fontes, peso e alinhamento, ou uma foto sua com desfoque e brilho
+• Esconda os botões, o relógio ou até a barra de status
+• Toque duplo para bloquear a tela
+
+Privado
+Sem anúncios, sem rastreamento, nenhum dado coletado. O único uso de internet é o tempo, opcional, com o nome da cidade que você digitar.
+
+Serviço de acessibilidade
+O Pauca usa o serviço de acessibilidade só para duas coisas opcionais: bloquear a tela com o toque duplo e, no modo foco, voltar para o início quando um app fora da sua lista abre. Ele não lê o que está na tela e não coleta nem compartilha dados. Se você deixar desligado, todo o resto continua funcionando.
+
+Experimente antes o Pauca Lite, sem pagar; seus cartões e ajustes vêm junto. O Pauca é uma compra única, sem assinatura. Código aberto (GPLv3), feito a partir do Olauncher.

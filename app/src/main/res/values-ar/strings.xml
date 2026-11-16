@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca برنامج حر: يمكنك دراسة الشيفرة وتعديلها وإعادة توزيعها.</string>
     <string name="about_fonts">الخطوط</string>
     <string name="about_fonts_summary">Newsreader وPlus Jakarta Sans، برخصة SIL للخطوط المفتوحة</string>
-    <string name="about_privacy">لا يستخدم Pauca الإنترنت ولا يجمع أي بيانات. كل شيء يبقى على هاتفك.</string>
     <string name="add_apps">إضافة تطبيقات</string>
     <string name="choose_apps">اختيار التطبيقات</string>
     <string name="replace_app">استبدال التطبيق</string>
@@ -363,7 +362,6 @@
         <item quantity="other">%d تطبيق</item>
     </plurals>
     <string name="full_title">متاح في Pauca</string>
-    <string name="full_message">Pauca Lite هو الإصدار المجاني. أما Pauca، الإصدار الكامل، فيضيف وضع التركيز وملفات شخصية بلا حدود وسمات وألوانًا أكثر (وخلفيتك الخاصة أيضًا) وخطوطًا ومحاذاة وأزرارًا يمكن إخفاؤها. شراء لمرة واحدة، بلا اشتراك، ومثل هذا الإصدار، بلا وصول إلى الإنترنت.\n\nبطاقاتك وإعداداتك تنتقل معك.</string>
     <string name="full_action">عرض في متجر Play</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">احصل على Pauca</string>
@@ -448,4 +446,6 @@
     <string name="weather_city_loading">جارٍ البحث…</string>
     <string name="weather_city_empty">لا توجد نتائج</string>
     <string name="weather_city_error">تعذّر البحث. تحقق من اتصالك.</string>
+    <string name="about_privacy">لا يجمع Pauca أي بيانات. ولا يستخدم الإنترنت إلا للطقس، إن فعّلته، ويرسل فقط المدينة التي اخترتها. كل شيء آخر يبقى على هاتفك.</string>
+    <string name="full_message">Pauca Lite هو الإصدار المجاني. أما Pauca، الإصدار الكامل، فيضيف وضع التركيز والتوقف للتنفس والطقس على الشاشة الرئيسية وملفات شخصية بلا حدود ومزيدًا من السمات والألوان (وخلفيتك الخاصة أيضًا) والخطوط والمحاذاة وأزرارًا يمكن إخفاؤها. هو عملية شراء لمرة واحدة بلا اشتراك.\n\nبطاقاتك وإعداداتك تنتقل معك.</string>
 </resources>

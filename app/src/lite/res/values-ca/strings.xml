@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Lliscades laterals</string>
+    <string name="about_privacy">Pauca Lite no fa servir internet ni recull cap dada. Tot es queda al teu telèfon.</string>
 </resources>

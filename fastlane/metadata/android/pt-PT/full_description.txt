@@ -1,0 +1,35 @@
+Pauca aproxima o seu telemóvel de um dumbphone: as suas apps tornam-se palavras em cartões calmos, com os nomes que escolher. Sem ícones, sem pontos vermelhos, sem anúncios, sem rastreio.
+
+O seu ecrã inicial
+• Apps em texto simples, em cartões: mude o nome, reordene e agrupe
+• Deslize para cima para ver todas as apps, com pesquisa e categorias
+• Deslize para baixo para as notificações e para os lados para abrir as apps que escolher
+• Relógio, data e temas claro ou escuro
+• Disponível em 25 idiomas
+
+Modo de foco
+Com um toque, ou automático por perfil:
+• Não incomodar, escolhendo quem ainda pode ligar
+• Notificações retidas, com um resumo no fim
+• Só as apps permitidas na lista; as outras devolvem-no ao ecrã inicial
+• Ecrã em tons de cinzento (um comando no computador, uma vez)
+
+Pausa para respirar
+Escolha as apps que abre em demasia. Depois de algumas aberturas por dia, o Pauca pede-lhe que mantenha uma bolha premida durante 30 segundos e respire, e só então decide se abre a app. Também sugere apps que vale a pena adicionar.
+
+Meteorologia
+Temperatura e céu em texto simples no ecrã inicial, para a cidade que escolher. A internet é usada só para isso, e nunca a sua localização.
+
+E mais
+• Perfis ilimitados, como Pessoal, Trabalho e Noite, que podem ligar o modo de foco sozinhos
+• Temas, cores de destaque, tipos de letra, espessura e alinhamento, ou uma foto sua com desfoque e brilho
+• Esconda os botões, o relógio ou até a barra de estado
+• Toque duplo para bloquear o ecrã
+
+Privado
+Sem anúncios, sem rastreio, sem recolha de dados. O único uso de internet é a meteorologia, opcional, com o nome da cidade que escrever.
+
+Serviço de acessibilidade
+O Pauca usa o serviço de acessibilidade apenas para duas coisas opcionais: bloquear o ecrã com o toque duplo e, no modo de foco, voltar ao início quando se abre uma app fora da sua lista. Não lê o que está no ecrã e não recolhe nem partilha dados. Se o deixar desligado, tudo o resto continua a funcionar.
+
+Experimente primeiro o Pauca Lite, gratuitamente; os seus cartões e definições vão consigo. O Pauca é uma compra única, sem subscrição. Código aberto (GPLv3), baseado no Olauncher.

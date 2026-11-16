@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca is vrije software: je mag de code bestuderen, aanpassen en verspreiden.</string>
     <string name="about_fonts">Lettertypen</string>
     <string name="about_fonts_summary">Newsreader en Plus Jakarta Sans, onder de SIL Open Font License</string>
-    <string name="about_privacy">Pauca gebruikt geen internet en verzamelt geen gegevens. Alles blijft op je telefoon.</string>
     <string name="add_apps">Apps toevoegen</string>
     <string name="choose_apps">Apps kiezen</string>
     <string name="replace_app">App vervangen</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d apps</item>
     </plurals>
     <string name="full_title">Beschikbaar in Pauca</string>
-    <string name="full_message">Pauca Lite is de gratis versie. Pauca, de volledige versie, voegt focusmodus, onbeperkt veel profielen, meer thema\'s en kleuren (ook je eigen achtergrond), lettertypen en uitlijning, en knoppen die je kunt verbergen toe. Eenmalige aankoop, zonder abonnement en, net als deze, zonder internettoegang.\n\nJe kaarten en instellingen gaan mee.</string>
     <string name="full_action">Bekijken in de Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca downloaden</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">Zoeken…</string>
     <string name="weather_city_empty">Geen resultaten</string>
     <string name="weather_city_error">Zoeken mislukt. Controleer je verbinding.</string>
+    <string name="about_privacy">Pauca verzamelt geen gegevens. Het gebruikt internet alleen voor het weer, als je dat aanzet, en stuurt alleen de plaats die je hebt gekozen. Al het andere blijft op je telefoon.</string>
+    <string name="full_message">Pauca Lite is de gratis versie. Pauca, de volledige versie, voegt focusmodus, een pauze om adem te halen, weer op het startscherm, onbeperkt veel profielen, meer thema\'s en kleuren (ook je eigen achtergrond), lettertypen en uitlijning, en knoppen die je kunt verbergen toe. Eenmalige aankoop, zonder abonnement.\n\nJe kaarten en instellingen gaan mee.</string>
 </resources>

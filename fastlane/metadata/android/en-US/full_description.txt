@@ -1,18 +1,35 @@
-Pauca turns your phone into something closer to a dumbphone: your apps become words in calm cards, with the names you choose. No icons, no red badges.
+Pauca turns your phone into something closer to a dumbphone: your apps become words in calm cards, with the names you choose. No icons, no red badges, no ads, no tracking.
 
-HOME SCREEN
-• Cards of apps you can rename and reorder
-• Profiles like Personal, Work and Night
-• A clock, themes, fonts and colors your way, or hide it all
+Your home screen
+• Apps as plain text in cards: rename, reorder and group them
+• Swipe up for a drawer with every app, plus search and categories
+• Swipe down for notifications, sideways to open the apps you pick
+• Clock, date and light or dark themes
+• Available in 25 languages
 
-FOCUS MODE
+Focus mode
 One tap, or automatic per profile:
 • Do Not Disturb, choosing who can still call
 • Notifications held, with a summary at the end
 • Only allowed apps in the drawer; others send you back home
 • Grayscale screen (one computer command, once)
 
-PRIVATE
-No internet permission, no data collected. The accessibility service only locks the screen with a double tap and, in focus mode, returns home when a blocked app opens.
+Pause to breathe
+Pick the apps you open too often. After a number of opens in a day, Pauca asks you to hold a bubble for 30 seconds and breathe, and then you decide whether to open the app. It can also suggest apps worth adding.
 
-Try Pauca Lite first at no cost; your cards and settings come along. Open source (GPLv3), based on Olauncher. One-time purchase, no ads.
+Weather
+Temperature and sky as plain text on your home screen, for the city you choose. The internet is used only for this, and never your location.
+
+And more
+• Unlimited profiles like Personal, Work and Night, which can turn focus mode on by themselves
+• Themes, accent colors, fonts, weight and alignment, or your own photo with blur and brightness
+• Hide the buttons, the clock or even the status bar
+• Double tap to lock the screen
+
+Private
+No ads, no tracking, no data collected. The only internet use is the optional weather, with the city name you type.
+
+Accessibility service
+Pauca uses the accessibility service for only two optional things: locking the screen with a double tap and, in focus mode, going back home when an app outside your list opens. It does not read what is on your screen, and it collects or shares no data. If you leave it off, everything else keeps working.
+
+Try Pauca Lite first, at no cost; your cards and settings come along. Pauca is a one-time purchase, with no subscription. Open source (GPLv3), based on Olauncher.

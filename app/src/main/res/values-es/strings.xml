@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca es software libre: puedes estudiar, cambiar y redistribuir el código.</string>
     <string name="about_fonts">Fuentes</string>
     <string name="about_fonts_summary">Newsreader y Plus Jakarta Sans, bajo la SIL Open Font License</string>
-    <string name="about_privacy">Pauca no usa internet y no recopila ningún dato. Todo se queda en tu teléfono.</string>
     <string name="add_apps">Añadir apps</string>
     <string name="choose_apps">Elegir apps</string>
     <string name="replace_app">Cambiar app</string>
@@ -353,7 +352,6 @@
 
     <!-- Pauca Lite e versão completa -->
     <string name="full_title">Disponible en Pauca</string>
-    <string name="full_message">Pauca Lite es la versión gratuita. Pauca, la versión completa, tiene modo concentración, perfiles ilimitados, más temas y colores (incluido tu fondo de pantalla), fuentes y alineación, y botones que se pueden ocultar. Es un pago único, sin suscripción y, como esta, sin acceso a internet.\n\nTus tarjetas y ajustes vienen contigo.</string>
     <string name="full_action">Ver en Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Conoce Pauca</string>
@@ -442,4 +440,6 @@
     <string name="weather_city_loading">Buscando…</string>
     <string name="weather_city_empty">Sin resultados</string>
     <string name="weather_city_error">No se pudo buscar. Revisa la conexión.</string>
+    <string name="about_privacy">Pauca no recopila ningún dato. Solo usa internet para el tiempo, si lo activas, enviando únicamente la ciudad que elegiste. Todo lo demás se queda en tu teléfono.</string>
+    <string name="full_message">Pauca Lite es la versión gratuita. Pauca, la versión completa, tiene modo concentración, pausa para respirar, el tiempo en la pantalla de inicio, perfiles ilimitados, más temas y colores (incluido tu fondo de pantalla), fuentes y alineación, y botones que se pueden ocultar. Es un pago único, sin suscripción.\n\nTus tarjetas y ajustes vienen contigo.</string>
 </resources>

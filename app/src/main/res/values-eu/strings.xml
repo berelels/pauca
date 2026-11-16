@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca software librea da: kodea aztertu, aldatu eta birbanatu dezakezu.</string>
     <string name="about_fonts">Letra-tipoak</string>
     <string name="about_fonts_summary">Newsreader eta Plus Jakarta Sans, SIL Open Font lizentziapean</string>
-    <string name="about_privacy">Pauca-k ez du internetik erabiltzen eta ez du daturik biltzen. Dena zure telefonoan geratzen da.</string>
     <string name="add_apps">Gehitu aplikazioak</string>
     <string name="choose_apps">Aukeratu aplikazioak</string>
     <string name="replace_app">Ordezkatu aplikazioa</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d aplikazio</item>
     </plurals>
     <string name="full_title">Pauca-n eskuragarri</string>
-    <string name="full_message">Pauca Lite doako bertsioa da. Pauca-k, bertsio osoak, kontzentrazio modua, muga gabeko profilak, gai eta kolore gehiago (zure horma-papera ere bai), letra-tipoak eta lerrokatzea, eta ezkuta ditzakezun botoiak gehitzen ditu. Ordainketa bakarra da, harpidetzarik gabe eta, hau bezala, interneterako sarbiderik gabe.\n\nZure txartelak eta ezarpenak zurekin datoz.</string>
     <string name="full_action">Ikusi Play Store-n</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Lortu Pauca</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">Bilatzen…</string>
     <string name="weather_city_empty">Emaitzarik ez</string>
     <string name="weather_city_error">Ezin izan da bilatu. Egiaztatu konexioa.</string>
+    <string name="about_privacy">Pauca-k ez du daturik biltzen. Internet eguraldirako bakarrik erabiltzen du, aktibatzen baduzu, eta aukeratu duzun hiria bakarrik bidaltzen du. Gainerako guztia zure telefonoan geratzen da.</string>
+    <string name="full_message">Pauca Lite doako bertsioa da. Pauca-k, bertsio osoak, kontzentrazio modua, arnasa hartzeko etenaldia, hasierako pantailako eguraldia, muga gabeko profilak, gai eta kolore gehiago (zure horma-papera ere bai), letra-tipoak eta lerrokatzea, eta ezkuta ditzakezun botoiak gehitzen ditu. Ordainketa bakarra da, harpidetzarik gabe.\n\nZure txartelak eta ezarpenak zurekin datoz.</string>
 </resources>

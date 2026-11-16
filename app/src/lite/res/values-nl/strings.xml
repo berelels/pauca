@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Zijwaartse veegbewegingen</string>
+    <string name="about_privacy">Pauca Lite gebruikt geen internet en verzamelt geen gegevens. Alles blijft op je telefoon.</string>
 </resources>

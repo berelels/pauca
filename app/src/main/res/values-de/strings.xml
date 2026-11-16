@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca ist freie Software: Du kannst den Code studieren, ändern und weitergeben.</string>
     <string name="about_fonts">Schriften</string>
     <string name="about_fonts_summary">Newsreader und Plus Jakarta Sans, unter der SIL Open Font License</string>
-    <string name="about_privacy">Pauca nutzt das Internet nicht und sammelt keine Daten. Alles bleibt auf deinem Handy.</string>
     <string name="add_apps">Apps hinzufügen</string>
     <string name="choose_apps">Apps wählen</string>
     <string name="replace_app">App ersetzen</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d Apps</item>
     </plurals>
     <string name="full_title">In Pauca verfügbar</string>
-    <string name="full_message">Pauca Lite ist die kostenlose Version. Pauca, die Vollversion, bringt Fokusmodus, unbegrenzte Profile, mehr Designs und Farben (auch dein eigenes Hintergrundbild), Schriften und Ausrichtung sowie ausblendbare Schaltflächen. Einmalkauf, ohne Abo und, wie diese Version, ohne Internetzugriff.\n\nDeine Karten und Einstellungen kommen mit.</string>
     <string name="full_action">Im Play Store ansehen</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca holen</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">Suche läuft…</string>
     <string name="weather_city_empty">Keine Ergebnisse</string>
     <string name="weather_city_error">Suche nicht möglich. Prüfe deine Verbindung.</string>
+    <string name="about_privacy">Pauca sammelt keine Daten. Es nutzt das Internet nur für das Wetter, wenn du es einschaltest, und sendet dabei nur die Stadt, die du gewählt hast. Alles andere bleibt auf deinem Handy.</string>
+    <string name="full_message">Pauca Lite ist die kostenlose Version. Pauca, die Vollversion, bringt Fokusmodus, Atempause, Wetter auf dem Startbildschirm, unbegrenzte Profile, mehr Designs und Farben (auch dein eigenes Hintergrundbild), Schriften und Ausrichtung sowie ausblendbare Schaltflächen. Einmalkauf, ohne Abo.\n\nDeine Karten und Einstellungen kommen mit.</string>
 </resources>

@@ -1,0 +1,35 @@
+Pauca rapproche votre téléphone d'un dumbphone : vos applis deviennent des mots dans des cartes calmes, avec les noms que vous choisissez. Sans icônes, sans pastilles rouges, sans publicité, sans pistage.
+
+Votre écran d'accueil
+• Des applis en texte simple, dans des cartes : renommez-les, réordonnez-les, regroupez-les
+• Balayez vers le haut pour toutes les applis, avec recherche et catégories
+• Balayez vers le bas pour les notifications, sur le côté pour ouvrir les applis de votre choix
+• Horloge, date et thèmes clair ou sombre
+• Disponible en 25 langues
+
+Mode concentration
+Un appui, ou automatique par profil :
+• Ne pas déranger, en choisissant qui peut encore appeler
+• Notifications retenues, avec un résumé à la fin
+• Seules les applis autorisées dans le tiroir ; les autres vous ramènent à l'accueil
+• Écran en niveaux de gris (une commande depuis un ordinateur, une seule fois)
+
+Une pause pour respirer
+Choisissez les applis que vous ouvrez trop souvent. Après un certain nombre d'ouvertures dans la journée, Pauca vous demande de maintenir une bulle 30 secondes en respirant, puis vous décidez d'ouvrir ou non l'appli. Elle peut aussi vous suggérer des applis à ajouter.
+
+Météo
+La température et le ciel en texte simple sur votre écran d'accueil, pour la ville de votre choix. Internet ne sert qu'à cela, et jamais votre position.
+
+Et aussi
+• Profils illimités, comme Perso, Travail et Nuit, qui peuvent activer seuls le mode concentration
+• Thèmes, couleurs d'accent, polices, graisse et alignement, ou votre propre photo avec flou et luminosité
+• Masquez les boutons, l'horloge ou même la barre d'état
+• Double appui pour verrouiller l'écran
+
+Privé
+Aucune publicité, aucun pistage, aucune donnée collectée. Internet n'est utilisé que pour la météo, facultative, avec le nom de la ville que vous saisissez.
+
+Service d'accessibilité
+Pauca utilise le service d'accessibilité pour seulement deux choses facultatives : verrouiller l'écran par double appui et, en mode concentration, revenir à l'accueil quand une appli hors de votre liste s'ouvre. Il ne lit pas le contenu de l'écran et ne collecte ni ne partage aucune donnée. Si vous le laissez désactivé, tout le reste fonctionne.
+
+Essayez d'abord Pauca Lite, gratuitement ; vos cartes et réglages vous suivent. Pauca est un achat unique, sans abonnement. Open source (GPLv3), basé sur Olauncher.

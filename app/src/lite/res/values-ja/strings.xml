@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">左右のスワイプ</string>
+    <string name="about_privacy">Pauca Lite はインターネットを使わず、データも収集しません。すべてスマートフォンの中に残ります。</string>
 </resources>

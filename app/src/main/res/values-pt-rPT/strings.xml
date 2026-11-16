@@ -39,7 +39,6 @@
     <string name="gestures_hint">Deslize para cima para ver todas as apps e para baixo para as notificações.</string>
     <string name="about_license_summary">O Pauca é software livre: pode estudar, alterar e redistribuir o código.</string>
     <string name="about_fonts">Tipos de letra</string>
-    <string name="about_privacy">O Pauca não usa internet e não recolhe nenhum dado. Tudo fica no seu telemóvel.</string>
     <string name="remove_from_home">Tirar do ecrã inicial</string>
     <string name="delete_group">Eliminar grupo</string>
     <string name="home_empty">Toque aqui para escolher as apps do seu ecrã inicial.</string>
@@ -97,7 +96,6 @@
         <item quantity="many">Este grupo tem %d apps. Saem do ecrã inicial (continuam instaladas).</item>
         <item quantity="other">Este grupo tem %d apps. Saem do ecrã inicial (continuam instaladas).</item>
     </plurals>
-    <string name="full_message">O Pauca Lite é a versão gratuita. O Pauca, a versão completa, tem modo foco, perfis ilimitados, mais temas e cores (inclusive o seu papel de parede), tipos de letra e alinhamento, e botões que é possível ocultar. É uma compra única, sem assinatura e, como este, sem acesso à internet.\n\nSeus cartões e definições vão junto.</string>
     <string name="full_row_summary">Modo foco, perfis ilimitados, mais temas, cores e tipos de letra</string>
     <string name="focus_lite_summary">Silencie o telemóvel e deixe passar só o que escolher</string>
     <string name="lite_imported">Seus cartões e definições do Pauca Lite vieram junto.</string>
@@ -122,4 +120,6 @@
     <string name="weather_city_hint">Procurar uma cidade</string>
     <string name="weather_city_loading">A procurar…</string>
     <string name="weather_city_error">Não foi possível pesquisar. Verifique a ligação.</string>
+    <string name="about_privacy">O Pauca não recolhe nenhum dado. Só usa a internet para a meteorologia, se a ligar, enviando apenas a cidade que escolheu. Tudo o resto fica no seu telemóvel.</string>
+    <string name="full_message">O Pauca Lite é a versão gratuita. O Pauca, a versão completa, tem modo de foco, pausa para respirar, meteorologia no ecrã inicial, perfis ilimitados, mais temas e cores (incluindo o seu papel de parede), tipos de letra e alinhamento, e botões que pode ocultar. É uma compra única, sem subscrição.\n\nOs seus cartões e definições vão consigo.</string>
 </resources>

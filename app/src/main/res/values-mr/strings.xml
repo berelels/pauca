@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca हे मुक्त सॉफ्टवेअर आहे: तुम्ही कोडचा अभ्यास करू शकता, तो बदलू शकता आणि पुन्हा वितरित करू शकता.</string>
     <string name="about_fonts">फॉन्ट</string>
     <string name="about_fonts_summary">Newsreader आणि Plus Jakarta Sans, SIL ओपन फॉन्ट परवान्याअंतर्गत</string>
-    <string name="about_privacy">Pauca इंटरनेट वापरत नाही आणि कोणताही डेटा गोळा करत नाही. सर्व काही तुमच्या फोनवरच राहते.</string>
     <string name="add_apps">अ‍ॅप्स जोडा</string>
     <string name="choose_apps">अ‍ॅप्स निवडा</string>
     <string name="replace_app">अ‍ॅप बदला</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d अ‍ॅप्स</item>
     </plurals>
     <string name="full_title">Pauca मध्ये उपलब्ध</string>
-    <string name="full_message">Pauca Lite ही मोफत आवृत्ती आहे. पूर्ण आवृत्ती Pauca मध्ये फोकस मोड, अमर्याद प्रोफाइल, आणखी थीम आणि रंग (तुमचा स्वतःचा वॉलपेपरही), फॉन्ट आणि संरेखन, आणि लपवता येणारी बटणे जोडली जातात. एकदाच खरेदी, सबस्क्रिप्शन नाही आणि, याप्रमाणेच, इंटरनेट अ‍ॅक्सेसही नाही.\n\nतुमची कार्ड्स आणि सेटिंग्ज तुमच्यासोबत येतात.</string>
     <string name="full_action">Play Store मध्ये पहा</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Pauca मिळवा</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">शोधत आहे…</string>
     <string name="weather_city_empty">निकाल नाही</string>
     <string name="weather_city_error">शोधता आले नाही. तुमचे कनेक्शन तपासा.</string>
+    <string name="about_privacy">Pauca कोणताही डेटा गोळा करत नाही. तुम्ही चालू केल्यास फक्त हवामानासाठी इंटरनेट वापरतो, आणि फक्त तुम्ही निवडलेले शहर पाठवतो. बाकी सर्व काही तुमच्या फोनवरच राहते.</string>
+    <string name="full_message">Pauca Lite ही मोफत आवृत्ती आहे. पूर्ण आवृत्ती Pauca मध्ये फोकस मोड, श्वास घेण्यासाठी विराम, होम स्क्रीनवर हवामान, अमर्याद प्रोफाइल, आणखी थीम आणि रंग (तुमचा स्वतःचा वॉलपेपरही), फॉन्ट आणि संरेखन, आणि लपवता येणारी बटणे जोडली जातात. एकदाच खरेदी, सबस्क्रिप्शन नाही.\n\nतुमची कार्ड्स आणि सेटिंग्ज तुमच्यासोबत येतात.</string>
 </resources>

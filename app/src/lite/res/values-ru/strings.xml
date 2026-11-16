@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">Боковые свайпы</string>
+    <string name="about_privacy">Pauca Lite не использует интернет и не собирает данные. Всё остаётся на вашем телефоне.</string>
 </resources>

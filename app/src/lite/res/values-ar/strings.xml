@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Pauca Lite</string>
     <string name="gestures_summary">التمرير للجانبين</string>
+    <string name="about_privacy">لا يستخدم Pauca Lite الإنترنت ولا يجمع أي بيانات. كل شيء يبقى على هاتفك.</string>
 </resources>

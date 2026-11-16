@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca è software libero: puoi studiare, modificare e ridistribuire il codice.</string>
     <string name="about_fonts">Caratteri</string>
     <string name="about_fonts_summary">Newsreader e Plus Jakarta Sans, con licenza SIL Open Font</string>
-    <string name="about_privacy">Pauca non usa internet e non raccoglie dati. Tutto resta sul tuo telefono.</string>
     <string name="add_apps">Aggiungi app</string>
     <string name="choose_apps">Scegli app</string>
     <string name="replace_app">Sostituisci app</string>
@@ -345,7 +344,6 @@
         <item quantity="other">%d app</item>
     </plurals>
     <string name="full_title">Disponibile in Pauca</string>
-    <string name="full_message">Pauca Lite è la versione gratuita. Pauca, la versione completa, aggiunge la modalità concentrazione, profili illimitati, più temi e colori (anche il tuo sfondo), caratteri e allineamento, e pulsanti che puoi nascondere. Acquisto una tantum, senza abbonamento e, come questa, senza accesso a internet.\n\nLe tue schede e impostazioni vengono con te.</string>
     <string name="full_action">Vedi sul Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Scarica Pauca</string>
@@ -430,4 +428,6 @@
     <string name="weather_city_loading">Ricerca in corso…</string>
     <string name="weather_city_empty">Nessun risultato</string>
     <string name="weather_city_error">Impossibile cercare. Controlla la connessione.</string>
+    <string name="about_privacy">Pauca non raccoglie alcun dato. Usa internet solo per il meteo, se lo attivi, inviando soltanto la città che hai scelto. Tutto il resto resta sul tuo telefono.</string>
+    <string name="full_message">Pauca Lite è la versione gratuita. Pauca, la versione completa, aggiunge la modalità concentrazione, la pausa per respirare, il meteo nella schermata Home, profili illimitati, più temi e colori (anche il tuo sfondo), caratteri e allineamento, e pulsanti che puoi nascondere. Acquisto una tantum, senza abbonamento.\n\nLe tue schede e impostazioni vengono con te.</string>
 </resources>

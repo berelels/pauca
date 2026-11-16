@@ -155,7 +155,6 @@
     <string name="about_license_summary">Pauca é software libre: podes estudar, cambiar e redistribuír o código.</string>
     <string name="about_fonts">Tipos de letra</string>
     <string name="about_fonts_summary">Newsreader e Plus Jakarta Sans, baixo a licenza SIL Open Font</string>
-    <string name="about_privacy">Pauca non usa internet nin recolle ningún dato. Todo queda no teu teléfono.</string>
     <string name="add_apps">Engadir aplicacións</string>
     <string name="choose_apps">Escoller aplicacións</string>
     <string name="replace_app">Substituír aplicación</string>
@@ -339,7 +338,6 @@
         <item quantity="other">%d aplicacións</item>
     </plurals>
     <string name="full_title">Dispoñible en Pauca</string>
-    <string name="full_message">Pauca Lite é a versión gratuíta. Pauca, a versión completa, engade o modo concentración, perfís ilimitados, máis temas e cores (tamén o teu propio fondo de pantalla), tipos de letra e aliñamento, e botóns que podes ocultar. É unha compra única, sen subscrición e, coma esta, sen acceso a internet.\n\nAs túas tarxetas e a configuración veñen contigo.</string>
     <string name="full_action">Ver na Play Store</string>
     <string name="full_badge">Pauca</string>
     <string name="full_row">Obter Pauca</string>
@@ -424,4 +422,6 @@
     <string name="weather_city_loading">Buscando…</string>
     <string name="weather_city_empty">Sen resultados</string>
     <string name="weather_city_error">Non se puido buscar. Revisa a conexión.</string>
+    <string name="about_privacy">Pauca non recolle ningún dato. Só usa internet para o tempo, se o activas, enviando unicamente a cidade que escolliches. Todo o demais queda no teu teléfono.</string>
+    <string name="full_message">Pauca Lite é a versión gratuíta. Pauca, a versión completa, engade o modo concentración, a pausa para respirar, o tempo na pantalla de inicio, perfís ilimitados, máis temas e cores (tamén o teu propio fondo de pantalla), tipos de letra e aliñamento, e botóns que podes ocultar. É unha compra única, sen subscrición.\n\nAs túas tarxetas e a configuración veñen contigo.</string>
 </resources>

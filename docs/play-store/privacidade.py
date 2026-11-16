@@ -19,11 +19,11 @@ GH_PRIVACY = "https://docs.github.com/en/site-policy/privacy-policies/github-gen
 PAGES = {
     "en": dict(
         lang="en", path="", title="Privacy policy", other="Security policy",
-        description="How Pauca, Pauca Lite and this website handle your data: nothing is collected, the apps have no internet permission and the site uses no cookies.",
-        sub="Pauca, Pauca Lite and this website · Last updated November 9, 2026",
+        description="How Pauca, Pauca Lite and this website handle your data: nothing is collected, Pauca goes online only for an optional weather line, Pauca Lite never does, and the site uses no cookies.",
+        sub="Pauca, Pauca Lite and this website · Last updated November 16, 2026",
         sections=[
             ("In short", [
-                "Pauca doesn't collect, sell or share any data about you. The app has no internet permission, so it can't send anything anywhere. There are no ads, no analytics, no accounts and no trackers. This website uses no cookies either.",
+                "Pauca doesn't collect, sell or share any data about you. There are no ads, no analytics, no accounts and no trackers. Pauca Lite has no internet permission, so it can't send anything anywhere. Pauca goes online for one optional thing only: the weather line on the home screen, and then it sends just the city you typed (see Permissions). This website uses no cookies either.",
             ]),
             ("Who makes it", [
                 f'Pauca and Pauca Lite are Android home screen apps made by Gabriel Dias (berelels, Catta Studios), an independent developer in Brazil. The code is open source: <a href="{REPO}">github.com/berelels/pauca</a>.',
@@ -33,12 +33,16 @@ PAGES = {
                 ("Your home screen: cards, the names you gave your apps, and profiles.",
                  "Your settings: theme, colors, fonts, clock and gestures.",
                  "The image you pick as your wallpaper, if you pick one (a copy, inside the app).",
-                 "In focus mode, how many notifications each app sent, to show the summary when focus ends. The content of notifications is never saved."),
+                 "In focus mode, how many notifications each app sent, to show the summary when focus ends. The content of notifications is never saved.",
+                 "Pauca only: how many times you opened each app you chose for the breathing pause, today, to know when to pause. Nothing else about how you use your phone.",
+                 "Pauca only: the city you typed for the weather line, and the last weather it fetched."),
                 "Uninstalling the app deletes all of it.",
                 "If Android's backup is on, your settings may go into your phone's backup in your Google account, like any other app's. That backup is handled by Android and Google; we can't see it.",
             ]),
             ("Permissions, and why", [
                 ("<b>See your installed apps</b>: to list them on the home screen and in the drawer. The list never leaves your phone.",
+                 "<b>Internet</b> (Pauca only, never in Pauca Lite): only for the optional weather line on the home screen. When you type a city, Pauca asks Open-Meteo (open-meteo.com) to find it, which sends the text you typed. Then it fetches the current weather for that city's coordinates, at most about every 45 minutes. Nothing else is sent: no account, no key, no location permission, no identifier. Open-Meteo, like any server, receives your IP address with the request and handles it under <a href='https://open-meteo.com/en/terms'>its terms and privacy section</a>. If you don't turn the weather on, Pauca never goes online.",
+                 "<b>Notifications</b> (optional, Pauca only): only to suggest adding an app to your breathing pause list. You can say no, and the pause still works.",
                  "<b>Accessibility service</b> (optional, Pauca only): only to lock the screen with a double tap and, in focus mode, to go back home when an app outside your list opens. It only checks which app is in front. It doesn't read what's on the screen or what you type. You turn it on yourself in Android's settings, after the app explains it.",
                  "<b>Notification access</b> (optional, Pauca only): to hold notifications from apps outside your list during focus mode and count them for the summary.",
                  "<b>Do Not Disturb access</b> (optional, Pauca only): to turn Pauca's own Do Not Disturb rule on and off during focus mode.",
@@ -75,11 +79,11 @@ PAGES = {
     ),
     "pt": dict(
         lang="pt-BR", path="pt/", title="Política de privacidade", other="Política de segurança",
-        description="Como o Pauca, o Pauca Lite e este site tratam os seus dados: nada é coletado, os apps não têm permissão de internet e o site não usa cookies.",
-        sub="Pauca, Pauca Lite e este site · Atualizada em 9 de novembro de 2026",
+        description="Como o Pauca, o Pauca Lite e este site tratam os seus dados: nada é coletado, o Pauca só entra na internet para uma linha opcional de clima, o Pauca Lite nunca entra, e o site não usa cookies.",
+        sub="Pauca, Pauca Lite e este site · Atualizada em 16 de novembro de 2026",
         sections=[
             ("Em resumo", [
-                "O Pauca não coleta, não vende e não compartilha nenhum dado sobre você. O app não tem permissão de internet, então não consegue enviar nada para lugar nenhum. Não tem anúncios, estatísticas de uso, contas nem rastreadores. Este site também não usa cookies.",
+                "O Pauca não coleta, não vende e não compartilha nenhum dado sobre você. Não tem anúncios, estatísticas de uso, contas nem rastreadores. O Pauca Lite não tem permissão de internet, então não consegue enviar nada para lugar nenhum. O Pauca entra na internet para uma única coisa opcional: a linha de clima na tela inicial, e aí envia apenas a cidade que você digitou (veja Permissões). Este site também não usa cookies.",
             ]),
             ("Quem faz", [
                 f'O Pauca e o Pauca Lite são apps de tela inicial para Android feitos por Gabriel Dias (berelels, Catta Studios), desenvolvedor independente no Brasil. O código é aberto: <a href="{REPO}">github.com/berelels/pauca</a>.',
@@ -89,12 +93,16 @@ PAGES = {
                 ("Sua tela inicial: cartões, os nomes que você deu aos apps e os perfis.",
                  "Seus ajustes: tema, cores, fontes, relógio e gestos.",
                  "A imagem que você escolher como fundo, se escolher (uma cópia, dentro do app).",
-                 "No modo foco, quantas notificações cada app mandou, para mostrar o resumo quando o foco acaba. O conteúdo das notificações nunca é guardado."),
+                 "No modo foco, quantas notificações cada app mandou, para mostrar o resumo quando o foco acaba. O conteúdo das notificações nunca é guardado.",
+                 "Só no Pauca: quantas vezes você abriu cada app escolhido para a pausa para respirar, no dia, para saber quando pausar. Nada mais sobre como você usa o celular.",
+                 "Só no Pauca: a cidade que você digitou para a linha de clima e o último clima buscado."),
                 "Desinstalar o app apaga tudo isso.",
                 "Se o backup do Android estiver ligado, seus ajustes podem entrar no backup do celular na sua conta Google, como os de qualquer outro app. Esse backup é feito pelo Android e pelo Google; nós não temos acesso a ele.",
             ]),
             ("Permissões, e para quê", [
                 ("<b>Ver os apps instalados</b>: para listá-los na tela inicial e na gaveta. A lista nunca sai do seu celular.",
+                 "<b>Internet</b> (só no Pauca, nunca no Pauca Lite): só para a linha opcional de clima na tela inicial. Quando você digita uma cidade, o Pauca pede ao Open-Meteo (open-meteo.com) que a encontre, o que envia o texto digitado. Depois busca o clima atual das coordenadas dessa cidade, no máximo a cada 45 minutos. Nada mais é enviado: sem conta, sem chave, sem permissão de localização, sem identificador. O Open-Meteo, como qualquer servidor, recebe o seu endereço IP junto com o pedido e o trata conforme <a href='https://open-meteo.com/en/terms'>os termos e a seção de privacidade dele</a>. Se você não ligar o clima, o Pauca nunca entra na internet.",
+                 "<b>Notificações</b> (opcional, só no Pauca): só para sugerir que você adicione um app à lista da pausa para respirar. Você pode dizer não, e a pausa continua funcionando.",
                  "<b>Serviço de acessibilidade</b> (opcional, só no Pauca): só para bloquear a tela com o toque duplo e, no modo foco, voltar para o início quando um app fora da sua lista abre. Ele só confere qual app está na frente. Não lê o que está na tela nem o que você digita. Você mesmo o liga nos ajustes do Android, depois de o app explicar.",
                  "<b>Acesso às notificações</b> (opcional, só no Pauca): para segurar as notificações dos apps fora da sua lista durante o modo foco e contá-las para o resumo.",
                  "<b>Acesso ao Não Perturbe</b> (opcional, só no Pauca): para ligar e desligar a regra de Não Perturbe do próprio Pauca durante o modo foco.",
@@ -131,11 +139,11 @@ PAGES = {
     ),
     "es": dict(
         lang="es", path="es/", title="Política de privacidad", other="Política de seguridad",
-        description="Cómo tratan tus datos Pauca, Pauca Lite y este sitio: no se recopila nada, las apps no tienen permiso de internet y el sitio no usa cookies.",
-        sub="Pauca, Pauca Lite y este sitio · Actualizada el 9 de noviembre de 2026",
+        description="Cómo tratan tus datos Pauca, Pauca Lite y este sitio: no se recopila nada, Pauca solo se conecta a internet para una línea opcional del clima, Pauca Lite nunca, y el sitio no usa cookies.",
+        sub="Pauca, Pauca Lite y este sitio · Actualizada el 16 de noviembre de 2026",
         sections=[
             ("En resumen", [
-                "Pauca no recopila, no vende y no comparte ningún dato sobre ti. La app no tiene permiso de internet, así que no puede enviar nada a ningún sitio. No tiene anuncios, estadísticas de uso, cuentas ni rastreadores. Este sitio tampoco usa cookies.",
+                "Pauca no recopila, no vende y no comparte ningún dato sobre ti. No tiene anuncios, estadísticas de uso, cuentas ni rastreadores. Pauca Lite no tiene permiso de internet, así que no puede enviar nada a ningún sitio. Pauca se conecta a internet para una sola cosa opcional: la línea del clima en la pantalla de inicio, y entonces envía únicamente la ciudad que escribiste (mira Permisos). Este sitio tampoco usa cookies.",
             ]),
             ("Quién la hace", [
                 f'Pauca y Pauca Lite son apps de pantalla de inicio para Android hechas por Gabriel Dias (berelels, Catta Studios), desarrollador independiente en Brasil. El código es abierto: <a href="{REPO}">github.com/berelels/pauca</a>.',
@@ -145,12 +153,16 @@ PAGES = {
                 ("Tu pantalla de inicio: tarjetas, los nombres que diste a tus apps y los perfiles.",
                  "Tus ajustes: tema, colores, fuentes, reloj y gestos.",
                  "La imagen que elijas como fondo, si eliges una (una copia, dentro de la app).",
-                 "En el modo concentración, cuántas notificaciones envió cada app, para mostrar el resumen al terminar. El contenido de las notificaciones nunca se guarda."),
+                 "En el modo concentración, cuántas notificaciones envió cada app, para mostrar el resumen al terminar. El contenido de las notificaciones nunca se guarda.",
+                 "Solo en Pauca: cuántas veces abriste cada app elegida para la pausa para respirar, en el día, para saber cuándo pausar. Nada más sobre cómo usas el teléfono.",
+                 "Solo en Pauca: la ciudad que escribiste para la línea del clima y el último clima obtenido."),
                 "Desinstalar la app lo borra todo.",
                 "Si la copia de seguridad de Android está activada, tus ajustes pueden entrar en la copia del teléfono en tu cuenta de Google, como los de cualquier otra app. Esa copia la hacen Android y Google; nosotros no tenemos acceso.",
             ]),
             ("Permisos, y para qué", [
                 ("<b>Ver las apps instaladas</b>: para mostrarlas en la pantalla de inicio y en el cajón. La lista nunca sale de tu teléfono.",
+                 "<b>Internet</b> (solo en Pauca, nunca en Pauca Lite): solo para la línea opcional del clima en la pantalla de inicio. Cuando escribes una ciudad, Pauca le pide a Open-Meteo (open-meteo.com) que la encuentre, lo que envía el texto escrito. Después obtiene el clima actual de las coordenadas de esa ciudad, como máximo cada 45 minutos. No se envía nada más: sin cuenta, sin clave, sin permiso de ubicación, sin identificador. Open-Meteo, como cualquier servidor, recibe tu dirección IP con la petición y la trata según <a href='https://open-meteo.com/en/terms'>sus términos y su sección de privacidad</a>. Si no activas el clima, Pauca nunca se conecta a internet.",
+                 "<b>Notificaciones</b> (opcional, solo en Pauca): solo para sugerir que añadas una app a la lista de la pausa para respirar. Puedes decir que no, y la pausa sigue funcionando.",
                  "<b>Servicio de accesibilidad</b> (opcional, solo en Pauca): solo para bloquear la pantalla con el doble toque y, en el modo concentración, volver al inicio cuando se abre una app que no está en tu lista. Solo comprueba qué app está delante. No lee lo que hay en la pantalla ni lo que escribes. Lo activas tú en los ajustes de Android, después de que la app lo explique.",
                  "<b>Acceso a las notificaciones</b> (opcional, solo en Pauca): para retener las notificaciones de las apps fuera de tu lista durante el modo concentración y contarlas para el resumen.",
                  "<b>Acceso a No molestar</b> (opcional, solo en Pauca): para activar y desactivar la regla de No molestar propia de Pauca durante el modo concentración.",
@@ -191,7 +203,7 @@ SECURITY = {
     "en": dict(
         lang="en", path="", title="Security policy", other="Privacy policy",
         description="How to report a security problem in Pauca, Pauca Lite or this website, what's covered and what to expect.",
-        sub="Pauca, Pauca Lite and this website · Last updated November 9, 2026",
+        sub="Pauca, Pauca Lite and this website · Last updated November 16, 2026",
         sections=[
             ("Report a vulnerability", [
                 f'Found a security problem? Email <a href="mailto:{EMAIL}">{EMAIL}</a> with what you found and the steps to reproduce it. If it\'s about the app, include its version and your phone model.',
@@ -206,7 +218,7 @@ SECURITY = {
                 "Pauca is made by one person, so there's no fixed deadline and no paid bug bounty. Reports are read and valid ones are fixed as soon as possible. If you'd like, you'll be credited once the fix is out.",
             ]),
             ("How Pauca is built", [
-                ("The apps have no internet permission, so they can't send data anywhere on their own.",
+                ("Pauca Lite has no internet permission. Pauca uses the internet only for the optional weather line, and sends just the city you typed.",
                  "Your cards and settings stay on your phone. Moving from Lite to Pauca happens on the phone, and only apps signed by the same developer can read that data.",
                  "Sensitive permissions, such as accessibility and notification access, are optional and you turn them on yourself. The privacy policy explains each one.",
                  "Release signing keys are kept outside the public repository.",
@@ -217,7 +229,7 @@ SECURITY = {
     "pt": dict(
         lang="pt-BR", path="pt/", title="Política de segurança", other="Política de privacidade",
         description="Como relatar um problema de segurança no Pauca, no Pauca Lite ou neste site, o que está coberto e o que esperar.",
-        sub="Pauca, Pauca Lite e este site · Atualizada em 9 de novembro de 2026",
+        sub="Pauca, Pauca Lite e este site · Atualizada em 16 de novembro de 2026",
         sections=[
             ("Relate uma vulnerabilidade", [
                 f'Encontrou um problema de segurança? Escreva para <a href="mailto:{EMAIL}">{EMAIL}</a> contando o que achou e os passos para reproduzir. Se for no app, inclua a versão e o modelo do seu celular.',
@@ -232,7 +244,7 @@ SECURITY = {
                 "O Pauca é feito por uma pessoa só, então não há prazo fixo nem recompensa em dinheiro. Os relatos são lidos e os válidos são corrigidos o quanto antes. Se quiser, você recebe o crédito quando a correção sair.",
             ]),
             ("Como o Pauca é feito", [
-                ("Os apps não têm permissão de internet, então não conseguem enviar dados por conta própria.",
+                ("O Pauca Lite não tem permissão de internet. O Pauca usa a internet só para a linha opcional de clima, e envia apenas a cidade que você digitou.",
                  "Seus cartões e ajustes ficam no seu celular. A passagem do Lite para o Pauca acontece no celular, e só apps assinados pelo mesmo desenvolvedor conseguem ler esses dados.",
                  "As permissões sensíveis, como acessibilidade e acesso às notificações, são opcionais e você mesmo as liga. A política de privacidade explica cada uma.",
                  "As chaves de assinatura ficam fora do repositório público.",
@@ -243,7 +255,7 @@ SECURITY = {
     "es": dict(
         lang="es", path="es/", title="Política de seguridad", other="Política de privacidad",
         description="Cómo informar de un problema de seguridad en Pauca, Pauca Lite o este sitio, qué está cubierto y qué esperar.",
-        sub="Pauca, Pauca Lite y este sitio · Actualizada el 9 de noviembre de 2026",
+        sub="Pauca, Pauca Lite y este sitio · Actualizada el 16 de noviembre de 2026",
         sections=[
             ("Informa de una vulnerabilidad", [
                 f'¿Encontraste un problema de seguridad? Escribe a <a href="mailto:{EMAIL}">{EMAIL}</a> contando lo que encontraste y los pasos para reproducirlo. Si es en la app, incluye la versión y el modelo de tu teléfono.',
@@ -258,7 +270,7 @@ SECURITY = {
                 "Pauca lo hace una sola persona, así que no hay plazo fijo ni recompensa en dinero. Los informes se leen y los válidos se corrigen lo antes posible. Si quieres, recibes el crédito cuando salga la corrección.",
             ]),
             ("Cómo está hecho Pauca", [
-                ("Las apps no tienen permiso de internet, así que no pueden enviar datos por su cuenta.",
+                ("Pauca Lite no tiene permiso de internet. Pauca usa internet solo para la línea opcional del clima, y envía únicamente la ciudad que escribiste.",
                  "Tus tarjetas y ajustes se quedan en tu teléfono. El paso de Lite a Pauca ocurre en el teléfono, y solo las apps firmadas por el mismo desarrollador pueden leer esos datos.",
                  "Los permisos sensibles, como la accesibilidad y el acceso a las notificaciones, son opcionales y los activas tú. La política de privacidad explica cada uno.",
                  "Las claves de firma se guardan fuera del repositorio público.",

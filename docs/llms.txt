@@ -4,10 +4,11 @@
 
 ## Facts
 
-- Platform: Android 7.0 or newer, any brand. Languages: English, Portuguese and Spanish.
+- Platform: Android 7.0 or newer, any brand. Languages: 25, including English, Portuguese and Spanish.
 - Pauca: one-time purchase on Google Play, R$ 4.99 in Brazil and US$ 0.99 in the United States. No subscription, no ads.
 - Pauca Lite: free, on Google Play. It has the essentials and doesn't use accessibility or double tap to lock.
-- Privacy: the apps have no internet permission and collect no data. No accounts, analytics or trackers.
+- Privacy: no data collected, no accounts, ads, analytics or trackers. Pauca only goes online for an optional weather line, sending just the city you type to Open-Meteo; Pauca Lite has no internet permission and never goes online.
+- Breathing pause (Pauca): after a number of daily opens you set for chosen apps, a screen asks if you need the app; hold a bubble and breathe for 30 seconds to unlock "open anyway". Open counts stay on the phone.
 - Accessibility: optional and only in Pauca, to lock the screen with a double tap and to pause apps outside your list in focus mode.
 
 ## Pages
@@ -32,7 +33,7 @@ In spirit, yes: your home screen becomes as simple as a dumbphone's, only words.
 US$ 0.99 as a one-time purchase on Google Play, which shows the price in your currency. There's no subscription and no ads, and updates are included. Pauca Lite is on Google Play now.
 
 ### Does Pauca collect my data?
-No. Pauca has no internet permission, so it can't send anything anywhere. There are no accounts, analytics, ads or trackers, and your cards and settings stay on your phone.
+No. There are no accounts, analytics, ads or trackers, and your cards and settings stay on your phone. Pauca only goes online if you turn on the optional weather line, and then it sends just the city you typed to Open-Meteo, a free weather service, no account or key. Pauca Lite never goes online.
 
 ### Will it work on my phone?
 Pauca works on Android 7 or newer, on any brand, including Samsung Galaxy and Google Pixel.
@@ -51,6 +52,9 @@ No. You pay once, and updates come with it.
 
 ### Does it support widgets or icon packs?
 No, on purpose. Pauca is about having fewer things on your screen.
+
+### What is the breathing pause?
+A pause that comes before an app you chose, after the number of opens you set for the day. A screen asks if you really need it. Hold a bubble and breathe for 30 seconds and “open anyway” unlocks; “go back” is always available. Once you open anyway, that app isn't paused again that day. The open counts are kept only on your phone.
 
 ### Why does it ask for accessibility?
 Only Pauca asks, Pauca Lite doesn't. It's only to lock the screen with a double tap and, in focus mode, to pause apps outside your list. It's optional and it doesn't read your screen.

@@ -1,1 +1,0 @@
-Rustige minimalistische launcher met alleen tekst. Apps als woorden.

@@ -20,6 +20,13 @@ google-services.json
 # Assinatura (senhas e chave ficam fora do git)
 keystore.properties
 
-# Configuração local do Claude Code (servidor de prévia do site)
-/.claude/
-/brag-output/
+# Ferramentas e material de divulgação (ficam só no computador)
+art/
+fastlane/
+site/
+docs/play-store/
+videos-play/
+brag-output/
+.agents/
+.claude/
+skills-lock.json

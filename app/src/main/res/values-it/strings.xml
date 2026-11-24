@@ -383,6 +383,12 @@
     <string name="section_weather">Meteo</string>
     <string name="weather">Mostra il meteo</string>
     <string name="weather_summary">Temperatura e cielo nella schermata Home. Richiede internet, mai la tua posizione.</string>
+    <string name="weather_icon">Icona al posto della parola</string>
+    <string name="weather_icon_summary">Mostra una piccola nuvola, sole o goccia di pioggia accanto alla temperatura</string>
+    <string name="card_title">Titolo della scheda</string>
+    <string name="card_title_hint">Senza titolo</string>
+    <string name="card_collapsed">Compressa</string>
+    <string name="card_expanded">Espansa</string>
     <string name="weather_city">Città</string>
     <string name="weather_size">Dimensione</string>
     <string name="weather_position">Posizione</string>

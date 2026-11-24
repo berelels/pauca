@@ -383,6 +383,12 @@
     <string name="section_weather">Temps</string>
     <string name="weather">Mostra el temps</string>
     <string name="weather_summary">Temperatura i cel a la pantalla d\'inici. Cal internet, mai la teva ubicació.</string>
+    <string name="weather_icon">Icona en lloc de la paraula</string>
+    <string name="weather_icon_summary">Mostra un petit núvol, sol o gota de pluja al costat de la temperatura</string>
+    <string name="card_title">Títol de la targeta</string>
+    <string name="card_title_hint">Sense títol</string>
+    <string name="card_collapsed">Plegada</string>
+    <string name="card_expanded">Desplegada</string>
     <string name="weather_city">Ciutat</string>
     <string name="weather_size">Mida</string>
     <string name="weather_position">Posició</string>

@@ -377,6 +377,12 @@
     <string name="section_weather">हवामान</string>
     <string name="weather">हवामान दाखवा</string>
     <string name="weather_summary">होम स्क्रीनवर तापमान आणि आकाश. इंटरनेट लागते, तुमचे स्थान कधीही नाही.</string>
+    <string name="weather_icon">शब्दाऐवजी आयकॉन</string>
+    <string name="weather_icon_summary">तापमानाशेजारी एक लहान ढग, सूर्य किंवा पावसाचा थेंब दाखवते</string>
+    <string name="card_title">कार्डचे शीर्षक</string>
+    <string name="card_title_hint">शीर्षक नाही</string>
+    <string name="card_collapsed">दुमडलेले</string>
+    <string name="card_expanded">उघडलेले</string>
     <string name="weather_city">शहर</string>
     <string name="weather_size">आकार</string>
     <string name="weather_position">स्थान</string>

@@ -389,6 +389,12 @@
     <string name="section_weather">Погода</string>
     <string name="weather">Показывать погоду</string>
     <string name="weather_summary">Температура и небо на главном экране. Нужен интернет, но не ваше местоположение.</string>
+    <string name="weather_icon">Значок вместо слова</string>
+    <string name="weather_icon_summary">Показывает рядом с температурой маленькое облако, солнце или каплю дождя</string>
+    <string name="card_title">Заголовок карточки</string>
+    <string name="card_title_hint">Без заголовка</string>
+    <string name="card_collapsed">Свёрнута</string>
+    <string name="card_expanded">Развёрнута</string>
     <string name="weather_city">Город</string>
     <string name="weather_size">Размер</string>
     <string name="weather_position">Положение</string>

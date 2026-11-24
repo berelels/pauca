@@ -383,6 +383,12 @@
     <string name="section_weather">Météo</string>
     <string name="weather">Afficher la météo</string>
     <string name="weather_summary">Température et ciel sur l\'écran d\'accueil. Nécessite Internet, jamais votre position.</string>
+    <string name="weather_icon">Icône à la place du mot</string>
+    <string name="weather_icon_summary">Affiche un petit nuage, soleil ou goutte de pluie à côté de la température</string>
+    <string name="card_title">Titre de la carte</string>
+    <string name="card_title_hint">Sans titre</string>
+    <string name="card_collapsed">Repliée</string>
+    <string name="card_expanded">Dépliée</string>
     <string name="weather_city">Ville</string>
     <string name="weather_size">Taille</string>
     <string name="weather_position">Position</string>

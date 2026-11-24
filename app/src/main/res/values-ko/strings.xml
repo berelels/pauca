@@ -371,6 +371,12 @@
     <string name="section_weather">날씨</string>
     <string name="weather">날씨 표시</string>
     <string name="weather_summary">홈 화면에 기온과 하늘 상태를 표시합니다. 인터넷이 필요하지만 위치는 절대 쓰지 않습니다.</string>
+    <string name="weather_icon">단어 대신 아이콘</string>
+    <string name="weather_icon_summary">기온 옆에 작은 구름, 해, 빗방울을 표시합니다</string>
+    <string name="card_title">카드 제목</string>
+    <string name="card_title_hint">제목 없음</string>
+    <string name="card_collapsed">접힘</string>
+    <string name="card_expanded">펼침</string>
     <string name="weather_city">도시</string>
     <string name="weather_size">크기</string>
     <string name="weather_position">위치</string>

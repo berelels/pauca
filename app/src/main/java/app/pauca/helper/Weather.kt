@@ -67,6 +67,17 @@ object Weather {
         return "$degrees° · ${context.getString(condition(prefs.weatherCode))}"
     }
 
+    /** Código WMO -> ícone, agrupado como em [condition]. */
+    fun icon(code: Int): Int = when (code) {
+        0, 1 -> R.drawable.weather_clear
+        2 -> R.drawable.weather_partly
+        45, 48 -> R.drawable.weather_fog
+        in 51..67, in 80..82 -> R.drawable.weather_rain
+        in 71..77, 85, 86 -> R.drawable.weather_snow
+        in 95..99 -> R.drawable.weather_storm
+        else -> R.drawable.weather_cloudy
+    }
+
     /** Código WMO -> palavra curta. */
     private fun condition(code: Int): Int = when (code) {
         0, 1 -> R.string.weather_clear

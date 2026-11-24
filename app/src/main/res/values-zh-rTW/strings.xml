@@ -371,6 +371,12 @@
     <string name="section_weather">天氣</string>
     <string name="weather">顯示天氣</string>
     <string name="weather_summary">在主畫面上顯示氣溫和天況。需要連網，但絕不使用你的位置。</string>
+    <string name="weather_icon">用圖示取代文字</string>
+    <string name="weather_icon_summary">在氣溫旁顯示小雲朵、太陽或雨滴</string>
+    <string name="card_title">卡片標題</string>
+    <string name="card_title_hint">無標題</string>
+    <string name="card_collapsed">已摺疊</string>
+    <string name="card_expanded">已展開</string>
     <string name="weather_city">城市</string>
     <string name="weather_size">大小</string>
     <string name="weather_position">位置</string>

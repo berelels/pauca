@@ -29,6 +29,7 @@ import app.pauca.data.Palette
 import app.pauca.data.Prefs
 import app.pauca.data.Profile
 import app.pauca.databinding.FragmentEditHomeBinding
+import app.pauca.helper.Edition
 import app.pauca.helper.createDialog
 import app.pauca.helper.dpToPx
 import app.pauca.helper.showInputDialog
@@ -186,6 +187,7 @@ class EditHomeFragment : BaseFragment() {
             if (index > 0) menu.add(0, 2, 1, R.string.move_up)
             if (index < profile.groups.lastIndex) menu.add(0, 3, 2, R.string.move_down)
             if (profile.groups.size > 1) menu.add(0, 4, 3, R.string.delete_group)
+            if (!Edition.isLite) menu.add(0, 5, 4, R.string.card_title)
         }) {
             when (it.itemId) {
                 1 -> openPicker(group.id)
@@ -200,6 +202,13 @@ class EditHomeFragment : BaseFragment() {
                 }
 
                 4 -> confirmDeleteGroup(group)
+                5 -> requireContext().showInputDialog(
+                    getString(R.string.card_title), group.title, hint = getString(R.string.card_title_hint)
+                ) { title ->
+                    group.title = title
+                    if (title.isEmpty()) group.collapsed = false
+                    save()
+                }
             }
         }
     }
@@ -253,7 +262,7 @@ class EditHomeFragment : BaseFragment() {
             val view = holder.itemView
             when (val row = rows[position]) {
                 is Row.Header -> {
-                    view.findViewById<TextView>(R.id.label).text = getString(R.string.group_number, row.number)
+                    view.findViewById<TextView>(R.id.label).text = row.group.title.ifEmpty { getString(R.string.group_number, row.number) }
                     view.findViewById<View>(R.id.add).setOnClickListener { openPicker(row.group.id) }
                     view.findViewById<View>(R.id.more).setOnClickListener { showGroupMenu(it, row.group) }
                 }

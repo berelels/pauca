@@ -377,6 +377,12 @@
     <string name="section_weather">வானிலை</string>
     <string name="weather">வானிலையைக் காட்டு</string>
     <string name="weather_summary">முகப்புத் திரையில் வெப்பநிலையும் வானமும். இணையம் தேவை, உங்கள் இருப்பிடம் ஒருபோதும் தேவையில்லை.</string>
+    <string name="weather_icon">சொல்லுக்குப் பதில் ஐகான்</string>
+    <string name="weather_icon_summary">வெப்பநிலைக்கு அருகில் சிறிய மேகம், சூரியன் அல்லது மழைத்துளியைக் காட்டும்</string>
+    <string name="card_title">அட்டையின் தலைப்பு</string>
+    <string name="card_title_hint">தலைப்பு இல்லை</string>
+    <string name="card_collapsed">மடிக்கப்பட்டது</string>
+    <string name="card_expanded">விரிக்கப்பட்டது</string>
     <string name="weather_city">நகரம்</string>
     <string name="weather_size">அளவு</string>
     <string name="weather_position">இடம்</string>

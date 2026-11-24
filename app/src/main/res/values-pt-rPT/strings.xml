@@ -103,6 +103,12 @@
     <string name="crash_reset_message">O Pauca fechou sozinho algumas vezes seguidas, então o tipo de letra, o peso e o tamanho voltaram ao padrão. Se foi um erro, copie os detalhes e envie-nos.</string>
     <string name="rate_message_lite">Se o Pauca Lite o está a ajudar a usar menos o telemóvel, uma avaliação na Play Store ajuda muito.</string>
     <string name="weather_summary">Temperatura e céu no ecrã inicial. Usa internet, nunca a sua localização.</string>
+    <string name="weather_icon">Ícone em vez da palavra</string>
+    <string name="weather_icon_summary">Mostra uma nuvem, sol ou gota de chuva junto à temperatura</string>
+    <string name="card_title">Título do cartão</string>
+    <string name="card_title_hint">Sem título</string>
+    <string name="card_collapsed">Recolhido</string>
+    <string name="card_expanded">Expandido</string>
     <string name="weather_bottom">Parte de baixo do ecrã</string>
     <string name="pause_summary">Um minuto de calma antes de abrir as apps que abre em demasia</string>
     <string name="pause_intro">Quando abre uma das apps escolhidas demasiadas vezes no dia, o Pauca pede primeiro um minuto de respiração.</string>

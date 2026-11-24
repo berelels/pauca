@@ -377,6 +377,12 @@
     <string name="section_weather">Tempo</string>
     <string name="weather">Mostrar o tempo</string>
     <string name="weather_summary">Temperatura e ceo na pantalla de inicio. Precisa internet, nunca a túa localización.</string>
+    <string name="weather_icon">Icona en lugar da palabra</string>
+    <string name="weather_icon_summary">Mostra unha pequena nube, sol ou pinga de choiva xunto á temperatura</string>
+    <string name="card_title">Título da tarxeta</string>
+    <string name="card_title_hint">Sen título</string>
+    <string name="card_collapsed">Pregada</string>
+    <string name="card_expanded">Despregada</string>
     <string name="weather_city">Cidade</string>
     <string name="weather_size">Tamaño</string>
     <string name="weather_position">Posición</string>

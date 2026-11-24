@@ -30,6 +30,12 @@
     <string name="full_row_summary">專注模式、不限數量的設定檔、更多主題、顏色和字體</string>
     <string name="crash_reset_message">Pauca 連續幾次自行關閉，因此字體、粗細和大小已恢復預設。如果是程式錯誤，請複製詳細資料並傳送給我們。</string>
     <string name="weather_summary">在主畫面上顯示氣溫和天況。需要上網，但絕不使用你的位置。</string>
+    <string name="weather_icon">用圖示取代文字</string>
+    <string name="weather_icon_summary">在氣溫旁顯示小雲朵、太陽或雨滴</string>
+    <string name="card_title">卡片標題</string>
+    <string name="card_title_hint">無標題</string>
+    <string name="card_collapsed">已摺疊</string>
+    <string name="card_expanded">已展開</string>
     <string name="weather_city_error">無法搜尋。請檢查網絡連線。</string>
     <string name="about_privacy">Pauca 不蒐集任何資料。只有在你開啟天氣時才會上網，並且只傳送你選擇的城市。其餘一切都留在你的手機上。</string>
     <string name="full_message">Pauca Lite 是免費版。完整版 Pauca 增加了專注模式、停一下呼吸、主畫面天氣、不限數量的設定檔、更多主題和顏色（也可使用自己的桌布）、字體和對齊方式，以及可隱藏的按鈕。一次買斷，沒有訂閱。\n\n你的卡片和設定會一併帶過去。</string>

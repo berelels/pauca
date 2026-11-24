@@ -401,6 +401,12 @@
     <string name="section_weather">الطقس</string>
     <string name="weather">إظهار الطقس</string>
     <string name="weather_summary">الحرارة وحالة السماء في الشاشة الرئيسية. يحتاج الإنترنت، ولا يستخدم موقعك أبدًا.</string>
+    <string name="weather_icon">أيقونة بدل الكلمة</string>
+    <string name="weather_icon_summary">تعرض سحابة أو شمسًا أو قطرة مطر صغيرة بجانب درجة الحرارة</string>
+    <string name="card_title">عنوان البطاقة</string>
+    <string name="card_title_hint">بلا عنوان</string>
+    <string name="card_collapsed">مطوية</string>
+    <string name="card_expanded">موسّعة</string>
     <string name="weather_city">المدينة</string>
     <string name="weather_size">الحجم</string>
     <string name="weather_position">الموضع</string>

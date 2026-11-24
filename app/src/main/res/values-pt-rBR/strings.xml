@@ -393,6 +393,12 @@
     <string name="section_weather">Tempo</string>
     <string name="weather">Mostrar o tempo</string>
     <string name="weather_summary">Temperatura e céu na tela inicial. Usa internet, nunca a sua localização.</string>
+    <string name="weather_icon">Ícone em vez da palavra</string>
+    <string name="weather_icon_summary">Mostra uma nuvem, sol ou gota de chuva ao lado da temperatura</string>
+    <string name="card_title">Título do cartão</string>
+    <string name="card_title_hint">Sem título</string>
+    <string name="card_collapsed">Recolhido</string>
+    <string name="card_expanded">Expandido</string>
     <string name="weather_city">Cidade</string>
     <string name="weather_size">Tamanho</string>
     <string name="weather_position">Posição</string>

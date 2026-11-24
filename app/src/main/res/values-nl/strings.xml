@@ -377,6 +377,12 @@
     <string name="section_weather">Weer</string>
     <string name="weather">Weer tonen</string>
     <string name="weather_summary">Temperatuur en lucht op het startscherm. Heeft internet nodig, nooit je locatie.</string>
+    <string name="weather_icon">Pictogram in plaats van het woord</string>
+    <string name="weather_icon_summary">Toont een klein wolkje, zonnetje of regendruppel naast de temperatuur</string>
+    <string name="card_title">Kaarttitel</string>
+    <string name="card_title_hint">Geen titel</string>
+    <string name="card_collapsed">Ingeklapt</string>
+    <string name="card_expanded">Uitgeklapt</string>
     <string name="weather_city">Plaats</string>
     <string name="weather_size">Grootte</string>
     <string name="weather_position">Positie</string>

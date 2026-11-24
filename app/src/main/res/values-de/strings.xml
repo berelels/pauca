@@ -377,6 +377,12 @@
     <string name="section_weather">Wetter</string>
     <string name="weather">Wetter anzeigen</string>
     <string name="weather_summary">Temperatur und Himmel auf dem Startbildschirm. Braucht Internet, nie deinen Standort.</string>
+    <string name="weather_icon">Symbol statt Wort</string>
+    <string name="weather_icon_summary">Zeigt neben der Temperatur eine kleine Wolke, Sonne oder einen Regentropfen</string>
+    <string name="card_title">Kartentitel</string>
+    <string name="card_title_hint">Kein Titel</string>
+    <string name="card_collapsed">Eingeklappt</string>
+    <string name="card_expanded">Ausgeklappt</string>
     <string name="weather_city">Stadt</string>
     <string name="weather_size">Größe</string>
     <string name="weather_position">Position</string>

@@ -377,6 +377,12 @@
     <string name="section_weather">Eguraldia</string>
     <string name="weather">Erakutsi eguraldia</string>
     <string name="weather_summary">Tenperatura eta zerua hasierako pantailan. Internet behar du, inoiz ez zure kokapena.</string>
+    <string name="weather_icon">Ikonoa hitzaren ordez</string>
+    <string name="weather_icon_summary">Hodei, eguzki edo euri-tantatxo bat erakusten du tenperaturaren ondoan</string>
+    <string name="card_title">Txartelaren izenburua</string>
+    <string name="card_title_hint">Izenbururik gabe</string>
+    <string name="card_collapsed">Tolestuta</string>
+    <string name="card_expanded">Zabalduta</string>
     <string name="weather_city">Hiria</string>
     <string name="weather_size">Tamaina</string>
     <string name="weather_position">Posizioa</string>

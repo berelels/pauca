@@ -391,6 +391,12 @@
     <string name="section_weather">Weather</string>
     <string name="weather">Show the weather</string>
     <string name="weather_summary">Temperature and sky on the home screen. Needs internet, never your location.</string>
+    <string name="weather_icon">Icon instead of the word</string>
+    <string name="weather_icon_summary">Shows a small cloud, sun or rain drop next to the temperature</string>
+    <string name="card_title">Card title</string>
+    <string name="card_title_hint">No title</string>
+    <string name="card_collapsed">Collapsed</string>
+    <string name="card_expanded">Expanded</string>
     <string name="weather_city">City</string>
     <string name="weather_size">Size</string>
     <string name="weather_position">Position</string>

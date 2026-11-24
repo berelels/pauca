@@ -610,6 +610,15 @@ class SettingsPageFragment : BaseFragment() {
                     ui.refresh()
                 }
             }
+            ui.toggle(
+                getString(R.string.weather_icon),
+                subtitle = { getString(R.string.weather_icon_summary) },
+                get = { prefs.weatherIcon },
+                set = {
+                    prefs.weatherIcon = it
+                    true
+                },
+            )
         }
 
         ui.section(getString(R.string.section_on_tap))

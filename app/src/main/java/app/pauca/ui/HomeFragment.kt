@@ -27,6 +27,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -38,6 +39,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import app.pauca.data.AppModel
 import app.pauca.data.Constants
+import app.pauca.data.HomeGroup
 import app.pauca.data.HomeItem
 import app.pauca.data.HomeStore
 import app.pauca.data.Palette
@@ -506,6 +508,20 @@ class HomeFragment : BaseFragment() {
             else -> 15f
         }
         target.setTextColor(palette.muted)
+        if (prefs.weatherIcon && text != null) {
+            // Só o grau aparece; o texto completo fica para o TalkBack.
+            target.text = text.substringBefore(" · ")
+            target.contentDescription = text
+            val icon = ContextCompat.getDrawable(requireContext(), Weather.icon(prefs.weatherCode))?.mutate()
+            val side = (target.textSize * 1.1f).toInt()
+            icon?.setBounds(0, 0, side, side)
+            icon?.setTint(palette.muted)
+            target.setCompoundDrawablesRelative(null, null, icon, null)
+            target.compoundDrawablePadding = 4.dpToPx()
+        } else {
+            target.contentDescription = null
+            target.setCompoundDrawablesRelative(null, null, null, null)
+        }
         applyTextShadow(palette, target)
         if (target !== binding.weatherBottom) target.updateLayoutParams<LinearLayout.LayoutParams> { gravity = prefs.clockAlignment }
     }
@@ -547,15 +563,15 @@ class HomeFragment : BaseFragment() {
         }
 
         val groups = profile.groups.map { group ->
-            group.items.filter { it.isShortcut || isPackageInstalled(context, it.pkg, it.user) }
-        }.filter { it.isNotEmpty() }
+            group to group.items.filter { it.isShortcut || isPackageInstalled(context, it.pkg, it.user) }
+        }.filter { it.second.isNotEmpty() }
 
         if (groups.isEmpty()) {
             container.addView(emptyCard(palette, cards))
             return
         }
 
-        groups.forEachIndexed { index, items ->
+        groups.forEachIndexed { index, (group, items) ->
             val card = LinearLayout(context).apply {
                 orientation = LinearLayout.VERTICAL
                 gravity = alignment
@@ -566,13 +582,42 @@ class HomeFragment : BaseFragment() {
                     setPaddingRelative(4.dpToPx(), 0, 4.dpToPx(), 0)
                 }
             }
-            items.forEach { card.addView(appLabel(it, palette, alignment)) }
+            val titled = !Edition.isLite && group.title.isNotEmpty()
+            if (titled) card.addView(cardTitle(group, items.size, palette, alignment))
+            if (!titled || !group.collapsed) items.forEach { card.addView(appLabel(it, palette, alignment)) }
             val spacing = if (cards) 12 else 28
             container.addView(card, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
             ).apply { if (index < groups.lastIndex) bottomMargin = spacing.dpToPx() })
         }
     }
+
+    /** Título do cartão; tocar nele dobra ou abre o cartão. */
+    private fun cardTitle(group: HomeGroup, count: Int, palette: Palette, alignment: Int): TextView =
+        TextView(requireContext()).apply {
+            val title = Look.applyCase(group.title, prefs.textCase)
+            text = if (group.collapsed) "$title · $count" else title
+            val size = maxOf(12f, prefs.appTextSize * 0.7f)
+            textSize = size
+            setTextColor(palette.muted)
+            gravity = alignment
+            includeFontPadding = false
+            setPaddingRelative(8.dpToPx(), 0, 8.dpToPx(), 0)
+            Look.applyFont(this, prefs.appFont, prefs.appWeight, size)
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = 6.dpToPx() }
+            contentDescription = group.title
+            if (Build.VERSION.SDK_INT >= 30) stateDescription =
+                getString(if (group.collapsed) R.string.card_collapsed else R.string.card_expanded)
+            applyTextShadow(palette, this)
+            setOnClickListener {
+                HomeStore.update(context) { data ->
+                    data.active.groups.firstOrNull { it.id == group.id }?.let { it.collapsed = !it.collapsed }
+                }
+                renderGroups(palette)
+            }
+        }
 
     private fun appLabel(item: HomeItem, palette: Palette, alignment: Int): TextView =
         TextView(requireContext()).apply {

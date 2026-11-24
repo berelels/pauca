@@ -393,6 +393,12 @@
     <string name="section_weather">Clima</string>
     <string name="weather">Mostrar el clima</string>
     <string name="weather_summary">Temperatura y cielo en la pantalla de inicio. Usa internet, nunca tu ubicación.</string>
+    <string name="weather_icon">Icono en lugar de la palabra</string>
+    <string name="weather_icon_summary">Muestra una pequeña nube, sol o gota de lluvia junto a la temperatura</string>
+    <string name="card_title">Título de la tarjeta</string>
+    <string name="card_title_hint">Sin título</string>
+    <string name="card_collapsed">Plegada</string>
+    <string name="card_expanded">Desplegada</string>
     <string name="weather_city">Ciudad</string>
     <string name="weather_size">Tamaño</string>
     <string name="weather_position">Posición</string>

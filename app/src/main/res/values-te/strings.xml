@@ -377,6 +377,12 @@
     <string name="section_weather">వాతావరణం</string>
     <string name="weather">వాతావరణాన్ని చూపండి</string>
     <string name="weather_summary">హోమ్ స్క్రీన్‌పై ఉష్ణోగ్రత, ఆకాశం. ఇంటర్నెట్ అవసరం, మీ లొకేషన్ ఎప్పటికీ కాదు.</string>
+    <string name="weather_icon">పదానికి బదులు ఐకాన్</string>
+    <string name="weather_icon_summary">ఉష్ణోగ్రత పక్కన చిన్న మేఘం, సూర్యుడు లేదా వాన చుక్కను చూపిస్తుంది</string>
+    <string name="card_title">కార్డ్ శీర్షిక</string>
+    <string name="card_title_hint">శీర్షిక లేదు</string>
+    <string name="card_collapsed">ముడిచినది</string>
+    <string name="card_expanded">విప్పినది</string>
     <string name="weather_city">నగరం</string>
     <string name="weather_size">పరిమాణం</string>
     <string name="weather_position">స్థానం</string>

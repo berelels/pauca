@@ -377,6 +377,12 @@
     <string name="section_weather">আবহাওয়া</string>
     <string name="weather">আবহাওয়া দেখান</string>
     <string name="weather_summary">হোম স্ক্রিনে তাপমাত্রা ও আকাশের অবস্থা। ইন্টারনেট লাগে, আপনার অবস্থান কখনোই নয়।</string>
+    <string name="weather_icon">শব্দের বদলে আইকন</string>
+    <string name="weather_icon_summary">তাপমাত্রার পাশে একটি ছোট মেঘ, সূর্য বা বৃষ্টির ফোঁটা দেখায়</string>
+    <string name="card_title">কার্ডের শিরোনাম</string>
+    <string name="card_title_hint">শিরোনাম নেই</string>
+    <string name="card_collapsed">গুটানো</string>
+    <string name="card_expanded">খোলা</string>
     <string name="weather_city">শহর</string>
     <string name="weather_size">আকার</string>
     <string name="weather_position">অবস্থান</string>

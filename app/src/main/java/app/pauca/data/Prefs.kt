@@ -366,6 +366,11 @@ class Prefs(context: Context) {
         get() = !Edition.isLite && bool("WEATHER_ON", false)
         set(value) = put("WEATHER_ON", value)
 
+    /** Ícone no lugar da palavra do céu. */
+    var weatherIcon: Boolean
+        get() = !Edition.isLite && bool("WEATHER_ICON", false)
+        set(value) = put("WEATHER_ICON", value)
+
     /** 0 pequeno, 1 médio, 2 grande. */
     var weatherSize: Int
         get() = int("WEATHER_SIZE", 1)

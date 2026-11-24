@@ -43,9 +43,13 @@ data class HomeItem(
 data class HomeGroup(
     val id: String = newId(),
     val items: MutableList<HomeItem> = mutableListOf(),
+    var title: String = "",
+    var collapsed: Boolean = false,
 ) {
     fun toJson(): JSONObject = JSONObject()
         .put("id", id)
+        .put("title", title)
+        .put("collapsed", collapsed)
         .put("items", JSONArray().apply { items.forEach { put(it.toJson()) } })
 
     companion object {
@@ -54,6 +58,8 @@ data class HomeGroup(
             return HomeGroup(
                 id = o.optString("id").ifEmpty { newId() },
                 items = MutableList(arr.length()) { HomeItem.fromJson(arr.getJSONObject(it)) },
+                title = o.optString("title"),
+                collapsed = o.optBoolean("collapsed", false),
             )
         }
     }

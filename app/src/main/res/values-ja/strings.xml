@@ -371,6 +371,12 @@
     <string name="section_weather">天気</string>
     <string name="weather">天気を表示</string>
     <string name="weather_summary">ホーム画面に気温と空模様を表示します。インターネットが必要ですが、位置情報は使いません。</string>
+    <string name="weather_icon">言葉の代わりにアイコン</string>
+    <string name="weather_icon_summary">気温の横に小さな雲・太陽・雨粒を表示します</string>
+    <string name="card_title">カードのタイトル</string>
+    <string name="card_title_hint">タイトルなし</string>
+    <string name="card_collapsed">折りたたみ</string>
+    <string name="card_expanded">展開</string>
     <string name="weather_city">都市</string>
     <string name="weather_size">サイズ</string>
     <string name="weather_position">位置</string>

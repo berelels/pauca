@@ -377,6 +377,12 @@
     <string name="section_weather">मौसम</string>
     <string name="weather">मौसम दिखाएँ</string>
     <string name="weather_summary">होम स्क्रीन पर तापमान और आसमान की स्थिति। इंटरनेट चाहिए, आपकी लोकेशन कभी नहीं।</string>
+    <string name="weather_icon">शब्द की जगह आइकन</string>
+    <string name="weather_icon_summary">तापमान के पास एक छोटा बादल, सूरज या बारिश की बूँद दिखाता है</string>
+    <string name="card_title">कार्ड का शीर्षक</string>
+    <string name="card_title_hint">कोई शीर्षक नहीं</string>
+    <string name="card_collapsed">समेटा हुआ</string>
+    <string name="card_expanded">फैला हुआ</string>
     <string name="weather_city">शहर</string>
     <string name="weather_size">आकार</string>
     <string name="weather_position">स्थिति</string>
